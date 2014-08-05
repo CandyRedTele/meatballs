@@ -1,11 +1,7 @@
-===============
-comp353-project
-===============
+=== comp353-project
 
 
-===============
 === git basics
-===============
 git clone theUrlOfTheRepo
 git status                  
 git add  myFiles
