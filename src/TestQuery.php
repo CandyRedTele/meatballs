@@ -1,15 +1,19 @@
-<?
+<?php
+/**************************************************************************
+ *
+ * AUTHORS : Team 3, Joseph
+ *
+ * NAME : class TestQuery 
+ *
+ *************************************************************************/
     include_once("IQuery.php");
 
     class TestQuery extends IQuery
     {
-
-        public function execute()
+        public function getQueryString()
         {
-            $query_string = __CLASS__ . "::getQueryString()";
-            $result = self::$mysql->execute($query_string);
-
-            return $result;
+            $query_string = "SELECT * FROM customers;";
+            return $query_string;
         }
     }
 

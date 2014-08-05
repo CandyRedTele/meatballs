@@ -1,18 +1,39 @@
+<!-- Testing the backend --> 
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-    <title>BackEnd-Dev</title>
+    <title>BackEnd-Development</title>
     <meta charset="utf-8">
 </head>
 <body>
-    <? include_once("TestQuery.php"); ?> 
+
+    <? 
+        error_reporting(E_ALL);
+        set_include_path($_SERVER['DOCUMENT_ROOT'] . 'comp353-project/src');
+        include_once("TestQuery.php"); 
+        include_once("Logger.php"); 
+    ?> 
 
     <?
-        $query1 = new IQuery();
+        $logger = Logger::getSingleInstace();
+        $logger->write("HelloLogger!");
         $query2 = new TestQuery();
 
-        echo "query result : " . $query1->execute() . "<br>";
-        echo "query result : " . $query2->execute() . "<br>";
+        $result = $query2->execute();
+
+        while($row = mysqli_fetch_row($result)) 
+        {
+            foreach ($row as $field) {
+                echo $field . " ";
+                
+            }
+
+            //echo $row['customerName'];
+            //var_dump($row);
+            echo "<br>" ;
+        }
+ 
     ?>
 
 

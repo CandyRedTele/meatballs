@@ -1,7 +1,7 @@
-<?
+<?php
 /**************************************************************************
  *
- * AUTHORS : Team 3 
+ * AUTHORS : Team 3, Joseph
  *
  * NAME : class MysqlConnection
  *
@@ -13,6 +13,7 @@ class MySqlConnection
     private $db;
     private $password;          // N.B. In real life, we would not let this password here!
     private $connection;
+    private $logger;
 
     /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
      * 
@@ -24,13 +25,16 @@ class MySqlConnection
         $argc = func_num_args();
         $args = func_get_args();
 
+        $this->logger = Logger::getSingleInstace();
+
         if (method_exists($this, $f = '__construct_' . $argc)) 
         {
             call_user_func_array(array($this, $f), $args);    
         }
 
         if (!$this->connect()) {
-            // TODO log error
+    //        $this->logger->write(__FUNC__ . ": Cannot connect to mysql.");
+            return null;
         }
     }
 
@@ -56,7 +60,7 @@ class MySqlConnection
      *----------------------------------------------------------*/
     public function __destruct()
     {
-        echo " - " . $this->__toString() . "<br>"; // TODO log
+        $this->logger->write(__CLASS__ . " - " . $this->__toString());
         $this->close();
     }
 
@@ -76,7 +80,7 @@ class MySqlConnection
 
         if ($this->connection) 
         {
-            echo " + " . $this . "<br>"; // TODO log
+            $this->logger->write(__CLASS__ . " + " . $this);
             $result = true;
         } 
 
@@ -101,18 +105,19 @@ class MySqlConnection
      *
      * PURPOSE : executes a given query
      *
-     * ARGS : args[0]  -  the query as a string. 
+     * ARGS : $query  -  the query as a string. 
+     *
+     * RETURNS : $result as a mysqli_result object.
+     *           See : 
+     *           http://php.net/manual/en/class.mysqli-result.php
      *
      *-----------------------------------------------------------*/
-    public function execute()
+    public function execute($query)
     {
-        $args = func_get_args();
-        $result = "TODO";
 
-        echo "executing query : " . $args[0] . "<br>"; // TODO log
+        $this->logger->write("executing query : " . $query); 
 
-        // TODO
-        //mysqli_query($this.connection, "SELECT * FROM Persons");
+        $result = mysqli_query($this->connection, $query);
 
         return $result;
     }
