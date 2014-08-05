@@ -7,7 +7,7 @@ include_once("DataAccess.php");
  * NAME : class IQuery 
  *
  *************************************************************************/
-abstract class IQuery    // TODO check if interface exist in php
+abstract class IQuery 
 {
     static protected $mysql;  // only one connection to avoid connect/unconnect multiple times
 
