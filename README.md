@@ -13,7 +13,7 @@
 <b>git diff</b> - see your changes before commiting<br>
 
 <b>git branch</b> - Create your own branch.<br>
-<b>git push --set-upstream origin<b> - Create your own branch.<br>
+<b>git push --set-upstream origin</b> - Push origin on GitHub.<br>
 <b>git checkout</b> - Switch to a branch.<br>
 
 </p>
