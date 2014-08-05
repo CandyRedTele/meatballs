@@ -4,7 +4,7 @@
 <h2>git basics<h2>
 <p>
 <b>git clone</b> theUrlOfTheRepo <br>
-<b>git pull</b>  - Retreive change from the repo to your local copy, always pull remote changes before you start working.
+<b>git pull</b>  - Retreive changes from the remote repo to your local copy, always pull remote changes before you start working. <br>
 <b>git status</b>                 <br> 
 <b>git add</b>  myFiles<br>
 <b>git commit</b> -m "the commit message inside quotes"<br>
