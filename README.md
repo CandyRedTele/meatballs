@@ -10,6 +10,11 @@
 <b>git commit</b> -m "the commit message inside quotes"<br>
 <b>git push</b> origin myBranch <br>
 
-<b>git diff</b> - see your changes before commiting
+<b>git diff</b> - see your changes before commiting<br>
+
+<b>git branch</b> - Create your own branch.<br>
+<b>git push --set-upstream origin</b> - Push origin on GitHub.<br>
+<b>git checkout</b> - Switch to a branch.<br>
+
 </p>
 
