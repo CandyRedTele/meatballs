@@ -7,6 +7,7 @@ include_once("DataAccess.php");
  * NAME : class IQuery 
  *
  *************************************************************************/
+include_once("ConfigLoader.php");
 abstract class IQuery 
 {
     static protected $mysql;  // only one connection to avoid connect/unconnect multiple times
@@ -18,6 +19,12 @@ abstract class IQuery
      *-----------------------------------------------------------*/
     public function __construct() 
     {
+        if (preg_match('/tests$/', getcwd())) {
+            $config_path = '../src/project.config.xml';
+        }
+
+        $loader = new ConfigLoader($config_path, "localhost");
+
         if (!isset(self::$mysql)) {
             self::$mysql = new MySqlConnection('localhost', 'root', '',  'classicmodels');
         } 

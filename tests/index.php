@@ -10,6 +10,7 @@
 
     <? 
         error_reporting(E_ALL);
+        //echo $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src";
         set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("TestQuery.php"); 
         include_once("Logger.php"); 
