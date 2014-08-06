@@ -13,6 +13,7 @@
         //echo $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src";
         set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("TestQuery.php"); 
+        include_once("CustomQuery.php"); 
         include_once("Logger.php"); 
     ?> 
 
@@ -20,8 +21,10 @@
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
         $query2 = new TestQuery();
+        $query1 = new CustomQuery("SELECT customerName from customers");
 
-        $result = $query2->execute();
+        $result = $query1->execute();
+        //$result = $query2->execute();
 
         while($row = mysqli_fetch_row($result)) 
         {
@@ -34,6 +37,7 @@
             //var_dump($row);
             echo "<br>" ;
         }
+        //*/
  
     ?>
 

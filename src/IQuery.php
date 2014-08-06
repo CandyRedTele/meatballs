@@ -1,5 +1,4 @@
 <?php
-include_once("DataAccess.php");
 /**************************************************************************
  *
  * AUTHORS : Team 3, Joseph
@@ -7,6 +6,7 @@ include_once("DataAccess.php");
  * NAME : class IQuery 
  *
  *************************************************************************/
+include_once("MySqlConnection.php");
 include_once("ConfigLoader.php");
 abstract class IQuery 
 {

@@ -1,6 +1,6 @@
 <?php
 include_once("src/Logger.php");
-include_once("src/DataAccess.php");
+include_once("src/MySqlConnection.php");
 class LoggerTest extends PHPUnit_Framework_TestCase
 {
     public function testSample()
@@ -8,6 +8,5 @@ class LoggerTest extends PHPUnit_Framework_TestCase
         Logger::getSingleInstace("src/log");
         $this->fail("TODO");
     }
-
 }
 ?>
