@@ -42,14 +42,23 @@
             $argc = func_num_args();
             $args = func_get_args();
 
-            $this->filename = $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src/log";
+            if (!preg_match('/htdocs/', $_SERVER['DOCUMENT_ROOT'])) { // it means we are in PHPUnit, run the test from the ROOT of the project
+                $this->filename = getcwd() . "/src/log";
+            } else {
+                $this->filename = $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src/log";
+            }
             
             if (method_exists($this, $f = '__construct_' . $argc)) 
             {
                 call_user_func_array(array($this, $f), $args);    
             }
 
-            $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
+            $this->fd = fopen($this->filename, 'w');
+
+            if (!$this->fd) { // give it another try
+                $this->filename = substr(getcwd(), 0, strrpos(getcwd(), '/tests')) . '/src/log';
+                $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
+            }
         }
 
         private function __construct_1($filename)
