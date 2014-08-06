@@ -19,8 +19,8 @@ abstract class IQuery
      *-----------------------------------------------------------*/
     public function __construct() 
     {
-        if (preg_match('/tests$/', getcwd())) {
-            $config_path = '../src/project.config.xml'; // For testing purpose
+        if (preg_match('/unit$/', getcwd())) {
+            $config_path = '../../src/project.config.xml'; // For testing purpose
         }
 
         $loader = new ConfigLoader($config_path, "localhost");

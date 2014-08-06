@@ -5,4 +5,4 @@
 
 
 # run all tests under /tests
-phpunit tests/ 
+phpunit tests/unit
