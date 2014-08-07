@@ -1,5 +1,4 @@
 <?php
-include_once("DataAccess.php");
 /**************************************************************************
  *
  * AUTHORS : Team 3, Joseph
@@ -7,6 +6,8 @@ include_once("DataAccess.php");
  * NAME : class IQuery 
  *
  *************************************************************************/
+include_once("MySqlConnection.php");
+include_once("ConfigLoader.php");
 abstract class IQuery 
 {
     static protected $mysql;  // only one connection to avoid connect/unconnect multiple times
@@ -18,8 +19,17 @@ abstract class IQuery
      *-----------------------------------------------------------*/
     public function __construct() 
     {
+        if (preg_match('/unit$/', getcwd())) {
+            $config_path = '../../src/project.config.xml'; // For testing purpose
+        }
+
+        $loader = new ConfigLoader($config_path, "localhost");
+
         if (!isset(self::$mysql)) {
-            self::$mysql = new MySqlConnection('localhost', 'root', '',  'classicmodels');
+            self::$mysql = new MySqlConnection($loader->getHost(), 
+                                               $loader->getUsername(), 
+                                               $loader->getPassword(),  
+                                               $loader->getDatabase());
         } 
     }
 

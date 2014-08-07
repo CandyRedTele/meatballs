@@ -1,3 +1,8 @@
 .*.swp
 src/log
+<<<<<<< HEAD
 .DS_Store
+=======
+*.*.bak
+project-description.pdf
+>>>>>>> a3f10076cc16b33644b332ddda3e6f0b5102ece9

@@ -33,8 +33,8 @@ class MySqlConnection
         }
 
         if (!$this->connect()) {
-    //        $this->logger->write(__FUNC__ . ": Cannot connect to mysql.");
-            return null;
+            $this->logger->write("[ERROR] :: Cannot connect to mysql.");
+            return null; // TODO do something more please!
         }
     }
 
@@ -60,7 +60,7 @@ class MySqlConnection
      *----------------------------------------------------------*/
     public function __destruct()
     {
-        $this->logger->write(__CLASS__ . " - " . $this->__toString());
+        $this->logger->write("[" . __CLASS__ . "]" . " - " . $this->__toString());
         $this->close();
     }
 
@@ -80,7 +80,7 @@ class MySqlConnection
 
         if ($this->connection) 
         {
-            $this->logger->write(__CLASS__ . " + " . $this);
+            $this->logger->write("[" . __CLASS__ . "]" . " + " . $this);
             $result = true;
         } 
 
@@ -115,7 +115,7 @@ class MySqlConnection
     public function execute($query)
     {
 
-        $this->logger->write("executing query : " . $query); 
+        $this->logger->write("[" . __CLASS__ . "]" . " $ execute() : '" . $query . "'"); 
 
         $result = mysqli_query($this->connection, $query);
 
