@@ -1,3 +1,4 @@
 .*.swp
 src/log
+*.*.bak
 project-description.pdf
