@@ -12,9 +12,14 @@ include_once("IQuery.php");
 class SelectAllQuery extends IQuery
 {
     private $table;
+    private $logger;
 
     public function __construct($table)
     {
+		parent::__construct();
+		$this->logger = Logger::getSingleInstace();
+		$this->logger->write(__CLASS__ . " - constructor");
+		$this->logger->write(__CLASS__ . " - include path : " . get_include_path());
         $this->table = $table;
     }
 
