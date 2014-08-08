@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <? 
+    <?php
         error_reporting(E_ALL);
         //echo $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src";
         set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
@@ -18,7 +18,7 @@
         include_once("SelectAllQuery.php");
     ?> 
 
-    <?
+    <?php
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 

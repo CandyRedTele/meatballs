@@ -42,7 +42,7 @@
             $argc = func_num_args();
             $args = func_get_args();
 
-            if (!preg_match('/htdocs/', $_SERVER['DOCUMENT_ROOT'])) { // it means we are in PHPUnit, run the test from the ROOT of the project
+            if (!preg_match('/htdocs/', $_SERVER['DOCUMENT_ROOT']) && !preg_match('/www/', $_SERVER['DOCUMENT_ROOT'])) { // it means we are in PHPUnit, run the test from the ROOT of the project
                 $this->filename = getcwd() . "/src/log";
             } else {
                 $this->filename = $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src/log";
