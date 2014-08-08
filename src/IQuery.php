@@ -1,0 +1,62 @@
+<?php
+/**************************************************************************
+ *
+ * AUTHORS : Team 3, Joseph
+ *
+ * NAME : class IQuery 
+ *
+ *************************************************************************/
+include_once("MySqlConnection.php");
+include_once("ConfigLoader.php");
+abstract class IQuery 
+{
+    static protected $mysql;  // only one connection to avoid connect/unconnect multiple times
+
+    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     * 
+     * NAME : __construct, no arguments 
+     *
+     *-----------------------------------------------------------*/
+    public function __construct() 
+    {
+        if (preg_match('/unit$/', getcwd())) {
+            $config_path = '../../src/project.config.xml'; // For testing purpose
+        }
+
+        $loader = new ConfigLoader($config_path, "localhost");
+
+        if (!isset(self::$mysql)) {
+            self::$mysql = new MySqlConnection($loader->getHost(), 
+                                               $loader->getUsername(), 
+                                               $loader->getPassword(),  
+                                               $loader->getDatabase());
+        } 
+    }
+
+    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     * 
+     * NAME : getQueryString 
+     *
+     * PURPOSE : To be overriden by subclasses.
+     *
+     * RETURNS : The query string to be executed by execute()
+     *
+     *-----------------------------------------------------------*/
+    abstract protected function getQueryString();
+
+
+    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     * 
+     * NAME : execute 
+     *
+     * PURPOSE : Execute the query returned by getQueryString()
+     *
+     *-----------------------------------------------------------*/
+    public function execute()
+    {
+        $result = self::$mysql->execute($this->getQueryString());
+
+        return $result;
+    }
+}
+?>
