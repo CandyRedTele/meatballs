@@ -15,16 +15,20 @@
         include_once("TestQuery.php"); 
         include_once("CustomQuery.php"); 
         include_once("Logger.php"); 
+        include_once("SelectAllQuery.php");
     ?> 
 
     <?
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
+
         $query2 = new TestQuery();
         $query1 = new CustomQuery("SELECT customerName from customers");
+        $query3 = new SelectAllQuery("customers");
 
-        $result = $query1->execute();
+        //$result = $query1->execute();
         //$result = $query2->execute();
+        $result = $query3->execute();
 
         while($row = mysqli_fetch_row($result)) 
         {
