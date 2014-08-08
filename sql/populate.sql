@@ -41,3 +41,7 @@ insert into supplies
 		(67513, 'Table Clothes', 50, 'Linens'),
 		(96072, 'Aprons', 20, 'Linens');
 
+
+insert into ingredients
+    
+
