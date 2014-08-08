@@ -1,0 +1,10 @@
+#centerH {	float:absolute;
+			text-align:center;}
+			
+#centerMiddle{	float: left;
+				text-align:center; }
+			
+#centerRight {	float:left;}
+
+article p {text-indent:20px; 
+		text-align:center;}
