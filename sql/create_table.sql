@@ -81,9 +81,9 @@ ENGINE = InnoDB;
 -- Table `meatballs`.`menu`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`menu` (
-  `m_id` INT NOT NULL,
+  `m_id` INT NOT NULL AUTO_INCREMENT,
   `mitem_id` INT NULL,
-  PRIMARY KEY (`m_id`))
+  PRIMARY KEY (`m_id`)) 
 ENGINE = InnoDB;
 
 
@@ -91,7 +91,7 @@ ENGINE = InnoDB;
 -- Table `meatballs`.`facility`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`facility` (
-  `f_id` INT NOT NULL,
+  `f_id` INT NOT NULL AUTO_INCREMENT,
   `location` VARCHAR(45) NULL,
   `menu_m_id` INT NOT NULL,
   PRIMARY KEY (`f_id`),
