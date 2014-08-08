@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facility` (
   `mid` INT NOT NULL,
   `phone` CHAR(10) NULL,
   PRIMARY KEY (`f_id`),
-  INDEX `fk_facility_menu1_idx` (`menu_m_id` ASC),
+  INDEX `fk_facility_menu1_idx` (`m_id` ASC),
   CONSTRAINT `fk_facility_menu1`
     FOREIGN KEY (`menu_m_id`)
     REFERENCES `meatballs`.`menu` (`m_id`)
