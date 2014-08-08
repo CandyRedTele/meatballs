@@ -1,10 +1,10 @@
---CREATE TABLE IF NOT EXISTS `meatballs`.`supplies` (
---  `sku` INT NOT NULL,
---  `name` CHAR NULL,
---  `quantity` INT NULL,
---  `type` CHAR NULL,
---  PRIMARY KEY (`sku`))
---  ENGINE = InnoDB;
+--#CREATE TABLE IF NOT EXISTS `meatballs`.`supplies` (
+--#  `sku` INT NOT NULL,
+--#  `name` CHAR NULL,
+--#  `quantity` INT NULL,
+--#  `type` CHAR NULL,
+--#  PRIMARY KEY (`sku`))
+--#  ENGINE = InnoDB;
 
 use meatballs;
 
