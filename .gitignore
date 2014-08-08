@@ -3,3 +3,4 @@ src/log
 *.*.bak
 project-description.pdf
 .DS_Store
+sql_OLD
