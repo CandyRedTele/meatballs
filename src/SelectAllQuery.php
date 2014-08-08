@@ -18,8 +18,8 @@ class SelectAllQuery extends IQuery
     {
 		parent::__construct();
 		$this->logger = Logger::getSingleInstace();
-		$this->logger->write(__CLASS__ . " - constructor");
-		$this->logger->write(__CLASS__ . " - include path : " . get_include_path());
+		$this->logger->write("[" . __CLASS__ . "] - __construct()");
+		$this->logger->write("\t? include path : " . get_include_path());
         $this->table = $table;
     }
 
