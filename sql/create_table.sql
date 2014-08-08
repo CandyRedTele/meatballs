@@ -5,6 +5,32 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `meatballs` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `meatballs` ;
 
+
+# drop everything to start fresh
+DROP TABLE IF EXISTS access;
+DROP TABLE IF EXISTS admin;
+DROP TABLE IF EXISTS article;
+DROP TABLE IF EXISTS bill;
+DROP TABLE IF EXISTS catalog;
+DROP TABLE IF EXISTS facility;
+DROP TABLE IF EXISTS food;
+DROP TABLE IF EXISTS golden;
+DROP TABLE IF EXISTS ingredient;
+DROP TABLE IF EXISTS `local`;
+DROP TABLE IF EXISTS menu;
+DROP TABLE IF EXISTS menu_item;
+DROP TABLE IF EXISTS hasMenuItem;
+DROP TABLE IF EXISTS reservation;
+DROP TABLE IF EXISTS salary;
+DROP TABLE IF EXISTS `schedule`;
+DROP TABLE IF EXISTS staff;
+DROP TABLE IF EXISTS supplies;
+DROP TABLE IF EXISTS vendor;
+DROP TABLE IF EXISTS wage;
+DROP TABLE IF EXISTS wine;
+
+
+
 -- -----------------------------------------------------
 -- Table `meatballs`.`staff`
 -- -----------------------------------------------------
@@ -36,14 +62,14 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `meatballs`.`Access`
+-- Table `meatballs`.`access`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`Access` (
+CREATE TABLE IF NOT EXISTS `meatballs`.`access` (
   `level#` CHAR NULL COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
   `staff_id` INT NOT NULL,
   PRIMARY KEY (`staff_id`),
-  INDEX `fk_Access_staff1_idx` (`staff_id` ASC),
-  CONSTRAINT `fk_Access_staff1`
+  INDEX `fk_access_staff1_idx` (`staff_id` ASC),
+  CONSTRAINT `fk_access_staff1`
     FOREIGN KEY (`staff_id`)
     REFERENCES `meatballs`.`staff` (`id`)
     ON DELETE NO ACTION
@@ -331,9 +357,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `meatballs`.`relationship`
+-- Table `meatballs`.`hasMenuItem`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`relationship` (
+CREATE TABLE IF NOT EXISTS `meatballs`.`hasMenuItem` (
   `menu_m_id` INT NOT NULL,
   `menu_item_mitem_id` INT NOT NULL,
   PRIMARY KEY (`menu_m_id`, `menu_item_mitem_id`),
