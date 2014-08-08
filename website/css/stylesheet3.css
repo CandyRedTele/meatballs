@@ -1,0 +1,41 @@
+body { 	background-color:#FFFFBF ; }
+
+#formH { background:#FFFF26; 
+		color:white; 
+		border-bottom:5px solid #FFFF26; 
+		text-align:left;
+		font-size:30px;}
+		
+#rightSide { float:right;
+			width:45%;
+			margin:1% 1%;}
+
+#rightSide img{box-shadow:20px 10px 50px 20px #FFFFD9;
+				border: 2px solid #FFFFF2;}
+
+form {	float:left;
+		left:5%; 
+		padding:3%;
+		border:3px solid #FFFFC2;
+		background-color:#FFFF73;
+		width:45%;
+		text-align:left;
+		border-radius:15px;}
+		
+.rq {color:red; float:left;}
+
+.fieldT {	text-align:left; 
+		float:left;
+		width:15%;}
+
+		
+.fields {	border-bottom:1px dotted grey;}
+
+.hint{	display:none;}
+
+tr:hover .hint{	position:absolute;
+				display:block;
+				margin:-10px 0 0 10px;
+				font-size:15px;
+				color:white;
+				background:grey;}
