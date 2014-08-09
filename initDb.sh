@@ -1,6 +1,12 @@
+#******************************************************************************
 #
-# works with BASH, not with DASH (arrays not supported, change your default shell!)
+# AUTHOR : Joseph, comp353-project TEAM 3
 #
+# PURPOSE : run sql scripts to create/populate meatballs DB
+# 
+# NOTES : works with BASH, not with DASH (arrays not supported, change your default shell!)
+#
+#******************************************************************************
 
 
 USER="root"
@@ -13,8 +19,6 @@ function display_usage
 {
     echo "To be run from the root of the project"
 }
-
-
 
 cd ./sql
 
