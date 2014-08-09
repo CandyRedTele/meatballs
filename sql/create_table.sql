@@ -27,7 +27,6 @@ DROP TABLE IF EXISTS hasMenuItem;
 DROP TABLE IF EXISTS `order`;
 DROP TABLE IF EXISTS pay;
 DROP TABLE IF EXISTS reservation;
-DROP TABLE IF EXISTS salary;
 DROP TABLE IF EXISTS `schedule`;
 DROP TABLE IF EXISTS staff;
 DROP TABLE IF EXISTS supplies;
@@ -38,93 +37,100 @@ DROP TABLE IF EXISTS wine;
 
 
 -- -----------------------------------------------------
+-- Table `meatballs`.`pay`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `meatballs`.`pay` 
+(
+    `title`         VARCHAR(45) PRIMARY KEY,
+    `base`      	DOUBLE NULL,
+    `exp_rate`  	DOUBLE NULL,
+    `train_rate`    DOUBLE NULL
+);
+
+
+-- -----------------------------------------------------
 -- Table `meatballs`.`staff`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`staff` (
-  `name` VARCHAR(45) NULL,
-  `ssn` CHAR(9) NULL,
-  `address` VARCHAR(45) NULL,
-  `phone` CHAR(20) NULL,
-  `staff_id` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(45) NULL,
-  PRIMARY KEY (`staff_id`))
+CREATE TABLE IF NOT EXISTS `meatballs`.`staff` 
+(
+    `staff_id`  INTEGER     PRIMARY KEY     AUTO_INCREMENT,
+    `name`      VARCHAR(45)     NULL,
+    `address`   VARCHAR(45)     NULL,
+    `phone`     CHAR(12)        NULL,
+    `ssn`       CHAR(15)         NULL,   -- TODO fix the number of digits in SSN (should be 9)
+    `title`     VARCHAR(45) NOT NULL,
+	`acces_level` INTEGER NULL         COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
+
+    FOREIGN KEY (`title`) REFERENCES `meatballs`.`pay` (`title`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`admin`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`admin` (
-  `title` CHAR(3) NULL,
-  `location` VARCHAR(55) NULL DEFAULT 'Montreal',
-  `staff_id` INT NOT NULL,
-  `yrs_exp` INT NULL,
-  `training` VARCHAR(45) NULL,
-  CONSTRAINT `staff_id`
-    FOREIGN KEY (`staff_id`)
-    REFERENCES `meatballs`.`staff` (`staff_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `meatballs`.`admin` 
+(
+    `staff_id`  INTEGER NOT NULL,
+    `title`     CHAR(3)     NULL,
+    `location`  VARCHAR(55) NULL DEFAULT 'Montreal',
+    `yrs_exp` INTEGER NULL,
+    `training` VARCHAR(45) NULL,
 
-
--- -----------------------------------------------------
--- Table `meatballs`.`access`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`access` (
-  `level#` INT NULL COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
-  `staff_id` INT NOT NULL,
-  PRIMARY KEY (`staff_id`),
-  INDEX `fk_Access_staff1_idx` (`staff_id` ASC),
-  CONSTRAINT `fk_Access_staff1`
-    FOREIGN KEY (`staff_id`)
-    REFERENCES `meatballs`.`staff` (`staff_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    CONSTRAINT `fk_admin_staff_id`
+        FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
+        ON DELETE NO ACTION ON UPDATE NO ACTION
+)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`supplies`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`supplies` (
-  `sku` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`supplies` 
+(
+  `sku` INTEGER NOT NULL,
   `name` VARCHAR(45) NULL,
   `type` VARCHAR(45) NULL,
-  PRIMARY KEY (`sku`))
+  PRIMARY KEY (`sku`)
+)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`ingredients`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` (
-  `amount` VARCHAR(30) NULL,
-  `sku` INT NULL,
-  `mitem_id` INT NULL,
-  INDEX `fk_ingredient_supplies1_idx` (`sku` ASC),
-  CONSTRAINT `sku`
+CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` 
+(
+    `sku` INTEGER NULL,
+    `mitem_id` INTEGER NULL,
+    `amount` VARCHAR(30) NULL,
+    INDEX `fk_ingredient_supplies1_idx` (`sku` ASC),
+    CONSTRAINT `fk_ingredients_sku`
     FOREIGN KEY (`sku`)
     REFERENCES `meatballs`.`supplies` (`sku`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `mitem_id`
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+    CONSTRAINT `mitem_id`
     FOREIGN KEY (`mitem_id`)
     REFERENCES `meatballs`.`menu_item` (`mitem_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`menu_item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item` (
-  `mitem_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item` 
+(
+  `mitem_id` INTEGER NOT NULL,
   `category` CHAR(45) NULL,
   `price` DOUBLE NULL,
   `name` VARCHAR(45) NULL,
-  `sku` INT NOT NULL,
+  `sku` INTEGER NOT NULL,
   PRIMARY KEY (`mitem_id`),
   INDEX `fk_menu_item_ingredient1_idx` (`sku` ASC),
   CONSTRAINT `fk_menu_item_ingredient1`
@@ -138,10 +144,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`menu`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`menu` (
-  `m_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`menu` 
+(
+  `m_id` INTEGER NOT NULL,
   `type` VARCHAR(45),
-  `mitem_id` INT NOT NULL,
+  `mitem_id` INTEGER NOT NULL,
   PRIMARY KEY (`m_id`),
   INDEX `mitem_id_idx` (`mitem_id` ASC),
   CONSTRAINT `fk_mitem_id`
@@ -155,10 +162,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`facility`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`facility` (
-  `f_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`facility` 
+(
+  `f_id` INTEGER NOT NULL,
   `location` VARCHAR(45) NULL,
-  `m_id` INT NOT NULL,
+  `m_id` INTEGER NOT NULL,
   `phone` CHAR(10) NULL,
   PRIMARY KEY (`f_id`),
   INDEX `fk_facility_menu1_idx` (`m_id` ASC),
@@ -174,11 +182,12 @@ ENGINE = InnoDB;
 -- Table `meatballs`.`localstaff`
 -- -----------------------------------------------------
 create TABLE IF NOT EXISTS `meatballs`.`localstaff` 
+
 (
-  `title` 		CHAR NULL,
-  `start_date` 	CHAR NULL,
-  `f_id` 		INT NULL,
-  `staff_id` 	INT NOT NULL,
+  `title`       CHAR NULL,
+  `start_date`  CHAR NULL,
+  `f_id`        INTEGER NULL,
+  `staff_id`    INTEGER NOT NULL,
   INDEX `fk_local_staff1_idx` (`staff_id` ASC, `f_id` ASC),
   INDEX `fk_local_facility1_idx` (`f_id` ASC),
   CONSTRAINT `fk_staff_id2`
@@ -195,34 +204,16 @@ create TABLE IF NOT EXISTS `meatballs`.`localstaff`
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `meatballs`.`pay`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`pay` (
-  `title` VARCHAR(45) NOT NULL,
-  `exp_rate` DOUBLE NULL,
-  `base` DOUBLE NULL,
-  `train_rate` DOUBLE NULL,
-  `staff_id` INT NOT NULL,
-  PRIMARY KEY (`title`),
-  INDEX `fk_salary_staff1_idx` (`staff_id` ASC),
-  CONSTRAINT `fk_staff_id`
-    FOREIGN KEY (`staff_id`)
-    REFERENCES `meatballs`.`staff` (`staff_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-);
-
-
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`wage`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`wage` (
+CREATE TABLE IF NOT EXISTS `meatballs`.`wage` 
+(
   `base` DOUBLE NULL,
   `exp_rate` DOUBLE NULL,
   `overtime` DOUBLE NULL,
-  `staff_id` INT NOT NULL,
+  `staff_id` INTEGER NOT NULL,
   INDEX `fk_wage_staff1_idx` (`staff_id` ASC),
   CONSTRAINT `fk_wage_staff_id`
     FOREIGN KEY (`staff_id`)
@@ -235,10 +226,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`schedule`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`schedule` (
+CREATE TABLE IF NOT EXISTS `meatballs`.`schedule` 
+(
   `hours_week` DOUBLE NULL,
   `hours_day` DOUBLE NULL,
-  `staff_id` INT NOT NULL,
+  `staff_id` INTEGER NOT NULL,
   INDEX `fk_schedule_staff1_idx` (`staff_id` ASC),
   PRIMARY KEY (`staff_id`),
   CONSTRAINT `fk_schedule_staff1`
@@ -252,8 +244,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`food`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`food` (
-  `sku` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`food` 
+(
+  `sku` INTEGER NOT NULL,
   `expire_date` CHAR NULL,
   `perishable` CHAR NULL,
   INDEX `sku_idx` (`sku` ASC),
@@ -268,21 +261,23 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`vendor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`vendor` (
-  `v_id` INT NOT NULL,
-  `company_name` CHAR(45) NULL,
-  `address` VARCHAR(45) NULL,
-  PRIMARY KEY (`v_id`))
+CREATE TABLE IF NOT EXISTS `meatballs`.`vendor` 
+(
+    `v_id` 			INTEGER PRIMARY KEY,
+    `company_name` 	CHAR(45) NULL,
+    `address` 		VARCHAR(45) NULL
+)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`catalog`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`catalog` (
-  `catalog_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`catalog` 
+(
+  `catalog_id` INTEGER NOT NULL,
   `price` DOUBLE NULL,
-  `sku` INT NULL,
+  `sku` INTEGER NULL,
   PRIMARY KEY (`catalog_id`))
 ENGINE = InnoDB;
 
@@ -290,9 +285,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`catalgoHasSupplies`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`catalgoHasSupplies` (
-  `v_id` INT NOT NULL,
-  `sku` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`catalgoHasSupplies` 
+(
+  `v_id` INTEGER NOT NULL,
+  `sku` INTEGER NOT NULL,
   PRIMARY KEY (`v_id`, `sku`),
   INDEX `fk_catalog_has_supplies_supplies1_idx` (`sku` ASC),
   INDEX `fk_catalog_has_supplies_catalog1_idx` (`v_id` ASC),
@@ -312,28 +308,31 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`wine`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`wine` (
+CREATE TABLE IF NOT EXISTS `meatballs`.`wine` 
+(
   `rate` DOUBLE NULL,
-  `mitem_id` INT NULL,
+  `mitem_id` INTEGER NULL,
   INDEX `fk_wine_menu_item1_idx` (`mitem_id` ASC),
   CONSTRAINT `fk_wine_mitem_id`
     FOREIGN KEY (`mitem_id`)
     REFERENCES `meatballs`.`menu_item` (`mitem_id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION
+)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`reservation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`reservation` (
-  `r_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`reservation` 
+(
+  `r_id` INTEGER NOT NULL,
   `name` VARCHAR(45) NULL,
   `time` DATE NULL,
-  `#_seats` INT NULL,
+  `#_seats` INTEGER NULL,
   `event_type` VARCHAR(45) NULL,
-  `f_id` INT NOT NULL,
+  `f_id` INTEGER NOT NULL,
   PRIMARY KEY (`r_id`),
   INDEX `fk_reservation_facility1_idx` (`f_id` ASC),
   CONSTRAINT `fk_reservation_facility1`
@@ -347,10 +346,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`bill`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`bill` (
-  `b_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`bill` 
+(
+  `b_id` INTEGER NOT NULL,
   `total` DOUBLE NULL,
-  `f_id` INT NOT NULL,
+  `f_id` INTEGER NOT NULL,
   PRIMARY KEY (`b_id`),
   INDEX `fk_bill_facility1_idx` (`f_id` ASC),
   CONSTRAINT `fk_bill_f_id`
@@ -364,11 +364,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`golden`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`golden` (
-  `g_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`golden` 
+(
+  `g_id` INTEGER NOT NULL,
   `name` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
-  `b_id` INT NOT NULL,
+  `b_id` INTEGER NOT NULL,
   PRIMARY KEY (`g_id`),
   INDEX `fk_golden_bill1_idx` (`b_id` ASC),
   CONSTRAINT `fk_golden_bill1`
@@ -382,9 +383,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`article`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`article` (
-  `mitem_id` INT NOT NULL,
-  `b_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`article` 
+(
+  `mitem_id` INTEGER NOT NULL,
+  `b_id` INTEGER NOT NULL,
   PRIMARY KEY (`mitem_id`),
   INDEX `fk_article_bill1_idx` (`b_id` ASC),
   CONSTRAINT `fk_article_bill1`
@@ -398,9 +400,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`vendorHasCatalog`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`vendorHasCatalog` (
-  `catalog_id` INT NOT NULL,
-  `v_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`vendorHasCatalog` 
+(
+  `catalog_id` INTEGER NOT NULL,
+  `v_id` INTEGER NOT NULL,
   PRIMARY KEY (`catalog_id`, `v_id`),
   INDEX `fk_catalog_has_vendor_vendor1_idx` (`v_id` ASC),
   INDEX `fk_catalog_has_vendor_catalog1_idx` (`catalog_id` ASC),
@@ -420,9 +423,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`hasMenuItem`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`hasMenuItem` (
-  `m_id` INT NOT NULL,
-  `mitem_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meatballs`.`hasMenuItem` 
+(
+  `m_id` INTEGER NOT NULL,
+  `mitem_id` INTEGER NOT NULL,
   PRIMARY KEY (`m_id`, `mitem_id`),
   INDEX `fk_menu_has_menu_item_menu_item1_idx` (`mitem_id` ASC),
   INDEX `fk_menu_has_menu_item_menu1_idx` (`m_id` ASC),
@@ -442,55 +446,57 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`facilityHours`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`facilityHours` (
-  `day` VARCHAR(45) NULL,
-  `open` VARCHAR(45) NULL,
-  `close` VARCHAR(45) NULL)
+CREATE TABLE IF NOT EXISTS `meatballs`.`facilityHours` 
+(
+    `day`   VARCHAR(45) NULL,
+    `open`  VARCHAR(45) NULL,
+    `close` VARCHAR(45) NULL
+)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`facilityStock`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock` (
-  `quantity` INT NULL,
-  `capacity` INT NULL,
-  `sku` INT NOT NULL,
-  `f_id` INT NULL,
-  INDEX `sku_idx` (`sku` ASC),
-  INDEX `f_id_idx` (`f_id` ASC),
-  CONSTRAINT `fk_facilityStock_sku`
-    FOREIGN KEY (`sku`)
-    REFERENCES `meatballs`.`supplies` (`sku`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_facilityStock_f_id`
-    FOREIGN KEY (`f_id`)
-    REFERENCES `meatballs`.`facility` (`f_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock` 
+
+(
+    `quantity`  INTEGER NULL,
+    `capacity`  INTEGER NULL,
+    `sku`       INTEGER NOT NULL,
+    `f_id`      INTEGER NULL,
+    INDEX `sku_idx` (`sku` ASC),
+    INDEX `f_id_idx` (`f_id` ASC),
+    CONSTRAINT `fk_facilityStock_sku`
+        FOREIGN KEY (`sku`) REFERENCES `meatballs`.`supplies` (`sku`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+    CONSTRAINT `fk_facilityStock_f_id`
+        FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`order`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`order` (
-  `f_id` INT NULL,
-  `sku` INT NULL,
-  `order_qty` INT NULL,
-  INDEX `f_id_idx` (`f_id` ASC),
-  INDEX `sku_idx` (`sku` ASC),
-  CONSTRAINT `fk_order_f_id`
-    FOREIGN KEY (`f_id`)
-    REFERENCES `meatballs`.`facility` (`f_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_order_sku`
-    FOREIGN KEY (`sku`)
-    REFERENCES `meatballs`.`supplies` (`sku`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+CREATE TABLE IF NOT EXISTS `meatballs`.`order` 
+(
+    `f_id`      INTEGER NULL,
+    `sku`       INTEGER NULL,
+    `order_qty` INTEGER NULL,
+    INDEX `f_id_idx` (`f_id` ASC),
+    INDEX `sku_idx` (`sku` ASC),
+    CONSTRAINT `fk_order_f_id`
+        FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`) 
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+    CONSTRAINT `fk_order_sku`
+        FOREIGN KEY (`sku`) REFERENCES `meatballs`.`supplies` (`sku`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+)
 ENGINE = InnoDB;
 
 
