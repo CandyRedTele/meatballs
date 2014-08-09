@@ -16,6 +16,7 @@
         include_once("CustomQuery.php"); 
         include_once("Logger.php"); 
         include_once("SelectAllQuery.php");
+        include_once("MeatballsUser.php");
     ?> 
 
     <?php
@@ -30,18 +31,24 @@
         //$result = $query2->execute();
         $result = $query3->execute();
 
-        while($row = mysqli_fetch_row($result)) 
-        {
-            foreach ($row as $field) {
-                echo $field . " ";
-                
-            }
+        if ($result) {
+            while($row = mysqli_fetch_row($result)) 
+            {
+                foreach ($row as $field) {
+                    echo $field . " ";
+                    
+                }
 
-            //echo $row['customerName'];
-            //var_dump($row);
-            echo "<br>" ;
+                //echo $row['customerName'];
+                //var_dump($row);
+                echo "<br>" ;
+            }
         }
         //*/
+
+        $staff_id = "1";
+        $access_level = MeatballUser::getAccessLevel($staff_id);
+        echo "access level  $access_level";
  
     ?>
 

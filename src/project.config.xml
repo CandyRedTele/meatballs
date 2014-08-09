@@ -5,7 +5,7 @@
         <host>localhost</host>
         <username>root</username>
         <password></password>
-        <database>classicmodels</database>
+        <database>meatballs</database>
     </configuration>
     <configuration>        
         <name>project</name>
