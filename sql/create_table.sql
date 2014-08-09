@@ -101,7 +101,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`ingredients`
 -- -----------------------------------------------------
-<<<<<<< HEAD
 CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` 
 (
     `sku`       INTEGER NOT NULL,
