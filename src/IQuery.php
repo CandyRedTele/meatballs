@@ -68,6 +68,11 @@ abstract class IQuery
 		
         $result = self::$mysql->execute($this->getQueryString());
 
+        if (!$result) {
+            $this->logger->write("[".__CLASS__ ."] $ ".__FUNCTION__."() ? "
+                                    .self::$mysql->getLastError());
+        }
+
         return $result;
     }
 }

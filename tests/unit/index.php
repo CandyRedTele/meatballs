@@ -17,6 +17,7 @@
         include_once("Logger.php"); 
         include_once("SelectAllQuery.php");
         include_once("MeatballsUser.php");
+        include_once("InsertIntoGoldenQuery.php");
     ?> 
 
     <?php
@@ -52,7 +53,9 @@
         if ($access_level) {
             echo "access level  $access_level";
         }
- 
+
+        $insert = new InsertIntoGoldenQuery('Joseph', 'Martineau', 'M', 'jos@msn.com', '123-123-1234');
+        $insert->execute();
     ?>
 
 
