@@ -46,9 +46,12 @@
         }
         //*/
 
-        $staff_id = "1";
+        $staff_id = "9";
         $access_level = MeatballUser::getAccessLevel($staff_id);
-        echo "access level  $access_level";
+
+        if ($access_level) {
+            echo "access level  $access_level";
+        }
  
     ?>
 
