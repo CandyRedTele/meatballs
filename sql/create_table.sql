@@ -91,7 +91,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`supplies` (
   `sku` INT NOT NULL,
   `name` VARCHAR(45) NULL,
-  `quantity` INT NULL,
   `type` VARCHAR(45) NULL,
   PRIMARY KEY (`sku`))
 ENGINE = InnoDB;
