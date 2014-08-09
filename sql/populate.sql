@@ -1,15 +1,8 @@
---#CREATE TABLE IF NOT EXISTS `meatballs`.`supplies` (
---#  `sku` INT NOT NULL,
---#  `name` CHAR NULL,
---#  `quantity` INT NULL,
---#  `type` CHAR NULL,
---#  PRIMARY KEY (`sku`))
---#  ENGINE = InnoDB;
 
 use meatballs;
 
 insert into supplies
-    (sku, name, quantity, type)
+    (sku, name, type)
     values
 		(91463, 'Meat Ball', 'Food'),
 		(57417, 'Spaghetti', 'Food'),
@@ -40,8 +33,3 @@ insert into supplies
 		(34872, 'Tray', 'Serving Items'),
 		(67513, 'Table Clothes', 'Linens'),
 		(96072, 'Aprons', 'Linens');
-
-
-insert into ingredients
-    
-
