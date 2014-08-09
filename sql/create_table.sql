@@ -102,7 +102,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` (
   `amount` VARCHAR(30) NULL,
-  `sku` INT NULL,
+  `sku` INT NULL NOT NULL,
   `mitem_id` INT NULL,
   INDEX `fk_ingredient_supplies1_idx` (`sku` ASC),
   CONSTRAINT `sku`
