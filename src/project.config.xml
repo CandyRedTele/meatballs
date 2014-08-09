@@ -14,4 +14,11 @@
         <password></password>
         <database></database>
     </configuration>
+    <configuration>        
+        <name>utest</name>
+        <host>localhost</host>
+        <username>root</username>
+        <password></password>
+        <database>classicmodels</database>
+    </configuration>
 </configurations>
