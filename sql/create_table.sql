@@ -46,7 +46,6 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`staff` (
   `address` VARCHAR(45) NULL,
   `phone` CHAR(20) NULL,
   `staff_id` INT NOT NULL AUTO_INCREMENT,
-  `global_sid` INT NOT NULL,
   `title` VARCHAR(45) NULL,
   PRIMARY KEY (`staff_id`))
 ENGINE = InnoDB;
