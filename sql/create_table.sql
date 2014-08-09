@@ -104,19 +104,11 @@ ENGINE = InnoDB;
 <<<<<<< HEAD
 CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` 
 (
-    `sku` INTEGER NULL,
-    `mitem_id` INTEGER NULL,
-    `amount` VARCHAR(30) NULL,
+    `sku`       INTEGER NOT NULL,
+    `mitem_id`  INTEGER NULL,
+    `amount`    VARCHAR(30) NULL,
     INDEX `fk_ingredient_supplies1_idx` (`sku` ASC),
     CONSTRAINT `fk_ingredients_sku`
-=======
-CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` (
-  `amount` VARCHAR(30) NULL,
-  `sku` INT NULL NOT NULL,
-  `mitem_id` INT NULL,
-  INDEX `fk_ingredient_supplies1_idx` (`sku` ASC),
-  CONSTRAINT `sku`
->>>>>>> rstor
     FOREIGN KEY (`sku`)
     REFERENCES `meatballs`.`supplies` (`sku`)
         ON DELETE NO ACTION
