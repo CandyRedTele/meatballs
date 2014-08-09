@@ -1,9 +1,18 @@
-
 use meatballs;
 
-insert into supplies
-    (sku, name, type)
-    values
+# 
+# TABLE : pay       TODO generate values - those are just to be able to test!!!
+#
+INSERT INTO pay  (title, base, exp_rate, train_rate) VALUES
+	('Cook', 20000, 1.25, 1.1),
+	('Exec1', 20000, 1.25, 1.1),
+	('Exec2', 20000, 1.25, 1.1)
+;
+
+#
+# TABLE : supplies
+#
+insert into supplies (sku, name, type) values
 		(91463, 'Meat Ball', 'Food'),
 		(57417, 'Spaghetti', 'Food'),
 		(24143, 'Tomato Sauce', 'Food'),
