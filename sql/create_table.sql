@@ -19,15 +19,14 @@ DROP TABLE IF EXISTS facilityStock;
 DROP TABLE IF EXISTS food;
 DROP TABLE IF EXISTS golden;
 DROP TABLE IF EXISTS ingredients;
-DROP TABLE IF EXISTS `local`;
-DROP TABLE IF EXISTS `localstaff`;
+DROP TABLE IF EXISTS localstaff;
 DROP TABLE IF EXISTS menu;
 DROP TABLE IF EXISTS menu_item;
 DROP TABLE IF EXISTS hasMenuItem;
 DROP TABLE IF EXISTS `order`;
 DROP TABLE IF EXISTS pay;
 DROP TABLE IF EXISTS reservation;
-DROP TABLE IF EXISTS `schedule`;
+DROP TABLE IF EXISTS schedule;
 DROP TABLE IF EXISTS staff;
 DROP TABLE IF EXISTS supplies;
 DROP TABLE IF EXISTS vendor;
@@ -43,9 +42,9 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`pay`
 (
     `title`         VARCHAR(45) PRIMARY KEY,
     `base`      	DOUBLE NULL,
-    `exp_rate`  	DOUBLE NULL,
-    `train_rate`    DOUBLE NULL
-);
+    `exp_rate`  	DOUBLE NULL     CHECK (exp_rate > 1.0 AND exp_rate < 2.0),      -- N.B. CHECK contraints are ignored in MYSQL
+    `train_rate`    DOUBLE NULL     CHECK (train_rate > 1.0 AND train_rate < 2.0)   --      so do NOT bother adding more... You can
+);                                                                                  --      use TRIGGERS though.
 
 
 -- -----------------------------------------------------
@@ -53,13 +52,13 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`pay`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`staff` 
 (
-    `staff_id`  INTEGER     PRIMARY KEY     AUTO_INCREMENT,
-    `name`      VARCHAR(45)     NULL,
-    `address`   VARCHAR(45)     NULL,
-    `phone`     CHAR(12)        NULL,
-    `ssn`       CHAR(15)         NULL,   -- TODO fix the number of digits in SSN (should be 9)
-    `title`     VARCHAR(45) NOT NULL,
-	`acces_level` INTEGER NULL         COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
+    `staff_id`      INTEGER     PRIMARY KEY     AUTO_INCREMENT,
+    `name`          VARCHAR(45) NULL,
+    `address`       VARCHAR(45) NULL,
+    `phone`         CHAR(12)    NULL,
+    `ssn`           CHAR(11)    NULL,   -- TODO fix the number of digits in SSN (should be 9)
+    `title`         VARCHAR(45) NOT NULL,
+	`acces_level`   INTEGER     NULL CHECK(acces_level in (1,2,3,4,5)), --       COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
 
     FOREIGN KEY (`title`) REFERENCES `meatballs`.`pay` (`title`)
         ON DELETE NO ACTION
@@ -76,8 +75,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`admin`
     `staff_id`  INTEGER NOT NULL,
     `title`     CHAR(3)     NULL,
     `location`  VARCHAR(55) NULL DEFAULT 'Montreal',
-    `yrs_exp` INTEGER NULL,
-    `training` VARCHAR(45) NULL,
+    `yrs_exp`   INTEGER NULL,
+    `training`  VARCHAR(45) NULL,
 
     CONSTRAINT `fk_admin_staff_id`
         FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
@@ -91,9 +90,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`supplies` 
 (
-  `sku` INTEGER NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `type` VARCHAR(45) NULL,
+  `sku`     INTEGER NOT NULL,
+  `name`    VARCHAR(45) NULL,
+  `type`    VARCHAR(45) NULL,
   PRIMARY KEY (`sku`)
 )
 ENGINE = InnoDB;
