@@ -125,12 +125,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item` 
 (
-  `mitem_id` INTEGER NOT NULL,
+  `mitem_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `category` CHAR(45) NULL,
   `price` DOUBLE NULL,
   `name` VARCHAR(45) NULL,
   `sku` INTEGER NOT NULL,
-  PRIMARY KEY (`mitem_id`),
   INDEX `fk_menu_item_ingredient1_idx` (`sku` ASC),
   CONSTRAINT `fk_menu_item_ingredient1`
     FOREIGN KEY (`sku`)
@@ -363,36 +362,51 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`golden`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`golden` 
+CREATE TABLE IF NOT EXISTS `meatballs`.`golden`
 (
-  `g_id` INTEGER NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
-  `b_id` INTEGER NOT NULL,
-  PRIMARY KEY (`g_id`),
-  INDEX `fk_golden_bill1_idx` (`b_id` ASC),
-  CONSTRAINT `fk_golden_bill1`
-    FOREIGN KEY (`b_id`)
-    REFERENCES `meatballs`.`bill` (`b_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    `g_id`          INTEGER PRIMARY KEY AUTO_INCREMENT,
+    firstname      VARCHAR(45)     NOT NULL,
+    `lastname`      VARCHAR(45)     NOT NULL,
+    `email`         VARCHAR(45)     NOT NULL,
+    phone           CHAR(12)        NULL, 
+    picture_path    VARCHAR(100)    NULL,
+    `sex`           CHAR(1)    NOT NULL
+)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS meatballs.golden_has_bills
+(
+    `g_id`    INTEGER NOT NULL,
+    `b_id`    INTEGER PRIMARY KEY,
+    CONSTRAINT `fk_golden_has_bills_b_id`
+        FOREIGN KEY (`b_id`)
+        REFERENCES `meatballs`.`bill` (`b_id`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+    CONSTRAINT `fk_golden_has_bills_g_id`
+        FOREIGN KEY (`g_id`)
+        REFERENCES meatballs.golden (g_id) 
+)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `meatballs`.`article`
+-- Table `meatballs`.`bill_has_menu_item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`article` 
+CREATE TABLE IF NOT EXISTS `meatballs`.`bill_has_menu_item` 
 (
-  `mitem_id` INTEGER NOT NULL,
-  `b_id` INTEGER NOT NULL,
-  PRIMARY KEY (`mitem_id`),
-  INDEX `fk_article_bill1_idx` (`b_id` ASC),
-  CONSTRAINT `fk_article_bill1`
-    FOREIGN KEY (`b_id`)
-    REFERENCES `meatballs`.`bill` (`b_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    `b_id`        INTEGER NOT NULL,
+    `mitem_id`    INTEGER NOT NULL,
+    INDEX `fk_article_bill1_idx` (`b_id` ASC),
+    CONSTRAINT fk_bill_has_menu_item_b_id
+        FOREIGN KEY (`b_id`)
+        REFERENCES `meatballs`.`bill` (`b_id`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+    CONSTRAINT fk_bill_has_menu_item_mitem_id
+    FOREIGN KEY (mitem_id)
+    REFERENCES meatballs.menu_item (mitem_id)
+)
 ENGINE = InnoDB;
 
 
