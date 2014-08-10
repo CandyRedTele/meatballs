@@ -13,11 +13,12 @@ USER="root"
 HOST="127.0.0.1"
 PWORD=''
 
-SCRIPTS=('create_table.sql' 'populate.sql' 'staffgen.sql' 'menu_item.sql', 'supply.sql', 'other_supply.sql', 'ingredients.sql', 'menu.sql', 'wine.sql', 'food.sql');
+SCRIPTS=('create_table.sql' 'populate.sql' 'staffgen.sql' 'supply.sql' 'other_supply.sql' 'ingredients.sql' 'menu_item.sql' 'menu.sql' 'wine.sql' 'food.sql');
 
 function display_usage
 {
-    echo "To be run from the root of the project"
+    echo "To be run from the root of the project";
+    exit
 }
 
 cd ./sql
@@ -25,7 +26,7 @@ cd ./sql
 for file in ${SCRIPTS[@]} 
 do
     echo -n "[initDb.sh] executing $file ..."
-    mysql -u $USER --password="$PWORD" -h $HOST < $file || (display_usage)
+    mysql -u $USER --password="$PWORD" -h $HOST < $file || display_usage;
     echo "... OK"
 done
 cd ../
