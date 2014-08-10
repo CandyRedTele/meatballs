@@ -13,7 +13,7 @@ USER="root"
 HOST="127.0.0.1"
 PWORD=''
 
-SCRIPTS=('create_table.sql' 'populate.sql' 'staffgen.sql' 'supply_menuitem_ingredients.sql');
+SCRIPTS=('create_table.sql' 'populate.sql' 'staffgen.sql' 'menu_item.sql', 'supply.sql', 'other_supply.sql', 'ingredients.sql', 'menu.sql', 'wine.sql', 'food.sql');
 
 function display_usage
 {
