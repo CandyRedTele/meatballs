@@ -125,7 +125,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item` 
 (
-  `mitem_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `mitem_id` INTEGER PRIMARY KEY,
   `category` CHAR(45) NULL,
   `price` DOUBLE NULL,
   `name` VARCHAR(45) NULL,
