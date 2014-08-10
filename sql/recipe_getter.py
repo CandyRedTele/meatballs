@@ -92,7 +92,7 @@ class Recipe():
         self.main = self.getRecipe(main_urls, min=15, max=34)
         self.deserts = self.getRecipe(desert_urls, min=6, max=14)
         self.kids = self.getRecipe(kids_urls, min=8, max=15)
-        self.supply, self.menu_item, self.ingredients, self.menu, self.wine = self.create_list()
+        self.supply, self.menu_item, self.ingredients, self.menu, self.wine, self.other_supply = self.create_list()
 
     def create_dic(self):
         d= {"deserts": self.deserts, "main": self.main, "entree": self.entree, "kids": self.kids}
@@ -102,7 +102,7 @@ class Recipe():
         #return wines
 
     def get_it_all(self):
-        return self.get_ingredients() + self.get_supply() + self.get_menu_item() + self.get_menu() + self.get_wine()
+        return self.get_ingredients() + self.get_supply() + self.get_menu_item() + self.get_menu() + self.get_wine() + self.get_other_supply()
 
     def get_ingredients(self):
         s = ""
@@ -140,6 +140,14 @@ class Recipe():
         s = ""
         for i in self.wine:
             s += insert_wines
+            s += helper_l_s(i)
+            s += '); '
+        return s
+
+    def get_other_supply(self):
+        s = ""
+        for i in self.other_supply:
+            s += insert_supplies
             s += helper_l_s(i)
             s += '); '
         return s
@@ -199,7 +207,12 @@ class Recipe():
         for i in wine_kind:
             wine_rating.append([uniform(6.5, 10), i])
 
-        return supply, menu_item, ingredients, menu, wine_rating
+        ll = len(other_supp)
+        skus = sample(range(50000,99999), ll)
+        for i, j in enumerate(other_supp):
+            j.insert(0, skus[i])
+
+        return supply, menu_item, ingredients, menu, wine_rating, other_supp
 
     def generateUrlRecipe(self, urls):
         newlist=[]
@@ -256,3 +269,90 @@ wines =   {'wines': {'Cune Rioja Imperial Gran Reserva': {'ingredients': [[1.0, 
 'Alvaro Palacios Priorat Les Terrasses Velles Vinyes': {'ingredients': [[1.0, 'Alvaro Palacios Priorat Les Terrasses Velles Vinyes']], 'price': 24},
 'Spring Valley Uriah Walla Walla Valley': {'ingredients': [[1.0, 'Spring Valley Uriah Walla Walla Valley']], 'price': 25},
 'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana': {'ingredients': [[1.0, 'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana']], 'price': 19}}}
+
+other_supp = [[ 'Oven', 'kitchen supplies' ],
+        [ 'Pan', 'kitchen supplies' ],
+        [ 'Knife', 'kitchen supplies' ],
+        [ 'Table', 'kitchen supplies' ],
+        [ 'Fork', 'kitchen supplies' ],
+        [ 'Tongs', 'kitchen supplies' ],
+        [ 'Meat Hammer', 'kitchen supplies' ],
+        [ 'Waffle Iron', 'kitchen supplies' ],
+        [ 'Plate', 'serving items' ],
+        [ 'Fork', 'serving items' ],
+        [ 'Spoon', 'serving items' ],
+        [ 'Knife', 'serving items' ],
+        [ 'Steak Knife', 'serving items' ],
+        [ 'Bowl', 'serving items' ],
+        [ 'Napkins', 'serving items' ],
+        [ 'Tray', 'serving items' ],
+        [ 'Table Clothes', 'linens' ],
+        [ 'Aprons', 'linens' ],
+        [ 'Fry Pans', 'kitchen supplies'],
+        [ 'Ingredient Bins' , 'kitchen supplies'],
+        [ 'Sheet Pans', 'kitchen supplies'],
+        [ 'Roast Pan', 'kitchen supplies'],
+        [ 'Stock Pot', 'kitchen supplies'],
+        [ 'Deep Boiler', 'kitchen supplies'],
+        [ 'Pasta Cooker', 'kitchen supplies'],
+        [ 'Sauce Pot', 'kitchen supplies'],
+        [ 'Sauce Pan', 'kitchen supplies'],
+        [ 'Pizza Pan', 'kitchen supplies'],
+        [ 'Pizza Dough Boxes', 'kitchen supplies'],
+        [ 'Sheet Pan', 'kitchen supplies'],
+        [ 'Tongs', 'kitchen supplies'],
+        [ 'Disher', 'kitchen supplies'],
+        [ 'Ladle', 'kitchen supplies'],
+        [ 'Egg Slicer', 'kitchen supplies'],
+        [ 'Tapered Grater', 'kitchen supplies'],
+        [ 'Grill Cover', 'kitchen supplies'],
+        [ 'Steak Weight', 'kitchen supplies'],
+        [ 'Pancake Dispenser Stand', 'kitchen supplies'],
+        [ 'Dredge', 'kitchen supplies'],
+        [ 'Sandwich Spreader', 'kitchen supplies'],
+        [ 'Fish Turner', 'kitchen supplies'],
+        [ 'Cutting Board for Meat', 'kitchen supplies'],
+        [ 'Cutting Board for Fish', 'kitchen supplies'],
+        [ 'Cutting Board for Poultry', 'kitchen supplies'],
+        [ 'Knife Rack', 'kitchen supplies'],
+        [ 'Professional Cimeter', 'kitchen supplies'],
+        [ 'Cleaver', 'kitchen supplies'],
+        [ 'Sharpening Steel', 'kitchen supplies'],
+        [ 'Refrigerator/Freezer Thermometer', 'kitchen supplies'],
+        [ 'Can Opener', 'kitchen supplies'],
+        [ 'Nitrile Gloves', 'linens'],
+        [ 'Oven Mitt', 'linens'],
+        [ 'Cloth Pot Holder', 'linens'],
+        [ 'Digital Scale', 'kitchen supplies'],
+        [ 'Manual Slicer', 'kitchen supplies'],
+        [ 'Table Skirting', 'linens'],
+        [ 'Vinyl Tablecloth', 'linens'],
+        [ 'Salt and Pepper Shaker', 'serving items'],
+        [ 'Single Jacket Menu', 'serving items'],
+        [ 'Menu Holder', 'serving items'],
+        [ 'Tabletop Sign Holder', 'serving items'],
+        [ 'Table Top Napkin Holders', 'serving items'],
+        [ 'Napkins', 'serving items'],
+        [ 'Straw Dispenser', 'serving items'],
+        [ 'Straw', 'serving items'],
+        [ 'Cone Holder', 'serving items'],
+        [ 'Countertop Organizer', 'serving items'],
+        [ 'Beverage Dispenser', 'serving items'],
+        [ 'Tea Urn', 'serving items'],
+        [ 'Coffee Maker', 'serving items'],
+        [ 'Espresso Maker', 'serving items'],
+        [ 'Panini Grill', 'kitchen supplies'],
+        [ 'Rice Cooker/Warmer', 'kitchen supplies'],
+        [ 'Filter Drain Pot', 'kitchen supplies'],
+        [ 'Bottle Cooler', 'kitchen supplies'],
+        [ 'Overhead Glass Rack', 'kitchen supplies'],
+        [ 'Ice bin', 'kitchen supplies'],
+        [ 'Champagne Bucket and Stand', 'serving items'],
+        [ 'Waiter Corkscrew', 'serving items'],
+        [ 'Glass Storage Rack', 'kitchen supplies'],
+        [ 'Sink', 'kitchen supplies'],
+        [ 'Drainboards', 'kitchen supplies'],
+        [ 'Refrigerator', 'kitchen supplies'],
+        [ 'Freezer', 'kitchen supplies'],
+        [ 'Chairs', 'serving items']]
+
