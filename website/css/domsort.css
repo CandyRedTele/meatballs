@@ -1,0 +1,38 @@
+div#thelist
+{ display: table;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+  border-collapse: collapse;
+}
+
+div#thelist ul
+{ display: table-row;
+  background-color:#f0f0f0;
+}
+
+div#thelist ul li
+{ display: table-cell;
+  text-align: center;
+  padding: 5px;
+  border: thin solid black;
+}
+
+div#thelist ul li.number
+{
+  text-align: right;
+}
+
+div#thelist ul#control li
+{ display: table-cell;
+  text-align: center;
+  font-weight: bold;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: #fc0;
+}
+
+div#thelist ul#control li:hover
+{  color: #fc0;
+   background-color: #666;
+}
