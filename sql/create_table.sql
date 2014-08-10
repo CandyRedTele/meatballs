@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`staff`
     `phone`         CHAR(12)    NULL,
     `ssn`           CHAR(11)    NULL,   -- TODO fix the number of digits in SSN (should be 9)
     `title`         VARCHAR(45) NOT NULL,
-	`acces_level`   INTEGER     NULL CHECK(acces_level in (1,2,3,4,5)), --       COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
+	`access_level`   INTEGER     NULL CHECK(access_level in (1,2,3,4,5)), --       COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
 
     FOREIGN KEY (`title`) REFERENCES `meatballs`.`pay` (`title`)
         ON DELETE NO ACTION
@@ -128,14 +128,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
   `mitem_id` INTEGER PRIMARY KEY,
   `category` CHAR(45) NULL,
   `price` DOUBLE NULL,
-  `name` VARCHAR(45) NULL,
-  `sku` INTEGER NOT NULL,
-  INDEX `fk_menu_item_ingredient1_idx` (`sku` ASC),
-  CONSTRAINT `fk_menu_item_ingredient1`
-    FOREIGN KEY (`sku`)
-    REFERENCES `meatballs`.`ingredients` (`sku`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `name` VARCHAR(45) NULL
+)
 ENGINE = InnoDB;
 
 
