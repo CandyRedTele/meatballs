@@ -2,12 +2,13 @@
 from urlparse import urlparse
 from lxml import html
 import requests
-from random import randint, sample
+from random import randint, sample, uniform
 
 url = "http://hangryingreedytest.herokuapp.com/?recipe_url="
 main_urls = ['http://allrecipes.com/Recipe/Worlds-Best-Lasagna/Detail.aspx?evt19=1',
         "http://allrecipes.com/Recipe/Bacon-Roasted-Chicken-with-Potatoes/Detail.aspx?evt19=1",
         "http://allrecipes.com/Recipe/Hot-Tamale-Pie/Detail.aspx?evt19=1",
+        "http://allrecipes.com/Recipe/Aussie-Chicken/",
         "http://allrecipes.com/Recipe/Yummy-Honey-Chicken-Kabobs/Detail.aspx?evt19=1",
         "http://allrecipes.com/Recipe/Apple-Butter-Pork-Loin/Detail.aspx?evt19=1",
         "http://allrecipes.com/Recipe/Lime-Chicken-Soft-Tacos/Detail.aspx?evt19=1",
@@ -15,7 +16,9 @@ main_urls = ['http://allrecipes.com/Recipe/Worlds-Best-Lasagna/Detail.aspx?evt19
         "http://allrecipes.com/Recipe/Boilermaker-Tailgate-Chili/Detail.aspx?evt19=1",
         "http://allrecipes.com/Recipe/Easy-Meatloaf/Detail.aspx?evt19=1",
         "http://allrecipes.com/Recipe/Grilled-Salmon-I/Detail.aspx?evt19=1",
+        "http://allrecipes.com/Recipe/Maple-Salmon/Detail.aspx?evt19=1",
         "http://allrecipes.com/Recipe/Famous-Butter-Chicken/Detail.aspx?evt19=1",
+        "http://allrecipes.com/Recipe/Heathers-Fried-Chicken/",
         "http://allrecipes.com/Recipe/Chicken-Breasts-with-Balsamic-Vinegar-and-Garlic/Detail.aspx?evt19=1",
         "http://allrecipes.com/Recipe/Eggplant-Parmesan-II/Detail.aspx?evt19=1",
         "http://allrecipes.com/Recipe/Braised-Balsamic-Chicken/Detail.aspx?evt19=1",
@@ -28,6 +31,7 @@ desert_urls = ['http://allrecipes.com/Recipe/Chicken-Pot-Pie-IX/Detail.aspx?evt1
     "http://allrecipes.com/Recipe/Basic-Crepes/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Golden-Rum-Cake/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Old-Fashioned-Coconut-Cream-Pie/Detail.aspx?evt19=1",
+    "http://allrecipes.com/Recipe/Chocolate-Ganache/",
     "http://allrecipes.com/Recipe/Best-Carrot-Cake-Ever/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Flourless-Chocolate-Cake-I/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Rolled-Buttercream-Fondant/Detail.aspx?evt19=1",
@@ -41,6 +45,10 @@ entree_urls = ['http://allrecipes.com/Recipe/Mexican-Bean-Salad/Detail.aspx?evt1
    "http://allrecipes.com/Recipe/Alysons-Broccoli-Salad-2/Detail.aspx?evt19=1",
    "http://allrecipes.com/Recipe/Judys-Strawberry-Pretzel-Salad/Detail.aspx?evt19=1",
    "http://allrecipes.com/Recipe/Classic-Macaroni-Salad/Detail.aspx?evt19=1",
+   "http://allrecipes.com/Recipe/Hummus-III/Detail.aspx?evt19=1",
+   "http://allrecipes.com/Recipe/Baked-Kale-Chips/Detail.aspx?evt19=1",
+   "http://allrecipes.com/Recipe/Delicious-Ham-and-Potato-Soup/",
+   "http://allrecipes.com/Recipe/Slow-Cooker-Chicken-and-Dumplings/",
    "http://allrecipes.com/Recipe/Strawberry-Spinach-Salad-I/Detail.aspx?evt19=1",
    "http://allrecipes.com/Recipe/King-Crab-Appetizers/Detail.aspx?evt19=1",
    "http://allrecipes.com/Recipe/Cocktail-Meatballs/Detail.aspx?evt19=1",
@@ -48,16 +56,20 @@ entree_urls = ['http://allrecipes.com/Recipe/Mexican-Bean-Salad/Detail.aspx?evt1
 kids_urls = [
     "http://allrecipes.com/Recipe/Tuna-Noodle-Casserole-from-Scratch/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/EZ-Pizza-for-Kids/",
+    "http://allrecipes.com/Recipe/Bacon-Wrapped-Smokies/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Homemade-Mac-and-Cheese/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Baked-Ziti-I/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Spinach-Quiche-with-Kid-Appeal/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Millys-Oatmeal-Brownies/Detail.aspx?evt19=1",
+    "http://allrecipes.com/Recipe/Cajun-Grilled-Corn/",
     "http://allrecipes.com/Recipe/Best-Baked-French-Fries/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Creamy-Hot-Chocolate/Detail.aspx?evt19=1"]
 
 insert_supplies = 'INSERT INTO supply (sku, name, type) VALUES ('
 insert_menuitems = 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES ('
 insert_ingredients = 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES ('
+insert_menus = 'INSERT INTO menu (m_id, type, mitem_id) VALUES ('
+insert_wines = 'INSERT INTO wine (rate, mitem_id) VALUES ('
 
 
 def helper_l_s(l):
@@ -80,7 +92,7 @@ class Recipe():
         self.main = self.getRecipe(main_urls, min=15, max=34)
         self.deserts = self.getRecipe(desert_urls, min=6, max=14)
         self.kids = self.getRecipe(kids_urls, min=8, max=15)
-        self.supply, self.menu_item, self.ingredients = self.create_list()
+        self.supply, self.menu_item, self.ingredients, self.menu, self.wine, self.other_supply = self.create_list()
 
     def create_dic(self):
         d= {"deserts": self.deserts, "main": self.main, "entree": self.entree, "kids": self.kids}
@@ -90,7 +102,7 @@ class Recipe():
         #return wines
 
     def get_it_all(self):
-        return self.get_ingredients() + self.get_supply() + self.get_menu_item()
+        return self.get_ingredients() + self.get_supply() + self.get_menu_item() + self.get_menu() + self.get_wine() + self.get_other_supply()
 
     def get_ingredients(self):
         s = ""
@@ -112,6 +124,30 @@ class Recipe():
         s = ""
         for i in self.menu_item:
             s += insert_menuitems
+            s += helper_l_s(i)
+            s += '); '
+        return s
+
+    def get_menu(self):
+        s = ""
+        for i in self.menu:
+            s += insert_menus
+            s += helper_l_s(i)
+            s += '); '
+        return s
+
+    def get_wine(self):
+        s = ""
+        for i in self.wine:
+            s += insert_wines
+            s += helper_l_s(i)
+            s += '); '
+        return s
+
+    def get_other_supply(self):
+        s = ""
+        for i in self.other_supply:
+            s += insert_supplies
             s += helper_l_s(i)
             s += '); '
         return s
@@ -148,7 +184,35 @@ class Recipe():
                 for k in j['ingredients']:
                     ingredients.append([k[2], j['id'], k[0]])
 
-        return supply, menu_item, ingredients
+        menus_kind = []
+        for i in range(17):
+            menus_kind.append(menu_item[i::17])
+
+        common_menus = menus_kind[12:]
+        specific_menus = menus_kind[:12]
+
+        c = [item for sublist in common_menus for item in sublist]
+
+        for i in specific_menus:
+            for j in c:
+                i.append(j)
+
+        menu = []
+        for i, j in enumerate(specific_menus, start=1):
+            for k in j:
+                menu.append([i, k[0], k[1]])
+
+        wine_kind = [i[0] for i in menu_item if i[1]=='wines']
+        wine_rating = []
+        for i in wine_kind:
+            wine_rating.append([uniform(6.5, 10), i])
+
+        ll = len(other_supp)
+        skus = sample(range(50000,99999), ll)
+        for i, j in enumerate(other_supp):
+            j.insert(0, skus[i])
+
+        return supply, menu_item, ingredients, menu, wine_rating, other_supp
 
     def generateUrlRecipe(self, urls):
         newlist=[]
@@ -173,7 +237,7 @@ class Recipe():
         amounts = []
         h = tree.xpath('//table[2]')[0]
         for i in h[1:]:
-            amounts.append([float(i[1].text), i[3].text])
+            amounts.append([float(i[1].text), i[3].text.replace("'","")])
         price = randint(min, max)
         return {name:{'ingredients':amounts,'price':price}}
 
@@ -205,3 +269,90 @@ wines =   {'wines': {'Cune Rioja Imperial Gran Reserva': {'ingredients': [[1.0, 
 'Alvaro Palacios Priorat Les Terrasses Velles Vinyes': {'ingredients': [[1.0, 'Alvaro Palacios Priorat Les Terrasses Velles Vinyes']], 'price': 24},
 'Spring Valley Uriah Walla Walla Valley': {'ingredients': [[1.0, 'Spring Valley Uriah Walla Walla Valley']], 'price': 25},
 'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana': {'ingredients': [[1.0, 'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana']], 'price': 19}}}
+
+other_supp = [[ 'Oven', 'kitchen supplies' ],
+        [ 'Pan', 'kitchen supplies' ],
+        [ 'Knife', 'kitchen supplies' ],
+        [ 'Table', 'kitchen supplies' ],
+        [ 'Fork', 'kitchen supplies' ],
+        [ 'Tongs', 'kitchen supplies' ],
+        [ 'Meat Hammer', 'kitchen supplies' ],
+        [ 'Waffle Iron', 'kitchen supplies' ],
+        [ 'Plate', 'serving items' ],
+        [ 'Fork', 'serving items' ],
+        [ 'Spoon', 'serving items' ],
+        [ 'Knife', 'serving items' ],
+        [ 'Steak Knife', 'serving items' ],
+        [ 'Bowl', 'serving items' ],
+        [ 'Napkins', 'serving items' ],
+        [ 'Tray', 'serving items' ],
+        [ 'Table Clothes', 'linens' ],
+        [ 'Aprons', 'linens' ],
+        [ 'Fry Pans', 'kitchen supplies'],
+        [ 'Ingredient Bins' , 'kitchen supplies'],
+        [ 'Sheet Pans', 'kitchen supplies'],
+        [ 'Roast Pan', 'kitchen supplies'],
+        [ 'Stock Pot', 'kitchen supplies'],
+        [ 'Deep Boiler', 'kitchen supplies'],
+        [ 'Pasta Cooker', 'kitchen supplies'],
+        [ 'Sauce Pot', 'kitchen supplies'],
+        [ 'Sauce Pan', 'kitchen supplies'],
+        [ 'Pizza Pan', 'kitchen supplies'],
+        [ 'Pizza Dough Boxes', 'kitchen supplies'],
+        [ 'Sheet Pan', 'kitchen supplies'],
+        [ 'Tongs', 'kitchen supplies'],
+        [ 'Disher', 'kitchen supplies'],
+        [ 'Ladle', 'kitchen supplies'],
+        [ 'Egg Slicer', 'kitchen supplies'],
+        [ 'Tapered Grater', 'kitchen supplies'],
+        [ 'Grill Cover', 'kitchen supplies'],
+        [ 'Steak Weight', 'kitchen supplies'],
+        [ 'Pancake Dispenser Stand', 'kitchen supplies'],
+        [ 'Dredge', 'kitchen supplies'],
+        [ 'Sandwich Spreader', 'kitchen supplies'],
+        [ 'Fish Turner', 'kitchen supplies'],
+        [ 'Cutting Board for Meat', 'kitchen supplies'],
+        [ 'Cutting Board for Fish', 'kitchen supplies'],
+        [ 'Cutting Board for Poultry', 'kitchen supplies'],
+        [ 'Knife Rack', 'kitchen supplies'],
+        [ 'Professional Cimeter', 'kitchen supplies'],
+        [ 'Cleaver', 'kitchen supplies'],
+        [ 'Sharpening Steel', 'kitchen supplies'],
+        [ 'Refrigerator/Freezer Thermometer', 'kitchen supplies'],
+        [ 'Can Opener', 'kitchen supplies'],
+        [ 'Nitrile Gloves', 'linens'],
+        [ 'Oven Mitt', 'linens'],
+        [ 'Cloth Pot Holder', 'linens'],
+        [ 'Digital Scale', 'kitchen supplies'],
+        [ 'Manual Slicer', 'kitchen supplies'],
+        [ 'Table Skirting', 'linens'],
+        [ 'Vinyl Tablecloth', 'linens'],
+        [ 'Salt and Pepper Shaker', 'serving items'],
+        [ 'Single Jacket Menu', 'serving items'],
+        [ 'Menu Holder', 'serving items'],
+        [ 'Tabletop Sign Holder', 'serving items'],
+        [ 'Table Top Napkin Holders', 'serving items'],
+        [ 'Napkins', 'serving items'],
+        [ 'Straw Dispenser', 'serving items'],
+        [ 'Straw', 'serving items'],
+        [ 'Cone Holder', 'serving items'],
+        [ 'Countertop Organizer', 'serving items'],
+        [ 'Beverage Dispenser', 'serving items'],
+        [ 'Tea Urn', 'serving items'],
+        [ 'Coffee Maker', 'serving items'],
+        [ 'Espresso Maker', 'serving items'],
+        [ 'Panini Grill', 'kitchen supplies'],
+        [ 'Rice Cooker/Warmer', 'kitchen supplies'],
+        [ 'Filter Drain Pot', 'kitchen supplies'],
+        [ 'Bottle Cooler', 'kitchen supplies'],
+        [ 'Overhead Glass Rack', 'kitchen supplies'],
+        [ 'Ice bin', 'kitchen supplies'],
+        [ 'Champagne Bucket and Stand', 'serving items'],
+        [ 'Waiter Corkscrew', 'serving items'],
+        [ 'Glass Storage Rack', 'kitchen supplies'],
+        [ 'Sink', 'kitchen supplies'],
+        [ 'Drainboards', 'kitchen supplies'],
+        [ 'Refrigerator', 'kitchen supplies'],
+        [ 'Freezer', 'kitchen supplies'],
+        [ 'Chairs', 'serving items']]
+

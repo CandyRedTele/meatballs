@@ -15,7 +15,10 @@ class CustomQuery extends IQuery
 
     public function __construct($query_string)
     {
+		parent::__construct();
         $this->query_string = $query_string;
+		$this->logger->write("[" . __CLASS__ . "] - __construct()");
+		$this->logger->write("\t? include path : " . get_include_path());
     }
 
     public function getQueryString()
