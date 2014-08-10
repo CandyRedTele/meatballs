@@ -6,7 +6,7 @@
  * NAME : class MeatballUser 
  *
  *************************************************************************/
-include_once("IQuery.php");
+include_once("IncludeAllQueries.php");
 class MeatballUser
 {
     private function __construct()
@@ -25,7 +25,7 @@ class MeatballUser
     {
         $logger = Logger::getSingleInstace();
 
-        $query = new CustomQuery("SELECT access_level FROM staff WHERE staff_id= " . $staff_id);
+        $query = new GetAccessLevelQuery($staff_id);
         $result = $query->execute();
 
         if ($result->num_rows == 0) {
