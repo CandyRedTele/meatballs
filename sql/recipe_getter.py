@@ -65,12 +65,12 @@ kids_urls = [
     "http://allrecipes.com/Recipe/Best-Baked-French-Fries/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Creamy-Hot-Chocolate/Detail.aspx?evt19=1"]
 
-insert_supplies = 'INSERT INTO supply (sku, name, type) VALUES ('
+insert_supplies = 'INSERT INTO supplies (sku, name, type) VALUES ('
 insert_menuitems = 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES ('
 insert_ingredients = 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES ('
 insert_menus = 'INSERT INTO menu (m_id, type, mitem_id) VALUES ('
 insert_wines = 'INSERT INTO wine (rate, mitem_id) VALUES ('
-
+insert_food = 'INSERT INTO food (sku, expire_date, perishable) VALUES ('
 
 def helper_l_s(l):
     s = ""
@@ -87,12 +87,12 @@ def helper_l_s(l):
 class Recipe():
 
     def __init__(self):
-        pass
+        #pass
         self.entree = self.getRecipe(entree_urls, 8, 16)
         self.main = self.getRecipe(main_urls, min=15, max=34)
         self.deserts = self.getRecipe(desert_urls, min=6, max=14)
         self.kids = self.getRecipe(kids_urls, min=8, max=15)
-        self.supply, self.menu_item, self.ingredients, self.menu, self.wine, self.other_supply = self.create_list()
+        self.supply, self.menu_item, self.ingredients, self.menu, self.wine, self.other_supply, self.food = self.create_list()
 
     def create_dic(self):
         d= {"deserts": self.deserts, "main": self.main, "entree": self.entree, "kids": self.kids}
@@ -101,8 +101,8 @@ class Recipe():
         return d
         #return wines
 
-    def get_it_all(self):
-        return self.get_ingredients() + self.get_supply() + self.get_menu_item() + self.get_menu() + self.get_wine() + self.get_other_supply()
+    #def get_it_all(self):
+        #return self.get_supply() + self.get_other_supply() + self.get_menu_item() + self.get_ingredients() + self.get_menu() + self.get_wine() + self.get_food()
 
     def get_ingredients(self):
         s = ""
@@ -152,6 +152,15 @@ class Recipe():
             s += '); '
         return s
 
+    def get_food(self):
+        s = ""
+        for i in self.food:
+            s += insert_food
+            s += helper_l_s(i)
+            s += '); '
+        return s
+
+
     def create_list(self):
         d = self.create_dic()
         x = []
@@ -184,6 +193,20 @@ class Recipe():
                 for k in j['ingredients']:
                     ingredients.append([k[2], j['id'], k[0]])
 
+        food = []
+        count = 0
+        for category, i in d.iteritems():
+            for j in i.itervalues():
+                for k in j['ingredients']:
+                    if (category == "wines" or count % 5 == 0):
+                        k.append(randint(45, 500))
+                        k.append(False)
+                    else:
+                        k.append(randint(5, 45))
+                        k.append(True)
+                    count += 1
+                    food.append([k[2], k[3], k[4]])
+
         menus_kind = []
         for i in range(17):
             menus_kind.append(menu_item[i::17])
@@ -200,7 +223,7 @@ class Recipe():
         menu = []
         for i, j in enumerate(specific_menus, start=1):
             for k in j:
-                menu.append([i, k[0], k[1]])
+                menu.append([i, k[1], k[0]])
 
         wine_kind = [i[0] for i in menu_item if i[1]=='wines']
         wine_rating = []
@@ -212,7 +235,7 @@ class Recipe():
         for i, j in enumerate(other_supp):
             j.insert(0, skus[i])
 
-        return supply, menu_item, ingredients, menu, wine_rating, other_supp
+        return supply, menu_item, ingredients, menu, wine_rating, other_supp, food
 
     def generateUrlRecipe(self, urls):
         newlist=[]
