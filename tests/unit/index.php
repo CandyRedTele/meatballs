@@ -38,7 +38,7 @@
 
         $query2 = new TestQuery();
         $query1 = new CustomQuery("SELECT customerName from customers");
-        $query3 = new SelectAllQuery("customers");
+        $query3 = new SelectAllQuery("staff");
 
         //$result = $query1->execute();
         //$result = $query2->execute();

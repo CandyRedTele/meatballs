@@ -27,7 +27,7 @@ if ($handle = opendir($path))
         }
 
 
-        if (preg_match('/Query/', $file)) {
+        if (preg_match('/Query.php$/', $file)) {
             include_once($file);
             $included_files .=  $file." ";
         }

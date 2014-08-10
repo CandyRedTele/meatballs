@@ -15,6 +15,7 @@ class GetAccessLevelQuery extends IQuery
 
     public function __construct($staff_id)
     {
+		parent::__construct();
         $this->staff_id = $staff_id;
     }
 

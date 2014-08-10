@@ -32,6 +32,8 @@ class Logger
             {
                 self::$singleton = new Logger($args[0]); // For Unit Testing purpose
             }
+
+            self::$singleton->write("\n[".__CLASS__."] +++ Logger instanciated +++");
         }
 
         return self::$singleton;
