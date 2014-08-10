@@ -221,9 +221,11 @@ class Recipe():
                 i.append(j)
 
         menu = []
-        for i, j in enumerate(specific_menus, start=1):
-            for k in j:
-                menu.append([i, k[1], k[0]])
+        count=1
+        for i in specific_menus:
+            for k in i:
+                menu.append([count, k[1], k[0]])
+                count += 1
 
         wine_kind = [i[0] for i in menu_item if i[1]=='wines']
         wine_rating = []
