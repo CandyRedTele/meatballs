@@ -2,7 +2,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20814,
+VALUES      (44303,
              1,
              1.0);
 
@@ -10,7 +10,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34201,
+VALUES      (34066,
              2,
              1.0);
 
@@ -18,7 +18,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29326,
+VALUES      (48500,
              3,
              1.0);
 
@@ -26,7 +26,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30772,
+VALUES      (33175,
              4,
              1.0);
 
@@ -34,7 +34,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41252,
+VALUES      (43571,
              5,
              1.0);
 
@@ -42,7 +42,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18969,
+VALUES      (41681,
              6,
              1.0);
 
@@ -50,7 +50,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28470,
+VALUES      (40751,
              7,
              1.0);
 
@@ -58,7 +58,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48800,
+VALUES      (35486,
              8,
              1.0);
 
@@ -66,7 +66,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29786,
+VALUES      (44438,
              9,
              1.0);
 
@@ -74,7 +74,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35997,
+VALUES      (41589,
              10,
              1.0);
 
@@ -82,7 +82,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23626,
+VALUES      (38853,
              11,
              1.0);
 
@@ -90,7 +90,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35815,
+VALUES      (22139,
              12,
              1.0);
 
@@ -98,7 +98,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15701,
+VALUES      (15258,
              13,
              1.0);
 
@@ -106,7 +106,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34513,
+VALUES      (44312,
              14,
              1.0);
 
@@ -114,7 +114,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13032,
+VALUES      (20338,
              15,
              1.0);
 
@@ -122,7 +122,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17593,
+VALUES      (36776,
              16,
              1.0);
 
@@ -130,7 +130,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30756,
+VALUES      (29683,
              17,
              1.0);
 
@@ -138,7 +138,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38763,
+VALUES      (24965,
              18,
              1.0);
 
@@ -146,7 +146,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45273,
+VALUES      (28266,
              19,
              1.0);
 
@@ -154,7 +154,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45040,
+VALUES      (31442,
              20,
              1.0);
 
@@ -162,7 +162,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33856,
+VALUES      (19983,
              21,
              1.0);
 
@@ -170,7 +170,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35123,
+VALUES      (44623,
              22,
              1.0);
 
@@ -178,7 +178,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25600,
+VALUES      (36247,
              23,
              1.0);
 
@@ -186,7 +186,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10851,
+VALUES      (12587,
              24,
              1.0);
 
@@ -194,7 +194,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25983,
+VALUES      (26765,
              25,
              1.0);
 
@@ -202,7 +202,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11810,
+VALUES      (14270,
              26,
              1.0);
 
@@ -210,7 +210,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27772,
+VALUES      (26673,
              27,
              1.0);
 
@@ -218,7 +218,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28996,
+VALUES      (26604,
              28,
              1.0);
 
@@ -226,7 +226,15 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36105,
+VALUES      (10907,
+             29  ,
+             6.0);
+
+INSERT INTO ingredients
+            (sku,
+             mitem_id,
+             amount)
+VALUES      (44768,
              29,
              6.0);
 
@@ -234,15 +242,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27621,
-             29,
-             6.0);
-
-INSERT INTO ingredients
-            (sku,
-             mitem_id,
-             amount)
-VALUES      (40190,
+VALUES      (44695,
              29,
              12.0);
 
@@ -250,7 +250,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45084,
+VALUES      (45201,
              29,
              0.0);
 
@@ -258,7 +258,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10432,
+VALUES      (10722,
              29,
              1.0);
 
@@ -266,7 +266,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34238,
+VALUES      (43756,
              29,
              1.5);
 
@@ -274,7 +274,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45602,
+VALUES      (35544,
              29,
              0.0);
 
@@ -282,7 +282,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29382,
+VALUES      (45691,
              29,
              2.0);
 
@@ -290,7 +290,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10615,
+VALUES      (44058,
              29,
              2.0);
 
@@ -298,7 +298,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45536,
+VALUES      (37157,
              29,
              1.0);
 
@@ -306,7 +306,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11829,
+VALUES      (30202,
              29,
              1.0);
 
@@ -314,7 +314,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36278,
+VALUES      (27805,
              29,
              1.0);
 
@@ -322,7 +322,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45914,
+VALUES      (10167,
              29,
              1.0);
 
@@ -330,7 +330,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42484,
+VALUES      (11238,
              30,
              1.5);
 
@@ -338,7 +338,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31955,
+VALUES      (28893,
              30,
              0.125);
 
@@ -346,7 +346,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24627,
+VALUES      (23387,
              30,
              0.5);
 
@@ -354,7 +354,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49181,
+VALUES      (46453,
              30,
              1.0);
 
@@ -362,7 +362,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36926,
+VALUES      (22715,
              30,
              0.5);
 
@@ -370,7 +370,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31442,
+VALUES      (18063,
              30,
              0.5);
 
@@ -378,7 +378,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22402,
+VALUES      (10286,
              30,
              2.0);
 
@@ -386,7 +386,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26287,
+VALUES      (36078,
              30,
              2.0);
 
@@ -394,7 +394,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19336,
+VALUES      (29185,
              30,
              1.0);
 
@@ -402,7 +402,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25287,
+VALUES      (47577,
              30,
              60.0);
 
@@ -410,7 +410,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45114,
+VALUES      (17824,
              30,
              1.0);
 
@@ -418,7 +418,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12845,
+VALUES      (16845,
              30,
              0.25);
 
@@ -426,7 +426,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21109,
+VALUES      (30688,
              30,
              0.25);
 
@@ -434,7 +434,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36623,
+VALUES      (31709,
              30,
              0.25);
 
@@ -442,7 +442,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41454,
+VALUES      (12545,
              31,
              3.0);
 
@@ -450,7 +450,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18575,
+VALUES      (43328,
              31,
              2.0);
 
@@ -458,7 +458,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26962,
+VALUES      (28065,
              31,
              4.0);
 
@@ -466,7 +466,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12299,
+VALUES      (27383,
              31,
              6.0);
 
@@ -474,7 +474,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27642,
+VALUES      (24638,
              31,
              16.0);
 
@@ -482,7 +482,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21125,
+VALUES      (41749,
              31,
              0.5);
 
@@ -490,7 +490,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25736,
+VALUES      (18680,
              31,
              0.5);
 
@@ -498,7 +498,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43255,
+VALUES      (20743,
              32,
              0.25);
 
@@ -506,7 +506,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38231,
+VALUES      (24356,
              32,
              0.333333333333);
 
@@ -514,7 +514,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12860,
+VALUES      (26994,
              32,
              0.333333333333);
 
@@ -522,7 +522,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21199,
+VALUES      (16409,
              32,
              0.25);
 
@@ -530,7 +530,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34210,
+VALUES      (25424,
              32,
              8.0);
 
@@ -538,7 +538,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29509,
+VALUES      (26284,
              32,
              2.0);
 
@@ -546,7 +546,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47262,
+VALUES      (29615,
              32,
              5.0);
 
@@ -554,7 +554,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22444,
+VALUES      (19206,
              32,
              2.0);
 
@@ -562,7 +562,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23293,
+VALUES      (42710,
              32,
              0.0);
 
@@ -570,7 +570,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (14133,
+VALUES      (37330,
              33,
              1.0);
 
@@ -578,7 +578,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26679,
+VALUES      (11539,
              33,
              0.75);
 
@@ -586,7 +586,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18679,
+VALUES      (43770,
              33,
              0.5);
 
@@ -594,7 +594,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13314,
+VALUES      (18613,
              33,
              2.0);
 
@@ -602,7 +602,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31137,
+VALUES      (14632,
              33,
              28.0);
 
@@ -610,7 +610,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47173,
+VALUES      (35747,
              33,
              12.0);
 
@@ -618,7 +618,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16490,
+VALUES      (31969,
              33,
              13.0);
 
@@ -626,7 +626,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22680,
+VALUES      (49512,
              33,
              0.5);
 
@@ -634,7 +634,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10799,
+VALUES      (17992,
              33,
              2.0);
 
@@ -642,7 +642,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10663,
+VALUES      (21371,
              33,
              1.5);
 
@@ -650,7 +650,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13520,
+VALUES      (22342,
              33,
              0.5);
 
@@ -658,7 +658,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28638,
+VALUES      (43380,
              33,
              1.0);
 
@@ -666,7 +666,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31597,
+VALUES      (18556,
              33,
              1.0);
 
@@ -674,7 +674,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11331,
+VALUES      (29838,
              33,
              0.25);
 
@@ -682,7 +682,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (14635,
+VALUES      (30270,
              33,
              4.0);
 
@@ -690,7 +690,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47036,
+VALUES      (27335,
              33,
              12.0);
 
@@ -698,7 +698,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44329,
+VALUES      (10339,
              33,
              16.0);
 
@@ -706,7 +706,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47638,
+VALUES      (24487,
              33,
              1.0);
 
@@ -714,7 +714,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25059,
+VALUES      (39098,
              33,
              0.5);
 
@@ -722,7 +722,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15099,
+VALUES      (38675,
              33,
              0.75);
 
@@ -730,7 +730,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43000,
+VALUES      (19521,
              33,
              0.75);
 
@@ -738,7 +738,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19381,
+VALUES      (19185,
              34,
              0.25);
 
@@ -746,7 +746,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24869,
+VALUES      (27133,
              34,
              2.0);
 
@@ -754,7 +754,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24731,
+VALUES      (17575,
              34,
              1.0);
 
@@ -762,7 +762,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36454,
+VALUES      (39750,
              34,
              0.25);
 
@@ -770,7 +770,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11535,
+VALUES      (29786,
              34,
              0.125);
 
@@ -778,7 +778,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45544,
+VALUES      (24392,
              34,
              1.0);
 
@@ -786,7 +786,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48269,
+VALUES      (15911,
              35,
              6.0);
 
@@ -794,7 +794,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12877,
+VALUES      (42060,
              35,
              6.0);
 
@@ -802,7 +802,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17329,
+VALUES      (11207,
              35,
              2.0);
 
@@ -810,7 +810,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38106,
+VALUES      (13753,
              35,
              1.0);
 
@@ -818,7 +818,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24415,
+VALUES      (15319,
              35,
              2.0);
 
@@ -826,7 +826,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43961,
+VALUES      (41239,
              35,
              1.0);
 
@@ -834,7 +834,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27205,
+VALUES      (27976,
              35,
              1.0);
 
@@ -842,7 +842,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18893,
+VALUES      (45096,
              35,
              3.0);
 
@@ -850,7 +850,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47593,
+VALUES      (34912,
              35,
              2.0);
 
@@ -858,7 +858,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49184,
+VALUES      (46813,
              35,
              2.0);
 
@@ -866,7 +866,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20229,
+VALUES      (28879,
              36,
              4.0);
 
@@ -874,7 +874,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12712,
+VALUES      (18069,
              36,
              0.0);
 
@@ -882,7 +882,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (14777,
+VALUES      (33766,
              36,
              0.75);
 
@@ -890,7 +890,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31193,
+VALUES      (14690,
              36,
              2.0);
 
@@ -898,7 +898,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37271,
+VALUES      (47966,
              36,
              2.0);
 
@@ -906,7 +906,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11682,
+VALUES      (30332,
              36,
              6.0);
 
@@ -914,7 +914,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11520,
+VALUES      (33412,
              36,
              0.25);
 
@@ -922,7 +922,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12023,
+VALUES      (19640,
              36,
              0.75);
 
@@ -930,7 +930,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33379,
+VALUES      (17842,
              36,
              1.0);
 
@@ -938,7 +938,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33861,
+VALUES      (29919,
              36,
              0.25);
 
@@ -946,7 +946,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24063,
+VALUES      (44481,
              36,
              1.0);
 
@@ -954,7 +954,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43434,
+VALUES      (32949,
              37,
              6.0);
 
@@ -962,7 +962,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37916,
+VALUES      (32370,
              37,
              1.0);
 
@@ -970,7 +970,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48988,
+VALUES      (15236,
              37,
              0.0);
 
@@ -978,7 +978,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18919,
+VALUES      (41012,
              37,
              2.0);
 
@@ -986,7 +986,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35301,
+VALUES      (15460,
              37,
              1.0);
 
@@ -994,7 +994,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22300,
+VALUES      (21137,
              37,
              14.5);
 
@@ -1002,7 +1002,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23157,
+VALUES      (48509,
              37,
              0.5);
 
@@ -1010,7 +1010,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20403,
+VALUES      (45837,
              37,
              1.0);
 
@@ -1018,7 +1018,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26189,
+VALUES      (31774,
              37,
              1.0);
 
@@ -1026,7 +1026,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (46505,
+VALUES      (21586,
              37,
              1.0);
 
@@ -1034,7 +1034,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49282,
+VALUES      (14002,
              37,
              0.5);
 
@@ -1042,7 +1042,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23103,
+VALUES      (35798,
              38,
              1.5);
 
@@ -1050,7 +1050,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29672,
+VALUES      (14021,
              38,
              0.0);
 
@@ -1058,7 +1058,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36932,
+VALUES      (17726,
              38,
              0.0);
 
@@ -1066,7 +1066,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19115,
+VALUES      (19844,
              38,
              0.0);
 
@@ -1074,7 +1074,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29636,
+VALUES      (12270,
              38,
              0.333333333333);
 
@@ -1082,7 +1082,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39211,
+VALUES      (27895,
              38,
              0.333333333333);
 
@@ -1090,7 +1090,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38110,
+VALUES      (29010,
              38,
              0.333333333333);
 
@@ -1098,7 +1098,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34999,
+VALUES      (21454,
              38,
              0.25);
 
@@ -1106,7 +1106,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39963,
+VALUES      (10707,
              39,
              2.0);
 
@@ -1114,7 +1114,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11907,
+VALUES      (13130,
              39,
              1.0);
 
@@ -1122,7 +1122,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13179,
+VALUES      (45405,
              39,
              0.5);
 
@@ -1130,7 +1130,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16979,
+VALUES      (48671,
              39,
              0.0);
 
@@ -1138,7 +1138,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49799,
+VALUES      (20221,
              39,
              4.0);
 
@@ -1146,7 +1146,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38685,
+VALUES      (20834,
              39,
              0.5);
 
@@ -1154,7 +1154,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36161,
+VALUES      (22247,
              40,
              0.0);
 
@@ -1162,7 +1162,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10345,
+VALUES      (20922,
              40,
              2.0);
 
@@ -1170,7 +1170,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11257,
+VALUES      (14816,
              40,
              2.0);
 
@@ -1178,7 +1178,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48149,
+VALUES      (34339,
              40,
              1.0);
 
@@ -1186,7 +1186,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15771,
+VALUES      (46685,
              40,
              16.0);
 
@@ -1194,7 +1194,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (32410,
+VALUES      (25473,
              40,
              0.5);
 
@@ -1202,7 +1202,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15492,
+VALUES      (16390,
              40,
              1.0);
 
@@ -1210,7 +1210,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17090,
+VALUES      (19232,
              40,
              17.0);
 
@@ -1218,7 +1218,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45576,
+VALUES      (29004,
              40,
              2.0);
 
@@ -1226,7 +1226,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37527,
+VALUES      (17153,
              40,
              0.666666666667);
 
@@ -1234,7 +1234,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36988,
+VALUES      (12176,
              40,
              4.0);
 
@@ -1242,7 +1242,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22513,
+VALUES      (29819,
              40,
              4.0);
 
@@ -1250,7 +1250,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38655,
+VALUES      (47393,
              40,
              8.0);
 
@@ -1258,7 +1258,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20192,
+VALUES      (12127,
              41,
              16.0);
 
@@ -1266,7 +1266,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29442,
+VALUES      (21013,
              41,
              1.0);
 
@@ -1274,7 +1274,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (40191,
+VALUES      (13866,
              41,
              1.0);
 
@@ -1282,7 +1282,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49445,
+VALUES      (34724,
              41,
              4.0);
 
@@ -1290,7 +1290,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18926,
+VALUES      (12713,
              42,
              1.0);
 
@@ -1298,7 +1298,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12113,
+VALUES      (29878,
              42,
              0.25);
 
@@ -1306,7 +1306,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34921,
+VALUES      (20590,
              42,
              0.25);
 
@@ -1314,7 +1314,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10780,
+VALUES      (36672,
              42,
              0.5);
 
@@ -1322,7 +1322,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10430,
+VALUES      (38518,
              42,
              1.0);
 
@@ -1330,7 +1330,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30543,
+VALUES      (27738,
              42,
              0.75);
 
@@ -1338,7 +1338,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21380,
+VALUES      (33953,
              42,
              3.0);
 
@@ -1346,7 +1346,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (32738,
+VALUES      (34434,
              42,
              0.0);
 
@@ -1354,7 +1354,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10569,
+VALUES      (30593,
              42,
              0.0);
 
@@ -1362,7 +1362,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21923,
+VALUES      (27156,
              43,
              4.0);
 
@@ -1370,7 +1370,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16170,
+VALUES      (23995,
              43,
              2.0);
 
@@ -1378,7 +1378,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11299,
+VALUES      (38336,
              43,
              6.0);
 
@@ -1386,7 +1386,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18155,
+VALUES      (43990,
              43,
              0.5);
 
@@ -1394,7 +1394,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21444,
+VALUES      (46418,
              43,
              0.5);
 
@@ -1402,7 +1402,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27860,
+VALUES      (49550,
              43,
              0.25);
 
@@ -1410,7 +1410,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47729,
+VALUES      (49201,
              43,
              0.25);
 
@@ -1418,7 +1418,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21354,
+VALUES      (20200,
              43,
              1.0);
 
@@ -1426,7 +1426,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28817,
+VALUES      (34870,
              43,
              1.0);
 
@@ -1434,7 +1434,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29705,
+VALUES      (22503,
              43,
              1.0);
 
@@ -1442,7 +1442,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44286,
+VALUES      (10292,
              43,
              2.0);
 
@@ -1450,7 +1450,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25018,
+VALUES      (36401,
              43,
              2.0);
 
@@ -1458,7 +1458,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12132,
+VALUES      (37478,
              44,
              4.0);
 
@@ -1466,7 +1466,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47281,
+VALUES      (40124,
              44,
              0.0);
 
@@ -1474,7 +1474,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11901,
+VALUES      (27970,
              44,
              2.0);
 
@@ -1482,7 +1482,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36164,
+VALUES      (34103,
              44,
              0.5);
 
@@ -1490,7 +1490,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19213,
+VALUES      (47665,
              44,
              0.25);
 
@@ -1498,7 +1498,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15999,
+VALUES      (27306,
              44,
              2.0);
 
@@ -1506,7 +1506,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21731,
+VALUES      (35939,
              44,
              0.25);
 
@@ -1514,7 +1514,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26898,
+VALUES      (27355,
              44,
              0.25);
 
@@ -1522,7 +1522,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (14187,
+VALUES      (32246,
              45,
              1.5);
 
@@ -1530,7 +1530,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41048,
+VALUES      (41924,
              45,
              1.0);
 
@@ -1538,7 +1538,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43659,
+VALUES      (19112,
              45,
              1.0);
 
@@ -1546,7 +1546,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (32166,
+VALUES      (41385,
              45,
              1.0);
 
@@ -1554,7 +1554,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47119,
+VALUES      (22304,
              45,
              1.0);
 
@@ -1562,7 +1562,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19737,
+VALUES      (42311,
              45,
              0.0);
 
@@ -1570,7 +1570,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27180,
+VALUES      (39776,
              45,
              2.0);
 
@@ -1578,7 +1578,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12803,
+VALUES      (15495,
              45,
              2.0);
 
@@ -1586,7 +1586,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12932,
+VALUES      (10404,
              45,
              0.333333333333);
 
@@ -1594,7 +1594,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16936,
+VALUES      (11171,
              46,
              2.0);
 
@@ -1602,7 +1602,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24842,
+VALUES      (44665,
              46,
              1.0);
 
@@ -1610,7 +1610,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33609,
+VALUES      (20995,
              46,
              45.0);
 
@@ -1618,7 +1618,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24757,
+VALUES      (12856,
              46,
              15.0);
 
@@ -1626,7 +1626,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28444,
+VALUES      (15577,
              46,
              56.0);
 
@@ -1634,7 +1634,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16208,
+VALUES      (17070,
              46,
              6.0);
 
@@ -1642,7 +1642,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (46242,
+VALUES      (43087,
              46,
              1.0);
 
@@ -1650,7 +1650,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19468,
+VALUES      (21160,
              46,
              3.0);
 
@@ -1658,7 +1658,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33921,
+VALUES      (36285,
              46,
              1.0);
 
@@ -1666,7 +1666,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16088,
+VALUES      (33529,
              46,
              1.0);
 
@@ -1674,7 +1674,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25168,
+VALUES      (30014,
              46,
              2.0);
 
@@ -1682,7 +1682,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (32415,
+VALUES      (46134,
              46,
              1.0);
 
@@ -1690,7 +1690,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31897,
+VALUES      (32167,
              46,
              4.0);
 
@@ -1698,7 +1698,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49764,
+VALUES      (16980,
              46,
              0.5);
 
@@ -1706,7 +1706,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36874,
+VALUES      (15585,
              46,
              0.25);
 
@@ -1714,7 +1714,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19376,
+VALUES      (14143,
              46,
              1.0);
 
@@ -1722,7 +1722,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33121,
+VALUES      (22756,
              46,
              1.0);
 
@@ -1730,7 +1730,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18197,
+VALUES      (20747,
              46,
              1.0);
 
@@ -1738,7 +1738,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48118,
+VALUES      (41899,
              46,
              2.0);
 
@@ -1746,7 +1746,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18009,
+VALUES      (21510,
              46,
              2.0);
 
@@ -1754,7 +1754,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13830,
+VALUES      (35415,
              46,
              1.0);
 
@@ -1762,7 +1762,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29152,
+VALUES      (35344,
              46,
              1.0);
 
@@ -1770,7 +1770,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47952,
+VALUES      (18870,
              46,
              1.0);
 
@@ -1778,7 +1778,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18907,
+VALUES      (49672,
              46,
              1.0);
 
@@ -1786,7 +1786,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11551,
+VALUES      (10587,
              46,
              1.0);
 
@@ -1794,7 +1794,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47585,
+VALUES      (17953,
              46,
              1.0);
 
@@ -1802,7 +1802,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18013,
+VALUES      (10117,
              46,
              10.5);
 
@@ -1810,7 +1810,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12871,
+VALUES      (42928,
              46,
              8.0);
 
@@ -1818,7 +1818,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29036,
+VALUES      (14889,
              47,
              15.5);
 
@@ -1826,7 +1826,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (40572,
+VALUES      (44032,
              47,
              3.0);
 
@@ -1834,7 +1834,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17834,
+VALUES      (18341,
              47,
              3.0);
 
@@ -1842,7 +1842,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11950,
+VALUES      (36973,
              47,
              0.25);
 
@@ -1850,7 +1850,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39813,
+VALUES      (39658,
              47,
              1.0);
 
@@ -1858,7 +1858,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35764,
+VALUES      (29167,
              47,
              1.0);
 
@@ -1866,7 +1866,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24504,
+VALUES      (33241,
              47,
              0.75);
 
@@ -1874,7 +1874,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44294,
+VALUES      (14258,
              47,
              1.0);
 
@@ -1882,7 +1882,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29486,
+VALUES      (41337,
              47,
              0.5);
 
@@ -1890,7 +1890,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43376,
+VALUES      (15267,
              48,
              0.5);
 
@@ -1898,7 +1898,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20439,
+VALUES      (47893,
              48,
              0.75);
 
@@ -1906,7 +1906,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39493,
+VALUES      (10430,
              48,
              1.0);
 
@@ -1914,7 +1914,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16078,
+VALUES      (49389,
              48,
              1.25);
 
@@ -1922,7 +1922,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36178,
+VALUES      (46414,
              48,
              1.0);
 
@@ -1930,7 +1930,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16529,
+VALUES      (34639,
              48,
              0.5);
 
@@ -1938,7 +1938,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35263,
+VALUES      (45014,
              48,
              0.25);
 
@@ -1946,7 +1946,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41399,
+VALUES      (41114,
              48,
              8.0);
 
@@ -1954,7 +1954,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34395,
+VALUES      (22483,
              48,
              0.5);
 
@@ -1962,7 +1962,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47139,
+VALUES      (46761,
              48,
              2.0);
 
@@ -1970,7 +1970,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (14788,
+VALUES      (11164,
              49,
              0.5);
 
@@ -1978,7 +1978,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28218,
+VALUES      (13241,
              49,
              0.25);
 
@@ -1986,7 +1986,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44826,
+VALUES      (14369,
              49,
              0.75);
 
@@ -1994,7 +1994,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43647,
+VALUES      (44064,
              49,
              18.0);
 
@@ -2002,7 +2002,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16679,
+VALUES      (37663,
              49,
              1.0);
 
@@ -2010,7 +2010,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24509,
+VALUES      (25496,
              49,
              6.0);
 
@@ -2018,7 +2018,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28337,
+VALUES      (43601,
              50,
              1.0);
 
@@ -2026,7 +2026,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42375,
+VALUES      (44161,
              50,
              18.25);
 
@@ -2034,7 +2034,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42216,
+VALUES      (39339,
              50,
              3.4);
 
@@ -2042,7 +2042,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25141,
+VALUES      (11025,
              50,
              4.0);
 
@@ -2050,7 +2050,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12317,
+VALUES      (37299,
              50,
              0.5);
 
@@ -2058,7 +2058,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25604,
+VALUES      (41090,
              50,
              0.5);
 
@@ -2066,7 +2066,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (32587,
+VALUES      (12081,
              50,
              0.5);
 
@@ -2074,7 +2074,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33927,
+VALUES      (31802,
              50,
              0.5);
 
@@ -2082,7 +2082,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10744,
+VALUES      (13526,
              50,
              0.25);
 
@@ -2090,7 +2090,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20067,
+VALUES      (46439,
              50,
              1.0);
 
@@ -2098,7 +2098,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17928,
+VALUES      (39614,
              51,
              1.0);
 
@@ -2106,7 +2106,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21773,
+VALUES      (13836,
              51,
              1.0);
 
@@ -2114,7 +2114,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33060,
+VALUES      (37093,
              51,
              0.5);
 
@@ -2122,7 +2122,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44373,
+VALUES      (34560,
              51,
              1.0);
 
@@ -2130,7 +2130,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30117,
+VALUES      (19646,
              51,
              2.0);
 
@@ -2138,7 +2138,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23405,
+VALUES      (11664,
              52,
              15.0);
 
@@ -2146,7 +2146,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16489,
+VALUES      (47638,
              52,
              2.0);
 
@@ -2154,7 +2154,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41945,
+VALUES      (21416,
              52,
              32.0);
 
@@ -2162,7 +2162,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45797,
+VALUES      (37560,
              52,
              1.5);
 
@@ -2170,7 +2170,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28930,
+VALUES      (37754,
              52,
              0.75);
 
@@ -2178,7 +2178,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12270,
+VALUES      (30977,
              52,
              4.0);
 
@@ -2186,7 +2186,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41446,
+VALUES      (38903,
              52,
              1.0);
 
@@ -2194,7 +2194,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10280,
+VALUES      (26696,
              52,
              1.0);
 
@@ -2202,7 +2202,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38970,
+VALUES      (44491,
              52,
              0.25);
 
@@ -2210,7 +2210,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48920,
+VALUES      (12594,
              53,
              1.0);
 
@@ -2218,7 +2218,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (14352,
+VALUES      (49971,
              53,
              1.0);
 
@@ -2226,7 +2226,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34329,
+VALUES      (25533,
              53,
              1.0);
 
@@ -2234,7 +2234,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30016,
+VALUES      (31095,
              53,
              0.5);
 
@@ -2242,7 +2242,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25155,
+VALUES      (36415,
              53,
              0.333333333333);
 
@@ -2250,7 +2250,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19842,
+VALUES      (32553,
              53,
              0.333333333333);
 
@@ -2258,7 +2258,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43288,
+VALUES      (16912,
              53,
              0.333333333333);
 
@@ -2266,7 +2266,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49076,
+VALUES      (14449,
              53,
              0.5);
 
@@ -2274,7 +2274,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12885,
+VALUES      (45374,
              53,
              0.25);
 
@@ -2282,7 +2282,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29054,
+VALUES      (46793,
              53,
              0.25);
 
@@ -2290,7 +2290,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43201,
+VALUES      (44755,
              53,
              1.75);
 
@@ -2298,7 +2298,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43285,
+VALUES      (13966,
              53,
              0.666666666667);
 
@@ -2306,7 +2306,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24774,
+VALUES      (33851,
              53,
              18.0);
 
@@ -2314,7 +2314,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17380,
+VALUES      (29723,
              54,
              1.0);
 
@@ -2322,7 +2322,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41785,
+VALUES      (29634,
              54,
              2.0);
 
@@ -2330,7 +2330,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26521,
+VALUES      (35075,
              54,
              0.5);
 
@@ -2338,7 +2338,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30163,
+VALUES      (16447,
              54,
              0.5);
 
@@ -2346,7 +2346,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23341,
+VALUES      (36534,
              54,
              0.25);
 
@@ -2354,7 +2354,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39857,
+VALUES      (32247,
              54,
              2.0);
 
@@ -2362,7 +2362,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48534,
+VALUES      (13794,
              55,
              7.0);
 
@@ -2370,7 +2370,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45883,
+VALUES      (49907,
              55,
              1.5);
 
@@ -2378,7 +2378,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37460,
+VALUES      (32299,
              55,
              0.666666666667);
 
@@ -2386,7 +2386,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25050,
+VALUES      (35359,
              55,
              0.25);
 
@@ -2394,7 +2394,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34592,
+VALUES      (45359,
              55,
              0.25);
 
@@ -2402,7 +2402,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13070,
+VALUES      (28217,
              55,
              2.0);
 
@@ -2410,7 +2410,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (40326,
+VALUES      (29618,
              55,
              1.0);
 
@@ -2418,7 +2418,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31716,
+VALUES      (21743,
              55,
              0.5);
 
@@ -2426,7 +2426,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42787,
+VALUES      (37057,
              55,
              1.0);
 
@@ -2434,7 +2434,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31723,
+VALUES      (16198,
              56,
              16.0);
 
@@ -2442,7 +2442,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35703,
+VALUES      (48720,
              56,
              0.5);
 
@@ -2450,7 +2450,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12151,
+VALUES      (38673,
              56,
              2.0);
 
@@ -2458,7 +2458,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21782,
+VALUES      (33378,
              56,
              1.0);
 
@@ -2466,7 +2466,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31492,
+VALUES      (20930,
              57,
              0.5);
 
@@ -2474,7 +2474,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (46792,
+VALUES      (10871,
              57,
              1.0);
 
@@ -2482,7 +2482,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10917,
+VALUES      (17757,
              57,
              2.0);
 
@@ -2490,7 +2490,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30331,
+VALUES      (26864,
              57,
              1.0);
 
@@ -2498,7 +2498,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17656,
+VALUES      (31810,
              57,
              0.333333333333);
 
@@ -2506,7 +2506,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39100,
+VALUES      (20004,
              57,
              0.5);
 
@@ -2514,7 +2514,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17547,
+VALUES      (18654,
              57,
              0.25);
 
@@ -2522,7 +2522,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37046,
+VALUES      (46075,
              57,
              0.25);
 
@@ -2530,7 +2530,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19460,
+VALUES      (10925,
              57,
              0.0);
 
@@ -2538,7 +2538,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23267,
+VALUES      (28961,
              57,
              3.0);
 
@@ -2546,7 +2546,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15527,
+VALUES      (40567,
              57,
              3.0);
 
@@ -2554,7 +2554,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42935,
+VALUES      (24960,
              57,
              1.0);
 
@@ -2562,7 +2562,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27659,
+VALUES      (34173,
              57,
              1.0);
 
@@ -2570,7 +2570,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27730,
+VALUES      (24563,
              58,
              6.0);
 
@@ -2578,7 +2578,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48813,
+VALUES      (18743,
              58,
              1.0);
 
@@ -2586,7 +2586,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26079,
+VALUES      (23680,
              58,
              1.0);
 
@@ -2594,7 +2594,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39652,
+VALUES      (47938,
              58,
              4.0);
 
@@ -2602,7 +2602,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25015,
+VALUES      (43714,
              58,
              1.5);
 
@@ -2610,7 +2610,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34912,
+VALUES      (15467,
              58,
              1.0);
 
@@ -2618,7 +2618,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43134,
+VALUES      (42600,
              58,
              2.0);
 
@@ -2626,7 +2626,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12366,
+VALUES      (24511,
              58,
              1.0);
 
@@ -2634,7 +2634,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49966,
+VALUES      (47187,
              58,
              3.0);
 
@@ -2642,7 +2642,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43769,
+VALUES      (11622,
              58,
              1.5);
 
@@ -2650,7 +2650,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38274,
+VALUES      (37137,
              58,
              1.0);
 
@@ -2658,7 +2658,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25981,
+VALUES      (13636,
              58,
              4.0);
 
@@ -2666,7 +2666,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29696,
+VALUES      (10510,
              58,
              1.0);
 
@@ -2674,7 +2674,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17864,
+VALUES      (33975,
              59,
              1.0);
 
@@ -2682,7 +2682,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33508,
+VALUES      (29099,
              59,
              3.0);
 
@@ -2690,7 +2690,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (46534,
+VALUES      (27277,
              59,
              2.0);
 
@@ -2698,7 +2698,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33812,
+VALUES      (15925,
              59,
              0.75);
 
@@ -2706,7 +2706,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39970,
+VALUES      (28110,
              59,
              0.5);
 
@@ -2714,7 +2714,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30205,
+VALUES      (46468,
              59,
              0.25);
 
@@ -2722,7 +2722,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28212,
+VALUES      (48872,
              59,
              1.0);
 
@@ -2730,7 +2730,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49731,
+VALUES      (16023,
              59,
              9.0);
 
@@ -2738,7 +2738,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42436,
+VALUES      (20402,
              59,
              1.0);
 
@@ -2746,7 +2746,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15967,
+VALUES      (31126,
              60,
              9.0);
 
@@ -2754,7 +2754,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37631,
+VALUES      (16173,
              60,
              1.0);
 
@@ -2762,7 +2762,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31987,
+VALUES      (13950,
              60,
              1.0);
 
@@ -2770,7 +2770,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22650,
+VALUES      (14324,
              61,
              15.0);
 
@@ -2778,7 +2778,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29824,
+VALUES      (16003,
              61,
              15.0);
 
@@ -2786,7 +2786,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44356,
+VALUES      (24098,
              61,
              15.0);
 
@@ -2794,7 +2794,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42073,
+VALUES      (48895,
              61,
              1.0);
 
@@ -2802,7 +2802,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (40620,
+VALUES      (21656,
              61,
              1.0);
 
@@ -2810,7 +2810,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42121,
+VALUES      (12364,
              61,
              10.0);
 
@@ -2818,7 +2818,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22470,
+VALUES      (42626,
              61,
              1.0);
 
@@ -2826,7 +2826,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (46182,
+VALUES      (11608,
              61,
              0.5);
 
@@ -2834,7 +2834,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15058,
+VALUES      (23564,
              61,
              0.5);
 
@@ -2842,7 +2842,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18171,
+VALUES      (45001,
              61,
              2.0);
 
@@ -2850,7 +2850,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15341,
+VALUES      (12717,
              61,
              1.0);
 
@@ -2858,7 +2858,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15509,
+VALUES      (18747,
              61,
              2.0);
 
@@ -2866,7 +2866,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20296,
+VALUES      (20453,
              61,
              1.0);
 
@@ -2874,7 +2874,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26257,
+VALUES      (21229,
              61,
              1.0);
 
@@ -2882,7 +2882,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47382,
+VALUES      (10868,
              61,
              0.25);
 
@@ -2890,7 +2890,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44734,
+VALUES      (27115,
              61,
              0.5);
 
@@ -2898,7 +2898,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20959,
+VALUES      (12555,
              61,
              0.5);
 
@@ -2906,7 +2906,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17258,
+VALUES      (13029,
              61,
              1.0);
 
@@ -2914,7 +2914,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26462,
+VALUES      (30241,
              61,
              0.5);
 
@@ -2922,7 +2922,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19578,
+VALUES      (15288,
              62,
              1.0);
 
@@ -2930,7 +2930,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (10007,
+VALUES      (44413,
              62,
              3.0);
 
@@ -2938,7 +2938,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33999,
+VALUES      (18494,
              62,
              5.0);
 
@@ -2946,7 +2946,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38843,
+VALUES      (38443,
              62,
              1.0);
 
@@ -2954,7 +2954,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (46265,
+VALUES      (29417,
              62,
              0.5);
 
@@ -2962,7 +2962,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43715,
+VALUES      (26005,
              62,
              0.25);
 
@@ -2970,7 +2970,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18642,
+VALUES      (40254,
              62,
              0.5);
 
@@ -2978,7 +2978,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19835,
+VALUES      (34139,
              62,
              0.333333333333);
 
@@ -2986,7 +2986,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33715,
+VALUES      (18606,
              62,
              3.0);
 
@@ -2994,7 +2994,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20653,
+VALUES      (39634,
              62,
              1.5);
 
@@ -3002,7 +3002,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16012,
+VALUES      (26400,
              62,
              1.5);
 
@@ -3010,7 +3010,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47651,
+VALUES      (23970,
              62,
              1.0);
 
@@ -3018,7 +3018,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35740,
+VALUES      (36423,
              62,
              0.5);
 
@@ -3026,7 +3026,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21123,
+VALUES      (19725,
              62,
              0.0);
 
@@ -3034,7 +3034,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (40859,
+VALUES      (24826,
              63,
              1.0);
 
@@ -3042,7 +3042,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33161,
+VALUES      (40510,
              63,
              1.0);
 
@@ -3050,7 +3050,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33992,
+VALUES      (37812,
              63,
              2.0);
 
@@ -3058,7 +3058,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30703,
+VALUES      (19902,
              63,
              0.5);
 
@@ -3066,7 +3066,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44511,
+VALUES      (18742,
              63,
              3.0);
 
@@ -3074,7 +3074,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44827,
+VALUES      (25023,
              63,
              8.0);
 
@@ -3082,7 +3082,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27437,
+VALUES      (37321,
              63,
              0.75);
 
@@ -3090,7 +3090,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16182,
+VALUES      (27424,
              63,
              1.0);
 
@@ -3098,7 +3098,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44022,
+VALUES      (28403,
              63,
              1.5);
 
@@ -3106,7 +3106,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12830,
+VALUES      (20850,
              64,
              24.0);
 
@@ -3114,7 +3114,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38156,
+VALUES      (26124,
              64,
              8.0);
 
@@ -3122,7 +3122,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13723,
+VALUES      (42432,
              64,
              6.0);
 
@@ -3130,7 +3130,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43720,
+VALUES      (10353,
              64,
              2.0);
 
@@ -3138,7 +3138,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13327,
+VALUES      (49342,
              64,
              2.0);
 
@@ -3146,7 +3146,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19844,
+VALUES      (42231,
              64,
              0.5);
 
@@ -3154,7 +3154,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26832,
+VALUES      (12939,
              64,
              2.0);
 
@@ -3162,7 +3162,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49625,
+VALUES      (32197,
              64,
              1.0);
 
@@ -3170,7 +3170,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48894,
+VALUES      (16240,
              64,
              1.0);
 
@@ -3178,7 +3178,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27492,
+VALUES      (19309,
              65,
              3.5);
 
@@ -3186,7 +3186,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29318,
+VALUES      (24651,
              65,
              0.333333333333);
 
@@ -3194,7 +3194,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33958,
+VALUES      (43961,
              65,
              0.333333333333);
 
@@ -3202,7 +3202,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29563,
+VALUES      (26208,
              65,
              0.75);
 
@@ -3210,7 +3210,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45482,
+VALUES      (12744,
              65,
              3.25);
 
@@ -3218,7 +3218,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11853,
+VALUES      (30560,
              65,
              2.0);
 
@@ -3226,7 +3226,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21445,
+VALUES      (47385,
              65,
              0.5);
 
@@ -3234,7 +3234,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30970,
+VALUES      (16041,
              65,
              1.0);
 
@@ -3242,7 +3242,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22090,
+VALUES      (18725,
              65,
              5.0);
 
@@ -3250,7 +3250,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43629,
+VALUES      (39682,
              65,
              5.0);
 
@@ -3258,7 +3258,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25785,
+VALUES      (37516,
              65,
              2.0);
 
@@ -3266,7 +3266,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21059,
+VALUES      (20089,
              66,
              2.0);
 
@@ -3274,7 +3274,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31239,
+VALUES      (23756,
              66,
              1.0);
 
@@ -3282,7 +3282,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25057,
+VALUES      (21075,
              66,
              0.5);
 
@@ -3290,7 +3290,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20987,
+VALUES      (40846,
              66,
              0.5);
 
@@ -3298,7 +3298,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44648,
+VALUES      (22037,
              66,
              0.25);
 
@@ -3306,7 +3306,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31327,
+VALUES      (44799,
              66,
              0.25);
 
@@ -3314,7 +3314,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44043,
+VALUES      (17378,
              66,
              0.25);
 
@@ -3322,7 +3322,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34165,
+VALUES      (24064,
              66,
              1.0);
 
@@ -3330,7 +3330,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (24475,
+VALUES      (43097,
              66,
              10.0);
 
@@ -3338,7 +3338,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41270,
+VALUES      (10539,
              66,
              1.0);
 
@@ -3346,7 +3346,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21758,
+VALUES      (10580,
              66,
              0.25);
 
@@ -3354,7 +3354,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31994,
+VALUES      (44976,
              67,
              2.0);
 
@@ -3362,7 +3362,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31970,
+VALUES      (17572,
              67,
              0.333333333333);
 
@@ -3370,7 +3370,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29919,
+VALUES      (42569,
              67,
              0.25);
 
@@ -3378,7 +3378,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35373,
+VALUES      (39228,
              67,
              1.0);
 
@@ -3386,7 +3386,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27032,
+VALUES      (47692,
              67,
              2.0);
 
@@ -3394,7 +3394,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20414,
+VALUES      (14802,
              67,
              1.0);
 
@@ -3402,7 +3402,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (32129,
+VALUES      (39028,
              67,
              1.0);
 
@@ -3410,7 +3410,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25532,
+VALUES      (32612,
              67,
              1.0);
 
@@ -3418,7 +3418,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29051,
+VALUES      (20182,
              68,
              10.0);
 
@@ -3426,7 +3426,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35285,
+VALUES      (15727,
              68,
              0.25);
 
@@ -3434,7 +3434,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16214,
+VALUES      (35925,
              68,
              0.25);
 
@@ -3442,7 +3442,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12728,
+VALUES      (23105,
              68,
              0.25);
 
@@ -3450,7 +3450,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22092,
+VALUES      (32164,
              68,
              0.5);
 
@@ -3458,7 +3458,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16802,
+VALUES      (27061,
              69,
              7.0);
 
@@ -3466,7 +3466,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (40671,
+VALUES      (47857,
              69,
              6.0);
 
@@ -3474,7 +3474,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (22876,
+VALUES      (30631,
              69,
              1.0);
 
@@ -3482,7 +3482,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42626,
+VALUES      (26596,
              69,
              3.0);
 
@@ -3490,7 +3490,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38001,
+VALUES      (41316,
              69,
              0.125);
 
@@ -3498,7 +3498,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (46109,
+VALUES      (36560,
              69,
              0.25);
 
@@ -3506,7 +3506,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48719,
+VALUES      (15924,
              69,
              1.0);
 
@@ -3514,7 +3514,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33526,
+VALUES      (34513,
              69,
              1.0);
 
@@ -3522,7 +3522,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33693,
+VALUES      (16915,
              69,
              1.0);
 
@@ -3530,7 +3530,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30629,
+VALUES      (13601,
              70,
              2.0);
 
@@ -3538,7 +3538,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27813,
+VALUES      (42910,
              70,
              6.0);
 
@@ -3546,7 +3546,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44182,
+VALUES      (33813,
              70,
              1.0);
 
@@ -3554,7 +3554,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16654,
+VALUES      (43004,
              70,
              1.0);
 
@@ -3562,7 +3562,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37813,
+VALUES      (19249,
              70,
              1.0);
 
@@ -3570,7 +3570,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49978,
+VALUES      (28245,
              70,
              2.0);
 
@@ -3578,7 +3578,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (15247,
+VALUES      (24160,
              70,
              0.0);
 
@@ -3586,7 +3586,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20689,
+VALUES      (32397,
              71,
              4.0);
 
@@ -3594,7 +3594,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36893,
+VALUES      (31166,
              71,
              1.0);
 
@@ -3602,7 +3602,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23872,
+VALUES      (37938,
              71,
              0.25);
 
@@ -3610,7 +3610,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34502,
+VALUES      (45044,
              71,
              0.666666666667);
 
@@ -3618,7 +3618,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18658,
+VALUES      (23987,
              71,
              2.5);
 
@@ -3626,7 +3626,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25789,
+VALUES      (13498,
              71,
              1.5);
 
@@ -3634,7 +3634,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34826,
+VALUES      (22992,
              71,
              0.5);
 
@@ -3642,7 +3642,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16766,
+VALUES      (29785,
              71,
              1.0);
 
@@ -3650,7 +3650,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28523,
+VALUES      (16520,
              71,
              2.0);
 
@@ -3658,7 +3658,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36074,
+VALUES      (17955,
              71,
              1.0);
 
@@ -3666,7 +3666,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38098,
+VALUES      (20591,
              71,
              0.25);
 
@@ -3674,7 +3674,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45351,
+VALUES      (18803,
              71,
              2.0);
 
@@ -3682,7 +3682,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23146,
+VALUES      (27839,
              72,
              1.0);
 
@@ -3690,7 +3690,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37760,
+VALUES      (13829,
              72,
              1.0);
 
@@ -3698,7 +3698,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30274,
+VALUES      (39010,
              72,
              1.0);
 
@@ -3706,7 +3706,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26500,
+VALUES      (12221,
              73,
              4.0);
 
@@ -3714,7 +3714,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34713,
+VALUES      (44981,
              73,
              1.0);
 
@@ -3722,7 +3722,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21025,
+VALUES      (18566,
              73,
              1.0);
 
@@ -3730,7 +3730,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42471,
+VALUES      (45287,
              73,
              1.5);
 
@@ -3738,7 +3738,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25585,
+VALUES      (31345,
              73,
              1.0);
 
@@ -3746,7 +3746,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34840,
+VALUES      (29041,
              73,
              2.0);
 
@@ -3754,7 +3754,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28331,
+VALUES      (17177,
              73,
              0.5);
 
@@ -3762,7 +3762,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25390,
+VALUES      (40803,
              73,
              1.0);
 
@@ -3770,7 +3770,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48000,
+VALUES      (46079,
              73,
              1.0);
 
@@ -3778,7 +3778,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25160,
+VALUES      (35778,
              73,
              0.0);
 
@@ -3786,7 +3786,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20149,
+VALUES      (26805,
              74,
              10.0);
 
@@ -3794,7 +3794,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13519,
+VALUES      (14468,
              74,
              1.0);
 
@@ -3802,7 +3802,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36802,
+VALUES      (16253,
              74,
              0.25);
 
@@ -3810,7 +3810,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35156,
+VALUES      (36948,
              74,
              0.5);
 
@@ -3818,7 +3818,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47979,
+VALUES      (49645,
              74,
              3.0);
 
@@ -3826,7 +3826,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (46929,
+VALUES      (13719,
              74,
              2.0);
 
@@ -3834,7 +3834,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13837,
+VALUES      (29696,
              74,
              1.0);
 
@@ -3842,7 +3842,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12923,
+VALUES      (28696,
              74,
              1.0);
 
@@ -3850,7 +3850,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18237,
+VALUES      (39583,
              75,
              4.0);
 
@@ -3858,7 +3858,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37440,
+VALUES      (16067,
              75,
              2.0);
 
@@ -3866,7 +3866,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27855,
+VALUES      (15907,
              75,
              21.5);
 
@@ -3874,7 +3874,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45029,
+VALUES      (20033,
              75,
              1.0);
 
@@ -3882,7 +3882,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31464,
+VALUES      (21115,
              75,
              20.0);
 
@@ -3890,7 +3890,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48555,
+VALUES      (12732,
              76,
              1.5);
 
@@ -3898,7 +3898,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35789,
+VALUES      (44337,
              76,
              4.5);
 
@@ -3906,7 +3906,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (21349,
+VALUES      (48175,
              76,
              0.75);
 
@@ -3914,7 +3914,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (42770,
+VALUES      (15741,
              76,
              1.0);
 
@@ -3922,7 +3922,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20099,
+VALUES      (38579,
              76,
              16.0);
 
@@ -3930,7 +3930,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (40980,
+VALUES      (30153,
              76,
              8.0);
 
@@ -3938,7 +3938,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17974,
+VALUES      (46255,
              76,
              6.0);
 
@@ -3946,7 +3946,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39598,
+VALUES      (27268,
              76,
              2.0);
 
@@ -3954,7 +3954,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (48705,
+VALUES      (40188,
              76,
              16.0);
 
@@ -3962,7 +3962,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16384,
+VALUES      (39259,
              77,
              1.0);
 
@@ -3970,7 +3970,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30218,
+VALUES      (22289,
              77,
              14.0);
 
@@ -3978,7 +3978,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17390,
+VALUES      (48737,
              77,
              0.75);
 
@@ -3986,7 +3986,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25133,
+VALUES      (48107,
              78,
              8.0);
 
@@ -3994,7 +3994,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43404,
+VALUES      (33121,
              78,
              2.0);
 
@@ -4002,7 +4002,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19567,
+VALUES      (14066,
              78,
              0.5);
 
@@ -4010,7 +4010,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35606,
+VALUES      (14211,
              78,
              3.0);
 
@@ -4018,7 +4018,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (28244,
+VALUES      (39190,
              78,
              0.25);
 
@@ -4026,7 +4026,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26701,
+VALUES      (28082,
              78,
              2.5);
 
@@ -4034,7 +4034,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23774,
+VALUES      (44120,
              78,
              2.0);
 
@@ -4042,7 +4042,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47151,
+VALUES      (26433,
              78,
              0.5);
 
@@ -4050,7 +4050,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36279,
+VALUES      (42097,
              78,
              1.0);
 
@@ -4058,7 +4058,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47662,
+VALUES      (28484,
              79,
              6.0);
 
@@ -4066,7 +4066,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (32294,
+VALUES      (36099,
              79,
              0.5);
 
@@ -4074,7 +4074,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37072,
+VALUES      (25445,
              79,
              6.0);
 
@@ -4082,7 +4082,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44842,
+VALUES      (31651,
              80,
              0.0);
 
@@ -4090,7 +4090,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13436,
+VALUES      (12194,
              80,
              6.0);
 
@@ -4098,7 +4098,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37831,
+VALUES      (42118,
              80,
              1.0);
 
@@ -4106,7 +4106,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12594,
+VALUES      (45446,
              80,
              0.25);
 
@@ -4114,7 +4114,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13890,
+VALUES      (44496,
              80,
              1.0);
 
@@ -4122,7 +4122,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16425,
+VALUES      (20061,
              80,
              1.0);
 
@@ -4130,7 +4130,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16888,
+VALUES      (21932,
              80,
              1.0);
 
@@ -4138,7 +4138,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (11432,
+VALUES      (23812,
              81,
              9.0);
 
@@ -4146,7 +4146,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41228,
+VALUES      (16323,
              81,
              3.0);
 
@@ -4154,7 +4154,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33832,
+VALUES      (42426,
              81,
              1.0);
 
@@ -4162,7 +4162,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13777,
+VALUES      (38147,
              81,
              1.0);
 
@@ -4170,7 +4170,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12625,
+VALUES      (32713,
              81,
              8.0);
 
@@ -4178,7 +4178,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (17673,
+VALUES      (39649,
              81,
              1.0);
 
@@ -4186,7 +4186,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31367,
+VALUES      (42022,
              81,
              1.0);
 
@@ -4194,7 +4194,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (19598,
+VALUES      (47226,
              81,
              1.0);
 
@@ -4202,7 +4202,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45435,
+VALUES      (42076,
              81,
              2.0);
 
@@ -4210,7 +4210,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (13060,
+VALUES      (33088,
              81,
              1.0);
 
@@ -4218,7 +4218,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (35307,
+VALUES      (49653,
              81,
              0.0);
 
@@ -4226,7 +4226,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20665,
+VALUES      (47215,
              82,
              14.0);
 
@@ -4234,7 +4234,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (23485,
+VALUES      (47129,
              82,
              0.5);
 
@@ -4242,7 +4242,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (27796,
+VALUES      (49378,
              82,
              1.5);
 
@@ -4250,7 +4250,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37860,
+VALUES      (43402,
              82,
              0.125);
 
@@ -4258,7 +4258,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34718,
+VALUES      (32252,
              82,
              6.5);
 
@@ -4266,7 +4266,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29175,
+VALUES      (49957,
              82,
              0.0);
 
@@ -4274,7 +4274,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31670,
+VALUES      (41545,
              83,
              0.5);
 
@@ -4282,7 +4282,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18143,
+VALUES      (19424,
              83,
              8.0);
 
@@ -4290,7 +4290,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34290,
+VALUES      (41235,
              83,
              0.5);
 
@@ -4298,7 +4298,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43572,
+VALUES      (22245,
              83,
              1.0);
 
@@ -4306,7 +4306,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38794,
+VALUES      (44972,
              83,
              1.0);
 
@@ -4314,7 +4314,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (39990,
+VALUES      (40102,
              83,
              8.0);
 
@@ -4322,7 +4322,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47345,
+VALUES      (20561,
              83,
              0.25);
 
@@ -4330,7 +4330,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34929,
+VALUES      (26127,
              83,
              2.0);
 
@@ -4338,7 +4338,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (38684,
+VALUES      (40688,
              83,
              0.0);
 
@@ -4346,7 +4346,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (40389,
+VALUES      (23891,
              83,
              12.0);
 
@@ -4354,7 +4354,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (18684,
+VALUES      (22039,
              83,
              1.0);
 
@@ -4362,7 +4362,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45899,
+VALUES      (45503,
              83,
              3.0);
 
@@ -4370,7 +4370,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (37610,
+VALUES      (18231,
              83,
              2.0);
 
@@ -4378,7 +4378,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31468,
+VALUES      (40695,
              83,
              1.0);
 
@@ -4386,7 +4386,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (30102,
+VALUES      (43838,
              84,
              1.0);
 
@@ -4394,7 +4394,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (49853,
+VALUES      (49058,
              84,
              1.0);
 
@@ -4402,7 +4402,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20010,
+VALUES      (27808,
              84,
              0.5);
 
@@ -4410,7 +4410,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (44858,
+VALUES      (12084,
              84,
              8.0);
 
@@ -4418,7 +4418,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16696,
+VALUES      (23976,
              84,
              0.5);
 
@@ -4426,7 +4426,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (12089,
+VALUES      (12140,
              84,
              1.0);
 
@@ -4434,7 +4434,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (33516,
+VALUES      (44135,
              85,
              1.0);
 
@@ -4442,7 +4442,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47229,
+VALUES      (39852,
              85,
              1.0);
 
@@ -4450,7 +4450,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36934,
+VALUES      (43616,
              85,
              1.0);
 
@@ -4458,7 +4458,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (25308,
+VALUES      (17720,
              85,
              52.0);
 
@@ -4466,7 +4466,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36469,
+VALUES      (40917,
              85,
              6.0);
 
@@ -4474,7 +4474,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (32698,
+VALUES      (45663,
              85,
              1.5);
 
@@ -4482,7 +4482,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20080,
+VALUES      (22958,
              85,
              6.0);
 
@@ -4490,7 +4490,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (36108,
+VALUES      (25182,
              85,
              2.0);
 
@@ -4498,7 +4498,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26460,
+VALUES      (10095,
              86,
              1.0);
 
@@ -4506,7 +4506,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (16344,
+VALUES      (36880,
              86,
              1.0);
 
@@ -4514,7 +4514,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (34115,
+VALUES      (23434,
              86,
              0.5);
 
@@ -4522,7 +4522,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (29032,
+VALUES      (34830,
              86,
              2.0);
 
@@ -4530,7 +4530,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41887,
+VALUES      (36750,
              86,
              2.0);
 
@@ -4538,7 +4538,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (31654,
+VALUES      (34309,
              86,
              0.5);
 
@@ -4546,7 +4546,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (45984,
+VALUES      (36248,
              86,
              1.0);
 
@@ -4554,7 +4554,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (20084,
+VALUES      (22211,
              86,
              1.0);
 
@@ -4562,7 +4562,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41070,
+VALUES      (42546,
              86,
              1.5);
 
@@ -4570,7 +4570,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (47635,
+VALUES      (35599,
              86,
              2.0);
 
@@ -4578,7 +4578,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (43524,
+VALUES      (47930,
              86,
              0.0);
 
@@ -4586,7 +4586,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (26992,
+VALUES      (34662,
              86,
              0.0);
 
@@ -4594,7 +4594,7 @@ INSERT INTO ingredients
             (sku,
              mitem_id,
              amount)
-VALUES      (41635,
+VALUES      (41914,
              86,
              0.0);
 
@@ -4602,7 +4602,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (20814,
+VALUES      (44303,
              'Spring Valley Uriah Walla Walla Valley',
              'food');
 
@@ -4610,7 +4610,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (34201,
+VALUES      (34066,
              'Le Macchiole Bolgheri',
              'food');
 
@@ -4618,7 +4618,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (29326,
+VALUES      (48500,
              'Chateau Canon-La Gaffeliere St.-Emilion',
              'food');
 
@@ -4626,7 +4626,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (30772,
+VALUES      (33175,
              'La Rioja Alta Rioja Vina Ardanza Reserva',
              'food');
 
@@ -4634,7 +4634,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (41252,
+VALUES      (43571,
              'Alexana Pinot Noir Dundee Hills Revana Vineyard',
              'food');
 
@@ -4642,7 +4642,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (18969,
+VALUES      (41681,
              'Quilceda Creek Cabernet Sauvignon Columbia Valley',
              'food');
 
@@ -4650,7 +4650,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (28470,
+VALUES      (40751,
              'Hewitt Cabernet Sauvignon Rutherford',
              'food');
 
@@ -4658,7 +4658,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (48800,
+VALUES      (35486,
              'Olivier Ravoire Gigondas',
              'food');
 
@@ -4666,7 +4666,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (29786,
+VALUES      (44438,
              'Chateau Dereszla Tokaji Aszu 5 Puttonyos',
              'food');
 
@@ -4674,7 +4674,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (35997,
+VALUES      (41589,
              'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana',
              'food');
 
@@ -4682,7 +4682,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (23626,
+VALUES      (38853,
              'Croft Vintage Port',
              'food');
 
@@ -4690,7 +4690,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (35815,
+VALUES      (22139,
              'Chateau de Beaucastel Chateauneuf-du-Pape',
              'food');
 
@@ -4698,7 +4698,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (15701,
+VALUES      (15258,
              'Cune Rioja Imperial Gran Reserva',
              'food');
 
@@ -4706,7 +4706,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (34513,
+VALUES      (44312,
              'Livio Sassetti Brunello di Montalcino Pertimali',
              'food');
 
@@ -4714,7 +4714,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (13032,
+VALUES      (20338,
              'Hamilton Russell Chardonnay Hemel-en-Aarde Valley',
              'food');
 
@@ -4722,7 +4722,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (17593,
+VALUES      (36776,
              'Lewis Cabernet Sauvignon Napa Valley Reserve',
              'food');
 
@@ -4730,7 +4730,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (30756,
+VALUES      (29683,
              'Turley Zinfandel Paso Robles Dusi Vineyard',
              'food');
 
@@ -4738,7 +4738,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (38763,
+VALUES      (24965,
              'Alvaro Palacios Priorat Les Terrasses Velles Vinyes',
              'food');
 
@@ -4746,7 +4746,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45273,
+VALUES      (28266,
              'G.D. Vajra Barolo Albe',
              'food');
 
@@ -4754,7 +4754,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45040,
+VALUES      (31442,
              'Domaine Serene Pinot Noir Willamette Valley Evenstad Reserve',
              'food');
 
@@ -4762,7 +4762,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (33856,
+VALUES      (19983,
              'Domaine du Pegau Chateauneuf-du-Pape Cuvee Reservee',
              'food');
 
@@ -4770,7 +4770,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (35123,
+VALUES      (44623,
              'Poggerino Chianti Classico',
              'food');
 
@@ -4778,7 +4778,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (25600,
+VALUES      (36247,
              'Bedrock The Bedrock Heritage Sonoma Valley',
              'food');
 
@@ -4786,7 +4786,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (10851,
+VALUES      (12587,
              'Kongsgaard Chardonnay Napa Valley',
              'food');
 
@@ -4794,7 +4794,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (25983,
+VALUES      (26765,
              'Seghesio Zinfandel Dry Creek Valley Cortina',
              'food');
 
@@ -4802,7 +4802,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (11810,
+VALUES      (14270,
              'Giuseppe Mascarello & Figlio Barolo Monprivato',
              'food');
 
@@ -4810,7 +4810,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (27772,
+VALUES      (26673,
              'Epoch Estate Blend Paderewski Vineyard Paso Robles',
              'food');
 
@@ -4818,7 +4818,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (28996,
+VALUES      (26604,
              'Reynvaan Syrah Walla Walla Valley Stonessence',
              'food');
 
@@ -4826,7 +4826,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (36105,
+VALUES      (10907,
              'chicken thighs',
              'food');
 
@@ -4834,7 +4834,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (27621,
+VALUES      (44768,
              'chicken drumsticks',
              'food');
 
@@ -4842,7 +4842,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (40190,
+VALUES      (44695,
              'slices center-cut bacon',
              'food');
 
@@ -4850,7 +4850,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45084,
+VALUES      (45201,
              'salt and black pepper to taste',
              'food');
 
@@ -4858,7 +4858,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (10432,
+VALUES      (10722,
              'onion, coarsely chopped',
              'food');
 
@@ -4866,7 +4866,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (34238,
+VALUES      (43756,
              'baby Dutch yellow potatoes',
              'food');
 
@@ -4874,7 +4874,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45602,
+VALUES      (35544,
              'seasoning mix:',
              'food');
 
@@ -4882,7 +4882,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (29382,
+VALUES      (45691,
              'dried chives',
              'food');
 
@@ -4890,7 +4890,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (10615,
+VALUES      (44058,
              'dried basil',
              'food');
 
@@ -4898,7 +4898,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45536,
+VALUES      (37157,
              'garlic powder',
              'food');
 
@@ -4906,7 +4906,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (11829,
+VALUES      (30202,
              'adobo seasoning',
              'food');
 
@@ -4914,7 +4914,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (36278,
+VALUES      (27805,
              'ground black pepper',
              'food');
 
@@ -4922,7 +4922,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45914,
+VALUES      (10167,
              'salt, or to taste',
              'food');
 
@@ -4930,7 +4930,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (42484,
+VALUES      (11238,
              'skinless, boneless chicken breast meat - cubed',
              'food');
 
@@ -4938,7 +4938,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (31955,
+VALUES      (28893,
              'red wine vinegar',
              'food');
 
@@ -4946,7 +4946,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (24627,
+VALUES      (23387,
              'lime, juiced',
              'food');
 
@@ -4954,7 +4954,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (49181,
+VALUES      (46453,
              'white sugar',
              'food');
 
@@ -4962,7 +4962,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (36926,
+VALUES      (22715,
              'salt',
              'food');
 
@@ -4970,7 +4970,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (31442,
+VALUES      (18063,
              'ground black pepper',
              'food');
 
@@ -4978,7 +4978,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (22402,
+VALUES      (10286,
              'green onions, chopped',
              'food');
 
@@ -4986,7 +4986,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (26287,
+VALUES      (36078,
              'cloves garlic, minced',
              'food');
 
@@ -4994,7 +4994,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (19336,
+VALUES      (29185,
              'dried oregano',
              'food');
 
@@ -5002,7 +5002,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (25287,
+VALUES      (47577,
              'flour tortillas',
              'food');
 
@@ -5010,7 +5010,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45114,
+VALUES      (17824,
              'tomato, diced',
              'food');
 
@@ -5018,7 +5018,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (12845,
+VALUES      (16845,
              'shredded lettuce',
              'food');
 
@@ -5026,7 +5026,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (21109,
+VALUES      (30688,
              'shredded Monterey Jack cheese',
              'food');
 
@@ -5034,7 +5034,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (36623,
+VALUES      (31709,
              'salsa',
              'food');
 
@@ -5042,7 +5042,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (41454,
+VALUES      (12545,
              'eggplant, peeled and thinly sliced',
              'food');
 
@@ -5050,7 +5050,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (18575,
+VALUES      (43328,
              'eggs, beaten',
              'food');
 
@@ -5058,7 +5058,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (26962,
+VALUES      (28065,
              'Italian seasoned bread crumbs',
              'food');
 
@@ -5066,7 +5066,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (12299,
+VALUES      (27383,
              'spaghetti sauce, divided',
              'food');
 
@@ -5074,7 +5074,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (27642,
+VALUES      (24638,
              'package mozzarella cheese, shredded and divided',
              'food');
 
@@ -5082,7 +5082,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (21125,
+VALUES      (41749,
              'grated Parmesan cheese, divided',
              'food');
 
@@ -5090,7 +5090,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (25736,
+VALUES      (18680,
              'dried basil',
              'food');
 
@@ -5098,7 +5098,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (43255,
+VALUES      (20743,
              'vegetable oil',
              'food');
 
@@ -5106,7 +5106,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (38231,
+VALUES      (24356,
              'honey',
              'food');
 
@@ -5114,7 +5114,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (12860,
+VALUES      (26994,
              'soy sauce',
              'food');
 
@@ -5122,7 +5122,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (21199,
+VALUES      (16409,
              'ground black pepper',
              'food');
 
@@ -5130,7 +5130,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (34210,
+VALUES      (25424,
              'skinless, boneless chicken breast halves - cut into 1 inch cubes',
              'food');
 
@@ -5138,7 +5138,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (29509,
+VALUES      (26284,
              'cloves garlic',
              'food');
 
@@ -5146,7 +5146,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (47262,
+VALUES      (29615,
              'small onions, cut into 2 inch pieces',
              'food');
 
@@ -5154,7 +5154,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (22444,
+VALUES      (19206,
              'red bell peppers, cut into 2 inch pieces',
              'food');
 
@@ -5162,7 +5162,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (23293,
+VALUES      (42710,
              'skewers',
              'food');
 
@@ -5170,7 +5170,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (14133,
+VALUES      (37330,
              'sweet Italian sausage',
              'food');
 
@@ -5178,7 +5178,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (26679,
+VALUES      (11539,
              'lean ground beef',
              'food');
 
@@ -5186,7 +5186,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (18679,
+VALUES      (43770,
              'minced onion',
              'food');
 
@@ -5194,7 +5194,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (13314,
+VALUES      (18613,
              'cloves garlic, crushed',
              'food');
 
@@ -5202,7 +5202,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (31137,
+VALUES      (14632,
              'can crushed tomatoes',
              'food');
 
@@ -5210,7 +5210,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (47173,
+VALUES      (35747,
              'cans tomato paste',
              'food');
 
@@ -5218,7 +5218,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (16490,
+VALUES      (31969,
              'cans canned tomato sauce',
              'food');
 
@@ -5226,7 +5226,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (22680,
+VALUES      (49512,
              'water',
              'food');
 
@@ -5234,7 +5234,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (10799,
+VALUES      (17992,
              'white sugar',
              'food');
 
@@ -5242,7 +5242,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (10663,
+VALUES      (21371,
              'dried basil leaves',
              'food');
 
@@ -5250,7 +5250,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (13520,
+VALUES      (22342,
              'fennel seeds',
              'food');
 
@@ -5258,7 +5258,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (28638,
+VALUES      (43380,
              'Italian seasoning',
              'food');
 
@@ -5266,7 +5266,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (31597,
+VALUES      (18556,
              'salt',
              'food');
 
@@ -5274,7 +5274,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (11331,
+VALUES      (29838,
              'ground black pepper',
              'food');
 
@@ -5282,7 +5282,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (14635,
+VALUES      (30270,
              'chopped fresh parsley',
              'food');
 
@@ -5290,7 +5290,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (47036,
+VALUES      (27335,
              'lasagna noodles',
              'food');
 
@@ -5298,7 +5298,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (44329,
+VALUES      (10339,
              'ricotta cheese',
              'food');
 
@@ -5306,7 +5306,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (47638,
+VALUES      (24487,
              'egg',
              'food');
 
@@ -5314,7 +5314,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (25059,
+VALUES      (39098,
              'salt',
              'food');
 
@@ -5322,7 +5322,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (15099,
+VALUES      (38675,
              'mozzarella cheese, sliced',
              'food');
 
@@ -5330,7 +5330,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (43000,
+VALUES      (19521,
              'grated Parmesan cheese',
              'food');
 
@@ -5338,7 +5338,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (19381,
+VALUES      (19185,
              'maple syrup',
              'food');
 
@@ -5346,7 +5346,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (24869,
+VALUES      (27133,
              'soy sauce',
              'food');
 
@@ -5354,7 +5354,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (24731,
+VALUES      (17575,
              'clove garlic, minced',
              'food');
 
@@ -5362,7 +5362,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (36454,
+VALUES      (39750,
              'garlic salt',
              'food');
 
@@ -5370,7 +5370,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (11535,
+VALUES      (29786,
              'ground black pepper',
              'food');
 
@@ -5378,7 +5378,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45544,
+VALUES      (24392,
              'salmon',
              'food');
 
@@ -5386,7 +5386,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (48269,
+VALUES      (15911,
              'chicken thighs',
              'food');
 
@@ -5394,7 +5394,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (12877,
+VALUES      (42060,
              'chicken drumsticks',
              'food');
 
@@ -5402,7 +5402,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (17329,
+VALUES      (11207,
              'salt',
              'food');
 
@@ -5410,7 +5410,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (38106,
+VALUES      (13753,
              'cold water, to cover',
              'food');
 
@@ -5418,7 +5418,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (24415,
+VALUES      (15319,
              'cold buttermilk',
              'food');
 
@@ -5426,7 +5426,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (43961,
+VALUES      (41239,
              'egg, beaten',
              'food');
 
@@ -5434,7 +5434,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (27205,
+VALUES      (27976,
              'chicken seasoning mix (see note)',
              'food');
 
@@ -5442,1770 +5442,8 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (18893,
+VALUES      (45096,
              'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47593,
-             'chicken seasoning mix (see note)',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49184,
-             'vegetable oil for frying',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20229,
-             'skinless, boneless chicken breasts',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12712,
-             'salt and pepper to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (14777,
-             'fresh mushrooms, sliced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31193,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37271,
-             'olive oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11682,
-             'cloves garlic',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11520,
-             'balsamic vinegar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12023,
-             'chicken broth',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33379,
-             'bay leaf',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33861,
-             'dried thyme',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (24063,
-             'butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43434,
-'skinless, boneless chicken breast halves skinless, boneless chicken breast halves'
-             ,
-'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37916,
-             'garlic salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48988,
-             'ground black pepper to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18919,
-             'olive oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35301,
-             'onion, thinly sliced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (22300,
-             'can diced tomatoes',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (23157,
-             'balsamic vinegar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20403,
-             'dried basil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (26189,
-             'dried oregano',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (46505,
-             'dried rosemary',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49282,
-             'dried thyme',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (23103,
-             'salmon fillets',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29672,
-             'lemon pepper to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36932,
-             'garlic powder to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19115,
-             'salt to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29636,
-             'soy sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39211,
-             'brown sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38110,
-             'water',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34999,
-             'vegetable oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39963,
-             'eggs, beaten',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11907,
-             'crushed buttery round cracker crumbs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (13179,
-             'garlic salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16979,
-             'ground black pepper to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49799,
-             'skinless, boneless chicken breast halves',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38685,
-             'butter, cut into pieces',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36161,
-             'cooking spray',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (10345,
-             'ground beef',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11257,
-             'diced poblano peppers',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48149,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (15771,
-             'jar salsa',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (32410,
-             'dried oregano',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (15492,
-             'ground dried chipotle pepper',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17090,
-             'boxes dry corn muffin mix (such as jiffy®)',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (45576,
-             'eggs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37527,
-             'milk, divided',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36988,
-             'shredded Cheddar cheese, divided',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (22513,
-             'shredded Monterey Jack cheese, divided',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38655,
-             'frozen corn, thawed',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20192,
-             'bottle italian-style salad dressing',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29442,
-             'garlic powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (40191,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49445,
-             'skinless, boneless chicken breast halves',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18926,
-             'lean ground beef',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12113,
-             'chopped onion',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34921,
-             'chopped green bell pepper',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (10780,
-             'garlic powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (10430,
-             'prepared yellow mustard',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30543,
-             'ketchup',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21380,
-             'brown sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (32738,
-             'salt to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (10569,
-             'ground black pepper to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21923,
-'skinless, boneless chicken breast halves - pounded to 1/2 inch thickness',
-'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16170,
-             'seasoning salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11299,
-             'slices bacon, cut in half',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18155,
-             'prepared yellow mustard',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21444,
-             'honey',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (27860,
-             'light corn syrup',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47729,
-             'mayonnaise',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21354,
-             'dried onion flakes',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (28817,
-             'vegetable oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29705,
-             'sliced fresh mushrooms',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44286,
-             'shredded Colby-Monterey Jack cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25018,
-             'chopped fresh parsley',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12132,
-             'boneless pork loin roast',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47281,
-             'seasoning salt to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11901,
-             'apple juice',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36164,
-             'apple butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19213,
-             'brown sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (15999,
-             'water',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21731,
-             'ground cinnamon',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (26898,
-             'ground cloves',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (14187,
-             'ground beef',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (41048,
-             'egg',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43659,
-             'onion, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (32166,
-             'milk',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47119,
-             'dried bread crumbs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19737,
-             'salt and pepper to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (27180,
-             'brown sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12803,
-             'prepared mustard',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12932,
-             'ketchup',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16936,
-             'ground beef chuck',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (24842,
-             'bulk Italian sausage',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33609,
-             'cans chili beans, drained',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (24757,
-             'can chili beans in spicy sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (28444,
-             'cans diced tomatoes with juice',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16208,
-             'can tomato paste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (46242,
-             'large yellow onion, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19468,
-             'stalks celery, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33921,
-             'green bell pepper, seede
- d and chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16088,
-             'red bell pepper, seeded and chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25168,
-             'green chile peppers, seeded and chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (32415,
-             'bacon bits',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31897,
-             'cubes beef bouillon',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49764,
-             'beer',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36874,
-             'chili powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19376,
-             'Worcestershire sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33121,
-             'minced garlic',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18197,
-             'dried oregano',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48118,
-             'ground cumin',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18009,
-             'hot pepper sauce (e.g. Tabasco?)',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (13830,
-             'dried basil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29152,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47952,
-             'ground black pepper',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18907,
-             'cayenne pepper',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11551,
-             'paprika',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47585,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18013,
-             'bag corn chips such as fritos®',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12871,
-             'package shredded cheddar cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29036,
-             'can black beans, rinsed and drained',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (40572,
-             'eggs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17834,
-             'vegetable oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11950,
-             'cocoa powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39813,
-             'pinch salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35764,
-             'vanilla extract',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (24504,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44294,
-             'instant coffee (optional)',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29486,
-             'milk chocolate chips (optional)',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43376,
-             'butter, softened',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20439,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39493,
-             'egg',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16078,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36178,
-             'cream of tartar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16529,
-             'baking soda',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35263,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (41399,
-             'package cream cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34395,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47139,
-             'vanilla extract',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (14788,
-             'water',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (28218,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44826,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43647,
-             'squares bittersweet chocolate',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16679,
-             'unsalted butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (24509,
-             'eggs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (28337,
-             'chopped walnuts',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (42375,
-             'package yellow cake mix',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (42216,
-             'package instant vanilla pudding mix',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25141,
-             'eggs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12317,
-             'water',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25604,
-             'vegetable oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (32587,
-             'dark rum',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33927,
-             'butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (10744,
-             'water',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20067,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17928,
-             'light corn syrup',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21773,
-             'shortening',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33060,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44373,
-             'clear vanilla extract',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30117,
-             'confectioners sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (23405,
-             'graham crackers, crushed',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16489,
-             'butter, melted',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (41945,
-             'packages cream cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (45797,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (28930,
-             'milk',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12270,
-             'eggs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (41446,
-             'sour cream',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (10280,
-             'vanilla extract',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38970,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48920,
-             'skinless, boneless chicken breast halves - cubed',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (14352,
-             'sliced carrots',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34329,
-             'frozen green peas',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30016,
-             'sliced celery',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25155,
-             'butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19842,
-             'chopped onion',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43288,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49076,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12885,
-             'black pepper',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29054,
-             'celery seed',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43201,
-             'chicken broth',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43285,
-             'milk',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (24774,
-             'unbaked pie crusts',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17380,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (41785,
-             'eggs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (26521,
-             'milk',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30163,
-             'water',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (23341,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39857,
-             'butter, melted',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48534,
-             'jar marshmallow creme',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (45883,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37460,
-             'evaporated milk',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25050,
-             'butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34592,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (13070,
-             'milk chocolate chips',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (40326,
-             'semisweet chocolate chips',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31716,
-             'chopped nuts',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (42787,
-             'vanilla extract',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31723,
-             'packages cream cheese, softened',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35703,
-             'butter, softened',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12151,
-             'sifted confectioners sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21782,
-             'vanilla extract',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31492,
-             'butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (46792,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (10917,
-             'eggs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30331,
-             'vanilla extract',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17656,
-             'unsweetened cocoa powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39100,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17547,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37046,
-             'baking powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19460,
-             'frosting:',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (23267,
-             'butter, softened',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (15527,
-             'unsweetened cocoa powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (42935,
-             'honey',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (27659,
-             'confectioners sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (27730,
-             'grated carrots',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48813,
-             'brown sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (26079,
-             'raisins',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39652,
-             'eggs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25015,
-             'white sugar',
              'food');
 
 INSERT INTO supply
@@ -7213,974 +5451,30 @@ INSERT INTO supply
              name,
              type)
 VALUES      (34912,
-             'vegetable oil',
+             'chicken seasoning mix (see note)',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (43134,
-             'vanilla extract',
+VALUES      (46813,
+             'vegetable oil for frying',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (12366,
-             'crushed pineapple, drained',
+VALUES      (28879,
+             'skinless, boneless chicken breasts',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (49966,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43769,
-             'baking soda',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38274,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25981,
-             'ground cinnamon',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29696,
-             'chopped walnuts',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17864,
-             'sweetened flaked coconut',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33508,
-             'half-and-half',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (46534,
-             'eggs, beaten',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33812,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39970,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30205,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (28212,
-             'vanilla extract',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49731,
-             'pie shell, baked',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (42436,
-             'frozen whipped topping, thawed',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (15967,
-             'bittersweet chocolate, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37631,
-             'heavy cream',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31987,
-             'dark rum (optional)',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (22650,
-             'can black beans, rinsed and drained',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29824,
-             'can kidney beans, drained',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44356,
-             'can cannellini beans, drained and rinsed',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (42073,
-             'green bell pepper, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (40620,
-             'red bell pepper, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (42121,
-             'package frozen corn kernels',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (22470,
-             'red onion, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (46182,
-             'olive oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (15058,
-             'red wine vinegar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18171,
-             'fresh lime juice',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (15341,
-             'lemon juice',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (15509,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20296,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (26257,
-             'clove crushed garlic',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47382,
-             'chopped fresh cilantro',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44734,
-             'ground cumin',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20959,
-             'ground black pepper',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17258,
-             'dash hot pepper sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (26462,
-             'chili powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19578,
-             'head leaf lettuce, torn into bite-size pieces',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (10007,
-             'pears - peeled, cored and chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33999,
-             'Roquefort cheese, crumbled',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38843,
-             'avocado - peeled, pitted, and diced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (46265,
-             'thinly sliced green onions',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43715,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18642,
-             'pecans',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19835,
-             'olive oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33715,
-             'red wine vinegar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20653,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16012,
-             'prepared mustard',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47651,
-             'clove garlic, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35740,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21123,
-             'fresh ground black pepper to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (40859,
-             'lean ground beef',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33161,
-             'egg',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33992,
-             'water',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30703,
-             'bread crumbs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44511,
-             'minced onion',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44827,
-             'can jellied cranberry sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (27437,
-             'chili sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16182,
-             'brown sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44022,
-             'lemon juice',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12830,
-             'packages refrigerated biscuit dough',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38156,
-             'package cream cheese, softened',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (13723,
-             'can crab meat, drained',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43720,
-             'mayonnaise',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (13327,
-             'grated Parmesan cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19844,
-             'shredded Cheddar cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (26832,
-             'thinly sliced green onion',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49625,
-             'Worcestershire sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48894,
-             'pinch paprika',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (27492,
-             'peeled and diced potatoes',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29318,
-             'diced celery',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33958,
-             'finely chopped onion',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29563,
-             'diced cooked ham',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (45482,
-             'water',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11853,
-             'chicken bouillon granules',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21445,
-             'salt, or to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30970,
-             'ground white or black pepper, or to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (22090,
-             'butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43629,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25785,
-             'milk',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21059,
-             'sesame seeds',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31239,
-             'poppy seeds',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25057,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20987,
-             'olive oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44648,
-             'distilled white vinegar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31327,
-             'paprika',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44043,
-             'Worcestershire sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34165,
-             'minced onion',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (24475,
-             'fresh spinach - rinsed, dried and torn into bite-size pieces',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (41270,
-             'strawberries - cleaned, hulled and sliced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21758,
-             'almonds, blanched and slivered',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31994,
-             'canned garbanzo beans, drained',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31970,
-             'tahini',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29919,
-             'lemon juice',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35373,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (27032,
-             'cloves garlic, halved',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20414,
-             'olive oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (32129,
-             'pinch paprika',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25532,
-             'minced fresh parsley',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29051,
-             'can refrigerated pizza crust dough',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35285,
-             'Genoa salami, thinly sliced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16214,
-             'pepperoni sausage, sliced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12728,
-             'provolone cheese, sliced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (22092,
-             'shredded mozzarella cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16802,
-             'can white tuna, drained and flaked',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (40671,
-             'mayonnaise or salad dressing',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (22876,
-             'Parmesan cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (42626,
-             'sweet pickle relish',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38001,
-             'dried minced onion flakes',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (46109,
-             'curry powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48719,
-             'dried parsley',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33526,
-             'dried dill weed',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33693,
-             'pinch garlic powder',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30629,
-             'clean, scrubbed new red potatoes',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (27813,
-             'eggs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44182,
-             'bacon',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16654,
-             'onion, finely chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37813,
-             'stalk celery, finely chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49978,
-             'mayonnaise',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (15247,
+VALUES      (18069,
              'salt and pepper to taste',
              'food');
 
@@ -8188,111 +5482,23 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (20689,
-             'uncooked elbow macaroni',
+VALUES      (33766,
+             'fresh mushrooms, sliced',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (36893,
-             'mayonnaise',
+VALUES      (14690,
+             'all-purpose flour',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (23872,
-             'distilled white vinegar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34502,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18658,
-             'prepared yellow mustard',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25789,
-             'salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34826,
-             'ground black pepper',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16766,
-             'large onion, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (28523,
-             'stalks celery, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36074,
-             'green bell pepper, seeded and chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38098,
-             'grated carrot (optional)',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (45351,
-             'chopped pimento peppers (optional)',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (23146,
-             'bunch kale',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37760,
+VALUES      (47966,
              'olive oil',
              'food');
 
@@ -8300,159 +5506,55 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (30274,
-             'seasoned salt',
+VALUES      (30332,
+             'cloves garlic',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (26500,
-             'cubed, cooked chicken meat',
+VALUES      (33412,
+             'balsamic vinegar',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (34713,
-             'mayonnaise',
+VALUES      (19640,
+             'chicken broth',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (21025,
-             'paprika',
+VALUES      (17842,
+             'bay leaf',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (42471,
-             'dried cranberries',
+VALUES      (29919,
+             'dried thyme',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (25585,
-             'chopped celery',
+VALUES      (44481,
+             'butter',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (34840,
-             'green onions, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (28331,
-             'minced green bell pepper',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25390,
-             'chopped pecans',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48000,
-             'seasoning salt',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25160,
-             'ground black pepper to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20149,
-             'slices bacon',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (13519,
-             'head fresh broccoli, cut into bite size pieces',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36802,
-             'red onion, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35156,
-             'raisins',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47979,
-             'white wine vinegar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (46929,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (13837,
-             'mayonnaise',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12923,
-             'sunflower seeds',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18237,
+VALUES      (32949,
 'skinless, boneless chicken breast halves skinless, boneless chicken breast halves'
              ,
 'food');
@@ -8461,295 +5563,23 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (37440,
-             'butter',
+VALUES      (32370,
+             'garlic salt',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (27855,
-             'cans condensed cream of chicken soup',
+VALUES      (15236,
+             'ground black pepper to taste',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45029,
-             'onion, finely diced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31464,
-             'packages refrigerated biscuit dough, torn into pieces',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48555,
-             'crushed pretzels',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35789,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (21349,
-             'butter, melted',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (42770,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20099,
-             'packages cream cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (40980,
-             'container frozen whipped topping, thawed',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17974,
-             'package strawberry flavored jell-o®',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39598,
-             'boiling water',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (48705,
-             'package frozen strawberries',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16384,
-             'sliced bacon, cut into thirds',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30218,
-             'package beef cocktail wieners',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (17390,
-             'brown sugar, or to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25133,
-             'uncooked elbow macaroni',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43404,
-             'shredded sharp Cheddar cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19567,
-             'grated Parmesan cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (35606,
-             'milk',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (28244,
-             'butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (26701,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (23774,
-             'butter',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47151,
-             'bread crumbs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36279,
-             'pinch paprika',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47662,
-             'ears corn, husked and cleaned',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (32294,
-             'butter, softened',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37072,
-             'Cajun seasoning',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44842,
-             'cooking spray',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (13436,
-             'yukon gold potatoes, cut into thick fries',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37831,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12594,
-             'extra-virgin olive oil',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (13890,
-             'garlic powder, or more to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16425,
-             'salt, or more to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16888,
-             'ground black pepper, or more to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (11432,
-             'refrigerated pie crust',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (41228,
+VALUES      (41012,
              'olive oil',
              'food');
 
@@ -8757,47 +5587,31 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (33832,
-             'small onion, thinly sliced and quartered',
+VALUES      (15460,
+             'onion, thinly sliced',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (13777,
-             'frozen chopped spinach, thawed and drained well',
+VALUES      (21137,
+             'can diced tomatoes',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (12625,
-             'eggs',
+VALUES      (48509,
+             'balsamic vinegar',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (17673,
-             'clove garlic, minced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31367,
-             'dried thyme',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (19598,
+VALUES      (45837,
              'dried basil',
              'food');
 
@@ -8805,55 +5619,167 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45435,
-             'grated Pecorino Romano cheese',
+VALUES      (31774,
+             'dried oregano',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (13060,
-             'shredded Mozzarella cheese',
+VALUES      (21586,
+             'dried rosemary',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (35307,
-             'salt and ground black pepper to taste',
+VALUES      (14002,
+             'dried thyme',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (20665,
-             'can eagle brand® sweetened condensed milk',
+VALUES      (35798,
+             'salmon fillets',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (23485,
-             'unsweetened cocoa',
+VALUES      (14021,
+             'lemon pepper to taste',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (27796,
-             'vanilla extract',
+VALUES      (17726,
+             'garlic powder to taste',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (37860,
+VALUES      (19844,
+             'salt to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12270,
+             'soy sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27895,
+             'brown sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29010,
+             'water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21454,
+             'vegetable oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10707,
+             'eggs, beaten',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13130,
+             'crushed buttery round cracker crumbs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45405,
+             'garlic salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (48671,
+             'ground black pepper to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20221,
+             'skinless, boneless chicken breast halves',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20834,
+             'butter, cut into pieces',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22247,
+             'cooking spray',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20922,
+             'ground beef',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14816,
+             'diced poblano peppers',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34339,
              'salt',
              'food');
 
@@ -8861,271 +5787,39 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (34718,
-             'hot water',
+VALUES      (46685,
+             'jar salsa',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (29175,
-             'mini marshmallows (optional)',
+VALUES      (25473,
+             'dried oregano',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (31670,
-             'butter, divided',
+VALUES      (16390,
+             'ground dried chipotle pepper',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (18143,
-             'package uncooked medium egg noodles',
+VALUES      (19232,
+             'boxes dry corn muffin mix (such as jiffy®)',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (34290,
-             'medium onion, finely chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (43572,
-             'stalk celery, finely chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38794,
-             'clove garlic, minced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (39990,
-             'button mushrooms, sliced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47345,
-             'all-purpose flour',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34929,
-             'milk',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (38684,
-             'salt and pepper to taste',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (40389,
-             'cans tuna, drained and flaked',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (18684,
-             'frozen peas, thawed',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (45899,
-             'bread crumbs',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (37610,
-             'butter, melted',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (31468,
-             'shredded Cheddar cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (30102,
-             'bulk pork sausage',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (49853,
-             'Italian seasoning blend',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20010,
-             'red pepper flakes, or to taste (optional)',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (44858,
-             'package refrigerated crescent rolls',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16696,
-             'pizza sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (12089,
-             'shredded Mozzarella cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (33516,
-             'dry ziti pasta',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (47229,
-             'onion, chopped',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36934,
-             'lean ground beef',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (25308,
-             'jars spaghetti sauce',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36469,
-             'provolone cheese, sliced',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (32698,
-             'sour cream',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (20080,
-             'mozzarella cheese, shredded',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (36108,
-             'grated Parmesan cheese',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (26460,
-             'butter at room temperature',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (16344,
-             'firmly packed light brown sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (34115,
-             'white sugar',
-             'food');
-
-INSERT INTO supply
-            (sku,
-             name,
-             type)
-VALUES      (29032,
+VALUES      (29004,
              'eggs',
              'food');
 
@@ -9133,15 +5827,55 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (41887,
-             'vanilla extract',
+VALUES      (17153,
+             'milk, divided',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (31654,
+VALUES      (12176,
+             'shredded Cheddar cheese, divided',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29819,
+             'shredded Monterey Jack cheese, divided',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47393,
+             'frozen corn, thawed',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12127,
+             'bottle italian-style salad dressing',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21013,
+             'garlic powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13866,
              'salt',
              'food');
 
@@ -9149,23 +5883,639 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (45984,
-             'baking soda',
+VALUES      (34724,
+             'skinless, boneless chicken breast halves',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (20084,
-             'baking powder',
+VALUES      (12713,
+             'lean ground beef',
              'food');
 
 INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (41070,
+VALUES      (29878,
+             'chopped onion',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20590,
+             'chopped green bell pepper',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36672,
+             'garlic powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (38518,
+             'prepared yellow mustard',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27738,
+             'ketchup',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (33953,
+             'brown sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34434,
+             'salt to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (30593,
+             'ground black pepper to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27156,
+'skinless, boneless chicken breast halves - pounded to 1/2 inch thickness',
+'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23995,
+             'seasoning salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (38336,
+             'slices bacon, cut in half',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43990,
+             'prepared yellow mustard',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (46418,
+             'honey',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49550,
+             'light corn syrup',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49201,
+             'mayonnaise',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20200,
+             'dried onion flakes',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34870,
+             'vegetable oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22503,
+             'sliced fresh mushrooms',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10292,
+             'shredded Colby-Monterey Jack cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36401,
+             'chopped fresh parsley',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37478,
+             'boneless pork loin roast',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40124,
+             'seasoning salt to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27970,
+             'apple juice',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34103,
+             'apple butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47665,
+             'brown sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27306,
+             'water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (35939,
+             'ground cinnamon',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27355,
+             'ground cloves',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32246,
+             'ground beef',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (41924,
+             'egg',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (19112,
+             'onion, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (41385,
+             'milk',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22304,
+             'dried bread crumbs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42311,
+             'salt and pepper to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39776,
+             'brown sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15495,
+             'prepared mustard',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10404,
+             'ketchup',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (11171,
+             'ground beef chuck',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44665,
+             'bulk Italian sausage',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20995,
+             'cans chili beans, drained',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12856,
+             'can chili beans in spicy sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15577,
+             'cans diced tomatoes with juice',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (17070,
+             'can tomato paste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43087,
+             'large yellow onion, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21160,
+             'stalks celery, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36285,
+             'green bell pepper, seeded and chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (33529,
+             'red bell pepper, seeded and chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (30014,
+             'green chile peppers, seeded and chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (46134,
+             'bacon bits',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32167,
+             'cubes beef bouillon',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16980,
+             'beer',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15585,
+             'chili powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14143,
+             'Worcestershire sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22756,
+             'minced garlic',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20747,
+             'dried oregano',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (41899,
+             'ground cumin',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21510,
+             'hot pepper sauce (e.g. Tabasco?)',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (35415,
+             'dried basil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (35344,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18870,
+             'ground black pepper',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49672,
+             'cayenne pepper',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10587,
+             'paprika',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (17953,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10117,
+             'bag corn chips such as fritos®',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42928,
+             'package shredded cheddar cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14889,
+             'can black beans, rinsed and drained',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44032,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18341,
+             'vegetable oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36973,
+             'cocoa powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39658,
+             'pinch salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29167,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (33241,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14258,
+             'instant coffee (optional)',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (41337,
+             'milk chocolate chips (optional)',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15267,
+             'butter, softened',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47893,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10430,
+             'egg',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49389,
              'all-purpose flour',
              'food');
 
@@ -9173,7 +6523,2656 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (47635,
+VALUES      (46414,
+             'cream of tartar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34639,
+             'baking soda',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45014,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (41114,
+             'package cream cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22483,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (46761,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (11164,
+             'water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13241,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14369,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44064,
+             'squares bittersweet chocolate',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37663,
+             'unsalted butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (25496,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43601,
+             'chopped walnuts',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44161,
+             'package yellow cake mix',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39339,
+             'package instant vanilla pudding mix',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (11025,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37299,
+             'water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (41090,
+             'vegetable oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12081,
+             'dark rum',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (31802,
+             'butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13526,
+             'water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (46439,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39614,
+             'light corn syrup',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13836,
+             'shortening',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37093,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34560,
+             'clear vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (19646,
+             'confectioners sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (11664,
+             'graham crackers, crushed',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47638,
+             'butter, melted',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21416,
+             'packages cream cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37560,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37754,
+             'milk',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (30977,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (38903,
+             'sour cream',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26696,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44491,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12594,
+             'skinless, boneless chicken breast halves - cubed',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49971,
+             'sliced carrots',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (25533,
+             'frozen green peas',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (31095,
+             'sliced celery',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36415,
+             'butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32553,
+             'chopped onion',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16912,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14449,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45374,
+             'black pepper',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (46793,
+             'celery seed',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44755,
+             'chicken broth',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13966,
+             'milk',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (33851,
+             'unbaked pie crusts',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29723,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29634,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (35075,
+             'milk',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16447,
+             'water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36534,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32247,
+             'butter, melted',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13794,
+             'jar marshmallow creme',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49907,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32299,
+             'evaporated milk',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (35359,
+             'butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45359,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (28217,
+             'milk chocolate chips',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29618,
+             'semisweet chocolate chips',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21743,
+             'chopped nuts',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37057,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16198,
+             'packages cream cheese, softened',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (48720,
+             'butter, softened',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (38673,
+             'sifted confectioners sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (33378,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20930,
+             'butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10871,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (17757,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26864,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (31810,
+             'unsweetened cocoa powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20004,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18654,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (46075,
+             'baking powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10925,
+             'frosting:',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (28961,
+             'butter, softened',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40567,
+             'unsweetened cocoa powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (24960,
+             'honey',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34173,
+             'confectioners sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (24563,
+             'grated carrots',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18743,
+             'brown sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23680,
+             'raisins',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47938,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43714,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15467,
+             'vegetable oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42600,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (24511,
+             'crushed pineapple, drained',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47187,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (11622,
+             'baking soda',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37137,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13636,
+             'ground cinnamon',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10510,
+             'chopped walnuts',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (33975,
+             'sweetened flaked coconut',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29099,
+             'half-and-half',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27277,
+             'eggs, beaten',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15925,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (28110,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (46468,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (48872,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16023,
+             'pie shell, baked',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20402,
+             'frozen whipped topping, thawed',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (31126,
+             'bittersweet chocolate, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16173,
+             'heavy cream',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13950,
+             'dark rum (optional)',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14324,
+             'can black beans, rinsed and drained',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16003,
+             'can kidney beans, drained',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (24098,
+             'can cannellini beans, drained and rinsed',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (48895,
+             'green bell pepper, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21656,
+             'red bell pepper, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12364,
+             'package frozen corn kernels',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42626,
+             'red onion, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (11608,
+             'olive oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23564,
+             'red wine vinegar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45001,
+             'fresh lime juice',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12717,
+             'lemon juice',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18747,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20453,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21229,
+             'clove crushed garlic',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10868,
+             'chopped fresh cilantro',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27115,
+             'ground cumin',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12555,
+             'ground black pepper',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13029,
+             'dash hot pepper sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (30241,
+             'chili powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15288,
+             'head leaf lettuce, torn into bite-size pieces',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44413,
+             'pears - peeled, cored and chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18494,
+             'Roquefort cheese, crumbled',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (38443,
+             'avocado - peeled, pitted, and diced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29417,
+             'thinly sliced green onions',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26005,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40254,
+             'pecans',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34139,
+             'olive oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18606,
+             'red wine vinegar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39634,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26400,
+             'prepared mustard',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23970,
+             'clove garlic, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36423,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (19725,
+             'fresh ground black pepper to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (24826,
+             'lean ground beef',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40510,
+             'egg',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37812,
+             'water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (19902,
+             'bread crumbs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18742,
+             'minced onion',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (25023,
+             'can jellied cranberry sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37321,
+             'chili sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27424,
+             'brown sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (28403,
+             'lemon juice',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20850,
+             'packages refrigerated biscuit dough',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26124,
+             'package cream cheese, softened',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42432,
+             'can crab meat, drained',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10353,
+             'mayonnaise',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49342,
+             'grated Parmesan cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42231,
+             'shredded Cheddar cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12939,
+             'thinly sliced green onion',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32197,
+             'Worcestershire sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16240,
+             'pinch paprika',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (19309,
+             'peeled and diced potatoes',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (24651,
+             'diced celery',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43961,
+             'finely chopped onion',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26208,
+             'diced cooked ham',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12744,
+             'water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (30560,
+             'chicken bouillon granules',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47385,
+             'salt, or to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16041,
+             'ground white or black pepper, or to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18725,
+             'butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39682,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37516,
+             'milk',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20089,
+             'sesame seeds',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23756,
+             'poppy seeds',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21075,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40846,
+             'olive oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22037,
+             'distilled white vinegar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44799,
+             'paprika',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (17378,
+             'Worcestershire sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (24064,
+             'minced onion',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43097,
+             'fresh spinach - rinsed, dried and torn into bite-size pieces',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10539,
+             'strawberries - cleaned, hulled and sliced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10580,
+             'almonds, blanched and slivered',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44976,
+             'canned garbanzo beans, drained',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (17572,
+             'tahini',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42569,
+             'lemon juice',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39228,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47692,
+             'cloves garlic, halved',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14802,
+             'olive oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39028,
+             'pinch paprika',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32612,
+             'minced fresh parsley',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20182,
+             'can refrigerated pizza crust dough',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15727,
+             'Genoa salami, thinly sliced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (35925,
+             'pepperoni sausage, sliced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23105,
+             'provolone cheese, sliced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32164,
+             'shredded mozzarella cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27061,
+             'can white tuna, drained and flaked',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47857,
+             'mayonnaise or salad dressing',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (30631,
+             'Parmesan cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26596,
+             'sweet pickle relish',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (41316,
+             'dried minced onion flakes',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36560,
+             'curry powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15924,
+             'dried parsley',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34513,
+             'dried dill weed',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16915,
+             'pinch garlic powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13601,
+             'clean, scrubbed new red potatoes',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42910,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (33813,
+             'bacon',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43004,
+             'onion, finely chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (19249,
+             'stalk celery, finely chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (28245,
+             'mayonnaise',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (24160,
+             'salt and pepper to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32397,
+             'uncooked elbow macaroni',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (31166,
+             'mayonnaise',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (37938,
+             'distilled white vinegar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45044,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23987,
+             'prepared yellow mustard',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13498,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22992,
+             'ground black pepper',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29785,
+             'large onion, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16520,
+             'stalks celery, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (17955,
+             'green bell pepper, seeded and chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20591,
+             'grated carrot (optional)',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18803,
+             'chopped pimento peppers (optional)',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27839,
+             'bunch kale',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13829,
+             'olive oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39010,
+             'seasoned salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12221,
+             'cubed, cooked chicken meat',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44981,
+             'mayonnaise',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18566,
+             'paprika',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45287,
+             'dried cranberries',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (31345,
+             'chopped celery',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29041,
+             'green onions, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (17177,
+             'minced green bell pepper',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40803,
+             'chopped pecans',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (46079,
+             'seasoning salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (35778,
+             'ground black pepper to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26805,
+             'slices bacon',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14468,
+             'head fresh broccoli, cut into bite size pieces',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16253,
+             'red onion, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36948,
+             'raisins',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49645,
+             'white wine vinegar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (13719,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (29696,
+             'mayonnaise',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (28696,
+             'sunflower seeds',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39583,
+'skinless, boneless chicken breast halves skinless, boneless chicken breast halves'
+             ,
+'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16067,
+             'butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15907,
+             'cans condensed cream of chicken soup',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20033,
+             'onion, finely diced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21115,
+             'packages refrigerated biscuit dough, torn into pieces',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12732,
+             'crushed pretzels',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44337,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (48175,
+             'butter, melted',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (15741,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (38579,
+             'packages cream cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (30153,
+             'container frozen whipped topping, thawed',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (46255,
+             'package strawberry flavored jell-o®',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27268,
+             'boiling water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40188,
+             'package frozen strawberries',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39259,
+             'sliced bacon, cut into thirds',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22289,
+             'package beef cocktail wieners',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (48737,
+             'brown sugar, or to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (48107,
+             'uncooked elbow macaroni',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (33121,
+             'shredded sharp Cheddar cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14066,
+             'grated Parmesan cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (14211,
+             'milk',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39190,
+             'butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (28082,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44120,
+             'butter',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26433,
+             'bread crumbs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42097,
+             'pinch paprika',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (28484,
+             'ears corn, husked and cleaned',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36099,
+             'butter, softened',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (25445,
+             'Cajun seasoning',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (31651,
+             'cooking spray',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12194,
+             'yukon gold potatoes, cut into thick fries',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42118,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45446,
+             'extra-virgin olive oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44496,
+             'garlic powder, or more to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20061,
+             'salt, or more to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (21932,
+             'ground black pepper, or more to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23812,
+             'refrigerated pie crust',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (16323,
+             'olive oil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42426,
+             'small onion, thinly sliced and quartered',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (38147,
+             'frozen chopped spinach, thawed and drained well',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32713,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39649,
+             'clove garlic, minced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42022,
+             'dried thyme',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47226,
+             'dried basil',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42076,
+             'grated Pecorino Romano cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (33088,
+             'shredded Mozzarella cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49653,
+             'salt and ground black pepper to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47215,
+             'can eagle brand® sweetened condensed milk',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (47129,
+             'unsweetened cocoa',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49378,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43402,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (32252,
+             'hot water',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49957,
+             'mini marshmallows (optional)',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (41545,
+             'butter, divided',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (19424,
+             'package uncooked medium egg noodles',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (41235,
+             'medium onion, finely chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22245,
+             'stalk celery, finely chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44972,
+             'clove garlic, minced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40102,
+             'button mushrooms, sliced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (20561,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (26127,
+             'milk',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40688,
+             'salt and pepper to taste',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23891,
+             'cans tuna, drained and flaked',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22039,
+             'frozen peas, thawed',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45503,
+             'bread crumbs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (18231,
+             'butter, melted',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40695,
+             'shredded Cheddar cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43838,
+             'bulk pork sausage',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (49058,
+             'Italian seasoning blend',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (27808,
+             'red pepper flakes, or to taste (optional)',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12084,
+             'package refrigerated crescent rolls',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23976,
+             'pizza sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (12140,
+             'shredded Mozzarella cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (44135,
+             'dry ziti pasta',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (39852,
+             'onion, chopped',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (43616,
+             'lean ground beef',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (17720,
+             'jars spaghetti sauce',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (40917,
+             'provolone cheese, sliced',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (45663,
+             'sour cream',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22958,
+             'mozzarella cheese, shredded',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (25182,
+             'grated Parmesan cheese',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (10095,
+             'butter at room temperature',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36880,
+             'firmly packed light brown sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (23434,
+             'white sugar',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34830,
+             'eggs',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36750,
+             'vanilla extract',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (34309,
+             'salt',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (36248,
+             'baking soda',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (22211,
+             'baking powder',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (42546,
+             'all-purpose flour',
+             'food');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (35599,
              'rolled oats',
              'food');
 
@@ -9181,7 +9180,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (43524,
+VALUES      (47930,
              'chocolate chips (optional)',
              'food');
 
@@ -9189,7 +9188,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (26992,
+VALUES      (34662,
              'raisins (optional)',
              'food');
 
@@ -9197,7 +9196,7 @@ INSERT INTO supply
             (sku,
              name,
              type)
-VALUES      (41635,
+VALUES      (41914,
              'chopped walnuts (optional)',
              'food');
 
@@ -9488,7 +9487,7 @@ INSERT INTO menu_item
              name)
 VALUES      (29,
              'main',
-             19,
+             31,
              'bacon-roasted-chicken-with-potatoes');
 
 INSERT INTO menu_item
@@ -9498,7 +9497,7 @@ INSERT INTO menu_item
              name)
 VALUES      (30,
              'main',
-             30,
+             19,
              'lime-chicken-soft-tacos');
 
 INSERT INTO menu_item
@@ -9508,7 +9507,7 @@ INSERT INTO menu_item
              name)
 VALUES      (31,
              'main',
-             34,
+             19,
              'eggplant-parmesan-ii');
 
 INSERT INTO menu_item
@@ -9518,7 +9517,7 @@ INSERT INTO menu_item
              name)
 VALUES      (32,
              'main',
-             19,
+             27,
              'yummy-honey-chicken-kabobs');
 
 INSERT INTO menu_item
@@ -9528,7 +9527,7 @@ INSERT INTO menu_item
              name)
 VALUES      (33,
              'main',
-             17,
+             31,
              'worlds-best-lasagna');
 
 INSERT INTO menu_item
@@ -9538,7 +9537,7 @@ INSERT INTO menu_item
              name)
 VALUES      (34,
              'main',
-             31,
+             19,
              'maple-salmon');
 
 INSERT INTO menu_item
@@ -9548,7 +9547,7 @@ INSERT INTO menu_item
              name)
 VALUES      (35,
              'main',
-             26,
+             23,
              'heathers-fried-chicken');
 
 INSERT INTO menu_item
@@ -9558,7 +9557,7 @@ INSERT INTO menu_item
              name)
 VALUES      (36,
              'main',
-             29,
+             17,
              'chicken-breasts-with-balsamic-vinegar-and-garlic');
 
 INSERT INTO menu_item
@@ -9568,7 +9567,7 @@ INSERT INTO menu_item
              name)
 VALUES      (37,
              'main',
-             21,
+             28,
              'braised-balsamic-chicken');
 
 INSERT INTO menu_item
@@ -9578,7 +9577,7 @@ INSERT INTO menu_item
              name)
 VALUES      (38,
              'main',
-             33,
+             21,
              'grilled-salmon-i');
 
 INSERT INTO menu_item
@@ -9588,7 +9587,7 @@ INSERT INTO menu_item
              name)
 VALUES      (39,
              'main',
-             23,
+             26,
              'famous-butter-chicken');
 
 INSERT INTO menu_item
@@ -9598,7 +9597,7 @@ INSERT INTO menu_item
              name)
 VALUES      (40,
              'main',
-             25,
+             26,
              'hot-tamale-pie');
 
 INSERT INTO menu_item
@@ -9608,7 +9607,7 @@ INSERT INTO menu_item
              name)
 VALUES      (41,
              'main',
-             31,
+             33,
              'italian-chicken-marinade');
 
 INSERT INTO menu_item
@@ -9618,7 +9617,7 @@ INSERT INTO menu_item
              name)
 VALUES      (42,
              'main',
-             15,
+             26,
              'sloppy-joes-ii');
 
 INSERT INTO menu_item
@@ -9628,7 +9627,7 @@ INSERT INTO menu_item
              name)
 VALUES      (43,
              'main',
-             21,
+             17,
              'aussie-chicken');
 
 INSERT INTO menu_item
@@ -9638,7 +9637,7 @@ INSERT INTO menu_item
              name)
 VALUES      (44,
              'main',
-             24,
+             25,
              'apple-butter-pork-loin');
 
 INSERT INTO menu_item
@@ -9648,7 +9647,7 @@ INSERT INTO menu_item
              name)
 VALUES      (45,
              'main',
-             22,
+             20,
              'easy-meatloaf');
 
 INSERT INTO menu_item
@@ -9658,7 +9657,7 @@ INSERT INTO menu_item
              name)
 VALUES      (46,
              'main',
-             34,
+             27,
              'boilermaker-tailgate-chili');
 
 INSERT INTO menu_item
@@ -9678,7 +9677,7 @@ INSERT INTO menu_item
              name)
 VALUES      (48,
              'deserts',
-             14,
+             13,
              'fruit-pizza-i');
 
 INSERT INTO menu_item
@@ -9688,7 +9687,7 @@ INSERT INTO menu_item
              name)
 VALUES      (49,
              'deserts',
-             12,
+             9,
              'flourless-chocolate-cake-i');
 
 INSERT INTO menu_item
@@ -9698,7 +9697,7 @@ INSERT INTO menu_item
              name)
 VALUES      (50,
              'deserts',
-             13,
+             12,
              'golden-rum-cake');
 
 INSERT INTO menu_item
@@ -9708,7 +9707,7 @@ INSERT INTO menu_item
              name)
 VALUES      (51,
              'deserts',
-             10,
+             12,
              'rolled-buttercream-fondant');
 
 INSERT INTO menu_item
@@ -9718,7 +9717,7 @@ INSERT INTO menu_item
              name)
 VALUES      (52,
              'deserts',
-             14,
+             8,
              'chantals-new-york-cheesecake');
 
 INSERT INTO menu_item
@@ -9728,7 +9727,7 @@ INSERT INTO menu_item
              name)
 VALUES      (53,
              'deserts',
-             6,
+             7,
              'chicken-pot-pie-ix');
 
 INSERT INTO menu_item
@@ -9738,7 +9737,7 @@ INSERT INTO menu_item
              name)
 VALUES      (54,
              'deserts',
-             8,
+             11,
              'basic-crepes');
 
 INSERT INTO menu_item
@@ -9748,7 +9747,7 @@ INSERT INTO menu_item
              name)
 VALUES      (55,
              'deserts',
-             11,
+             12,
              'aunt-teens-creamy-chocolate-fudge');
 
 INSERT INTO menu_item
@@ -9758,7 +9757,7 @@ INSERT INTO menu_item
              name)
 VALUES      (56,
              'deserts',
-             7,
+             13,
              'cream-cheese-frosting-ii');
 
 INSERT INTO menu_item
@@ -9768,7 +9767,7 @@ INSERT INTO menu_item
              name)
 VALUES      (57,
              'deserts',
-             12,
+             13,
              'best-brownies');
 
 INSERT INTO menu_item
@@ -9778,7 +9777,7 @@ INSERT INTO menu_item
              name)
 VALUES      (58,
              'deserts',
-             6,
+             13,
              'best-carrot-cake-ever');
 
 INSERT INTO menu_item
@@ -9788,7 +9787,7 @@ INSERT INTO menu_item
              name)
 VALUES      (59,
              'deserts',
-             6,
+             11,
              'old-fashioned-coconut-cream-pie');
 
 INSERT INTO menu_item
@@ -9798,7 +9797,7 @@ INSERT INTO menu_item
              name)
 VALUES      (60,
              'deserts',
-             11,
+             14,
              'chocolate-ganache');
 
 INSERT INTO menu_item
@@ -9808,7 +9807,7 @@ INSERT INTO menu_item
              name)
 VALUES      (61,
              'entree',
-             8,
+             12,
              'mexican-bean-salad');
 
 INSERT INTO menu_item
@@ -9818,7 +9817,7 @@ INSERT INTO menu_item
              name)
 VALUES      (62,
              'entree',
-             11,
+             16,
              'roquefort-pear-salad');
 
 INSERT INTO menu_item
@@ -9828,7 +9827,7 @@ INSERT INTO menu_item
              name)
 VALUES      (63,
              'entree',
-             8,
+             12,
              'cocktail-meatballs');
 
 INSERT INTO menu_item
@@ -9838,7 +9837,7 @@ INSERT INTO menu_item
              name)
 VALUES      (64,
              'entree',
-             12,
+             15,
              'king-crab-appetizers');
 
 INSERT INTO menu_item
@@ -9848,7 +9847,7 @@ INSERT INTO menu_item
              name)
 VALUES      (65,
              'entree',
-             13,
+             8,
              'delicious-ham-and-potato-soup');
 
 INSERT INTO menu_item
@@ -9858,7 +9857,7 @@ INSERT INTO menu_item
              name)
 VALUES      (66,
              'entree',
-             9,
+             13,
              'strawberry-spinach-salad-i');
 
 INSERT INTO menu_item
@@ -9868,7 +9867,7 @@ INSERT INTO menu_item
              name)
 VALUES      (67,
              'entree',
-             15,
+             9,
              'hummus-iii');
 
 INSERT INTO menu_item
@@ -9878,7 +9877,7 @@ INSERT INTO menu_item
              name)
 VALUES      (68,
              'entree',
-             14,
+             16,
              'jet-swirl-pizza-appetizers');
 
 INSERT INTO menu_item
@@ -9898,7 +9897,7 @@ INSERT INTO menu_item
              name)
 VALUES      (70,
              'entree',
-             11,
+             12,
              'red-skinned-potato-salad');
 
 INSERT INTO menu_item
@@ -9908,7 +9907,7 @@ INSERT INTO menu_item
              name)
 VALUES      (71,
              'entree',
-             16,
+             12,
              'classic-macaroni-salad');
 
 INSERT INTO menu_item
@@ -9918,7 +9917,7 @@ INSERT INTO menu_item
              name)
 VALUES      (72,
              'entree',
-             10,
+             12,
              'baked-kale-chips');
 
 INSERT INTO menu_item
@@ -9938,7 +9937,7 @@ INSERT INTO menu_item
              name)
 VALUES      (74,
              'entree',
-             10,
+             16,
              'alysons-broccoli-salad-2');
 
 INSERT INTO menu_item
@@ -9948,7 +9947,7 @@ INSERT INTO menu_item
              name)
 VALUES      (75,
              'entree',
-             10,
+             9,
              'slow-cooker-chicken-and-dumplings');
 
 INSERT INTO menu_item
@@ -9958,7 +9957,7 @@ INSERT INTO menu_item
              name)
 VALUES      (76,
              'entree',
-             13,
+             12,
              'judys-strawberry-pretzel-salad');
 
 INSERT INTO menu_item
@@ -9968,7 +9967,7 @@ INSERT INTO menu_item
              name)
 VALUES      (77,
              'kids',
-             15,
+             8,
              'bacon-wrapped-smokies');
 
 INSERT INTO menu_item
@@ -9978,7 +9977,7 @@ INSERT INTO menu_item
              name)
 VALUES      (78,
              'kids',
-             10,
+             12,
              'homemade-mac-and-cheese');
 
 INSERT INTO menu_item
@@ -9988,7 +9987,7 @@ INSERT INTO menu_item
              name)
 VALUES      (79,
              'kids',
-             10,
+             14,
              'cajun-grilled-corn');
 
 INSERT INTO menu_item
@@ -9998,7 +9997,7 @@ INSERT INTO menu_item
              name)
 VALUES      (80,
              'kids',
-             14,
+             12,
              'best-baked-french-fries');
 
 INSERT INTO menu_item
@@ -10008,7 +10007,7 @@ INSERT INTO menu_item
              name)
 VALUES      (81,
              'kids',
-             12,
+             10,
              'spinach-quiche-with-kid-appeal');
 
 INSERT INTO menu_item
@@ -10018,7 +10017,7 @@ INSERT INTO menu_item
              name)
 VALUES      (82,
              'kids',
-             8,
+             15,
              'creamy-hot-chocolate');
 
 INSERT INTO menu_item
@@ -10028,7 +10027,7 @@ INSERT INTO menu_item
              name)
 VALUES      (83,
              'kids',
-             13,
+             12,
              'tuna-noodle-casserole-from-scratch');
 
 INSERT INTO menu_item
@@ -10038,7 +10037,7 @@ INSERT INTO menu_item
              name)
 VALUES      (84,
              'kids',
-             13,
+             9,
              'ez-pizza-for-kids');
 
 INSERT INTO menu_item
@@ -10048,7 +10047,7 @@ INSERT INTO menu_item
              name)
 VALUES      (85,
              'kids',
-             8,
+             15,
              'baked-ziti-i');
 
 INSERT INTO menu_item
@@ -10058,7 +10057,7 @@ INSERT INTO menu_item
              name)
 VALUES      (86,
              'kids',
-             15,
+             13,
              'millys-oatmeal-brownies');
 
 INSERT INTO menu
@@ -12952,167 +12951,847 @@ VALUES      (12,
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (6.80478093534,
+VALUES      (8.45197169191,
              1);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (7.96931725734,
+VALUES      (6.5065352756,
              2);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (8.08464398339,
+VALUES      (7.66318745876,
              3);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (6.65014577833,
+VALUES      (6.61203974113,
              4);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (6.7265016061,
+VALUES      (7.75288872728,
              5);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (7.32222412538,
+VALUES      (8.95138718476,
              6);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (8.29439498761,
+VALUES      (7.13204978093,
              7);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (6.73043958036,
+VALUES      (9.66072952703,
              8);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (7.95272392924,
+VALUES      (9.99026750478,
              9);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (8.13898858186,
+VALUES      (9.863640753,
              10);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (8.32645415808,
+VALUES      (7.22231736455,
              11);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (8.6350359187,
+VALUES      (7.95946480524,
              12);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (7.0180591143,
+VALUES      (7.38432185897,
              13);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (8.63064909748,
+VALUES      (9.73411732524,
              14);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (7.06714196588,
+VALUES      (9.79553678492,
              15);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (8.19875553784,
+VALUES      (9.72584242738,
              16);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (6.96480788324,
+VALUES      (8.99585585042,
              17);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (9.49348510913,
+VALUES      (7.24257063803,
              18);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (9.38487653015,
+VALUES      (7.49039896912,
              19);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (9.229474345,
+VALUES      (7.42608064485,
              20);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (9.27453293297,
+VALUES      (8.43794252578,
              21);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (8.39090369436,
+VALUES      (8.48449973781,
              22);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (9.45399263462,
+VALUES      (7.02195368511,
              23);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (6.58648914015,
+VALUES      (8.26882162778,
              24);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (6.60348782924,
+VALUES      (7.55511063216,
              25);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (7.57414916216,
+VALUES      (7.8446869312,
              26);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (9.44942700704,
+VALUES      (6.50665951398,
              27);
 
 INSERT INTO wine
             (rate,
              mitem_id)
-VALUES      (9.45947047848,
+VALUES      (8.14403034981,
              28);
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (58955,
+             'Oven',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (60366,
+             'Pan',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (78352,
+             'Knife',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (63721,
+             'Table',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (56883,
+             'Fork',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (65580,
+             'Tongs',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (88483,
+             'Meat Hammer',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (79064,
+             'Waffle Iron',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (70924,
+             'Plate',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (56610,
+             'Fork',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (58810,
+             'Spoon',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (68875,
+             'Knife',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (83294,
+             'Steak Knife',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (82948,
+             'Bowl',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (97871,
+             'Napkins',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (84321,
+             'Tray',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (55009,
+             'Table Clothes',
+             'linens');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (80398,
+             'Aprons',
+             'linens');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (67712,
+             'Fry Pans',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (60276,
+             'Ingredient Bins',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (77728,
+             'Sheet Pans',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (88138,
+             'Roast Pan',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (75731,
+             'Stock Pot',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (51241,
+             'Deep Boiler',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (98350,
+             'Pasta Cooker',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (80433,
+             'Sauce Pot',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (86344,
+             'Sauce Pan',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (83242,
+             'Pizza Pan',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (59411,
+             'Pizza Dough Boxes',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (89930,
+             'Sheet Pan',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (80924,
+             'Tongs',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (55117,
+             'Disher',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (76987,
+             'Ladle',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (96936,
+             'Egg Slicer',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (54656,
+             'Tapered Grater',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (99481,
+             'Grill Cover',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (62300,
+             'Steak Weight',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (62243,
+             'Pancake Dispenser Stand',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (53347,
+             'Dredge',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (76563,
+             'Sandwich Spreader',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (56492,
+             'Fish Turner',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (51279,
+             'Cutting Board for Meat',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (87387,
+             'Cutting Board for Fish',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (79662,
+             'Cutting Board for Poultry',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (69111,
+             'Knife Rack',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (52892,
+             'Professional Cimeter',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (64755,
+             'Cleaver',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (87239,
+             'Sharpening Steel',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (50484,
+             'Refrigerator/Freezer Thermometer',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (95931,
+             'Can Opener',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (56002,
+             'Nitrile Gloves',
+             'linens');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (63860,
+             'Oven Mitt',
+             'linens');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (69928,
+             'Cloth Pot Holder',
+             'linens');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (76330,
+             'Digital Scale',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (86546,
+             'Manual Slicer',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (98348,
+             'Table Skirting',
+             'linens');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (94229,
+             'Vinyl Tablecloth',
+             'linens');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (54285,
+             'Salt and Pepper Shaker',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (86628,
+             'Single Jacket Menu',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (77878,
+             'Menu Holder',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (51898,
+             'Tabletop Sign Holder',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (51887,
+             'Table Top Napkin Holders',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (86237,
+             'Napkins',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (58359,
+             'Straw Dispenser',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (66095,
+             'Straw',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (65596,
+             'Cone Holder',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (90937,
+             'Countertop Organizer',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (62998,
+             'Beverage Dispenser',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (55333,
+             'Tea Urn',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (59719,
+             'Coffee Maker',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (86841,
+             'Espresso Maker',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (95197,
+             'Panini Grill',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (71658,
+             'Rice Cooker/Warmer',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (68434,
+             'Filter Drain Pot',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (96257,
+             'Bottle Cooler',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (97301,
+             'Overhead Glass Rack',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (82362,
+             'Ice bin',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (77385,
+             'Champagne Bucket and Stand',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (52116,
+             'Waiter Corkscrew',
+             'serving items');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (58140,
+             'Glass Storage Rack',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (53035,
+             'Sink',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (95257,
+             'Drainboards',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (71272,
+             'Refrigerator',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (61953,
+             'Freezer',
+             'kitchen supplies');
+
+INSERT INTO supply
+            (sku,
+             name,
+             type)
+VALUES      (65958,
+             'Chairs',
+             'serving items'); 
