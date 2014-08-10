@@ -1,3 +1,12 @@
+#******************************************************************************
+#
+# AUTHOR : Joseph, comp353-project TEAM 3
+#
+# PURPOSE : Runs the PHPUnit tests
+# 
+# NOTES : required -> PHPUnit !
+#
+#******************************************************************************
 # PHPUnit - Unit Testing Framework
 # http://phpunit.de/getting-started.html
 #

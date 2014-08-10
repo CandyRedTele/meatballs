@@ -4,7 +4,7 @@ class ConfigLoaderTest extends PHPUnit_Framework_TestCase
 {
     public function testSample()
     {
-        $loader = new ConfigLoader('./src/project.config.xml', "localhost");
+        $loader = new ConfigLoader('./src/project.config.xml', "utest");
         $this->assertEquals($loader->getHost(), 'localhost');
         $this->assertEquals($loader->getUsername(), 'root');
         $this->assertEquals($loader->getPassword(), '');
