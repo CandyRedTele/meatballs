@@ -1,6 +1,6 @@
 use meatballs;
 
 source create_table.sql;
-source pay.sql;
-source staffgen.sql;
-source supplies;
+source staff/pay.sql;
+-- source staff/staffgen.sql;
+source staff/staffgen.sql;
