@@ -106,17 +106,18 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
     `sku`       INTEGER NOT NULL,
     `mitem_id`  INTEGER NULL,
     `amount`    VARCHAR(30) NULL,
-    INDEX `fk_ingredient_supplies1_idx` (`sku` ASC),
-    CONSTRAINT `fk_ingredients_sku`
-    FOREIGN KEY (`sku`)
-    REFERENCES `meatballs`.`supplies` (`sku`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
-    CONSTRAINT `mitem_id`
-    FOREIGN KEY (`mitem_id`)
-    REFERENCES `meatballs`.`menu_item` (`mitem_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION)
+    INDEX `fk_ingredient_supplies1_idx` (`sku` ASC)
+--    CONSTRAINT `fk_ingredients_sku`
+--    FOREIGN KEY (`sku`)
+--     REFERENCES `meatballs`.`supplies` (`sku`)
+--         ON DELETE NO ACTION
+--         ON UPDATE NO ACTION,
+--     CONSTRAINT `mitem_id`
+--     FOREIGN KEY (`mitem_id`)
+--     REFERENCES `meatballs`.`menu_item` (`mitem_id`)
+--         ON DELETE NO ACTION
+--         ON UPDATE NO ACTION
+)
 ENGINE = InnoDB;
 
 
@@ -130,12 +131,13 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
   `price` DOUBLE NULL,
   `name` VARCHAR(45) NULL,
   `sku` INTEGER NOT NULL,
-  INDEX `fk_menu_item_ingredient1_idx` (`sku` ASC),
-  CONSTRAINT `fk_menu_item_ingredient1`
-    FOREIGN KEY (`sku`)
-    REFERENCES `meatballs`.`ingredients` (`sku`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  INDEX `fk_menu_item_ingredient1_idx` (`sku` ASC)
+--   CONSTRAINT `fk_menu_item_ingredient1`
+--     FOREIGN KEY (`sku`)
+--     REFERENCES `meatballs`.`ingredients` (`sku`)
+--     ON DELETE NO ACTION
+--     ON UPDATE NO ACTION
+)
 ENGINE = InnoDB;
 
 
