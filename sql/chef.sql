@@ -1,3 +1,5 @@
+insert into pay (title) values ('chef');
+
 INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES ('577-992-1596','13037 West Grand Island Ave.','036-63-7629','Caldwell Boyle','Chef',3);
 INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES ('177-536-0569','63922 West Panama Ln.','600-47-5993','Kim Gallegos','Chef',3);
 INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES ('538-820-0311','26626  Ireland Ave.','642-74-6773','Mia Farrell','Chef',3);
@@ -10,3 +12,5 @@ INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES 
 INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES ('022-251-7162','9473 West Binghamton St.','917-06-9055','Janna Frost','Chef',3);
 INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES ('950-307-2338','83981 East Colombia Way','610-18-1139','Jin Orr','Chef',3);
 INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES ('035-925-0208','52466 East Burkina Faso Way','236-30-2760','Blake Carrillo','Chef',3);
+
+
