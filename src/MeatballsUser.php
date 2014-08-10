@@ -25,7 +25,7 @@ class MeatballUser
     {
         $logger = Logger::getSingleInstace();
 
-        $query = new CustomQuery("SELECT acces_level FROM staff WHERE staff_id= " . $staff_id);
+        $query = new CustomQuery("SELECT access_level FROM staff WHERE staff_id= " . $staff_id);
         $result = $query->execute();
 
         if ($result->num_rows == 0) {
