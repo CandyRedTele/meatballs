@@ -11,64 +11,64 @@
  *         
  *
  *************************************************************************/
-    class Logger
+class Logger
+{
+    private $fd;
+    private $filename;
+    private static $singleton;
+
+    public static function getSingleInstace()
     {
-        private $fd;
-        private $filename;
-        private static $singleton;
+        $argc = func_num_args();
+        $args = func_get_args();
 
-        public static function getSingleInstace()
+        if (self::$singleton === null) 
         {
-            $argc = func_num_args();
-            $args = func_get_args();
-
-            if (self::$singleton === null) 
+            if ($argc == 0) 
             {
-                if ($argc == 0) 
-                {
-                    self::$singleton = new Logger();
-                } 
-                else 
-                {
-                    self::$singleton = new Logger($args[0]); // For Unit Testing purpose
-                }
+                self::$singleton = new Logger();
+            } 
+            else 
+            {
+                self::$singleton = new Logger($args[0]); // For Unit Testing purpose
             }
+        }
 
-            return self::$singleton;
+        return self::$singleton;
+    }
+    
+    private function __construct() 
+    {
+        $argc = func_num_args();
+        $args = func_get_args();
+
+        if (!preg_match('/htdocs/', $_SERVER['DOCUMENT_ROOT']) && !preg_match('/www/', $_SERVER['DOCUMENT_ROOT'])) { // it means we are in PHPUnit, run the test from the ROOT of the project
+            $this->filename = getcwd() . "/src/log";
+        } else {
+            $this->filename = $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src/log";
         }
         
-        private function __construct() 
+        if (method_exists($this, $f = '__construct_' . $argc)) 
         {
-            $argc = func_num_args();
-            $args = func_get_args();
-
-            if (!preg_match('/htdocs/', $_SERVER['DOCUMENT_ROOT']) && !preg_match('/www/', $_SERVER['DOCUMENT_ROOT'])) { // it means we are in PHPUnit, run the test from the ROOT of the project
-                $this->filename = getcwd() . "/src/log";
-            } else {
-                $this->filename = $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src/log";
-            }
-            
-            if (method_exists($this, $f = '__construct_' . $argc)) 
-            {
-                call_user_func_array(array($this, $f), $args);    
-            }
-
-            $this->fd = fopen($this->filename, 'w');
-
-            if (!$this->fd) { // give it another try
-                $this->filename = substr(getcwd(), 0, strrpos(getcwd(), '/tests')) . '/src/log';
-                $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
-            }
+            call_user_func_array(array($this, $f), $args);    
         }
 
-        private function __construct_1($filename)
-        {
-           $this->filename = $filename; 
-        }
+        $this->fd = fopen($this->filename, 'w');
 
-        public function write($str)
-        {
-            fwrite(self::$singleton->fd, $str . "\n");
+        if (!$this->fd) { // give it another try
+            $this->filename = substr(getcwd(), 0, strrpos(getcwd(), '/tests')) . '/src/log';
+            $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
         }
     }
+
+    private function __construct_1($filename)
+    {
+       $this->filename = $filename; 
+    }
+
+    public function write($str)
+    {
+        fwrite(self::$singleton->fd, $str . "\n");
+    }
+}
 ?>
