@@ -129,6 +129,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
   `category` CHAR(45) NULL,
   `price` DOUBLE NULL,
   `name` VARCHAR(45) NULL,
+)
 ENGINE = InnoDB;
 
 
