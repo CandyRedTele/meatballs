@@ -9,9 +9,22 @@
 <body>
 
     <?php
+
+        function getSrcPath()
+        {
+            $root =  $_SERVER['DOCUMENT_ROOT'];
+
+            if (strrpos($root, '/') == strlen($root) - 1) 
+            {
+                $root = substr($root, 0, -1); // remove trailing '/' (for windows)
+            }
+
+            return $root."/comp353-project/src"; 
+        }
+
         error_reporting(E_ALL);
-        //echo $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src";
-        set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
+        echo "<p><b>include path</b> : ". getSrcPath(). "</p>";
+        set_include_path(getSrcPath());
         include_once("TestQuery.php"); 
         include_once("CustomQuery.php"); 
         include_once("Logger.php"); 
