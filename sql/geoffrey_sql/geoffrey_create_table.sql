@@ -48,11 +48,11 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`staff`
     `phone`         CHAR(12)    NULL,
     `ssn`           CHAR(11)    NULL,   -- TODO fix the number of digits in SSN (should be 9)
     `title`         VARCHAR(45) NOT NULL,
-	`acces_level`   INTEGER     NULL CHECK(acces_level in (1,2,3,4,5)), --       COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
+	`acces_level`   INTEGER     NULL CHECK(acces_level in (1,2,3,4,5)) --       COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
 
-    FOREIGN KEY (`title`) REFERENCES `meatballs`.`pay` (`title`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
+--    FOREIGN KEY (`title`) REFERENCES `meatballs`.`pay` (`title`)
+--        ON DELETE NO ACTION
+--        ON UPDATE NO ACTION
 )
 ENGINE = InnoDB;
 
