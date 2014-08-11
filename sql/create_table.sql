@@ -246,8 +246,11 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`food` 
 (
   `sku` INTEGER NOT NULL,
-  `expire_date` CHAR NULL,
-  `perishable` CHAR NULL,
+  `capacity`  INTEGER  NOT NULL,
+  -- `expire_date` CHAR NULL,
+  -- `perishable` CHAR NULL,
+  `expiry_days` INT NULL,
+  `perishable` BOOLEAN NULL,
   INDEX `sku_idx` (`sku` ASC),
   CONSTRAINT `fk_food_sku`
     FOREIGN KEY (`sku`)
@@ -475,7 +478,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock`
 
 (
     `quantity`  INTEGER NULL,
-    `capacity`  INTEGER NULL,
+    -- `capacity`  INTEGER NULL,
+	`order_date` DATE NOT NULL,
     `sku`       INTEGER NOT NULL,
     `f_id`      INTEGER NULL,
     INDEX `sku_idx` (`sku` ASC),
