@@ -1,3 +1,5 @@
+use meatballs;
+
 INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES ('339-420-0765','9286 East British Indian Ocean Territory St.','430-92-4138','Nina Clements','delivery personnel',3);
 INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES ('260-246-0437','49477 East Jamaica St.','714-92-1340','Galena Galloway','marketing',3);
 INSERT INTO staff (`phone`,`address`,`ssn`,`name`,`title`,`acces_level`) VALUES ('588-210-6363','39649 West Portugal St.','559-94-9771','Dorothy Kent','manager',3);

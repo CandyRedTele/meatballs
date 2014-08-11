@@ -2,6 +2,7 @@ from urlparse import urlparse
 from lxml import html
 import requests
 import json
+import datetime
 from os.path import isfile
 from random import randint, sample, uniform
 
@@ -10,7 +11,8 @@ inserts = {'supply': 'INSERT INTO supplies (sku, name, type) VALUES (',
            'ingredients': 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
-           'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES ('}
+           'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
+           'facility_stock': 'INSERT INTO facilityStock (quantity, order_date, sku, f_id) VALUES ('}
 
 
 class Recipe():
@@ -43,7 +45,7 @@ class Recipe():
         return s[:-2]
 
     def create_dic(self):
-        if os.path.isfile('supply_menu.json'):
+        if isfile('supply_menu.json'):
             with open('supply_menu.json', 'rb') as fp:
                 d = json.load(fp)
         else:
@@ -122,7 +124,15 @@ class Recipe():
 
         supplies = supply + other_supplies
 
-        return (supplies, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'), (menu, 'menu'), (wine_rating, 'wine'), (food, 'food')
+        now = datetime.datetime.now().strftime('%Y-%m-%d')
+        facility_stock = []
+        for j in menu:  
+            for k in ingredients:
+                if j[1] == k[1]:
+                    facility_stock.append([randint(5, 100), now, k[0], j[0]])
+
+        return ((supplies, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
+                (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
