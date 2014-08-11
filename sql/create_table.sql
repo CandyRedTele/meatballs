@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS admin;
 DROP TABLE IF EXISTS article;
 DROP TABLE IF EXISTS bill;
 DROP TABLE IF EXISTS catalog;
-DROP TABLE IF EXISTS catalgoHasSupplies;
+DROP TABLE IF EXISTS catalogHasSupplies;
 DROP TABLE IF EXISTS facility;
 DROP TABLE IF EXISTS facilityHours;
 DROP TABLE IF EXISTS facilityStock;
@@ -239,8 +239,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`vendor` 
 (
-    `v_id` 			INTEGER PRIMARY KEY,
-    `company_name` 	CHAR(45) NULL,
+    `vendor_id` 	INTEGER PRIMARY KEY,
+    `company_name` 	VARCHAR(45) NULL,
     `address` 		VARCHAR(45) NULL
 )
 ENGINE = InnoDB;
@@ -259,17 +259,17 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `meatballs`.`catalgoHasSupplies`
+-- Table `meatballs`.`catalogHasSupplies`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`catalgoHasSupplies` 
+CREATE TABLE IF NOT EXISTS `meatballs`.`catalogHasSupplies` 
 (
-  `v_id` INTEGER NOT NULL,
+  `vendor_id` INTEGER NOT NULL,
   `sku` INTEGER NOT NULL,
-  PRIMARY KEY (`v_id`, `sku`),
+  PRIMARY KEY (`vendor_id`, `sku`),
   INDEX `fk_catalog_has_supplies_supplies1_idx` (`sku` ASC),
-  INDEX `fk_catalog_has_supplies_catalog1_idx` (`v_id` ASC),
+  INDEX `fk_catalog_has_supplies_catalog1_idx` (`vendor_id` ASC),
   CONSTRAINT `fk_catalog_has_supplies_catalog1`
-    FOREIGN KEY (`v_id`)
+    FOREIGN KEY (`vendor_id`)
     REFERENCES `meatballs`.`catalog` (`catalog_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -394,9 +394,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`vendorHasCatalog` 
 (
   `catalog_id` INTEGER NOT NULL,
-  `v_id` INTEGER NOT NULL,
-  PRIMARY KEY (`catalog_id`, `v_id`),
-  INDEX `fk_catalog_has_vendor_vendor1_idx` (`v_id` ASC),
+  `vendor_id` INTEGER NOT NULL,
+  PRIMARY KEY (`catalog_id`, `vendor_id`),
+  INDEX `fk_catalog_has_vendor_vendor1_idx` (`vendor_id` ASC),
   INDEX `fk_catalog_has_vendor_catalog1_idx` (`catalog_id` ASC),
   CONSTRAINT `fk_catalog_has_vendor_catalog1`
     FOREIGN KEY (`catalog_id`)
@@ -404,8 +404,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`vendorHasCatalog`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_catalog_has_vendor_vendor1`
-    FOREIGN KEY (`v_id`)
-    REFERENCES `meatballs`.`vendor` (`v_id`)
+    FOREIGN KEY (`vendor_id`)
+    REFERENCES `meatballs`.`vendor` (`vendor_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
