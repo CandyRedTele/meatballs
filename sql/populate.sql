@@ -5,3 +5,4 @@ source staff/pay.sql;
 source supply_menu/supply_menu.sql;
 source staff/staffgen.sql;
 source facility/gen_facility.sql;
+source facility/gen_facilityHours.sql;
