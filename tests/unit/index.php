@@ -7,15 +7,29 @@
     <meta charset="utf-8">
 </head>
 <body>
+    <p><b>Test Site :</b></p>
 
     <?php
+
+        function getSrcPath()
+        {
+            $root =  $_SERVER['DOCUMENT_ROOT'];
+
+            if (strrpos($root, '/') == strlen($root) - 1) 
+            {
+                $root = substr($root, 0, -1); // remove trailing '/' (for windows)
+            }
+
+            return $root."/comp353-project/src"; 
+        }
+
         error_reporting(E_ALL);
-        //echo $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src";
-        set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
+        echo "<p><b>include path</b> : ". getSrcPath(). "</p>";
+        set_include_path(getSrcPath());
+        include_once("IncludeAllQueries.php");
         include_once("TestQuery.php"); 
-        include_once("CustomQuery.php"); 
         include_once("Logger.php"); 
-        include_once("SelectAllQuery.php");
+        include_once("MeatballsUser.php");
     ?> 
 
     <?php
@@ -24,25 +38,36 @@
 
         $query2 = new TestQuery();
         $query1 = new CustomQuery("SELECT customerName from customers");
-        $query3 = new SelectAllQuery("customers");
+        $query3 = new SelectAllQuery("staff");
 
         //$result = $query1->execute();
         //$result = $query2->execute();
         $result = $query3->execute();
 
-        while($row = mysqli_fetch_row($result)) 
-        {
-            foreach ($row as $field) {
-                echo $field . " ";
-                
-            }
+        if ($result) {
+            while($row = mysqli_fetch_row($result)) 
+            {
+                foreach ($row as $field) {
+                    echo $field . " ";
+                    
+                }
 
-            //echo $row['customerName'];
-            //var_dump($row);
-            echo "<br>" ;
+                //echo $row['customerName'];
+                //var_dump($row);
+                echo "<br>" ;
+            }
         }
         //*/
- 
+
+        $staff_id = "9";
+        $access_level = MeatballUser::getAccessLevel($staff_id);
+
+        if ($access_level) {
+            echo "access level  $access_level";
+        }
+
+        $insert = new InsertIntoGoldenQuery('Joseph', 'Martineau', 'M', 'jos@msn.com', '123-123-1234');
+        $insert->execute();
     ?>
 
 

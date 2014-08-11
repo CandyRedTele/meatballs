@@ -5,7 +5,7 @@
         <host>localhost</host>
         <username>root</username>
         <password></password>
-        <database>classicmodels</database>
+        <database>meatballs</database>
     </configuration>
     <configuration>        
         <name>project</name>
@@ -13,5 +13,12 @@
         <username></username>
         <password></password>
         <database></database>
+    </configuration>
+    <configuration>        
+        <name>utest</name>
+        <host>localhost</host>
+        <username>root</username>
+        <password></password>
+        <database>classicmodels</database>
     </configuration>
 </configurations>

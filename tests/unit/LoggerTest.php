@@ -9,14 +9,18 @@ class LoggerTest extends PHPUnit_Framework_TestCase
         $path = "src/log";
         $logger = Logger::getSingleInstace($path);
 
-        $expected = "PHPUnit - Test";
+        $expected = "PHPUnit - Test1";
 
         $logger->write($expected);
 
         $fd = fopen($path,'r');
         
 
-        $actual= fread($fd, strlen($expected));
+        while (($line = fgets($fd))) {
+            $prev_line = chop($line); // find the last line in the file
+        }
+
+        $actual = $prev_line;
 
         $this->assertEquals($expected, $actual);
     }
@@ -26,14 +30,17 @@ class LoggerTest extends PHPUnit_Framework_TestCase
         $path = "src/log";
         $logger = Logger::getSingleInstace();
 
-        $expected = "PHPUnit - Test";
+        $expected = "PHPUnit - Test2";
 
         $logger->write($expected);
 
         $fd = fopen($path,'r');
         
+        while (($line = fgets($fd))) {
+            $prev_line = chop($line); // find the last line in the file
+        }
 
-        $actual= fread($fd, strlen($expected));
+        $actual = $prev_line;
 
         $this->assertEquals($expected, $actual);
     }
