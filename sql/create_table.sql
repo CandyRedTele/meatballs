@@ -174,9 +174,7 @@ create TABLE IF NOT EXISTS `meatballs`.`localstaff`
 (
   `start_date`  CHAR NULL,
   `f_id`        INTEGER NULL,
-  `staff_id`    INTEGER NOT NULL,
-  INDEX `fk_local_staff1_idx` (`staff_id` ASC, `f_id` ASC),
-  INDEX `fk_local_facility1_idx` (`f_id` ASC),
+  `staff_id`    INTEGER PRIMARY KEY,
   CONSTRAINT `fk_staff_id2`
     FOREIGN KEY (`staff_id`)
     REFERENCES `meatballs`.`staff` (`staff_id`)
