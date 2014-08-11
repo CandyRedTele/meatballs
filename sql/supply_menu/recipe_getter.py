@@ -7,7 +7,7 @@ from random import randint, sample, uniform
 inserts = {'supplies': 'INSERT INTO supplies (sku, name, type) VALUES (',
            'menu_items': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
            'ingredients': 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES (',
-           'menus': 'INSERT INTO menu (m_id, type, mitem_id) VALUES (',
+           'menus': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wines': 'INSERT INTO wine (rate, mitem_id) VALUES (',
            'food': 'INSERT INTO food (sku, expire_date, perishable) VALUES ('}
 
