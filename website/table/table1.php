@@ -8,12 +8,12 @@
 ?>
 <html>
 <head>
-  <title>My website from www.website-templates.info</title>
-  <meta http-equiv="content-type" content="TEXT/HTML; CHARSET=UTF-8">
-  <meta name="keywords" content="keywords">
-  <meta name="description" content="description">
-  <meta name="author" content="">
+	<title>My Website from www.website-templates.info</title>
+  <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; CHARSET=ISO-8859-1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
   <meta name="robots" content="index, follow">
+  
   <link rel="stylesheet" href="stylesheet4.css" type="text/css">
   
   <script type="text/javascript" src="../js/domsort.js"></script>
@@ -22,31 +22,23 @@
 </head>
 
 <body>
-
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="920">
-   <tr>
-     <td width="25px">&nbsp;</td>
-      <td colspan="2"><div class="ueberschrift">Put a little heading here</div></td>
-      <td width="25px">&nbsp;</td>
-   </tr>
-   <tr>
-   <td width="25px">&nbsp;</td>
-      <td class="obenlinks">Text/Logo</td>
-      <td class="oben" valign="top"><div id="textobengross">My beautiful new website</div><div id="textobenklein">Here you find everything you need</div></td>
-      <td width="20px">&nbsp;</td>
-   </tr>
-   <tr> <td width="25px">&nbsp;</td>
-     <td valign="top" class="links">
-        <ul class="menue">
-          <li><a title="Home" href="tableHOME.php">&raquo; Home</a></li>
-          <li><a title="employees" href="table1.html">&raquo; employees</a></li>
-          <li><a title="Page 3" href="#">&raquo; Page 3</a></li>
-          <li><a title="Page 4" href="#">&raquo; Page 4</a></li>
-          <li><a title="Page 5" href="#">&raquo; Page 5</a></li>
-          <li><a title="Page 6" href="#">&raquo; Page 6</a></li>
-        </ul>
-      </td>
-      <td class="hauptfenster" valign="top"><div class="haupttext">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="865">
+    <!--<tr>
+      <td id="oben" valign="top" height="156"><div class="headertextoben"><a href="#">Mail</a> | <a href="#">Imprint</a></div><div class="headertextgross">My beautiful new website</div>
+      <div class="headertextklein">Here you find everything you need to know</div></td>
+    </tr>-->
+    <tr>
+      <td id="navi" width="865"><div class="headernavi">
+			<a href="tableHOME.html">Link 1</a>
+			<a href="table1.html">employees</a>
+			<a href="#">Link 3</a>
+			<a href="#">Link 4</a>
+			<a href="#">Link 5</a>
+			<a href="#">Link 6</a>
+			<a href="#">Link 7</a></div></td>
+    </tr>
+    <tr>
+      <td id="mainbg" valign="top"><div id="haupttext">
 <!--                                   INFORMATION TABLES                                          -->
 
         <div class="errorMessage"><?php /*echo $outputMessage*/?></div>
@@ -104,14 +96,14 @@
             //var_dump($row);
         }
         ?></div>
-</section></td>
-        <td width="25px">&nbsp;</td>
-   </tr>
-   <tr>
-      <td colspan="4"><div class="ueberschrift"><a href="mailto:ihreadresse@ihremprovider.de">Mail</a> | <a href="#">Imprint</a> | <a href="#">Terms of Use</a></div></td>
-   </tr>
+</section>
+</div></td>
+    </tr>
+    <tr>
+      <td id="unten" height="74">Your Website URL</td>
+    </tr>
 </table>
+<!--Start: This code may not be removed or altered in the free of charge version!--> <div class="copyright" align="center"><a style="color:#8F8F8F;font-weight:normal;background-color:#DCDCDC" href="http://www.website-templates.info" target="_blank">Free Templates</a></div><!--End: This code may not be removed or altered in the free of charge version!-->
 
-<!--Start: This code may not be removed or altered in the free of charge version!--><div align="center" class="hpb"><a style="color:#505050;background-color:#000000" href="http://www.website-templates.info" target="_blank">HTML-Templates</a></div><!--End: This code may not be removed or altered in the free of charge version!-->
 </body>
 </html>

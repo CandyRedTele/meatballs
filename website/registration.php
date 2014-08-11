@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="css/stylesheet3.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/demo.css" media="all" />
-	<script type="text/javascript" src="js/javascript2.js"></script>
+	<!--<script type="text/javascript" src="js/javascript2.js"></script>-->
 </head>
 <body>
 <div class="container">
@@ -24,21 +24,24 @@
 			<header>
 				<h1><span>registration</span> Golden Member</h1>
             </header>       
+	<div id="leftSide">
+		<img src="img/goldMember.jpg"/>
+	</div> 
       <div  class="form">
     		<form id="contactform" action="register_valid.php" onsubmit="return(validate());" enctype="multipart/form-data"> 
     			<p class="contact"><label for="name">Name</label></p> 
-    			<input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"> 
+    			<input id="name" name="name" placeholder="First and last name" required pattern="[A-z]{2,20}" tabindex="1" type="text"> 
     			 
     			<p class="contact"><label for="email">Email</label></p> 
-    			<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
+    			<input id="email" name="email" placeholder="example@domain.com" required pattern="[A-z_0-9]+@(hotmail|yahoo|gmail).(com|ca)" type="email"> 
                 
-                <p class="contact"><label for="username">Create a username</label></p> 
-    			<input id="username" name="username" placeholder="username" required="" tabindex="2" type="text"> 
+                <!--<p class="contact"><label for="username">Create a username</label></p> 
+    			<input id="username" name="username" placeholder="username" pattern="" tabindex="2" type="text">  -->
     			 
                 <p class="contact"><label for="password">Create a password</label></p> 
-    			<input type="password" id="password" name="password" required=""> 
+    			<input type="password" id="password" name="password" pattern="[A-z0-9]{8,16}"> 
                 <p class="contact"><label for="repassword">Confirm your password</label></p> 
-    			<input type="password" id="repassword" name="repassword" required=""> 
+    			<input type="password" id="repassword" name="repassword" pattern="[A-z0-9]{8,16}"> 
         
                <fieldset>
                  <label>Birthday</label>
@@ -59,22 +62,22 @@
                   <option value="12" >December</option>
                   </label>
                  </select>    
-                <label>Day<input class="birthday" maxlength="2" name="BirthDay"  placeholder="Day" required=""></label>
-                <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" required=""></label>
+                <label>Day<input class="birthday" maxlength="2" name="BirthDay"  placeholder="Day" pattern="d{2}"></label>
+                <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" pattern="d{2}"></label>
               </fieldset>
   
             <select class="select-style gender" name="gender">
-            <option value="select">i am..</option>
-            <option value="m">Male</option>
-            <option value="f">Female</option>
+            <option value="select">Career</option>
+            <option value="s">Student</option>
+            <option value="it">IT professional</option>
             <option value="others">Other</option>
             </select><br><br>
             
-            <p class="contact"><label for="phone">Mobile phone</label></p> 
-            <input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br>
+            <p class="contact"><label for="phone">phone (Mobile/home)</label></p> 
+            <input id="phone" name="phone" placeholder="phone number" pattern="d{3}(d{3}|-d{3})(d{4}|-d{4})" type="text"> <br>
             <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit"> 	 
 		</form> 
-</div>      
+	</div>      
 </div>
 
 </body>

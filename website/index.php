@@ -46,14 +46,13 @@
 <nav class="menu2">
   <menu>
     <li><a href="welcome.php" target="insideC">Home</a></li>
-	<li><a href="#" target="insideC">Menu</a></li>
+	<li><a href="menu/menuHOME.php" target="insideC">Menu</a></li>
 	<?php if(isset($_SESSION['SID']))
 			if($_SESSION['accesslv'] != 5)
 				echo '<li><a href="table/table1.php" target="insideC">DATABASE</a></li>';
 	?>
 	<li><a href="#" target="insideC">Find Us</a></li>
     <li><a href="#" target="insideC">About Us</a></li>
-	<li><a href="#" target="insideC">About Us</a></li>
     <li><a href="#" class="selected" target="insideC">Contact Us</a></li>
   </menu>
 </nav>
