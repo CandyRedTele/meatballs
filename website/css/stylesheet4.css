@@ -1,0 +1,76 @@
+/*
+    Document   : main.css
+    Created on : 2-Nov-2013, 3:18:11 PM
+    Author     : shauheen
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+label, input {
+    /* in order to define widths */
+    display: inline-block;
+}
+
+label {
+    width: 30%;
+    /* positions the label text beside the input */
+    text-align: right;
+}
+
+label + input {
+    width: 30%;
+    /* large margin-right to force the next element to the new-line
+       and margin-left to create a gutter between the label and input */
+    margin: 0 30% 0 4%;
+}
+
+/* only the submit button is matched by this selector,
+   but to be sure you could use an id or class for that button */
+input + input {
+    float: right;
+}
+
+#formContainer {
+    position: relative;
+    width: 40%;
+}
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+.suggestion {
+    position: absolute;
+    background-color: #333;
+    padding: 5px 3px;
+    left:345px;
+    top:10px;
+    display: none;
+    border-radius: 10px; 
+-moz-border-radius: 10px; 
+-webkit-border-radius: 10px; 
+border: 1px solid #800000;
+}
+
+div.suggestion ul
+{
+	list-style: none;
+	margin: 0 0 -4px 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+div.suggestion ul li
+{
+	color: #ccc;
+	padding: 0;
+	margin: 0 4px 4px;
+	text-align: left;
+}
