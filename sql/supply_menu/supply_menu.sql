@@ -1,9 +1,9 @@
-use meatballs;
+-- use meatballs;
 
-source menu_item.sql;
-source supply.sql;
-source other_supply.sql;
-source ingredients.sql;
-source menu.sql;
-source wine.sql;
-source food.sql;
+source supply_menu/menu_item.sql;
+source supply_menu/supply.sql;
+source supply_menu/other_supply.sql;
+source supply_menu/ingredients.sql;
+source supply_menu/menu.sql;
+source supply_menu/wine.sql;
+source supply_menu/food.sql;

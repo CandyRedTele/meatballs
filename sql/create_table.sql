@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu`
   `m_id` INTEGER NOT NULL,
   `type` VARCHAR(45),
   `mitem_id` INTEGER NOT NULL,
-  PRIMARY KEY (`m_id`),
+  PRIMARY KEY (`m_id`,`mitem_id`),
   INDEX `mitem_id_idx` (`mitem_id` ASC),
   CONSTRAINT `fk_mitem_id`
     FOREIGN KEY (`mitem_id`)
