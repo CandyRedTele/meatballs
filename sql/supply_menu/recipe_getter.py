@@ -6,7 +6,7 @@ from random import randint, sample, uniform
 
 inserts = {'supply': 'INSERT INTO supplies (sku, name, type) VALUES (',
            'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
-           'ingredient': 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES (',
+           'ingredients': 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
            'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES ('}
@@ -15,19 +15,22 @@ inserts = {'supply': 'INSERT INTO supplies (sku, name, type) VALUES (',
 class Recipe():
 
     def __init__(self):
+        pass
         #self.entree = self.getRecipe(entree_urls, 8, 16)
         #self.main = self.getRecipe(main_urls, min=15, max=34)
         #self.deserts = self.getRecipe(desert_urls, min=6, max=14)
         #self.kids = self.getRecipe(kids_urls, min=8, max=15)
-        self.supply, self.menu_item, self.ingredient, self.menu, self.wine, self.other_supply, self.food = self.create_list()
+        #self.supply, self.menu_item, self.ingredient, self.menu, self.wine, self.other_supply, self.food = self.create_list()
 
-    def get_inserts(self, table, insert_statement):
-        s = "use meatballs; "
-        for i in table:
-            s += insert_statement
-            s += self.helper_l_s(i)
-            s += '); '
-        return s
+    def get_inserts(self):
+        for tables in self.create_list():
+            with open(tables[1] + '.sql', 'w') as f:
+                s = "use meatballs; "
+                for i in table[0]:
+                    s += inserts[tables[1]]
+                    s += self.helper_l_s(i)
+                    s += '); '
+                f.write(s)
 
     def helper_l_s(self, l):
         s = ""
@@ -113,7 +116,9 @@ class Recipe():
         for i, j in enumerate(other_supplies):
             j.insert(0, skus[i])
 
-        return supply, menu_item, ingredients, menu, wine_rating, other_supplies, food
+        supplies = supplies + other_supplies
+
+        return (supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'), (menu, 'menu'), (wine_rating, 'wine'), (food, 'food')
 
     def generateUrlRecipe(self, urls):
         newlist = []
