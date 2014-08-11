@@ -23,7 +23,6 @@ DROP TABLE IF EXISTS localstaff;
 DROP TABLE IF EXISTS menu;
 DROP TABLE IF EXISTS menu_item;
 DROP TABLE IF EXISTS menu_item_has_ingredients;
-DROP TABLE IF EXISTS hasMenuItem;
 DROP TABLE IF EXISTS `order`;
 DROP TABLE IF EXISTS pay;
 DROP TABLE IF EXISTS reservation;
@@ -47,13 +46,9 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`staff`
     `name`          VARCHAR(45) NULL,
     `address`       VARCHAR(45) NULL,
     `phone`         CHAR(12)    NULL,
-    `ssn`           CHAR(11)    NULL,   -- TODO fix the number of digits in SSN (should be 9)
+    `ssn`           CHAR(11)    NULL,
     `title`         VARCHAR(45) NOT NULL,
 	`acces_level`   INTEGER     NULL CHECK(acces_level in (1,2,3,4,5)) --       COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
-
---    FOREIGN KEY (`title`) REFERENCES `meatballs`.`pay` (`title`)
---        ON DELETE NO ACTION
---        ON UPDATE NO ACTION
 )
 ENGINE = InnoDB;
 
@@ -218,13 +213,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`schedule`
   `title` VARCHAR(45) NOT NULL,
   `hours_week` DOUBLE NULL,
   `hours_day` DOUBLE NULL,
-  PRIMARY KEY (`title`))
---  INDEX `fk_schedule_staff1_idx` (`staff_id` ASC),
---  CONSTRAINT `fk_schedule_staff1`
---    FOREIGN KEY (`staff_id`)
---    REFERENCES `meatballs`.`staff` (`staff_id`)
---    ON DELETE NO ACTION
---    ON UPDATE NO ACTION)
+  PRIMARY KEY (`title`)
+)
 ENGINE = InnoDB;
 
 
@@ -235,8 +225,6 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`food`
 (
   `sku` INTEGER NOT NULL,
   `capacity`  INTEGER  NOT NULL,
-  -- `expire_date` CHAR NULL,
-  -- `perishable` CHAR NULL,
   `days_till_expired` INT NOT NULL,
   `perishable` BOOLEAN NULL,
   INDEX `sku_idx` (`sku` ASC),
@@ -426,29 +414,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `meatballs`.`hasMenuItem`
--- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS `meatballs`.`hasMenuItem` 
--- (
---  `m_id` INTEGER NOT NULL,
---  `mitem_id` INTEGER NOT NULL,
---  PRIMARY KEY (`m_id`, `mitem_id`),
---  INDEX `fk_menu_has_menu_item_menu_item1_idx` (`mitem_id` ASC),
---  INDEX `fk_menu_has_menu_item_menu1_idx` (`m_id` ASC),
---  CONSTRAINT `fk_menu_has_menu_item_menu1`
---    FOREIGN KEY (`m_id`)
---    REFERENCES `meatballs`.`menu` (`m_id`)
---    ON DELETE NO ACTION
---    ON UPDATE NO ACTION,
---  CONSTRAINT `fk_menu_has_menu_item_menu_item1`
---    FOREIGN KEY (`mitem_id`)
---    REFERENCES `meatballs`.`menu_item` (`mitem_id`)
---    ON DELETE NO ACTION
---    ON UPDATE NO ACTION)
--- ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `meatballs`.`facilityHours`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`facilityHours` 
@@ -466,7 +431,6 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock`
 
 (
     `quantity`  INTEGER NULL,
-    -- `capacity`  INTEGER NULL,
 	`order_date` DATE NOT NULL,
     `sku`       INTEGER NOT NULL,
     `f_id`      INTEGER NULL,
