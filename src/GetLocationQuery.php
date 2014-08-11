@@ -17,7 +17,6 @@ class GetLocationQuery extends IQuery
     {
 		parent::__construct();
 		$this->logger->write("[" . __CLASS__ . "] - __construct()");
-		$this->logger->write("\t? include path : " . get_include_path());
 
         $this->staff_id= $staff_id;
     }
