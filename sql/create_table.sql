@@ -129,9 +129,9 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
   `mitem_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `category` CHAR(45) NULL,
   `price` DOUBLE NULL,
-  `name` VARCHAR(45) NULL,
-  `sku` INTEGER NOT NULL,
-  INDEX `fk_menu_item_ingredient1_idx` (`sku` ASC)
+  `name` VARCHAR(45) NULL
+--  `sku` INTEGER NOT NULL,
+--  INDEX `fk_menu_item_ingredient1_idx` (`sku` ASC)
 --   CONSTRAINT `fk_menu_item_ingredient1`
 --     FOREIGN KEY (`sku`)
 --     REFERENCES `meatballs`.`ingredients` (`sku`)
