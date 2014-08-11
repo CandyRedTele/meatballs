@@ -29,7 +29,7 @@ mkdir -p $TEMPO
 cp *.sql $TEMPO
 
 #
-# copy all sql un 
+# copy all sql under $TEMPO 
 #
 for dir in $(ls -d */); do
     if [ $dir != "tempo/" ]; then 
