@@ -68,6 +68,13 @@
 
         $insert = new InsertIntoGoldenQuery('Joseph', 'Martineau', 'M', 'jos@msn.com', '123-123-1234');
         $insert->execute();
+
+
+        $staff_id = "10"; 
+        $locationQuery = new GetLocationQuery($staff_id);
+        $result = $locationQuery->execute();
+        $location = mysqli_fetch_row($result)[0];
+        echo "<br><br>location of staff_id $staff_id is : " . $location;
     ?>
 
 
