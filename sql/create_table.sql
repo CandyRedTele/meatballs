@@ -437,24 +437,24 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`hasMenuItem`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`hasMenuItem` 
-(
-  `m_id` INTEGER NOT NULL,
-  `mitem_id` INTEGER NOT NULL,
-  PRIMARY KEY (`m_id`, `mitem_id`),
-  INDEX `fk_menu_has_menu_item_menu_item1_idx` (`mitem_id` ASC),
-  INDEX `fk_menu_has_menu_item_menu1_idx` (`m_id` ASC),
-  CONSTRAINT `fk_menu_has_menu_item_menu1`
-    FOREIGN KEY (`m_id`)
-    REFERENCES `meatballs`.`menu` (`m_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_menu_has_menu_item_menu_item1`
-    FOREIGN KEY (`mitem_id`)
-    REFERENCES `meatballs`.`menu_item` (`mitem_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+-- CREATE TABLE IF NOT EXISTS `meatballs`.`hasMenuItem` 
+-- (
+--  `m_id` INTEGER NOT NULL,
+--  `mitem_id` INTEGER NOT NULL,
+--  PRIMARY KEY (`m_id`, `mitem_id`),
+--  INDEX `fk_menu_has_menu_item_menu_item1_idx` (`mitem_id` ASC),
+--  INDEX `fk_menu_has_menu_item_menu1_idx` (`m_id` ASC),
+--  CONSTRAINT `fk_menu_has_menu_item_menu1`
+--    FOREIGN KEY (`m_id`)
+--    REFERENCES `meatballs`.`menu` (`m_id`)
+--    ON DELETE NO ACTION
+--    ON UPDATE NO ACTION,
+--  CONSTRAINT `fk_menu_has_menu_item_menu_item1`
+--    FOREIGN KEY (`mitem_id`)
+--    REFERENCES `meatballs`.`menu_item` (`mitem_id`)
+--    ON DELETE NO ACTION
+--    ON UPDATE NO ACTION)
+-- ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
