@@ -4,12 +4,12 @@ import requests
 import json
 from random import randint, sample, uniform
 
-inserts = {'supplies': 'INSERT INTO supplies (sku, name, type) VALUES (',
-           'menu_items': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
-           'ingredients': 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES (',
-           'menus': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
-           'wines': 'INSERT INTO wine (rate, mitem_id) VALUES (',
-           'food': 'INSERT INTO food (sku, expire_date, perishable) VALUES ('}
+inserts = {'supply': 'INSERT INTO supplies (sku, name, type) VALUES (',
+           'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
+           'ingredient': 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES (',
+           'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
+           'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
+           'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES ('}
 
 
 class Recipe():
@@ -19,7 +19,7 @@ class Recipe():
         #self.main = self.getRecipe(main_urls, min=15, max=34)
         #self.deserts = self.getRecipe(desert_urls, min=6, max=14)
         #self.kids = self.getRecipe(kids_urls, min=8, max=15)
-        self.supply, self.menu_item, self.ingredients, self.menu, self.wine, self.other_supply, self.food = self.create_list()
+        self.supply, self.menu_item, self.ingredient, self.menu, self.wine, self.other_supply, self.food = self.create_list()
 
     def get_inserts(self, table, insert_statement):
         s = "use meatballs; "
@@ -84,12 +84,12 @@ class Recipe():
                 for k in j['ingredients']:
                     if (category == "wines" or count % 5 == 0):
                         k.append(randint(45, 500))
-                        k.append(False)
+                        k.append(0) # refers to false
                     else:
                         k.append(randint(5, 45))
-                        k.append(True)
+                        k.append(1) # refers to true
                     count += 1
-                    food.append([k[2], k[3], k[4]])
+                    food.append([k[2], 100, k[3], k[4]])
 
         menus_kind = [menu_item[i::17] for i in xrange(17)]
 
