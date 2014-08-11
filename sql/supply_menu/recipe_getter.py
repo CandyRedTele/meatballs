@@ -26,11 +26,16 @@ class Recipe():
         for tables in self.create_list():
             with open(tables[1] + '.sql', 'w') as f:
                 s = "use meatballs; "
-                for i in table[0]:
+                for i in tables[0]:
                     s += inserts[tables[1]]
                     s += self.helper_l_s(i)
                     s += '); '
-                f.write(s)
+                    s.replace('xae', '')
+                try:
+                    f.write(s)
+                except UnicodeEncodeError:
+                    pass
+
 
     def helper_l_s(self, l):
         s = ""
@@ -116,9 +121,9 @@ class Recipe():
         for i, j in enumerate(other_supplies):
             j.insert(0, skus[i])
 
-        supplies = supplies + other_supplies
+        supplies = supply + other_supplies
 
-        return (supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'), (menu, 'menu'), (wine_rating, 'wine'), (food, 'food')
+        return (supplies, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'), (menu, 'menu'), (wine_rating, 'wine'), (food, 'food')
 
     def generateUrlRecipe(self, urls):
         newlist = []
