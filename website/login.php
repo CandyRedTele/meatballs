@@ -8,10 +8,7 @@
 	<?php 
 		error_reporting(E_ALL);
 		set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
-        include_once("CustomQuery.php"); 
-        include_once("Logger.php"); 
-        include_once("SelectAllQuery.php"); 
-		include_once("MeatballsUser.php"); 
+        include_once("IncludeAllQueries.php"); 
 		
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
@@ -47,7 +44,6 @@
 		if(!isset($_SESSION['SID']))
 			echo "<div id='notF'><h3>wrong e-mail or password<br/>please try again!</h3><br/>refreshing in 3 secs</div>
 				<meta http-equiv='Refresh' content='3;url=index.php'/>";
-
 		?>
 </head>
 <body>

@@ -43,4 +43,4 @@ function getSuggestion(str){
     }
     req.open("GET", "search.php?itemName="+str, true);
     req.send();
-    }
+}

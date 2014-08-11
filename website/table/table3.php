@@ -28,7 +28,6 @@
     </tr>-->
     <tr>
       <td id="navi" width="865"><div class="headernavi">
-	  
 		<?php if(isset($_SESSION['SID'])){
 				$personalINFO = '<a href="tableHOME.html">MY INFO</a>';
 				//$foodSUPPLY = '<a href="#">food supply</a>';

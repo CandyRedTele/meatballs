@@ -29,19 +29,22 @@
 	</div> 
       <div  class="form">
     		<form id="contactform" action="register_valid.php" onsubmit="return(validate());" enctype="multipart/form-data"> 
-    			<p class="contact"><label for="name">Name</label></p> 
-    			<input id="name" name="name" placeholder="First and last name" required pattern="[A-z]{2,20}" tabindex="1" type="text"> 
+    			<p class="contact"><label for="name">First Name</label></p> 
+    			<input id="firstN" name="firstN" placeholder="First name" required pattern="[A-z]{2,20}" tabindex="1" type="text">
+				
+				<p class="contact"><label for="name">Last Name</label></p> 
+    			<input id="lastN" name="lastN" placeholder="Last name" required pattern="[A-z]{2,20}" tabindex="1" type="text"> 
     			 
     			<p class="contact"><label for="email">Email</label></p> 
     			<input id="email" name="email" placeholder="example@domain.com" required pattern="[A-z_0-9]+@(hotmail|yahoo|gmail).(com|ca)" type="email"> 
                 
                 <!--<p class="contact"><label for="username">Create a username</label></p> 
-    			<input id="username" name="username" placeholder="username" pattern="" tabindex="2" type="text">  -->
+    			<input id="username" name="username" placeholder="username" pattern="" tabindex="2" type="text"> 
     			 
                 <p class="contact"><label for="password">Create a password</label></p> 
     			<input type="password" id="password" name="password" pattern="[A-z0-9]{8,16}"> 
                 <p class="contact"><label for="repassword">Confirm your password</label></p> 
-    			<input type="password" id="repassword" name="repassword" pattern="[A-z0-9]{8,16}"> 
+    			<input type="password" id="repassword" name="repassword" pattern="[A-z0-9]{8,16}">  -->
         
                <fieldset>
                  <label>Birthday</label>
@@ -66,16 +69,17 @@
                 <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" pattern="d{2}"></label>
               </fieldset>
   
-            <select class="select-style gender" name="gender">
-            <option value="select">Career</option>
-            <option value="s">Student</option>
-            <option value="it">IT professional</option>
-            <option value="others">Other</option>
+            <select class="select-style gender" name="sex" required>
+            <option value="m">male</option>
+            <option value="f">female</option>
+            <option value="p">private</option>
+            <option value="o">Other</option>
             </select><br><br>
             
             <p class="contact"><label for="phone">phone (Mobile/home)</label></p> 
-            <input id="phone" name="phone" placeholder="phone number" pattern="d{3}(d{3}|-d{3})(d{4}|-d{4})" type="text"> <br>
-            <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit"> 	 
+            <input id="phone" name="phone" placeholder="phone number" required pattern="d{3}(d{3}|-d{3})(d{4}|-d{4})" type="text"> <br>
+            
+			<input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit"> 	 
 		</form> 
 	</div>      
 </div>
