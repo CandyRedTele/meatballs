@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`food`
   `capacity`  INTEGER  NOT NULL,
   -- `expire_date` CHAR NULL,
   -- `perishable` CHAR NULL,
-  `expiry_days` INT NULL,
+  `days_till_expire` INT NOT NULL,
   `perishable` BOOLEAN NULL,
   INDEX `sku_idx` (`sku` ASC),
   CONSTRAINT `fk_food_sku`
@@ -482,6 +482,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock`
 	`order_date` DATE NOT NULL,
     `sku`       INTEGER NOT NULL,
     `f_id`      INTEGER NULL,
+
     INDEX `sku_idx` (`sku` ASC),
     INDEX `f_id_idx` (`f_id` ASC),
     CONSTRAINT `fk_facilityStock_sku`
@@ -492,6 +493,16 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock`
         FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION
+
+-- to do: fix this check, we need to make sure 
+-- that we don't add more quantity than we have capacity
+-- for.
+--    CHECK((SELECT SUM(quantity)
+--            GROUP BY sku) >
+--           (SELECT food.capacity 
+--               from food
+--               GROUP BY sku)
+--        )
 )
 ENGINE = InnoDB;
 
