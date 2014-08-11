@@ -7,6 +7,7 @@
     <meta charset="utf-8">
 </head>
 <body>
+    <p><b>Test Site :</b></p>
 
     <?php
 
@@ -25,12 +26,10 @@
         error_reporting(E_ALL);
         echo "<p><b>include path</b> : ". getSrcPath(). "</p>";
         set_include_path(getSrcPath());
+        include_once("IncludeAllQueries.php");
         include_once("TestQuery.php"); 
-        include_once("CustomQuery.php"); 
         include_once("Logger.php"); 
-        include_once("SelectAllQuery.php");
         include_once("MeatballsUser.php");
-        include_once("InsertIntoGoldenQuery.php");
     ?> 
 
     <?php
@@ -39,7 +38,7 @@
 
         $query2 = new TestQuery();
         $query1 = new CustomQuery("SELECT customerName from customers");
-        $query3 = new SelectAllQuery("customers");
+        $query3 = new SelectAllQuery("staff");
 
         //$result = $query1->execute();
         //$result = $query2->execute();

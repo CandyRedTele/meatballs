@@ -25,11 +25,19 @@ error_reporting(E_ALL);
 	
 <form action="<?php /*echo $_SERVER['PHP_SELF']; */?>" method="post" name="form1" id="form1">
 <fieldset>
+<<<<<<< HEAD
 <label for="itemName">Item Name</label><input name="itemName" onkeyup="" value="<?php /*echo saveFormValue('itemName');*/?> required="true" pattern="[^|]+" type="text" /><br />
 <label for="itemCode">Code</label><input name="itemCode" value="<?php /*echo saveFormValue('itemCode'); */?> required="true" pattern="[^|]+" type="text" /><br />
 <label for="itemPrice">Price</label><input name="itemPrice" value="<?php /*echo saveFormValue('itemPrice'); */?> pattern="[1-9][0-9]*\.\d{2,}" title="Price should be a number and have two float digits" required="true" type="text" /><br />
 <label for="itemQty">Quantity</label><input name="itemQty" value="<?php /*echo saveFormValue('itemQty'); */?> required="true" type="number" /><br />
 <label for="itemAmount">Amount</label><input name="itemAmount" value="<?php /*echo saveFormValue('itemAmount'); */?> required="true" type="text" /><br />
+=======
+<label for="itemName">Item Name</label><input name="itemName" onkeyup="" value="<?php /*echo saveFormValue('itemName');*/?>" required="true" pattern="[^|]+" type="text" /><br />
+<label for="itemCode">Code</label><input name="itemCode" value="<?php /*echo saveFormValue('itemCode'); */?>" required="true" pattern="[^|]+" type="text" /><br />
+<label for="itemPrice">Price</label><input name="itemPrice" value="<?php /*echo saveFormValue('itemPrice'); */?>" pattern="[1-9][0-9]*\.\d{2,}" title="Price should be a number and have two float digits" required="true" type="text" /><br />
+<label for="itemQty">Quantity</label><input name="itemQty" value="<?php /*echo saveFormValue('itemQty'); */?>" required="true" type="number" /><br />
+<label for="itemAmount">Amount</label><input name="itemAmount" value="<?php /*echo saveFormValue('itemAmount'); */?>" required="true" type="text" /><br />
+>>>>>>> Mike
 </fieldset>
 <input type="hidden" name="formInsert" value="form1" />
 <input type="submit">
@@ -38,16 +46,26 @@ error_reporting(E_ALL);
 </div>
 </section>
 
+<<<<<<< HEAD
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">SKU</li>
+=======
+<p id="testing"> </p>
+<section><h1>Administration</h1>
+    <div id="thelist"><ul id="control">
+            <li class="button" onclick="sortTable(0, 'str', '1');" ondblclick="sortTable(0, 'str', '-1');">SKU</li>
+>>>>>>> Mike
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
 			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">type</li>
             <li></li></ul><?php 
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
+<<<<<<< HEAD
 		
 		//$query = new SelectAllQuery("customers");
+=======
+>>>>>>> Mike
 
 			//$query = new CustomQuery("SELECT * from customers");
 			$query = new SelectAllQuery("customers");
@@ -57,7 +75,10 @@ error_reporting(E_ALL);
 				$result = $query->execute();
 			}
 			
+<<<<<<< HEAD
 
+=======
+>>>>>>> Mike
         while($row = mysqli_fetch_row($result)) 
         {
 			echo "<ul>";
@@ -67,7 +88,10 @@ error_reporting(E_ALL);
 			echo "</ul>";
             //echo $row['customerName'];
             //var_dump($row);
+<<<<<<< HEAD
             //echo "<br>" ;
+=======
+>>>>>>> Mike
         }
         ?></div>
 </section>

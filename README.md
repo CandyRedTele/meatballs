@@ -1,5 +1,24 @@
 <h1> comp353-project </h1>
 
+## Markdown basics
+
+For better and clearer communication in the issues,  
+Please take 3 minutes to read [mastering-markdown!](https://guides.github.com/features/mastering-markdown/)  
+Especially for code syntax highlting:
+
+    ```sql
+    select * from x
+    ```
+
+And for mentions:
+
+    @mention
+
+@GeoffreyBoom
+@jamg85
+@rstor
+@boombompow
+@samuelmasuy
 
 <h2>git basics<h2>
 <p>

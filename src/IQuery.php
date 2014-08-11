@@ -11,7 +11,7 @@ include_once("ConfigLoader.php");
 abstract class IQuery 
 {
     static protected $mysql;  // only one connection to avoid connect/unconnect multiple times
-    private $logger;
+    protected $logger;
 	
     /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
      * 
