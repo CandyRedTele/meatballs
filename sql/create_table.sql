@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS ingredients;
 DROP TABLE IF EXISTS localstaff;
 DROP TABLE IF EXISTS menu;
 DROP TABLE IF EXISTS menu_item;
+DROP TABLE IF EXISTS menu_item_has_ingredients;
 DROP TABLE IF EXISTS hasMenuItem;
 DROP TABLE IF EXISTS `order`;
 DROP TABLE IF EXISTS pay;
@@ -107,16 +108,6 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
     `mitem_id`  INTEGER NULL,
     `amount`    VARCHAR(30) NULL,
     INDEX `fk_ingredient_supplies1_idx` (`sku` ASC)
---    CONSTRAINT `fk_ingredients_sku`
---    FOREIGN KEY (`sku`)
---     REFERENCES `meatballs`.`supplies` (`sku`)
---         ON DELETE NO ACTION
---         ON UPDATE NO ACTION,
---     CONSTRAINT `mitem_id`
---     FOREIGN KEY (`mitem_id`)
---     REFERENCES `meatballs`.`menu_item` (`mitem_id`)
---         ON DELETE NO ACTION
---         ON UPDATE NO ACTION
 )
 ENGINE = InnoDB;
 
@@ -130,13 +121,16 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
   `category` CHAR(45) NULL,
   `price` DOUBLE NULL,
   `name` VARCHAR(45) NULL
---  `sku` INTEGER NOT NULL,
---  INDEX `fk_menu_item_ingredient1_idx` (`sku` ASC)
---   CONSTRAINT `fk_menu_item_ingredient1`
---     FOREIGN KEY (`sku`)
---     REFERENCES `meatballs`.`ingredients` (`sku`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `meatballs`.`menu_item_has_ingredients`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS meatballs.menu_item_has_ingredients
+(
+    mitem_id INTEGER REFERENCES meatballs.menu_item (mitem_id),
+    sku      INTEGER REFERENCES meatballs.ingredients (sku)
 )
 ENGINE = InnoDB;
 
@@ -213,12 +207,6 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`wage`
   `exp_rate` DOUBLE NULL,
   `overtime` DOUBLE NULL,
   PRIMARY KEY (`title`))
---  INDEX `fk_wage_staff1_idx` (`staff_id` ASC),
---  CONSTRAINT `fk_wage_staff_id`
---   FOREIGN KEY (`title`)
---    REFERENCES `meatballs`.`staff` (`staff_id`)
---    ON DELETE NO ACTION
---    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -492,20 +480,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock`
     CONSTRAINT `fk_facilityStock_f_id`
         FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`)
         ON DELETE NO ACTION
-        ON UPDATE NO ACTION -- ,
-
-
---    CHECK(
---            0 in 
---            (select count(*)
---            from
---            (select sum(quantity) as 'sumnum', sku
---                from facilityStock
---                group by sku) quant,
---           (select food.capacity as 'capacity', sku
---               from food) cap
---               where cap.sku = quant.sku and quant.sumnum >= cap.capacity)
---   )
+        ON UPDATE NO ACTION 
 )
 ENGINE = InnoDB;
 
