@@ -30,11 +30,7 @@ class Recipe():
                     s += inserts[tables[1]]
                     s += self.helper_l_s(i)
                     s += '); '
-                    s.replace('xae', '')
-                try:
-                    f.write(s)
-                except UnicodeEncodeError:
-                    pass
+                f.write(s.encode('ascii','ignore'))
 
 
     def helper_l_s(self, l):
