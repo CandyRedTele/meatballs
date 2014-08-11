@@ -100,14 +100,9 @@ class Recipe():
             for j in common_menus:
                 i.append(j)
         menu = []
-#       count = 1
         for i, j in enumerate(specific_menus, start=1):
             for k in j:
-                menu.append([i, k[1], k[0]])
-#        for i in specific_menus:
-#            for k in i:
-#                menu.append([count, k[1], k[0]])
-#                count += 1
+                menu.append([i, k[0]])
 
         wine_kind = [i[0] for i in menu_item if i[1] == 'wines']
         wine_rating = []
