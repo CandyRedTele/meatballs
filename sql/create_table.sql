@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facility`
   `f_id` INTEGER NOT NULL,
   `location` VARCHAR(45) NULL,
   `m_id` INTEGER NOT NULL,
-  `phone` CHAR(10) NULL,
+  `phone` CHAR(12) NULL,
   PRIMARY KEY (`f_id`),
   INDEX `fk_facility_menu1_idx` (`m_id` ASC),
   CONSTRAINT `fk_facility_menu1`

@@ -13,7 +13,7 @@ USER="root"
 HOST="127.0.0.1"
 PWORD=''
 
-SCRIPTS=('create_table.sql' 'pay.sql' 'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql' 'staffgen.sql' 'gen_facility.sql' 'gen_facilityHours.sql' )
+SCRIPTS=('populate.sql')
 TEMPO=tempo
 
 function display_usage
