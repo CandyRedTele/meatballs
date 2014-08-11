@@ -36,28 +36,18 @@
 				$_SESSION['time']=time();
 				$_SESSION['phone']=$row[4];
 				$_SESSION['title']=$row[5];
-<<<<<<< HEAD
-				$_SESSION['accesslv'] = MeatballUser::getAccessLevel($_SESSION['SID']);#or just = $row[6] is good as well
-				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 5 secs</div>
-						<meta http-equiv='Refresh' content='5;url=index.php'/>";
-=======
 				$_SESSION['accesslv']=$row[6];#or just = MeatballUser::getAccessLevel($_SESSION['SID']) is good as well
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
 						<meta http-equiv='Refresh' content='3;url=index.php'/>";
->>>>>>> Mike
 			}
             //echo $_SESSION['SID'];
             //var_dump($row);
         }
 		
 		if(!isset($_SESSION['SID']))
-<<<<<<< HEAD
-			echo "<div id='notF'><h3>wrong e-mail or password<br/>please try again!</h3><br/>refreshing in 5 secs</div>
-				<meta http-equiv='Refresh' content='5;url=index.php'/>";
-=======
 			echo "<div id='notF'><h3>wrong e-mail or password<br/>please try again!</h3><br/>refreshing in 3 secs</div>
 				<meta http-equiv='Refresh' content='3;url=index.php'/>";
->>>>>>> Mike
+
 		?>
 </head>
 <body>

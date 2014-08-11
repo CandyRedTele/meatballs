@@ -1,0 +1,195 @@
+form {width: 90%;
+    margin: 0 auto;}
+
+label, input {/* in order to define widths */
+    display: inline-block;}
+
+label {width: 30%;
+    /* positions the label text beside the input */
+    text-align: right;}
+
+label + input {width: 30%;
+    /* large margin-right to force the next element to the new-line
+       and margin-left to create a gutter between the label and input */
+    margin: 0 30% 0 4%;}
+
+/* only the submit button is matched by this selector,
+   but to be sure you could use an id or class for that button */
+input + input { float: right;}
+
+#formContainer {position: relative;
+    width: 40%;}
+
+.errorMessage {color: red;
+    font-weight: bold;}
+
+.suggestion {position: absolute;
+    background-color: #333;
+    padding: 5px 3px;
+    left:345px;
+    top:10px;
+    display: none;
+    border-radius: 10px; 
+-moz-border-radius: 10px; 
+-webkit-border-radius: 10px; 
+border: 1px solid #800000;}
+
+div.suggestion ul{list-style: none;
+	margin: 0 0 -4px 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;}
+
+div.suggestion ul li{color: #ccc;
+	padding: 0;
+	margin: 0 4px 4px;
+	text-align: left;}
+
+/*====================================================================*/
+/* Für eine W3C-konforme Datei alle scrollbar-Angaben aus dem Body-Tag komplett entfernen*/
+
+body {color: #FFFFFF;
+  background-color: #000000;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 10pt;
+  scrollbar-face-color:#717171;
+  scrollbar-track-color:#000000;
+  scrollbar-arrow-color:#C0C0C0;
+  scrollbar-shadow-color:#C0C0C0;
+  scrollbar-highlight-color:#C0C0C0;
+  scrollbar-3dlight-color:#9F9F9F;
+  scrollbar-darkshadow-color:#000000;}
+
+p {margin: 4px 8px;
+  text-align: justify;}
+
+table,td,tr {color: #FFFFFF;
+  background-color: #717171;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 10pt;}
+
+.ueberschrift {height: 21px;
+  background-color: #717171;
+  color: #FFFFFF;
+  text-align: center;
+  padding-top: 4px;
+  font-weight: bold;}
+
+.obenlinks {color: #000000;
+  background-color: #CFCFCF;
+  background: url(../img/obenlinks.jpg);
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  text-align: center;
+  width: 236px;
+  height: 216px;}
+
+.oben {background: url(../img/oben.jpg) repeat-x;
+  height: 216px;}
+
+#textobengross {font-size: 18pt;
+  font-weight: bold;
+  padding: 35px 0px 0px 10px;
+  color: #717171;
+  background-color: #DEDEDE;
+  font-style: italic;}
+
+#textobenklein {font-size: 12pt;
+  font-weight: bold;
+  padding: 5px 0px 0px 10px;
+  color: #717171;
+  background-color: #DEDEDE;}
+
+.links {color: #000000;
+  background-color: #CFCFCF;
+  background: url(../img/links.jpg) repeat-y;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 10pt;
+  text-align: center;
+  width: 220px;}
+
+.menue {list-style-type: none;
+  width: 210px;
+  margin-left: 0;
+  padding-left: 5px;
+  color: #000000;}
+
+.menue li a, .menue li a:active, .menue li a:visited {color: #000000;
+  background-color: #DEDEDE;
+  width: 200px;
+  height: 25px;
+  text-decoration: none;
+  font-size: 10pt;
+  font-family: verdana,arial,helvetica,sans-serif;
+  display: block;
+  line-height: 25px;
+  border-bottom: 1px solid #717171;
+  margin: 1px;
+  padding: 2px 6px 2px 2px;}
+
+.menue li a:hover {color: #FFFFFF;
+  background-color: #717171;
+  text-decoration: none;}
+
+.hauptfenster {width: 634px;
+  color: #000000;
+  background-color: #FFFFFF;}
+
+.haupttext {color: #000000;
+  background-color: #FFFFFF;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 10pt;
+  width: 624px;
+  margin: 0px;
+  padding: 0px 10px 10px 0px;}
+
+h1 {color: #717171;
+  background-color: transparent;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 14pt;
+  text-align: left;
+  padding: 0px 0px 0px 4px;}
+
+h2 {color: #9F9F9F;
+  background-color: #FFFFFF;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 13pt;
+  padding: 6px;}
+
+h3 {color: #000000;
+  background-color: #FFFFFF;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 12pt;
+  font-style: italic;
+  text-align: center;}
+
+h4 {color: #FFFFFF;
+  background-color: #717171;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+  padding: 0px 0px 0px 8px;}
+
+h5 {color: #999999;
+  background-color: #FFFFFF;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  padding: 0px 0px 0px 8px;}
+
+a:link, a:visited, a:active {color: #000000;
+  background-color: transparent;
+  text-decoration: none;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-weight: bold;}
+
+a:hover {color: #FFFFFF;
+  background-color: #717171;
+  text-decoration: none;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-weight: bold;}
+
+.hpb {font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 7pt;
+  font-weight: normal;}

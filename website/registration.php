@@ -1,63 +1,80 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-CA" xml:lang="en-CA">
+<html>
 <head>
-	<meta charset="utf-8"/>
-	<title>Registration Form</title>
-	<link rel="stylesheet" type="text/css" href="css/stylesheet3.css"/>
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
-		<?php	?>
+<title>GOLDEN MEMBER REGISTRATION</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet3.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" media="all" />
+	<script type="text/javascript" src="js/javascript2.js"></script>
 </head>
 <body>
-//<script type="text/javascript" src="js/javascript2.js"></script>
-
-<div id="RegisF">
-<form action="php/register_valid.php" name="form" id="frm" method="post" onsubmit="return(validate());" enctype="multipart/form-data">
-<div id="formH">Registration</div>
-
-<div class="fields"><span class="rq">*</span><div class="fieldT">First Name:</div>
-<div><input type="text" id="fn" name="firstN" size="50" maxlength="20"/></div>
-<p class="hint">15 characters maximum</p>
-</div>
-
-<div class="fields"><span class="rq">*</span><div class="fieldT">Last Name:</div>
-<div><input type="text" id="ln" name="lastN" size="50" maxlength="20" /></div>
-<p class="hint">15 characters maximum</p>
-</div>
-
-<div class="fields"><span class="rq">*</span><div class="fieldT">Password:</div>
-<div><input type="password" id="pw" name="pswd" size="50" placeholder="please enter at least 8 characters"/></div>
-</div>
-
-<div class="fields"><span class="rq">*</span><div class="fieldT">Password confirm:</div>
-<div><input type="password" id="rp" name="repswd" size="50" placeholder="please re-enter your password"/></div>
-<p class="hint">please retype the password</p>
-</div>
-
-<div class="fields" id="gender">
-Male <input type="radio" name="gender" value="male" />
-Female <input type="radio" name="gender" value="female" />
-</div>
-
-<div class="fields"><span class="rq">*</span><div class="fieldT">e-mail:</div>
-<div><input type="text" id="em" name="email" size="50" placeholder="please enter a valid e-mail"/></div>
-</div>
-
-<div class="fields"><div class="fieldT">Phone Number:</div>
-<div><input type="text" id="pn" name="phoneN" size="50" /></div>
-</div>
-
-<div class="fields"><div class="fieldT">Profile picture</div>
-<div><input type="file" id="img" name="file" accept="image/*" /></div>
-</div>
-
-<div>
-<input type="submit" id="register" name="submission" value="submit!" />
-<input type="button" id="" name="" value="Go back" onclick="window.history.back()"/>
-</div>
-</form>
-
-<div id="rightSide">
-	<img src="img/goldMember.jpg"/>
+<div class="container">
+			<!-- freshdesignweb top bar 
+            <div class="freshdesignweb-top">
+                <a href="http://www.freshdesignweb.com" target="_blank">Home</a>
+                <span class="right">
+                    <a href="http://www.freshdesignweb.com/beautiful-registration-form-with-html5-and-css3.html">
+                        <strong>Back to the freshdesignweb Article</strong>
+                    </a>
+                </span>
+                <div class="clr"></div>
+            </div><!--/ freshdesignweb top bar -->
+			<header>
+				<h1><span>registration</span> Golden Member</h1>
+            </header>       
+      <div  class="form">
+    		<form id="contactform" action="register_valid.php" onsubmit="return(validate());" enctype="multipart/form-data"> 
+    			<p class="contact"><label for="name">Name</label></p> 
+    			<input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"> 
+    			 
+    			<p class="contact"><label for="email">Email</label></p> 
+    			<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
+                
+                <p class="contact"><label for="username">Create a username</label></p> 
+    			<input id="username" name="username" placeholder="username" required="" tabindex="2" type="text"> 
+    			 
+                <p class="contact"><label for="password">Create a password</label></p> 
+    			<input type="password" id="password" name="password" required=""> 
+                <p class="contact"><label for="repassword">Confirm your password</label></p> 
+    			<input type="password" id="repassword" name="repassword" required=""> 
+        
+               <fieldset>
+                 <label>Birthday</label>
+                  <label class="month"> 
+                  <select class="select-style" name="BirthMonth">
+                  <option value="">Month</option>
+                  <option  value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03" >March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08">August</option>
+                  <option value="09">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12" >December</option>
+                  </label>
+                 </select>    
+                <label>Day<input class="birthday" maxlength="2" name="BirthDay"  placeholder="Day" required=""></label>
+                <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" required=""></label>
+              </fieldset>
+  
+            <select class="select-style gender" name="gender">
+            <option value="select">i am..</option>
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+            <option value="others">Other</option>
+            </select><br><br>
+            
+            <p class="contact"><label for="phone">Mobile phone</label></p> 
+            <input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br>
+            <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit"> 	 
+		</form> 
+</div>      
 </div>
 
 </body>

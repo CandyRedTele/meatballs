@@ -79,33 +79,26 @@ iframe {	width:100%;
 			text-align:center;}
 
 #topright img{	border-radius:10px;
-<<<<<<< HEAD
-				box-shadow:20px 10px 50px 20px #FF4040;}
-=======
+
 				box-shadow:10px 10px 55px 33px #FFE6E6;}
->>>>>>> Mike
+
 				
 /*#password {width: 100px;
 	font-size: 10px;
 	margin: 3px 0px 0px 10px;
 }*/
 
-<<<<<<< HEAD
-#login {	font-size: 10px;
-=======
-#login,#logout {	font-size: 10px;
->>>>>>> Mike
+#login, #logout {	font-size: 10px;
+
 		font-weight: bold;
 		width: 88px;
 		height: 22px;
 		background: #9e5846;
 		border: 1px solid #8e4d3d;
 		color: #FFFFFF;
-<<<<<<< HEAD
-		margin: 11px 0px 0px 67px;}
-=======
+
 		margin: 11px 0px 0px 22px;}
->>>>>>> Mike
+
 
 #username {	width: 100px;
 			font-size: 10px;
@@ -114,12 +107,9 @@ iframe {	width:100%;
 #templatemo_login_right {	float: left;
 							width: 170px;
 							margin: 25px 0px 0px 0px;
-<<<<<<< HEAD
-							color: #8c2914;}
-=======
 							color: #8C8033;
 							font-weight: bold;}
->>>>>>> Mike
+
 
 #templatemo_login_left {
 	text-align:center;

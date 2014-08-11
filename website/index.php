@@ -10,21 +10,14 @@
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 	<title> Mamma Meatballs </title>
 	<link rel="stylesheet" type="text/css" href="css/stylesheet1.css" />
-<<<<<<< HEAD
-	
-=======
 	<link rel="stylesheet" href="http://yoursite.com/custom.ashx?user=1231">
->>>>>>> Mike
+
 </head>
 	
 <body>
 <header>
 <div id="topleft">
 	<div id="login_section">
-<<<<<<< HEAD
-	<div id="templatemo_login_left">STAFF LOGIN</div>
-=======
->>>>>>> Mike
 	<?php 
 	if(isset($_SESSION['SID']))
 	{
@@ -35,12 +28,9 @@
 				</form>
 			</div>';
 	}
-<<<<<<< HEAD
-	else echo '<div id="templatemo_login_right">
-=======
 	else echo '<div id="templatemo_login_left">STAFF LOGIN</div>
 				<div id="templatemo_login_right">
->>>>>>> Mike
+
 				<form id="form1" name="form1" method="post" action="login.php">
 					Staff ID: 
 					<label><input type="text" name="username" id="username" placeholder="please enter s_id" required/></label>
@@ -63,6 +53,7 @@
 	?>
 	<li><a href="#" target="insideC">Find Us</a></li>
     <li><a href="#" target="insideC">About Us</a></li>
+	<li><a href="#" target="insideC">About Us</a></li>
     <li><a href="#" class="selected" target="insideC">Contact Us</a></li>
   </menu>
 </nav>
