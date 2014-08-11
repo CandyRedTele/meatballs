@@ -466,8 +466,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`facilityHours` 
 (
     `day`   VARCHAR(45) NULL,
-    `open`  VARCHAR(45) NULL,
-    `close` VARCHAR(45) NULL
+    `open`  TIME NULL,
+    `close` TIME NULL
 )
 ENGINE = InnoDB;
 
