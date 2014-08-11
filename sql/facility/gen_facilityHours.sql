@@ -1,3 +1,5 @@
+use meatballs;
+
 INSERT INTO facilityHours (day, open, close)
     VALUES  ('Sunday',  '11:00:00', '23:00:00'),
             ('Monday',  '11:00:00', '23:00:00'),
