@@ -17,7 +17,7 @@ PWORD=''
 ### NOTE Please do not remove all those scripts to replace with populate.sql, I want to execute them one by one, :-)
 SCRIPTS=('create_table.sql' 
          'pay.sql' 'staffgen.sql' 'gen_admin.sql'
-         'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql'  
+         'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql'  'vendor.sql' 'acatalog.sql'
          'gen_facility.sql' 'gen_facilityHours.sql' 'facility_stock.sql'
          )
 TEMPO=tempo
@@ -36,7 +36,7 @@ cp *.sql $TEMPO
 
 #
 # copy all sql under $TEMPO 
-#
+
 for dir in $(ls -d */); do
     if [ $dir != "tempo/" ]; then 
         echo -n "[initDb.sh] "
@@ -49,7 +49,11 @@ done
 for file in ${SCRIPTS[@]}
 do
     echo -n "[initDb.sh] executing $file ..."
-    mysql -u $USER --password="$PWORD" -h $HOST < $TEMPO/$file || display_usage;
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        mysql -uroot -h $HOST < $TEMPO/$file || display_usage;
+    else
+        mysql -u $USER --password="$PWORD" -h $HOST < $TEMPO/$file || display_usage;
+    fi
     echo "... OK"
 done
 
