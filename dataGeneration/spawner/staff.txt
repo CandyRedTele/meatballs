@@ -3,4 +3,4 @@ address,Human,Street Address
 ssn,Human,Social Security Number
 name,Human,Full Name,True|True
 title,Set,From Fixed List,ceo|cfo|chef|cook|cto|delivery personnel|dishwasher|human resources|manager|marketing|wait staff
-acces_level,Numbers,Integer,3|3
+access_level,Numbers,Integer,3|3
