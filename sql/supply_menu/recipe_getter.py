@@ -139,7 +139,7 @@ class Recipe():
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
-                vendor, 'vendor')
+                (vendor, 'vendor'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
