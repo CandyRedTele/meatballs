@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`staff`
     `ssn`           CHAR(11)    NULL,
     `title`         VARCHAR(45) NOT NULL,
 	`access_level`   INTEGER     NULL CHECK(access_level in (1,2,3,4,5)) --       COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
+
 )
 ENGINE = InnoDB;
 
