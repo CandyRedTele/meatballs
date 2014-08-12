@@ -9,7 +9,7 @@ from random import randint, sample, uniform, randrange
 inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
            'ingredients': 'INSERT INTO ingredients (sku, amount) VALUES (',
-           'menu_item_has_ingredients' : 'INSERT INTO menu_item_has_ingredients (mitem_id, sku) VALUES (',
+           'menu_item_has_ingredients': 'INSERT INTO menu_item_has_ingredients (mitem_id, sku) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
            'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
@@ -65,17 +65,25 @@ class Recipe():
     def create_list(self):
         d = self.create_dic()
 
-        skus_items = [k for i in d.itervalues()
-                      for j in i.itervalues() for k in j['ingredients']]
+        ingredients_name = [k[1] for i in d.itervalues()
+              for j in i.itervalues() for k in j['ingredients']]
 
-        skus = sample(range(10000, 49999), len(skus_items))
+        ingredients_name_set = set()
+        for i in ingredients_name:
+            ingredients_name_set.add(i)
+
+        skus = sample(range(10000, 49999), len(ingredients_name_set))
+        ingredients_name = []
+        for i, j in enumerate(ingredients_name_set):
+            ingredients_name.append((j, skus[i]))
+
+        ingredients_name_dict = dict(ingredients_name)
+
         supply = []
-        index = 0
         for i in d.itervalues():
             for j in i.itervalues():
                 for k in j['ingredients']:
-                    k.append(skus[index])
-                    index += 1
+                    k.append(ingredients_name_dict[k[1]])
                     supply.append([k[2], k[1], 'food', uniform(0.5, 13.9)])
 
         for i in other_supplies:
