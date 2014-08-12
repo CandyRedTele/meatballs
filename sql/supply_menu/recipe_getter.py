@@ -9,7 +9,7 @@ from random import randint, sample, uniform, randrange
 inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
            'ingredients': 'INSERT INTO ingredients (sku, amount) VALUES (',
-           'menu_item_has_ingredients' : 'INSERT INTO menu_item_has_ingredients (midtem_id, sku) VALUES (',
+           'menu_item_has_ingredients' : 'INSERT INTO menu_item_has_ingredients (mitem_id, sku) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
            'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
