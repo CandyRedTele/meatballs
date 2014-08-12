@@ -15,7 +15,7 @@ inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
            'facility_stock': 'INSERT INTO facilityStock (quantity, order_date, sku, f_id) VALUES (',
            'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES (',
-           'acatalog': 'INSERT INTO acatalog (vendor_id, sku) VALUES ('
+           'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES ('
           }
 
 
@@ -171,7 +171,7 @@ class Recipe():
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
-                (vendor, 'vendor'), (acatalog, 'acatalog'), (menu_item_has_ingredients, 'menu_item_has_ingredients'))
+                (vendor, 'vendor'), (acatalog, 'catalog'), (menu_item_has_ingredients, 'menu_item_has_ingredients'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
