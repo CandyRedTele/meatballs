@@ -8,7 +8,7 @@ from random import randint, sample, uniform, randrange
 
 inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
-           'ingredients': 'INSERT INTO ingredients (sku, amount) VALUES (',
+           'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES (',
            'menu_item_has_ingredients': 'INSERT INTO menu_item_has_ingredients (mitem_id, sku) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
@@ -79,12 +79,14 @@ class Recipe():
 
         ingredients_name_dict = dict(ingredients_name)
 
-        supply = []
         for i in d.itervalues():
             for j in i.itervalues():
                 for k in j['ingredients']:
                     k.append(ingredients_name_dict[k[1]])
-                    supply.append([k[2], k[1], 'food', uniform(0.5, 13.9)])
+
+        supply = []
+        for k in ingredients_name:
+            supply.append([k[1], k[0], 'food', uniform(0.5, 13.9)])
 
         for i in other_supplies:
             supply.append(i)
@@ -168,6 +170,7 @@ class Recipe():
 
         menu_item_has_ingredients = [[i[1], i[0]] for i in ingredients]
         ingredients = [[i[0], i[2]] for i in ingredients]
+
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
