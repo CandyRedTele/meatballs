@@ -3,26 +3,28 @@
  *
  * AUTHORS : Team 3, Joseph
  *
- * NAME : class CustomQuery 
+ * NAME : class GetLocationQuery 
  *
  * PURPOSE : Executes the Query String passed to the constructor
  *
  *************************************************************************/
 include_once("IQuery.php");
-class CustomQuery extends IQuery
+class GetLocationQuery extends IQuery
 {
-    private $query_string;
+    private $staff_id;
 
-    public function __construct($query_string)
+    public function __construct($staff_id)
     {
 		parent::__construct();
-        $this->query_string = $query_string;
 		$this->logger->write("[" . __CLASS__ . "] - __construct()");
+
+        $this->staff_id= $staff_id;
     }
 
     public function getQueryString()
     {
-        return $this->query_string;
+        return "SELECT location FROM facility WHERE f_id = (SELECT f_id FROM staff NATURAL JOIN localstaff WHERE staff_id="
+                    .$this->staff_id.");"; 
     }
 }
 ?>

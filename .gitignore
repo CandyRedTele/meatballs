@@ -5,4 +5,4 @@ project-description.pdf
 .DS_Store
 sql_OLD
 *~
-./sql/tempo
+sql/tempo

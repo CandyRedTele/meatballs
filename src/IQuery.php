@@ -12,6 +12,7 @@ abstract class IQuery
 {
     static protected $mysql;  // only one connection to avoid connect/unconnect multiple times
     protected $logger;
+    static private $log_once_flag = false; // log only when the first IQuery is created, not after
 	
     /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
      * 
@@ -29,7 +30,11 @@ abstract class IQuery
 			$config_path = $_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src/project.config.xml';
 		}
 		
-		$this->logger->write("\t? \$config_path = " . $config_path);
+        if (!IQuery::$log_once_flag) {
+		    $this->logger->write("\t? \$config_path = " . $config_path);
+		    $this->logger->write("\t? include path : " . get_include_path());
+            IQuery::$log_once_flag = true;
+        }
 
         $loader = new ConfigLoader($config_path, "localhost");
 

@@ -18,7 +18,7 @@ $logger = Logger::getSingleInstace();
 
 if ($handle = opendir($path)) 
 {
-    $included_files = "[IncludeAllQueries] inculded files : ( ";
+    $included_files = "[IncludeAllQueries] included files : ( ";
 
     while (($file = readdir($handle)))
     {
