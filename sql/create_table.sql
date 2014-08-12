@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`admin`
     `location`  VARCHAR(55) NULL DEFAULT 'Montreal',
     `yrs_exp`   INTEGER NULL,
     `training`  VARCHAR(45) NULL,
-
+    PRIMARY KEY (staff_id, location), -- Assuming that an employee might work in different locations during his career.
     CONSTRAINT `fk_admin_staff_id`
         FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -101,7 +101,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` 
 (
     `sku`       INTEGER NOT NULL,
-    `mitem_id`  INTEGER NULL,
+    `mitem_id`  INTEGER NULL,     -- TODO remove this field, we now have the table menu_item_has_ingredients
     `amount`    VARCHAR(30) NULL,
     INDEX `fk_ingredient_supplies1_idx` (`sku` ASC)
 )
@@ -126,7 +126,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS meatballs.menu_item_has_ingredients
 (
     mitem_id INTEGER REFERENCES meatballs.menu_item (mitem_id),
-    sku      INTEGER REFERENCES meatballs.ingredients (sku)
+    sku      INTEGER REFERENCES meatballs.ingredients (sku),
+    PRIMARY KEY (mitem_id, sku) -- no duplicate tuple, there is an `amount` field in ingredients
 )
 ENGINE = InnoDB;
 
