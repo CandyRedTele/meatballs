@@ -73,6 +73,12 @@ class Recipe():
                     index += 1
                     supply.append([k[2], k[1], 'food'])
 
+        skus = sample(range(50000, 99999), len(other_supplies))
+        for i, j in enumerate(other_supplies):
+            j.insert(0, skus[i])
+        for i in other_supplies:
+            supply.append(i[:3])
+
         menu_item = []
         index = 1
         for category, i in d.iteritems():
@@ -118,20 +124,14 @@ class Recipe():
         for i in wine_kind:
             wine_rating.append([uniform(6.5, 10), i])
 
-        skus = sample(range(50000, 99999), len(other_supplies))
-        for i, j in enumerate(other_supplies):
-            j.insert(0, skus[i])
-
-        supplies = supply + other_supplies
-
         now = datetime.datetime.now().strftime('%Y-%m-%d')
         facility_stock = []
-        for j in menu:  
+        for j in menu:
             for k in ingredients:
                 if j[1] == k[1]:
                     facility_stock.append([randint(5, 100), now, k[0], j[0]])
 
-        return ((supplies, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
+        return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'))
 
     def generateUrlRecipe(self, urls):
@@ -161,91 +161,97 @@ class Recipe():
         price = randint(min, max)
         return {name: {'ingredients': amounts, 'price': price}}
 
-other_supplies = [['Oven', 'kitchen supplies'],
-                  ['Pan', 'kitchen supplies'],
-                  ['Knife', 'kitchen supplies'],
-                  ['Table', 'kitchen supplies'],
-                  ['Fork', 'kitchen supplies'],
-                  ['Tongs', 'kitchen supplies'],
-                  ['Meat Hammer', 'kitchen supplies'],
-                  ['Waffle Iron', 'kitchen supplies'],
-                  ['Plate', 'serving items'],
-                  ['Fork', 'serving items'],
-                  ['Spoon', 'serving items'],
-                  ['Knife', 'serving items'],
-                  ['Steak Knife', 'serving items'],
-                  ['Bowl', 'serving items'],
-                  ['Napkins', 'serving items'],
-                  ['Tray', 'serving items'],
-                  ['Table Clothes', 'linens'],
-                  ['Aprons', 'linens'],
-                  ['Fry Pans', 'kitchen supplies'],
-                  ['Ingredient Bins', 'kitchen supplies'],
-                  ['Sheet Pans', 'kitchen supplies'],
-                  ['Roast Pan', 'kitchen supplies'],
-                  ['Stock Pot', 'kitchen supplies'],
-                  ['Deep Boiler', 'kitchen supplies'],
-                  ['Pasta Cooker', 'kitchen supplies'],
-                  ['Sauce Pot', 'kitchen supplies'],
-                  ['Sauce Pan', 'kitchen supplies'],
-                  ['Pizza Pan', 'kitchen supplies'],
-                  ['Pizza Dough Boxes', 'kitchen supplies'],
-                  ['Sheet Pan', 'kitchen supplies'],
-                  ['Tongs', 'kitchen supplies'],
-                  ['Disher', 'kitchen supplies'],
-                  ['Ladle', 'kitchen supplies'],
-                  ['Egg Slicer', 'kitchen supplies'],
-                  ['Tapered Grater', 'kitchen supplies'],
-                  ['Grill Cover', 'kitchen supplies'],
-                  ['Steak Weight', 'kitchen supplies'],
-                  ['Pancake Dispenser Stand', 'kitchen supplies'],
-                  ['Dredge', 'kitchen supplies'],
-                  ['Sandwich Spreader', 'kitchen supplies'],
-                  ['Fish Turner', 'kitchen supplies'],
-                  ['Cutting Board for Meat', 'kitchen supplies'],
-                  ['Cutting Board for Fish', 'kitchen supplies'],
-                  ['Cutting Board for Poultry', 'kitchen supplies'],
-                  ['Knife Rack', 'kitchen supplies'],
-                  ['Professional Cimeter', 'kitchen supplies'],
-                  ['Cleaver', 'kitchen supplies'],
-                  ['Sharpening Steel', 'kitchen supplies'],
-                  ['Refrigerator/Freezer Thermometer', 'kitchen supplies'],
-                  ['Can Opener', 'kitchen supplies'],
-                  ['Nitrile Gloves', 'linens'],
-                  ['Oven Mitt', 'linens'],
-                  ['Cloth Pot Holder', 'linens'],
-                  ['Digital Scale', 'kitchen supplies'],
-                  ['Manual Slicer', 'kitchen supplies'],
-                  ['Table Skirting', 'linens'],
-                  ['Vinyl Tablecloth', 'linens'],
-                  ['Salt and Pepper Shaker', 'serving items'],
-                  ['Single Jacket Menu', 'serving items'],
-                  ['Menu Holder', 'serving items'],
-                  ['Tabletop Sign Holder', 'serving items'],
-                  ['Table Top Napkin Holders', 'serving items'],
-                  ['Napkins', 'serving items'],
-                  ['Straw Dispenser', 'serving items'],
-                  ['Straw', 'serving items'],
-                  ['Cone Holder', 'serving items'],
-                  ['Countertop Organizer', 'serving items'],
-                  ['Beverage Dispenser', 'serving items'],
-                  ['Tea Urn', 'serving items'],
-                  ['Coffee Maker', 'serving items'],
-                  ['Espresso Maker', 'serving items'],
-                  ['Panini Grill', 'kitchen supplies'],
-                  ['Rice Cooker/Warmer', 'kitchen supplies'],
-                  ['Filter Drain Pot', 'kitchen supplies'],
-                  ['Bottle Cooler', 'kitchen supplies'],
-                  ['Overhead Glass Rack', 'kitchen supplies'],
-                  ['Ice bin', 'kitchen supplies'],
-                  ['Champagne Bucket and Stand', 'serving items'],
-                  ['Waiter Corkscrew', 'serving items'],
-                  ['Glass Storage Rack', 'kitchen supplies'],
-                  ['Sink', 'kitchen supplies'],
-                  ['Drainboards', 'kitchen supplies'],
-                  ['Refrigerator', 'kitchen supplies'],
-                  ['Freezer', 'kitchen supplies'],
-                  ['Chairs', 'serving items']]
+other_supplies = [['Oven', 'kitchen supplies', 1000],
+                  ['Pan', 'kitchen supplies', 50],
+                  ['Knife', 'kitchen supplies', 5],
+                  ['Table', 'kitchen supplies', 50],
+                  ['Fork', 'kitchen supplies', 5],
+                  ['Tongs', 'kitchen supplies', 5],
+                  ['Meat Hammer', 'kitchen supplies', 60],
+                  ['Waffle Iron', 'kitchen supplies', 50],
+                  ['Plate', 'serving items', 5],
+                  ['Fork', 'serving items', 5],
+                  ['Spoon', 'serving items', 5],
+                  ['Knife', 'serving items', 5],
+                  ['Steak Knife', 'serving items', 6],
+                  ['Bowl', 'serving items', 5],
+                  ['Napkins', 'serving items', 1],
+                  ['Tray', 'serving items', 4],
+                  ['Table Clothes', 'linens', 15],
+                  ['Aprons', 'linens', 6],
+                  ['Fry Pans', 'kitchen supplies', 21],
+                  ['Ingredient Bins', 'kitchen supplies', 10],
+                  ['Sheet Pans', 'kitchen supplies', 50],
+                  ['Roast Pan', 'kitchen supplies', 20],
+                  ['Stock Pot', 'kitchen supplies', 80],
+                  ['Deep Boiler', 'kitchen supplies', 60],
+                  ['Pasta Cooker', 'kitchen supplies', 50],
+                  ['Sauce Pot', 'kitchen supplies', 30],
+                  ['Sauce Pan', 'kitchen supplies', 20],
+                  ['Pizza Pan', 'kitchen supplies', 20],
+                  ['Pizza Dough Boxes', 'kitchen supplies', 10],
+                  ['Sheet Pan', 'kitchen supplies', 14],
+                  ['Tongs', 'kitchen supplies', 12],
+                  ['Disher', 'kitchen supplies', 10],
+                  ['Ladle', 'kitchen supplies', 14],
+                  ['Egg Slicer', 'kitchen supplies', 12],
+                  ['Tapered Grater', 'kitchen supplies', 12],
+                  ['Grill Cover', 'kitchen supplies', 21],
+                  ['Steak Weight', 'kitchen supplies', 30],
+                  ['Pancake Dispenser Stand', 'kitchen supplies', 30],
+                  ['Dredge', 'kitchen supplies', 21],
+                  ['Sandwich Spreader', 'kitchen supplies', 24],
+                  ['Fish Turner', 'kitchen supplies', 21],
+                  ['Cutting Board for Meat', 'kitchen supplies', 18],
+                  ['Cutting Board for Fish', 'kitchen supplies', 18],
+                  ['Cutting Board for Poultry', 'kitchen supplies', 18],
+                  ['Knife Rack', 'kitchen supplies', 38],
+                  ['Professional Cimeter', 'kitchen supplies', 50],
+                  ['Cleaver', 'kitchen supplies', 21],
+                  ['Sharpening Steel', 'kitchen supplies', 21],
+                  ['Refrigerator/Freezer Thermometer', 'kitchen supplies', 43],
+                  ['Can Opener', 'kitchen supplies', 15],
+                  ['Nitrile Gloves', 'linens', 14],
+                  ['Oven Mitt', 'linens', 16],
+                  ['Cloth Pot Holder', 'linens', 18],
+                  ['Digital Scale', 'kitchen supplies', 45],
+                  ['Manual Slicer', 'kitchen supplies', 90],
+                  ['Table Skirting', 'linens', 60],
+                  ['Vinyl Tablecloth', 'linens', 20],
+                  ['Salt and Pepper Shaker', 'serving items', 10],
+                  ['Single Jacket Menu', 'serving items', 17],
+                  ['Menu Holder', 'serving items', 10],
+                  ['Tabletop Sign Holder', 'serving items', 10],
+                  ['Table Top Napkin Holders', 'serving items', 8],
+                  ['Napkins', 'serving items', 1],
+                  ['Straw Dispenser', 'serving items', 10],
+                  ['Straw', 'serving items', 1],
+                  ['Cone Holder', 'serving items', 12],
+                  ['Countertop Organizer', 'serving items', 45],
+                  ['Beverage Dispenser', 'serving items', 120],
+                  ['Tea Urn', 'serving items', 80],
+                  ['Coffee Maker', 'serving items', 140],
+                  ['Espresso Maker', 'serving items', 180],
+                  ['Panini Grill', 'kitchen supplies', 70],
+                  ['Rice Cooker/Warmer', 'kitchen supplies', 90],
+                  ['Filter Drain Pot', 'kitchen supplies', 40],
+                  ['Bottle Cooler', 'kitchen supplies', 30],
+                  ['Overhead Glass Rack', 'kitchen supplies', 40],
+                  ['Ice bin', 'kitchen supplies', 90],
+                  ['Champagne Bucket and Stand', 'serving items', 20],
+                  ['Waiter Corkscrew', 'serving items', 10],
+                  ['Glass Storage Rack', 'kitchen supplies', 12],
+                  ['Sink', 'kitchen supplies', 300],
+                  ['Drainboards', 'kitchen supplies', 200],
+                  ['Refrigerator', 'kitchen supplies', 1200],
+                  ['Freezer', 'kitchen supplies', 1300],
+                  ['Chairs', 'serving items', 40]]
+
+vendors = [['Servu-online', '3201 Apollo Drive Champaign, IL', 'kitchen supplies'], ['PA Supermarche', '1420 Rue du Fort Montreal, QC', 'food'],
+           ['Provigo', '3421 Avenue du Parc Montreal, QC', 'food'], ['Segals Market', '4001 Boulevard Saint-Laurent Montreal, QC', 'food'],
+           ['Super C', '147 Avenue Atwater Montreal, QC', 'food'], ['Lucky', '4527 8 Ave SE, Calgary, AB', 'food'],
+           ['Island Market', '1502 W 2nd Ave #120, Vancouver, BC', 'food'], ['Stong Markets', '4560 Dunbar St, Vancouver, BC', 'food'],
+           ['Mikasa', '4450 Rochdale Blvd Regina, SK', 'serving items'], ['George Courey', '326 Victoria Ave Westmount, QC', 'linens']]
 
 url = "http://hangryingreedytest.herokuapp.com/?recipe_url="
 main_urls = [
