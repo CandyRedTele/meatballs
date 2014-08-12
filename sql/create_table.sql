@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`staff`
 (
     `staff_id`      INTEGER     PRIMARY KEY     AUTO_INCREMENT,
     `name`          VARCHAR(45) NULL,
-    `address`       VARCHAR(45) NULL,
+    `address`       VARCHAR(60) NULL,
     `phone`         CHAR(12)    NULL,
     `ssn`           CHAR(11)    NULL,
     `title`         VARCHAR(45) NOT NULL,
