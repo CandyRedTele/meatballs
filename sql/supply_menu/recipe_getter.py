@@ -12,7 +12,9 @@ inserts = {'supply': 'INSERT INTO supplies (sku, name, type) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
            'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
-           'facility_stock': 'INSERT INTO facilityStock (quantity, order_date, sku, f_id) VALUES ('}
+           'facility_stock': 'INSERT INTO facilityStock (quantity, order_date, sku, f_id) VALUES (',
+           'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES ('
+          }
 
 
 class Recipe():
@@ -131,8 +133,13 @@ class Recipe():
                 if j[1] == k[1]:
                     facility_stock.append([randint(5, 100), now, k[0], j[0]])
 
+        vendor = []
+        for i, j in enumerate(vendors, start=1):
+                vendor.append([i, j[0], j[1]])
+
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
-                (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'))
+                (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
+                vendor, 'vendor')
 
     def generateUrlRecipe(self, urls):
         newlist = []
