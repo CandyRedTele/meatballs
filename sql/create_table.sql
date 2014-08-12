@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`acatalog`
     `vendor_id`     INTEGER NOT NULL,
     `sku`           INTEGER NOT NULL
 )
-
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
