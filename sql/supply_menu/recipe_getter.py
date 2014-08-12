@@ -4,16 +4,17 @@ import requests
 import json
 import datetime
 from os.path import isfile
-from random import randint, sample, uniform
+from random import randint, sample, uniform, randrange
 
-inserts = {'supply': 'INSERT INTO supplies (sku, name, type) VALUES (',
+inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
            'ingredients': 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
            'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
            'facility_stock': 'INSERT INTO facilityStock (quantity, order_date, sku, f_id) VALUES (',
-           'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES ('
+           'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES (',
+           'acatalog': 'INSERT INTO acatalog (vendor_id, sku) VALUES ('
           }
 
 
@@ -31,8 +32,7 @@ class Recipe():
                     s += inserts[tables[1]]
                     s += self.helper_l_s(i)
                     s += '); '
-                f.write(s.encode('ascii','ignore'))
-
+                f.write(s.encode('ascii', 'ignore'))
 
     def helper_l_s(self, l):
         s = ""
@@ -47,6 +47,7 @@ class Recipe():
         return s[:-2]
 
     def create_dic(self):
+        d = dict()
         if isfile('supply_menu.json'):
             with open('supply_menu.json', 'rb') as fp:
                 d = json.load(fp)
@@ -65,6 +66,7 @@ class Recipe():
 
         skus_items = [k for i in d.itervalues()
                       for j in i.itervalues() for k in j['ingredients']]
+
         skus = sample(range(10000, 49999), len(skus_items))
         supply = []
         index = 0
@@ -73,13 +75,10 @@ class Recipe():
                 for k in j['ingredients']:
                     k.append(skus[index])
                     index += 1
-                    supply.append([k[2], k[1], 'food'])
+                    supply.append([k[2], k[1], 'food', uniform(0.5, 13.9)])
 
-        skus = sample(range(50000, 99999), len(other_supplies))
-        for i, j in enumerate(other_supplies):
-            j.insert(0, skus[i])
         for i in other_supplies:
-            supply.append(i[:3])
+            supply.append(i)
 
         menu_item = []
         index = 1
@@ -101,10 +100,10 @@ class Recipe():
                 for k in j['ingredients']:
                     if (category == "wines" or count % 5 == 0):
                         k.append(randint(45, 500))
-                        k.append(0) # refers to false
+                        k.append(0)  # refers to false
                     else:
                         k.append(randint(5, 45))
-                        k.append(1) # refers to true
+                        k.append(1)  # refers to true
                     count += 1
                     food.append([k[2], 100, k[3], k[4]])
 
@@ -126,6 +125,10 @@ class Recipe():
         for i in wine_kind:
             wine_rating.append([uniform(6.5, 10), i])
 
+        skus = sample(range(50000, 99999), len(other_supplies))
+        for i, j in enumerate(other_supplies):
+            j.insert(0, skus[i])
+
         now = datetime.datetime.now().strftime('%Y-%m-%d')
         facility_stock = []
         for j in menu:
@@ -135,11 +138,28 @@ class Recipe():
 
         vendor = []
         for i, j in enumerate(vendors, start=1):
-                vendor.append([i, j[0], j[1]])
+            vendor.append([i, j[0], j[1]])
+            j.insert(0, i)
+
+        acatalog = []
+        food_vendors = [ven for ven in vendors if ven[3] == 'food']
+        for i in food:
+            acatalog.append([food_vendors[randrange(0, len(food_vendors))][0], i[0]])
+
+        linens_vendors = [ven for ven in vendors if ven[3] == 'linens']
+        kitchen_vendors = [ven for ven in vendors if ven[3] == 'kitchen supplies']
+        serving_vendors = [ven for ven in vendors if ven[3] == 'serving items']
+        for i in other_supplies:
+            if i[2] == 'linens':
+                acatalog.append([linens_vendors[randrange(0, len(linens_vendors))][0], i[0]])
+            elif i[2] == 'kitchen supplies':
+                acatalog.append([kitchen_vendors[randrange(0, len(kitchen_vendors))][0], i[0]])
+            elif i[2] == 'serving items':
+                acatalog.append([serving_vendors[randrange(0, len(serving_vendors))][0], i[0]])
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
-                (vendor, 'vendor'))
+                (vendor, 'vendor'), (acatalog, 'acatalog'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
