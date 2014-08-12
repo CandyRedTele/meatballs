@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
 (
     `sku`       INTEGER NOT NULL,
     `amount`    VARCHAR(30) NULL,
-    INDEX `fk_ingredient_supplies1_idx` (`sku` ASC)
+    PRIMARY KEY (`sku`)
 )
 ENGINE = InnoDB;
 
@@ -254,7 +254,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`acatalog` 
 (
     `vendor_id`     INTEGER NOT NULL REFERENCES meatballs.vendor (vendor_id), 
-    `sku`           INTEGER NOT NULL REFERENCES meatballs.supplies (sku)
+    `sku`           INTEGER NOT NULL REFERENCES meatballs.supplies (sku),
+    PRIMARY KEY (vendor_id, sku)
 )
 ENGINE = InnoDB;
 
@@ -264,14 +265,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`wine` 
 (
-  `rate` DOUBLE NULL,
-  `mitem_id` INTEGER NULL,
-  INDEX `fk_wine_menu_item1_idx` (`mitem_id` ASC),
-  CONSTRAINT `fk_wine_mitem_id`
-    FOREIGN KEY (`mitem_id`)
-    REFERENCES `meatballs`.`menu_item` (`mitem_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    
+    `rate` DOUBLE NULL,
+    `mitem_id` INTEGER NULL,
+    PRIMARY KEY (mitem_id),
+    INDEX `fk_wine_menu_item1_idx` (`mitem_id` ASC),
+    CONSTRAINT `fk_wine_mitem_id`
+        FOREIGN KEY (`mitem_id`)
+        REFERENCES `meatballs`.`menu_item` (`mitem_id`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
 )
 ENGINE = InnoDB;
 
@@ -349,7 +352,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`bill_has_menu_item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`bill_has_menu_item` 
+CREATE TABLE IF NOT EXISTS `meatballs`.`bill_has_menu_item`     -- No PK, but that is fine
 (
     `b_id`        INTEGER NOT NULL,
     `mitem_id`    INTEGER NOT NULL,
@@ -373,7 +376,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facilityHours`
 (
     `day`   VARCHAR(45) NULL,
     `open`  TIME NULL,
-    `close` TIME NULL
+    `close` TIME NULL,
+    PRIMARY KEY (day)
 )
 ENGINE = InnoDB;
 
@@ -430,6 +434,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
 (
+    shift_id        INTEGER PRIMARY KEY AUTO_INCREMENT,
     `staff_id`      INTEGER NOT NULL,
     `date`          DATE NOT NULL,
     `time_start`    TIME NOT NULL,
