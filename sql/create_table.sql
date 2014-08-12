@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS access;
 DROP TABLE IF EXISTS admin;
 DROP TABLE IF EXISTS article;
 DROP TABLE IF EXISTS bill;
-DROP TABLE IF EXISTS acatalog;
+DROP TABLE IF EXISTS catalog;
 DROP TABLE IF EXISTS facility;
 DROP TABLE IF EXISTS facilityHours;
 DROP TABLE IF EXISTS facilityStock;
@@ -249,9 +249,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `meatballs`.`acatalog`
+-- Table `meatballs`.`catalog`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`acatalog` 
+CREATE TABLE IF NOT EXISTS `meatballs`.`catalog` 
 (
     `vendor_id`     INTEGER NOT NULL REFERENCES meatballs.vendor (vendor_id), 
     `sku`           INTEGER NOT NULL REFERENCES meatballs.supplies (sku),
