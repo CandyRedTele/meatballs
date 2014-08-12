@@ -387,6 +387,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock` 
 
 (
+    stock_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
     `quantity`  INTEGER NULL,
 	`order_date` DATE NOT NULL,
     `sku`       INTEGER NOT NULL,
@@ -411,6 +412,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`order` 
 (
+    order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
     `f_id`      INTEGER NULL,
     `sku`       INTEGER NULL,
     `order_qty` INTEGER NULL,
