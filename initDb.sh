@@ -5,6 +5,7 @@
 # PURPOSE : run sql scripts to create/populate meatballs DB
 # 
 # NOTES : works with BASH, not with DASH (arrays not supported, change your default shell!)
+#                                        (or use 'bash initDb.sh')
 #
 #******************************************************************************
 
@@ -14,7 +15,11 @@ HOST="127.0.0.1"
 PWORD=''
 
 ### NOTE Please do not remove all those scripts to replace with populate.sql, I want to execute them one by one, :-)
-SCRIPTS=('create_table.sql' 'pay.sql' 'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql' 'staffgen.sql' 'gen_facility.sql' 'gen_facilityHours.sql')
+SCRIPTS=('create_table.sql' 
+         'pay.sql' 'staffgen.sql' 'gen_admin.sql'
+         'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql'  
+         'gen_facility.sql' 'gen_facilityHours.sql' 'facility_stock.sql'
+         )
 TEMPO=tempo
 
 function display_usage
