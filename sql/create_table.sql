@@ -2,6 +2,7 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+DROP SCHEMA IF EXISTS `meatballs`;
 CREATE SCHEMA IF NOT EXISTS `meatballs` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `meatballs` ;
 
@@ -252,8 +253,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`acatalog` 
 (
-    `vendor_id`     INTEGER NOT NULL,
-    `sku`           INTEGER NOT NULL
+    `vendor_id`     INTEGER NOT NULL REFERENCES meatballs.vendor (vendor_id), 
+    `sku`           INTEGER NOT NULL REFERENCES meatballs.supplies (sku)
 )
 ENGINE = InnoDB;
 
