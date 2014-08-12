@@ -100,7 +100,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` 
 (
     `sku`       INTEGER NOT NULL,
-    `mitem_id`  INTEGER NULL,     -- TODO remove this field, we now have the table menu_item_has_ingredients
     `amount`    VARCHAR(30) NULL,
     INDEX `fk_ingredient_supplies1_idx` (`sku` ASC)
 )
@@ -119,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
 )
 ENGINE = InnoDB;
 
--- TODO!!!!
+
 -- -----------------------------------------------------
 -- Table `meatballs`.`menu_item_has_ingredients`
 -- -----------------------------------------------------
