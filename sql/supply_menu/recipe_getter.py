@@ -12,7 +12,7 @@ inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
            'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
-           'facility_stock': 'INSERT INTO facilityStock (quantity, order_date, sku, f_id) VALUES (',
+           'facility_stock': 'INSERT INTO facilityStock (sku, f_id, quantity) VALUES (',
            'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES (',
            'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES ('
           }
@@ -71,8 +71,6 @@ class Recipe():
 
         ingredients_name_set = []
         [ingredients_name_set.append(i) for i in ingredients_name if not ingredients_name_set.count(i)]
-        #ingredients_name_set = []
-        #[ingredients_name_set.append(i) for i in ingredients_name if not ingredients_name_set.count(i)]
 
         skus = sample(range(10000, 49999), len(ingredients_name_set))
         ingredients_name = []
@@ -142,12 +140,19 @@ class Recipe():
         for i, j in enumerate(other_supplies):
             j.insert(0, skus[i])
 
-        now = datetime.datetime.now().strftime('%Y-%m-%d')
+        # `sku`       INTEGER NOT NULL,
+        #  `f_id`      INTEGER NULL,
+        #  `quantity`  INTEGER DEFAULT 0,
+        # now = datetime.datetime.now().strftime('%Y-%m-%d')
         facility_stock = []
+        ingre_menu_set = set()
         for j in menu:
             for k in ingredients:
                 if j[1] == k[0]:
-                    facility_stock.append([randint(5, 100), now, k[1], j[0]])
+                    sku_ingre = k[1]
+                    if sku_ingre not in ingre_menu_set:
+                        ingre_menu_set.add(sku_ingre)
+                        facility_stock.append([k[1], j[0], randint(15, 80)])
 
         vendor = []
         for i, j in enumerate(vendors, start=1):
