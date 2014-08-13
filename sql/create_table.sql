@@ -10,7 +10,6 @@ USE `meatballs` ;
 # drop everything to start fresh
 DROP TABLE IF EXISTS access;            -- 
 DROP TABLE IF EXISTS admin;             -- 
-DROP TABLE IF EXISTS article;           -- Why do we need this table?
 DROP TABLE IF EXISTS bill;              -- DONE
 DROP TABLE IF EXISTS catalog;           -- DONE
 DROP TABLE IF EXISTS facility;          -- DONE
