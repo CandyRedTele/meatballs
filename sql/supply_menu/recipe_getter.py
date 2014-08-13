@@ -8,8 +8,8 @@ from random import randint, sample, uniform, randrange
 
 inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
+           #'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES (',
            'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES (',
-           'menu_item_has_ingredients': 'INSERT INTO menu_item_has_ingredients (mitem_id, sku) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
            'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
@@ -60,6 +60,8 @@ class Recipe():
             d = {"deserts": deserts, "main": main,
                  "entree": entree, "kids": kids}
             d.update(wines)
+            with open('supply_menu.json', 'w') as fp:
+                json.dump(d, fp)
         return d
 
     def create_list(self):
@@ -99,7 +101,7 @@ class Recipe():
                 menu_item.append([index, category, j['price'], name])
                 index += 1
 
-        ingredients = [[k[2], j['id'], k[0]]
+        ingredients = [[j['id'], k[2], k[0]]
                        for i in d.itervalues()
                        for j in i.itervalues()
                        for k in j['ingredients']]
@@ -168,13 +170,13 @@ class Recipe():
             elif i[2] == 'serving items':
                 acatalog.append([serving_vendors[randrange(0, len(serving_vendors))][0], i[0]])
 
-        menu_item_has_ingredients = [[i[1], i[0]] for i in ingredients]
-        ingredients = [[i[0], i[2]] for i in ingredients]
+        #menu_item_has_ingredients = [[i[1], i[0]] for i in ingredients]
+        #ingredients = [[i[0], i[2]] for i in ingredients]
 
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
-                (vendor, 'vendor'), (acatalog, 'catalog'), (menu_item_has_ingredients, 'menu_item_has_ingredients'))
+                (vendor, 'vendor'), (acatalog, 'catalog'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
@@ -196,10 +198,14 @@ class Recipe():
         h = tree.xpath('//table[1]//tr[2]/td[2]')[0]
         l = urlparse(h.text)
         name = l.path.split('/')[2]
+        table = tree.xpath('//table[2]')[0]
         amounts = []
-        h = tree.xpath('//table[2]')[0]
-        for i in h[1:]:
-            amounts.append([float(i[1].text), i[3].text.replace("'", "")])
+        x = set()
+        for row in table[1:]:
+            ingre_name = row[3].text.replace("'", "")
+            x.add(ingre_name)
+            if ingre_name not in x:
+                amounts.append([float(row[1].text), row[3].text.replace("'", "")])
         price = randint(min, max)
         return {name: {'ingredients': amounts, 'price': price}}
 

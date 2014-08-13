@@ -17,7 +17,7 @@ PWORD=''
 ### NOTE Please do not remove all those scripts to replace with populate.sql, I want to execute them one by one, :-)
 SCRIPTS=('create_table.sql' 
          'pay.sql' 'staffgen.sql' 'gen_admin.sql'
-         'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql'  'vendor.sql' 'acatalog.sql' 'menu_item_has_ingredients.sql'
+         'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql'  'vendor.sql' 'catalog.sql'
          'gen_facility.sql' 'gen_facilityHours.sql' 'facility_stock.sql'
          )
 TEMPO=tempo

@@ -98,11 +98,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`ingredients`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` 
+CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
 (
-    `sku`       INTEGER NOT NULL,
+    `mitem_id`   INTEGER REFERENCES meatballs.menu_item (mitem_id),
+    `sku`       INTEGER REFERENCES meatballs.ingredients (sku),
     `amount`    VARCHAR(30) NULL,
-    PRIMARY KEY (`sku`)
+    PRIMARY KEY (mitem_id, sku)
+    -- PRIMARY KEY (`sku`)
 )
 ENGINE = InnoDB;
 
@@ -123,13 +125,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`menu_item_has_ingredients`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS meatballs.menu_item_has_ingredients
-(
-    mitem_id INTEGER REFERENCES meatballs.menu_item (mitem_id),
-    sku      INTEGER REFERENCES meatballs.ingredients (sku),
-    PRIMARY KEY (mitem_id, sku) -- no duplicate tuple, there is an `amount` field in ingredients
-)
-ENGINE = InnoDB;
+-- CREATE TABLE IF NOT EXISTS meatballs.menu_item_has_ingredients
+-- (
+    -- mitem_id INTEGER REFERENCES meatballs.menu_item (mitem_id),
+    -- sku      INTEGER REFERENCES meatballs.ingredients (sku),
+    -- PRIMARY KEY (mitem_id, sku) -- no duplicate tuple, there is an `amount` field in ingredients
+-- )
+-- ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
