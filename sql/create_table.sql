@@ -293,8 +293,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`bill` 
 (
-  `b_id` INTEGER NOT NULL,
-  `total` DOUBLE NULL,
+  `b_id` INTEGER NOT NULL AUTO_INCREMENT,
+  -- `total` DOUBLE NULL,
   `f_id` INTEGER NOT NULL,
   PRIMARY KEY (`b_id`),
   INDEX `fk_bill_facility1_idx` (`f_id` ASC),
