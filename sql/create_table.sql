@@ -8,30 +8,30 @@ USE `meatballs` ;
 
 
 # drop everything to start fresh
-DROP TABLE IF EXISTS access;            -- 
-DROP TABLE IF EXISTS admin;             -- 
+-- DROP TABLE IF EXISTS access;         -- 
+DROP TABLE IF EXISTS admin;             -- DONE
 DROP TABLE IF EXISTS bill;              -- DONE
 DROP TABLE IF EXISTS catalog;           -- DONE
 DROP TABLE IF EXISTS facility;          -- DONE
-DROP TABLE IF EXISTS facilityHours;     -- 
+DROP TABLE IF EXISTS facilityHours;     -- DONE
 DROP TABLE IF EXISTS facilityStock;     -- DONE
 DROP TABLE IF EXISTS food;              -- DONE
-DROP TABLE IF EXISTS golden;            -- 
+DROP TABLE IF EXISTS golden;            -- DONE
 DROP TABLE IF EXISTS ingredients;       -- DONE
-DROP TABLE IF EXISTS localstaff;        -- 
+DROP TABLE IF EXISTS localstaff;        -- DONE
 DROP TABLE IF EXISTS menu;              -- DONE
 DROP TABLE IF EXISTS menu_item;         -- DONE
 DROP TABLE IF EXISTS `order`;           -- 
-DROP TABLE IF EXISTS pay;               -- 
+DROP TABLE IF EXISTS pay;               -- DONE
 DROP TABLE IF EXISTS reservation;       -- 
-DROP TABLE IF EXISTS schedule;          --
-DROP TABLE IF EXISTS staff;             -- 
+DROP TABLE IF EXISTS schedule;          -- 
+DROP TABLE IF EXISTS staff;             -- DONE
 DROP TABLE IF EXISTS supplies;          -- DONE
 DROP TABLE IF EXISTS vendor;            -- DONE
-DROP TABLE IF EXISTS wage;              -- 
+DROP TABLE IF EXISTS wage;              -- DONE
 DROP TABLE IF EXISTS wine;              -- DONE
 DROP TABLE IF EXISTS shift;             -- 
-DROP TABLE IF EXISTS access_level;      --
+DROP TABLE IF EXISTS access_level;      -- DONE
 
 
 
