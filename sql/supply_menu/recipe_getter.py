@@ -69,9 +69,8 @@ class Recipe():
         ingredients_name = [k[1] for i in d.itervalues()
               for j in i.itervalues() for k in j['ingredients']]
 
-        ingredients_name_set = set()
-        for i in ingredients_name:
-            ingredients_name_set.add(i)
+        ingredients_name_set = []
+        [ingredients_name_set.append(i) for i in ingredients_name if not ingredients_name_set.count(i)]
 
         skus = sample(range(10000, 49999), len(ingredients_name_set))
         ingredients_name = []
