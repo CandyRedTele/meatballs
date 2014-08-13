@@ -8,31 +8,29 @@ USE `meatballs` ;
 
 
 # drop everything to start fresh
-DROP TABLE IF EXISTS access;
-DROP TABLE IF EXISTS admin;
-DROP TABLE IF EXISTS article;
-DROP TABLE IF EXISTS bill;
-DROP TABLE IF EXISTS acatalog;
-DROP TABLE IF EXISTS facility;
-DROP TABLE IF EXISTS facilityHours;
-DROP TABLE IF EXISTS facilityStock;
-DROP TABLE IF EXISTS food;
-DROP TABLE IF EXISTS golden;
-DROP TABLE IF EXISTS ingredients;
-DROP TABLE IF EXISTS localstaff;
-DROP TABLE IF EXISTS menu;
-DROP TABLE IF EXISTS menu_item;
-DROP TABLE IF EXISTS menu_item_has_ingredients;
-DROP TABLE IF EXISTS `order`;
-DROP TABLE IF EXISTS pay;
-DROP TABLE IF EXISTS reservation;
-DROP TABLE IF EXISTS schedule;
-DROP TABLE IF EXISTS staff;
-DROP TABLE IF EXISTS supplies;
-DROP TABLE IF EXISTS vendor;
-DROP TABLE IF EXISTS wage;
-DROP TABLE IF EXISTS wine;
-DROP TABLE IF EXISTS shift;
+DROP TABLE IF EXISTS access;            -- 
+DROP TABLE IF EXISTS admin;             -- 
+DROP TABLE IF EXISTS bill;              -- DONE
+DROP TABLE IF EXISTS catalog;           -- DONE
+DROP TABLE IF EXISTS facility;          -- DONE
+DROP TABLE IF EXISTS facilityHours;     -- 
+DROP TABLE IF EXISTS facilityStock;     -- DONE
+DROP TABLE IF EXISTS food;              -- DONE
+DROP TABLE IF EXISTS golden;            -- 
+DROP TABLE IF EXISTS ingredients;       -- DONE
+DROP TABLE IF EXISTS localstaff;        -- 
+DROP TABLE IF EXISTS menu;              -- DONE
+DROP TABLE IF EXISTS menu_item;         -- DONE
+DROP TABLE IF EXISTS `order`;           -- 
+DROP TABLE IF EXISTS pay;               -- 
+DROP TABLE IF EXISTS reservation;       -- 
+DROP TABLE IF EXISTS schedule;          --
+DROP TABLE IF EXISTS staff;             -- 
+DROP TABLE IF EXISTS supplies;          -- DONE
+DROP TABLE IF EXISTS vendor;            -- DONE
+DROP TABLE IF EXISTS wage;              -- 
+DROP TABLE IF EXISTS wine;              -- DONE
+DROP TABLE IF EXISTS shift;             -- 
 
 
 
@@ -43,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`staff`
 (
     `staff_id`      INTEGER     PRIMARY KEY     AUTO_INCREMENT,
     `name`          VARCHAR(45) NULL,
-    `address`       VARCHAR(45) NULL,
+    `address`       VARCHAR(60) NULL,
     `phone`         CHAR(12)    NULL,
     `ssn`           CHAR(11)    NULL,
     `title`         VARCHAR(45) NOT NULL,
@@ -87,7 +85,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`supplies` 
 (
   `sku`     INTEGER NOT NULL,
-  `name`    VARCHAR(45) NULL,
+  `name`    VARCHAR(85) NULL,
   `type`    VARCHAR(45) NULL,
   `price`   DOUBLE NULL,
   PRIMARY KEY (`sku`)
@@ -98,11 +96,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `meatballs`.`ingredients`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients` 
+CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
 (
-    `sku`       INTEGER NOT NULL,
+    `mitem_id`   INTEGER REFERENCES meatballs.menu_item (mitem_id),
+    `sku`       INTEGER REFERENCES meatballs.ingredients (sku),
     `amount`    VARCHAR(30) NULL,
-    PRIMARY KEY (`sku`)
+    PRIMARY KEY (mitem_id, sku)
 )
 ENGINE = InnoDB;
 
@@ -115,19 +114,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
   `mitem_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `category` CHAR(45) NULL,
   `price` DOUBLE NULL,
-  `name` VARCHAR(45) NULL
-)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `meatballs`.`menu_item_has_ingredients`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS meatballs.menu_item_has_ingredients
-(
-    mitem_id INTEGER REFERENCES meatballs.menu_item (mitem_id),
-    sku      INTEGER REFERENCES meatballs.ingredients (sku),
-    PRIMARY KEY (mitem_id, sku) -- no duplicate tuple, there is an `amount` field in ingredients
+  `name` VARCHAR(65) NULL,
+  `image` VARCHAR(95) NULL
 )
 ENGINE = InnoDB;
 
@@ -157,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facility`
   `f_id` INTEGER NOT NULL,
   `location` VARCHAR(45) NULL,
   `m_id` INTEGER NOT NULL,
-  `phone` CHAR(12) NULL,
+  `phone` CHAR(13) NULL,
   PRIMARY KEY (`f_id`),
   INDEX `fk_facility_menu1_idx` (`m_id` ASC),
   CONSTRAINT `fk_facility_menu1`
@@ -249,9 +237,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `meatballs`.`acatalog`
+-- Table `meatballs`.`catalog`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`acatalog` 
+CREATE TABLE IF NOT EXISTS `meatballs`.`catalog` 
 (
     `vendor_id`     INTEGER NOT NULL REFERENCES meatballs.vendor (vendor_id), 
     `sku`           INTEGER NOT NULL REFERENCES meatballs.supplies (sku),
@@ -387,6 +375,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock` 
 
 (
+    stock_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
     `quantity`  INTEGER NULL,
 	`order_date` DATE NOT NULL,
     `sku`       INTEGER NOT NULL,
@@ -411,6 +400,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`order` 
 (
+    order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
     `f_id`      INTEGER NULL,
     `sku`       INTEGER NULL,
     `order_qty` INTEGER NULL,
