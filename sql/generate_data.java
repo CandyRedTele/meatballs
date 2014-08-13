@@ -113,7 +113,6 @@ public class generate_data {
 	private static void gen_localstaff(Scanner staff_reader, PrintStream p) {
 		
 		String name = "localstaff";
-		String[] years = {"2012", "2013", "2014"};
 		String[] fields = {"start_date", "f_id", "staff_id"};
 		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
@@ -127,7 +126,7 @@ public class generate_data {
 					||nextLine.contains("use meatballs"))
 					&& nextLine.contains(";")
 					){
-				Object[] localStaff = {"'" + years[i%years.length] + "-" +((i*23)% 12+1)+ "-" + ((i*27)% 29+1) + "'",
+				Object[] localStaff = {gen_date(),
 						((i*29)% 12+1), 
 						i};
 				
@@ -202,7 +201,7 @@ public class generate_data {
 		for(int i = 0; i < numBills;i++){
 			
 			Object[] bill = {((i*29)%12+1),
-					"'" + years[i%years.length] + "-" + ((i*23)% 12+1) + "-" + ((i*27)% 29+1) + "'"
+					gen_date()
 			};
 			bills.add(bill);
 			
@@ -252,5 +251,31 @@ public class generate_data {
 			}
 		}
 		p.print(";");
+	}
+	
+	private static String gen_date(){
+		
+		int i = (int)(Math.random() *10);
+		String[] years = {"2012", "2013", "2014"};
+		
+		String year = years[i%years.length];
+		int month = ((i*23)% 12+1);
+		String monthStr = "";
+		if(month < 10){
+			monthStr = "0" + month;
+		}
+		else monthStr = "" + month;
+		
+		String dayStr = "";
+		
+		int day = ((i*101)% 29+1);
+
+		if(day < 10){
+			dayStr = "0" + day;
+		}
+		else dayStr = "" + day;
+		
+		String returnString = "'" + year + "-" + monthStr + "-" + dayStr + "'";
+		return returnString;
 	}
 }
