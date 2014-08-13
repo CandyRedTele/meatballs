@@ -145,9 +145,8 @@ class Recipe():
         facility_stock = []
         for j in menu:
             for k in ingredients:
-                if j[1] == k[1]:
+                if j[1] == k[0]:
                     facility_stock.append([randint(5, 100), now, k[0], j[0]])
-
 
         vendor = []
         for i, j in enumerate(vendors, start=1):
