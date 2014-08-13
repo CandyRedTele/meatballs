@@ -53,15 +53,49 @@ class InsertIntoStaffQuery extends IQuery
 
     public function __construct_1($name)
     {
-        $this->columns = "(name)";
         $this->name = $name;
-        $this->values = "CHECK";
+        $this->setColumnsAnsValues();
+    }
+
+    public function __construct_2($name, $address)
+    {
+        $this->name = $name;
+        $this->address = $address;
+        $this->setColumnsAnsValues();
+    }
+
+    public function __construct_3($name, $address, $phone)
+    {
+        $this->name = $name;
+        $this->address = $address;
+        $this->phone = $phone;
+
+        $this->setColumnsAnsValues();
+    }
+
+    public function __construct_4($name, $address, $phone, $ssn)
+    {
+        $this->name = $name;
+        $this->address = $address;
+        $this->phone = $phone;
+        $this->ssn = $ssn;
+
+        $this->setColumnsAnsValues();
+    }
+    
+    public function __construct_5($name, $address, $phone, $ssn, $title)
+    {
+        $this->name = $name;
+        $this->address = $address;
+        $this->phone = $phone;
+        $this->ssn = $ssn;
+        $this->title = $title;
+
+        $this->setColumnsAnsValues();
     }
 
     public function __construct_6($name, $address, $phone, $ssn, $title, $access_level)
     {
-        $this->columns = "(name, address, phone, ssn, title, access_level)";
-
         $this->name = $name;
         $this->address = $address;
         $this->phone = $phone;
@@ -69,7 +103,46 @@ class InsertIntoStaffQuery extends IQuery
         $this->title = $title;
         $this->access_level = $access_level;
 
-        $this->values = "('$this->name', '$this->address', '$this->phone', '$this->ssn', '$this->title')";
+        $this->setColumnsAnsValues();
+    }
+
+    private function setColumnsAnsValues()
+    {
+        $this->columns = "(";
+        $this->values = "(";
+
+        if (isset($this->name)) {
+            $this->columns .= "name";
+            $this->values .= "'$this->name'";
+        }
+
+        if (isset($this->address)) {
+            $this->columns .= ", address";
+            $this->values  .= ", '$this->address'"; 
+        }
+        
+        if (isset($this->phone)) {
+            $this->columns .= ", phone";
+            $this->values  .= ", '$this->phone'"; 
+        }
+
+        if (isset($this->ssn)) {
+            $this->columns .= ", ssn";
+            $this->values  .= ", '$this->ssn'"; 
+        }
+
+        if (isset($this->title)) {
+            $this->columns .= ", title";
+            $this->values  .= ", '$this->title'"; 
+        }
+
+        if (isset($this->access_level)) {
+            $this->columns .= ", access_level";
+            $this->values  .= ", '$this->access_level'"; 
+        }
+
+        $this->columns .= ")";
+        $this->values .= ")";
     }
 
     public function getQueryString()

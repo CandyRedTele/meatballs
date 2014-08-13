@@ -68,7 +68,10 @@
 
         $insert = new InsertIntoGoldenQuery('Joseph', 'Martineau', 'M', 'jos@msn.com', '123-123-1234');
         $insert->execute();
-        $insert_staff = new InsertIntoStaffQuery('Joseph Martineau');
+
+        //$insert_staff = new InsertIntoStaffQuery('Joseph Martineau', '224 rue XYZ', '819-789-1234', '123123123', 'Guitarist', 1);
+       $insert_staff = new InsertIntoStaffQuery('Joseph Martineau', '224 rue XYZ', '819-789-1234');
+//        $insert_staff = new InsertIntoStaffQuery('Joseph Martineau666', NULL , NULL, '123123123', 'Guitarist', 1);
         $insert_staff->execute();
 
 
