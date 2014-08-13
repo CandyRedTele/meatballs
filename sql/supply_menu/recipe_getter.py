@@ -154,11 +154,12 @@ class Recipe():
             vendor.append([i, j[0], j[1]])
             j.insert(0, i)
 
+
         acatalog = []
         food_vendors = [ven for ven in vendors if ven[3] == 'food']
 
-        x = randrange(0, len(food_vendors))
         for i in ingredients_name:
+            x = randrange(0, len(food_vendors))
             acatalog.append([food_vendors[x][0], i[1]])
 
         linens_vendors = [ven for ven in vendors if ven[3] == 'linens']
