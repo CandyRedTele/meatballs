@@ -1,0 +1,5 @@
+firstname,Human,First Name,True|True
+lastname,Human,Last Name,True|True
+email,Human,E-Mail Address (name@domain.tld)
+phone,Human,Phone Number (###-###-####)
+sex,Set,From Fixed List,f|m|n|o
