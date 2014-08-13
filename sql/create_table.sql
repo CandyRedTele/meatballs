@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS wage;              -- DONE
 DROP TABLE IF EXISTS wine;              -- DONE
 DROP TABLE IF EXISTS shift;             -- 
 DROP TABLE IF EXISTS access_level;      -- DONE
-
+DROP TABLE IF EXISTS facilityBalance;   -- 
 
 
 -- -----------------------------------------------------
@@ -384,24 +384,18 @@ ENGINE = InnoDB;
 -- Table `meatballs`.`facilityStock`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`facilityStock` 
-
 (
-    stock_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `quantity`  INTEGER NULL,
-	`order_date` DATE NOT NULL,
     `sku`       INTEGER NOT NULL,
     `f_id`      INTEGER NULL,
-
-    INDEX `sku_idx` (`sku` ASC),
-    INDEX `f_id_idx` (`f_id` ASC),
+    `quantity`  INTEGER DEFAULT 0,
+    PRIMARY KEY (`sku`, `f_id`),
     CONSTRAINT `fk_facilityStock_sku`
         FOREIGN KEY (`sku`) REFERENCES `meatballs`.`supplies` (`sku`)
         ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
+        ON UPDATE CASCADE,
     CONSTRAINT `fk_facilityStock_f_id`
         FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION 
+        ON UPDATE CASCADE 
 )
 ENGINE = InnoDB;
 
@@ -414,17 +408,15 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`order`
     order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
     `f_id`      INTEGER NULL,
     `sku`       INTEGER NULL,
+	`order_date` DATE NOT NULL,
     `order_qty` INTEGER NULL,
-    INDEX `f_id_idx` (`f_id` ASC),
-    INDEX `sku_idx` (`sku` ASC),
     CONSTRAINT `fk_order_f_id`
         FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`) 
         ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
+        ON UPDATE CASCADE,
     CONSTRAINT `fk_order_sku`
         FOREIGN KEY (`sku`) REFERENCES `meatballs`.`supplies` (`sku`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
+        ON UPDATE CASCADE
 )
 ENGINE = InnoDB;
 
@@ -443,6 +435,17 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
     FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
 );
 
+-- -----------------------------------------------------
+-- Table `meatballs`.`facilityBalance
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `meatballs`.`facilityBalance`
+(
+     f_id        INTEGER NOT NULL PRIMARY KEY,
+    `balance`    INTEGER NOT NULL,
+
+    FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`)
+);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
