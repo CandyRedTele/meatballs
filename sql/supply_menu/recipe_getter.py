@@ -8,7 +8,6 @@ from random import randint, sample, uniform, randrange
 
 inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name, image) VALUES (',
-           #'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES (',
            'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
@@ -201,11 +200,11 @@ class Recipe():
         image = tree.xpath('//table[1]//tr[5]/td[2]')[0].text
         table = tree.xpath('//table[2]')[0]
         amounts = []
-        x = set()
+        ingre_names = []
+
         for row in table[1:]:
-            ingre_name = row[3].text.replace("'", "")
-            x.add(ingre_name)
-            if ingre_name not in x:
+            if not ingre_names.count(row[3].text.replace("'", "")):
+                ingre_names.append(row[3].text.replace("'", ""))
                 amounts.append([float(row[1].text), row[3].text.replace("'", "")])
         price = randint(min, max)
         return {name: {'ingredients': amounts, 'price': price, 'image': image}}
