@@ -31,6 +31,7 @@ DROP TABLE IF EXISTS vendor;            -- DONE
 DROP TABLE IF EXISTS wage;              -- 
 DROP TABLE IF EXISTS wine;              -- DONE
 DROP TABLE IF EXISTS shift;             -- 
+DROP TABLE IF EXISTS access_level;      --
 
 
 
@@ -44,11 +45,20 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`staff`
     `address`       VARCHAR(60) NULL,
     `phone`         CHAR(12)    NULL,
     `ssn`           CHAR(11)    NULL,
-    `title`         VARCHAR(45) NOT NULL,
-	`access_level`   INTEGER     NULL CHECK(access_level in (1,2,3,4,5)) --       COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
-
+    `title`         VARCHAR(45) NOT NULL
+	-- `access_level`   INTEGER     NULL CHECK(access_level in (1,2,3,4,5)) --       COMMENT '1. admin(CEO...) level (all)\n2. local manager level (local resto)\n3. HR level (employees data)\n4. local chef level (food + supplies)\n5. regular level (only personal info)',
 )
 ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `meatballs`.`access_level`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `meatballs`.`access_level`
+(
+    `title`         VARCHAR(45) PRIMARY KEY, 
+    `access_level`  INTEGER NOT NULL
+);
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`pay`
@@ -162,7 +172,7 @@ ENGINE = InnoDB;
 create TABLE IF NOT EXISTS `meatballs`.`localstaff` 
 
 (
-  `start_date`  CHAR NULL,
+  `start_date`  DATE NULL,
   `f_id`        INTEGER NULL,
   `staff_id`    INTEGER PRIMARY KEY,
   CONSTRAINT `fk_staff_id2`
