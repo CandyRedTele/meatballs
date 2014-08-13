@@ -1,5 +1,4 @@
 use meatballs;
-
 INSERT INTO pay  (title, base, exp_rate, train_rate) VALUES
 	('human resources', 40000, 5000, 0),
 	('marketing',       40000, 5000, 0),

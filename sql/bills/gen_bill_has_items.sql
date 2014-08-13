@@ -1,3 +1,4 @@
+use meatballs;
 insert into bill_has_menu_item ( b_id,  mitem_id) Values
 (1, 1),
 (1, 1),

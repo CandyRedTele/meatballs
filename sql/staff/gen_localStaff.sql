@@ -1,3 +1,4 @@
+use meatballs;
 insert into localstaff ( start_date,  f_id,  staff_id) Values
 ('2013-12-28', 6, 1),
 ('2014-11-26', 11, 2),

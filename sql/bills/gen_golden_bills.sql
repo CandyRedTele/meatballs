@@ -1,3 +1,4 @@
+use meatballs;
 insert into golden_has_bills ( g_id,  b_id) Values
 (12, 1),
 (23, 2),

@@ -1,3 +1,4 @@
+use meatballs;
 insert into bill ( f_id,  date) Values
 (1, '2012-1-1'),
 (6, '2013-12-28'),

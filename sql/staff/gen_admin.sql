@@ -1,3 +1,4 @@
+use meatballs;
 insert into admin ( staff_id,  location,  yrs_exp) Values
 (3, 'Narnia', 3),
 (4, 'Calgary', 4),

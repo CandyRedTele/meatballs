@@ -1,3 +1,4 @@
+use meatballs;
 INSERT INTO golden (`firstname`,`lastname`,`email`,`phone`,`sex`) VALUES ('Kenyon','Austin','Ulysses@mattis.us','959-439-0026','m');
 INSERT INTO golden (`firstname`,`lastname`,`email`,`phone`,`sex`) VALUES ('Jane','Ellison','Shana@porttitor.com','329-783-9469','n');
 INSERT INTO golden (`firstname`,`lastname`,`email`,`phone`,`sex`) VALUES ('Dai','Nieves','Troy@primis.net','649-450-6066','f');
