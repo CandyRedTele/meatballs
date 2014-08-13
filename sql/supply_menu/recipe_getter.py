@@ -148,6 +148,7 @@ class Recipe():
                 if j[1] == k[1]:
                     facility_stock.append([randint(5, 100), now, k[0], j[0]])
 
+
         vendor = []
         for i, j in enumerate(vendors, start=1):
             vendor.append([i, j[0], j[1]])
@@ -155,8 +156,10 @@ class Recipe():
 
         acatalog = []
         food_vendors = [ven for ven in vendors if ven[3] == 'food']
-        for i in food:
-            acatalog.append([food_vendors[randrange(0, len(food_vendors))][0], i[0]])
+
+        x = randrange(0, len(food_vendors))
+        for i in ingredients_name:
+            acatalog.append([food_vendors[x][0], i[1]])
 
         linens_vendors = [ven for ven in vendors if ven[3] == 'linens']
         kitchen_vendors = [ven for ven in vendors if ven[3] == 'kitchen supplies']
@@ -168,10 +171,6 @@ class Recipe():
                 acatalog.append([kitchen_vendors[randrange(0, len(kitchen_vendors))][0], i[0]])
             elif i[2] == 'serving items':
                 acatalog.append([serving_vendors[randrange(0, len(serving_vendors))][0], i[0]])
-
-        #menu_item_has_ingredients = [[i[1], i[0]] for i in ingredients]
-        #ingredients = [[i[0], i[2]] for i in ingredients]
-
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
