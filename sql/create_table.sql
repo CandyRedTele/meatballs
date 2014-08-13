@@ -22,7 +22,6 @@ DROP TABLE IF EXISTS ingredients;
 DROP TABLE IF EXISTS localstaff;
 DROP TABLE IF EXISTS menu;
 DROP TABLE IF EXISTS menu_item;
-DROP TABLE IF EXISTS menu_item_has_ingredients;
 DROP TABLE IF EXISTS `order`;
 DROP TABLE IF EXISTS pay;
 DROP TABLE IF EXISTS reservation;
@@ -104,7 +103,6 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
     `sku`       INTEGER REFERENCES meatballs.ingredients (sku),
     `amount`    VARCHAR(30) NULL,
     PRIMARY KEY (mitem_id, sku)
-    -- PRIMARY KEY (`sku`)
 )
 ENGINE = InnoDB;
 
@@ -120,18 +118,6 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
   `name` VARCHAR(65) NULL
 )
 ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `meatballs`.`menu_item_has_ingredients`
--- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS meatballs.menu_item_has_ingredients
--- (
-    -- mitem_id INTEGER REFERENCES meatballs.menu_item (mitem_id),
-    -- sku      INTEGER REFERENCES meatballs.ingredients (sku),
-    -- PRIMARY KEY (mitem_id, sku) -- no duplicate tuple, there is an `amount` field in ingredients
--- )
--- ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
