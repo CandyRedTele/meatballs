@@ -16,3 +16,4 @@ source supply_menu/facility_stock.sql;      # this one needs the facility table 
 
 source bills/gen_bills.sql;
 source bills/gen_bill_has_items.sql;
+source bills/gen_golden_bills.sql;
