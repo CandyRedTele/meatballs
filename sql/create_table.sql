@@ -8,31 +8,30 @@ USE `meatballs` ;
 
 
 # drop everything to start fresh
-DROP TABLE IF EXISTS access;
-DROP TABLE IF EXISTS admin;
-DROP TABLE IF EXISTS article;
-DROP TABLE IF EXISTS bill;
-DROP TABLE IF EXISTS catalog;
-DROP TABLE IF EXISTS facility;
-DROP TABLE IF EXISTS facilityHours;
-DROP TABLE IF EXISTS facilityStock;
-DROP TABLE IF EXISTS food;
-DROP TABLE IF EXISTS golden;
-DROP TABLE IF EXISTS ingredients;
-DROP TABLE IF EXISTS localstaff;
-DROP TABLE IF EXISTS menu;
-DROP TABLE IF EXISTS menu_item;
-DROP TABLE IF EXISTS menu_item_has_ingredients;
-DROP TABLE IF EXISTS `order`;
-DROP TABLE IF EXISTS pay;
-DROP TABLE IF EXISTS reservation;
-DROP TABLE IF EXISTS schedule;
-DROP TABLE IF EXISTS staff;
-DROP TABLE IF EXISTS supplies;
-DROP TABLE IF EXISTS vendor;
-DROP TABLE IF EXISTS wage;
-DROP TABLE IF EXISTS wine;
-DROP TABLE IF EXISTS shift;
+DROP TABLE IF EXISTS access;            -- 
+DROP TABLE IF EXISTS admin;             -- 
+DROP TABLE IF EXISTS article;           -- Why do we need this table?
+DROP TABLE IF EXISTS bill;              -- DONE
+DROP TABLE IF EXISTS catalog;           -- DONE
+DROP TABLE IF EXISTS facility;          -- DONE
+DROP TABLE IF EXISTS facilityHours;     -- 
+DROP TABLE IF EXISTS facilityStock;     -- DONE
+DROP TABLE IF EXISTS food;              -- DONE
+DROP TABLE IF EXISTS golden;            -- 
+DROP TABLE IF EXISTS ingredients;       -- DONE
+DROP TABLE IF EXISTS localstaff;        -- 
+DROP TABLE IF EXISTS menu;              -- DONE
+DROP TABLE IF EXISTS menu_item;         -- DONE
+DROP TABLE IF EXISTS `order`;           -- 
+DROP TABLE IF EXISTS pay;               -- 
+DROP TABLE IF EXISTS reservation;       -- 
+DROP TABLE IF EXISTS schedule;          --
+DROP TABLE IF EXISTS staff;             -- 
+DROP TABLE IF EXISTS supplies;          -- DONE
+DROP TABLE IF EXISTS vendor;            -- DONE
+DROP TABLE IF EXISTS wage;              -- 
+DROP TABLE IF EXISTS wine;              -- DONE
+DROP TABLE IF EXISTS shift;             -- 
 
 
 
