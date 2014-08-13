@@ -33,7 +33,7 @@ class MySqlConnection
         }
 
         if (!$this->connect()) {
-            $this->logger->write("[ERROR] :: Cannot connect to mysql.");
+            $this->logger->write("[". __CLASS__ . "] - [ERROR] :: Cannot connect to mysql.");
             return null; // TODO do something more please!
         }
     }
@@ -117,7 +117,9 @@ class MySqlConnection
 
         $this->logger->write("[" . __CLASS__ . "]" . " $ execute() : '" . $query . "'"); 
 
-        $result = mysqli_query($this->connection, $query);
+        if ($this->connection) {
+            $result = mysqli_query($this->connection, $query);
+        }
 
         return $result;
     }
