@@ -115,7 +115,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
   `mitem_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `category` CHAR(45) NULL,
   `price` DOUBLE NULL,
-  `name` VARCHAR(65) NULL
+  `name` VARCHAR(65) NULL,
+  `image` VARCHAR(95) NULL
 )
 ENGINE = InnoDB;
 
