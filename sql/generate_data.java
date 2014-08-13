@@ -100,7 +100,7 @@ public class generate_data {
 		access_level.add(new Object[] {"'marketing'", 2});
 		access_level.add(new Object[] {"'manager'", 3});
 		access_level.add(new Object[] {"'chef'", 4});
-		//access_level.add(new Object[] {"'shift supervisor'", 5});
+		access_level.add(new Object[] {"'shift supervisor'", 5});
 		access_level.add(new Object[] {"'delivery personnel'", 6});
 		access_level.add(new Object[] {"'dishwasher'", 6});
 		access_level.add(new Object[] {"'wait staff'", 6});

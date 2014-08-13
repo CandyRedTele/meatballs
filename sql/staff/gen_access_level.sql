@@ -8,6 +8,7 @@ insert into access_level ( title,  access_level) Values
 ('marketing', 2),
 ('manager', 3),
 ('chef', 4),
+('shift supervisor', 5),
 ('delivery personnel', 6),
 ('dishwasher', 6),
 ('wait staff', 6);
