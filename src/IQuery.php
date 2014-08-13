@@ -22,7 +22,7 @@ abstract class IQuery
     public function __construct() 
     {
 		$this->logger = Logger::getSingleInstace();
-		$this->logger->write("[" . __CLASS__ . "] $ __construct()");
+		// $this->logger->write("[" . __CLASS__ . "] $ __construct()");
 		
         if (preg_match('/unit$/', getcwd())) {
             $config_path = '../../src/project.config.xml'; // For testing purpose

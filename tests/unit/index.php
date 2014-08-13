@@ -68,6 +68,8 @@
 
         $insert = new InsertIntoGoldenQuery('Joseph', 'Martineau', 'M', 'jos@msn.com', '123-123-1234');
         $insert->execute();
+        $insert_staff = new InsertIntoStaffQuery('Joseph Martineau');
+        $insert_staff->execute();
 
 
         $staff_id = "10"; 
