@@ -8,7 +8,6 @@ from random import randint, sample, uniform, randrange
 
 inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name, image) VALUES (',
-           #'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES (',
            'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES (',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
@@ -70,9 +69,10 @@ class Recipe():
         ingredients_name = [k[1] for i in d.itervalues()
               for j in i.itervalues() for k in j['ingredients']]
 
-        ingredients_name_set = set()
-        for i in ingredients_name:
-            ingredients_name_set.add(i)
+        ingredients_name_set = []
+        [ingredients_name_set.append(i) for i in ingredients_name if not ingredients_name_set.count(i)]
+        #ingredients_name_set = []
+        #[ingredients_name_set.append(i) for i in ingredients_name if not ingredients_name_set.count(i)]
 
         skus = sample(range(10000, 49999), len(ingredients_name_set))
         ingredients_name = []
@@ -146,18 +146,21 @@ class Recipe():
         facility_stock = []
         for j in menu:
             for k in ingredients:
-                if j[1] == k[1]:
-                    facility_stock.append([randint(5, 100), now, k[0], j[0]])
+                if j[1] == k[0]:
+                    facility_stock.append([randint(5, 100), now, k[1], j[0]])
 
         vendor = []
         for i, j in enumerate(vendors, start=1):
             vendor.append([i, j[0], j[1]])
             j.insert(0, i)
 
+
         acatalog = []
         food_vendors = [ven for ven in vendors if ven[3] == 'food']
-        for i in food:
-            acatalog.append([food_vendors[randrange(0, len(food_vendors))][0], i[0]])
+
+        for i in ingredients_name:
+            x = randrange(0, len(food_vendors))
+            acatalog.append([food_vendors[x][0], i[1]])
 
         linens_vendors = [ven for ven in vendors if ven[3] == 'linens']
         kitchen_vendors = [ven for ven in vendors if ven[3] == 'kitchen supplies']
@@ -169,10 +172,6 @@ class Recipe():
                 acatalog.append([kitchen_vendors[randrange(0, len(kitchen_vendors))][0], i[0]])
             elif i[2] == 'serving items':
                 acatalog.append([serving_vendors[randrange(0, len(serving_vendors))][0], i[0]])
-
-        #menu_item_has_ingredients = [[i[1], i[0]] for i in ingredients]
-        #ingredients = [[i[0], i[2]] for i in ingredients]
-
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
@@ -201,11 +200,11 @@ class Recipe():
         image = tree.xpath('//table[1]//tr[5]/td[2]')[0].text
         table = tree.xpath('//table[2]')[0]
         amounts = []
-        x = set()
+        ingre_names = []
+
         for row in table[1:]:
-            ingre_name = row[3].text.replace("'", "")
-            x.add(ingre_name)
-            if ingre_name not in x:
+            if not ingre_names.count(row[3].text.replace("'", "")):
+                ingre_names.append(row[3].text.replace("'", ""))
                 amounts.append([float(row[1].text), row[3].text.replace("'", "")])
         price = randint(min, max)
         return {name: {'ingredients': amounts, 'price': price, 'image': image}}
