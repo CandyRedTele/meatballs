@@ -17,8 +17,8 @@
  *	 | phone        | char(12)    | YES  |     | NULL    |                |
  *	 | ssn          | char(11)    | YES  |     | NULL    |                |
  *	 | title        | varchar(45) | NO   |     | NULL    |                |
- *	 | access_level | int(11)     | YES  |     | NULL    |                |
  *	 +--------------+-------------+------+-----+---------+----------------+
+ *
  *	
  *	 
  **************************************************************************/
@@ -34,7 +34,6 @@ class InsertIntoStaffQuery extends IQuery
     private $phone;
     private $ssn;
     private $title;
-    private $access_level;
 
     public function __construct()
     {
@@ -94,18 +93,6 @@ class InsertIntoStaffQuery extends IQuery
         $this->setColumnsAnsValues();
     }
 
-    public function __construct_6($name, $address, $phone, $ssn, $title, $access_level)
-    {
-        $this->name = $name;
-        $this->address = $address;
-        $this->phone = $phone;
-        $this->ssn = $ssn;
-        $this->title = $title;
-        $this->access_level = $access_level;
-
-        $this->setColumnsAnsValues();
-    }
-
     private function setColumnsAnsValues()
     {
         $this->columns = "(";
@@ -136,10 +123,6 @@ class InsertIntoStaffQuery extends IQuery
             $this->values  .= ", '$this->title'"; 
         }
 
-        if (isset($this->access_level)) {
-            $this->columns .= ", access_level";
-            $this->values  .= ", '$this->access_level'"; 
-        }
 
         $this->columns .= ")";
         $this->values .= ")";
