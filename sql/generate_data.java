@@ -16,6 +16,7 @@ public class generate_data {
 		//String staffloc = keyin.next();
 		
 		//String staffloc = "staffgen.sql";
+		
 		String folder = "output"+ File.separator;
         boolean genbills = false;
         boolean genstaff = false;
@@ -68,6 +69,9 @@ public class generate_data {
 			staff_reader = new Scanner(staff);
 			
 			gen_localstaff(staff_reader, p);
+			
+			p = new PrintStream(folder + "gen_access_level.sql");
+			gen_access_level(p);
         }
 		
         if(genbills){
@@ -80,6 +84,29 @@ public class generate_data {
 			gen_golden_bills(p);
         }
 		
+
+	}
+	
+	private static void gen_access_level(PrintStream p){
+		String name = "access_level";
+		String[] fields = {"title", "access_level"};
+		ArrayList<Object> access_level = new ArrayList<Object>();
+		
+		access_level.add(new Object[] {"'ceo'", 1});
+		access_level.add(new Object[] {"'cto'", 1});
+		access_level.add(new Object[] {"'cfo'",  1});
+		access_level.add(new Object[] {"'human resources'", 1});
+		access_level.add(new Object[] {"'accounting'", 2});
+		access_level.add(new Object[] {"'marketing'", 2});
+		access_level.add(new Object[] {"'manager'", 3});
+		access_level.add(new Object[] {"'chef'", 4});
+		//access_level.add(new Object[] {"'shift supervisor'", 5});
+		access_level.add(new Object[] {"'delivery personnel'", 6});
+		access_level.add(new Object[] {"'dishwasher'", 6});
+		access_level.add(new Object[] {"'wait staff'", 6});
+
+
+		gen_data(name, fields, access_level.toArray(), p);
 
 	}
 	
