@@ -15,7 +15,8 @@ inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES',
            'facility_stock': 'INSERT INTO facilityStock (sku, f_id, quantity) VALUES',
            'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES',
            'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES',
-           'order': 'INSERT INTO `order` (f_id, sku, order_date, order_qty) VALUES'
+           'order': 'INSERT INTO `order` (f_id, sku, order_date, order_qty) VALUES',
+           'facility_balance': 'INSERT INTO facilityBalance (f_id, balance) VALUES'
           }
 
 
@@ -202,9 +203,17 @@ class Recipe():
             elif i[2] == 'serving items':
                 acatalog.append([serving_vendors[randrange(0, len(serving_vendors))][0], i[0]])
 
+        #  facilityBalance
+        # =================
+        #  f_id        INTEGER NOT NULL PRIMARY KEY,
+        # `balance`    INTEGER NOT NULL,
+        facility_balance = []
+        for f_id in xrange(1, 13):
+                facility_balance.append([f_id, randint(800, 1200)])
+
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
-                (vendor, 'vendor'), (acatalog, 'catalog'), (order, 'order'))
+                (vendor, 'vendor'), (acatalog, 'catalog'), (order, 'order'), (facility_balance, 'facility_balance'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
