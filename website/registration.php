@@ -28,25 +28,25 @@
 		<img src="img/goldMember.jpg"/>
 	</div> 
       <div  class="form">
-    		<form id="contactform" action="register_valid.php" onsubmit="return(validate());" enctype="multipart/form-data"> 
-    			<p class="contact"><label for="name">First Name</label></p> 
-    			<input id="firstN" name="firstN" placeholder="First name" required pattern="[A-z]{2,20}" tabindex="1" type="text">
+    	<form id="contactform" action="register_valid.php" onsubmit="return(validate());" enctype="multipart/form-data"> 
+    		<p class="contact"><label for="name">First Name</label></p> 
+    		<input id="firstN" name="firstN" placeholder="First name" required pattern="[A-z]{2,20}" tabindex="1" type="text">
 				
-				<p class="contact"><label for="name">Last Name</label></p> 
-    			<input id="lastN" name="lastN" placeholder="Last name" required pattern="[A-z]{2,20}" tabindex="1" type="text"> 
+			<p class="contact"><label for="name">Last Name</label></p> 
+    		<input id="lastN" name="lastN" placeholder="Last name" required pattern="[A-z]{2,20}" tabindex="1" type="text"> 
     			 
-    			<p class="contact"><label for="email">Email</label></p> 
-    			<input id="email" name="email" placeholder="example@domain.com" required pattern="[A-z_0-9]+@(hotmail|yahoo|gmail).(com|ca)" type="email"> 
+    		<p class="contact"><label for="email">Email</label></p> 
+    		<input id="email" name="email" placeholder="example@domain.com" required pattern="[A-z_0-9]+@(hotmail|yahoo|gmail).(com|ca)" type="email"> 
                 
-                <!--<p class="contact"><label for="username">Create a username</label></p> 
-    			<input id="username" name="username" placeholder="username" pattern="" tabindex="2" type="text"> 
+            <!--<p class="contact"><label for="username">Create a username</label></p> 
+    		<input id="username" name="username" placeholder="username" pattern="" tabindex="2" type="text"> 
     			 
-                <p class="contact"><label for="password">Create a password</label></p> 
-    			<input type="password" id="password" name="password" pattern="[A-z0-9]{8,16}"> 
-                <p class="contact"><label for="repassword">Confirm your password</label></p> 
-    			<input type="password" id="repassword" name="repassword" pattern="[A-z0-9]{8,16}">  -->
+            <p class="contact"><label for="password">Create a password</label></p> 
+			<input type="password" id="password" name="password" pattern="[A-z0-9]{8,16}"> 
+            <p class="contact"><label for="repassword">Confirm your password</label></p> 
+			<input type="password" id="repassword" name="repassword" pattern="[A-z0-9]{8,16}">  -->
         
-               <fieldset>
+            <fieldset>
                  <label>Birthday</label>
                   <label class="month"> 
                   <select class="select-style" name="BirthMonth">
@@ -67,7 +67,7 @@
                  </select>    
                 <label>Day<input class="birthday" maxlength="2" name="BirthDay"  placeholder="Day" pattern="d{2}"></label>
                 <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" pattern="d{2}"></label>
-              </fieldset>
+            </fieldset>
   
             <select class="select-style gender" name="sex" required>
             <option value="m">male</option>

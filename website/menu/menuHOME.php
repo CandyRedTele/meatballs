@@ -55,13 +55,13 @@ $(function() {
 		<div id="sticky_navigation">
 			<div class="demo_container">
 				<ul>
-					<li><a href="#" class="selected">HOME</a></li>
-					<li><a href="#">ABOUT US</a></li>
-					<li><a href="#">SERVICES</a></li>
+					<li><a href="menuHOME" class="selected">MENU</a></li>
+					<li><a href="menu1.php">LOCAL2</a></li>
+					<li><a href="menu2.php">LOCAL3</a></li>
 
-					<li><a href="#">CLIENTS</a></li>
-					<li><a href="#">PARTNERS</a></li>
-					<li><a href="#">CONTACT</a></li>
+					<li><a href="menu3.php">LOCAL4</a></li>
+					<li><a href="#">LOCAL5</a></li>
+					<li><a href="#">LOCAL6</a></li>
 				</ul>
 			</div>
 		</div>

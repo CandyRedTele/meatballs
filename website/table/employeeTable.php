@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-  <title>My information</title>
+	<title>employess information</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; CHARSET=ISO-8859-1">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -22,8 +22,8 @@
 
 <body>
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="865">
-	
-	<?php include_once("navigationBAR.php"); ?> <!-- navigation bar on top -->
+
+	<?php include_once("navigationBAR.php"); ?>
 
     <tr>
       <td id="mainbg" valign="top"><div id="haupttext">
@@ -31,11 +31,11 @@
 
 <div class="errorMessage"><?php /*echo $outputMessage*/?></div>
 	
-<section>	<h1>ADD SOMETHING</h1>
+<section>	<h1>ADD NEW EMPLOYEE</h1>
 <div id="formContainer">
 	<div class="suggestion" id="suggestions"></div>
 
-<form action="<?php /*echo $_SERVER['PHP_SELF']; */?>" method="post" name="form1" id="form1">
+<form action="addEmployee.php" method="post" name="form1" id="form1">
 <fieldset>
 	<label for="itemName">Item Name</label>
 		<input name="itemName" onkeyup="" value="<?php /*echo saveFormValue('itemName');*/?>" required="true" pattern="[^|]+" type="text" /><br />
@@ -91,6 +91,7 @@
       <td id="unten" height="74">Your Website URL</td>
     </tr>
 </table>
+<!--Start: This code may not be removed or altered in the free of charge version!--> <div class="copyright" align="center"><a style="color:#8F8F8F;font-weight:normal;background-color:#DCDCDC" href="http://www.website-templates.info" target="_blank">Free Templates</a></div><!--End: This code may not be removed or altered in the free of charge version!-->
 
 </body>
 </html>
