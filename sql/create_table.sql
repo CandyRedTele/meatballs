@@ -7,8 +7,7 @@ CREATE SCHEMA IF NOT EXISTS `meatballs` DEFAULT CHARACTER SET utf8 COLLATE utf8_
 USE `meatballs` ;
 
 
-# drop everything to start fresh
--- DROP TABLE IF EXISTS access;         -- 
+# drop everything to start fresh       Generation
 DROP TABLE IF EXISTS admin;             -- DONE
 DROP TABLE IF EXISTS bill;              -- DONE
 DROP TABLE IF EXISTS catalog;           -- DONE
@@ -21,7 +20,7 @@ DROP TABLE IF EXISTS ingredients;       -- DONE
 DROP TABLE IF EXISTS localstaff;        -- DONE
 DROP TABLE IF EXISTS menu;              -- DONE
 DROP TABLE IF EXISTS menu_item;         -- DONE
-DROP TABLE IF EXISTS `order`;           -- 
+DROP TABLE IF EXISTS `order`;           -- DONE
 DROP TABLE IF EXISTS pay;               -- DONE
 DROP TABLE IF EXISTS reservation;       -- 
 DROP TABLE IF EXISTS schedule;          -- 
