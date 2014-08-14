@@ -441,7 +441,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
 CREATE TABLE IF NOT EXISTS `meatballs`.`facilityBalance`
 (
      f_id        INTEGER NOT NULL PRIMARY KEY,
-    `balance`    INTEGER NOT NULL,
+    `balance`    FLOAT NOT NULL DEFAULT 0.0,
 
     FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`)
 );
