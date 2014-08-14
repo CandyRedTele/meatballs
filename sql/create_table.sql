@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS wage;              -- DONE
 DROP TABLE IF EXISTS wine;              -- DONE
 DROP TABLE IF EXISTS shift;             -- 
 DROP TABLE IF EXISTS access_level;      -- DONE
-DROP TABLE IF EXISTS facilityBalance;   -- 
+DROP TABLE IF EXISTS facilityBalance;   -- DONE
 
 
 -- -----------------------------------------------------
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
 (
     `mitem_id`   INTEGER REFERENCES meatballs.menu_item (mitem_id),
     `sku`       INTEGER REFERENCES meatballs.ingredients (sku),
-    `amount`    VARCHAR(30) NULL,
+    `amount`    INTEGER NULL,
     PRIMARY KEY (mitem_id, sku)
 )
 ENGINE = InnoDB;
@@ -303,7 +303,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`bill` 
 (
   `b_id` INTEGER NOT NULL AUTO_INCREMENT,
-  -- `total` DOUBLE NULL,
   `f_id` INTEGER NOT NULL,
   `date` DATE NOT NULL,
   PRIMARY KEY (`b_id`),
