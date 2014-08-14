@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS update_balance_log
     f_id        INTEGER,
     new_balance     INTEGER,
     old_balance     INTEGER,
+    price           INTEGER,
     FOREIGN KEY (`f_id`) REFERENCES `facilityBalance` (`f_id`)
         ON DELETE NO ACTION
         ON UPDATE CASCADE
@@ -76,8 +77,8 @@ BEGIN
 
     -- 2.1 Log it in `update_balance_log`
     SET @new_balance = (SELECT balance FROM facilityBalance WHERE f_id = NEW.f_id);
-    INSERT INTO update_balance_log (msg, f_id, old_balance, new_balance)
-        VALUES ("Update balance after order", NEW.f_id, @old_qty, @new_qty); 
+    INSERT INTO update_balance_log (msg, f_id, old_balance, new_balance, price)
+        VALUES ("Update balance after order", NEW.f_id, @old_balance, @new_balance, @price); 
 
 END; $$$
 DELIMITER ;
