@@ -46,7 +46,7 @@
 <nav class="menu2">
   <menu>
     <!--<li><a href="welcome.php" target="insideC">Home</a></li>-->
-	<li><a href="menu/menuHOME.php" target="insideC">Menu</a></li>
+	<li><a href="menu/menuHOME.php" target="insideC">HOME</a></li>
 	<?php if(isset($_SESSION['SID']))
 			if($_SESSION['accesslv'] != 5)
 				echo '<li><a href="table/tableHOME.php" target="insideC">DATABASE</a></li>';

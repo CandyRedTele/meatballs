@@ -31,7 +31,8 @@
 				$_SESSION['SID']=$row[0];
 				$_SESSION['name']=$row[1];
 				$_SESSION['time']=time();
-				$_SESSION['phone']=$row[4];
+				$_SESSION['phone']=$row[3];
+				$_SESSION['ssn']=$row[4];
 				$_SESSION['title']=$row[5];
 				$_SESSION['accesslv']=$row[6];#or just = MeatballUser::getAccessLevel($_SESSION['SID']) is good as well
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
@@ -42,7 +43,7 @@
         }
 		
 		if(!isset($_SESSION['SID']))
-			echo "<div id='notF'><h3>wrong e-mail or password<br/>please try again!</h3><br/>refreshing in 3 secs</div>
+			echo "<div id='notF'><h3>wrong ID<br/>please try again!</h3><br/>refreshing in 3 secs</div>
 				<meta http-equiv='Refresh' content='3;url=index.php'/>";
 		?>
 </head>

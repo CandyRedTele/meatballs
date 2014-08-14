@@ -24,7 +24,7 @@ a {	display : block;
 	border-radius   : 5px;
 	position        : relative;
 	top   : 0;
-	color : #999966;			
+	color : #66FF33;			
 	transition : all .4s;}
 
 li:hover a {	top   : -20px;
@@ -54,7 +54,8 @@ li:hover a:after {	border-color : white transparent transparent transparent;
 .menu2 a {	font-family : georgia;
 			font-size   : 14px;
 			font-style  : italic;
-			text-transform : capitalize;}
+			text-transform : capitalize;
+			font-weight:bold;}
 
 .menu2 li {	border-right  : 1px solid rgba(200,200,255,0.5);
 			border-left   : 1px solid rgba(40,40,40,0.2); }
@@ -109,7 +110,6 @@ iframe {	width:100%;
 							font-weight: bold;
 							font-size: 14px;}
 
-
 #templatemo_login_left {
 	text-align:center;
 	width: 100%;
@@ -120,8 +120,7 @@ iframe {	width:100%;
 	color: #782311;
 	padding-top: 30px;
 	/*background: url(images/templatemo_login_arrow.jpg) no-repeat;
-	background-position: right;*/
-}
+	background-position: right;*/}
 
 #footer {border: thin solid black; 
 		text-align: center;

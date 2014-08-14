@@ -30,10 +30,10 @@
       <div  class="form">
     	<form id="contactform" action="register_valid.php" onsubmit="return(validate());" enctype="multipart/form-data"> 
     		<p class="contact"><label for="name">First Name</label></p> 
-    		<input id="firstN" name="firstN" placeholder="First name" required pattern="[A-z]{2,20}" tabindex="1" type="text">
+    		<input id="firstN" name="firstN" placeholder="First name" required pattern="[A-z0-9]{2,20}" tabindex="1" type="text">
 				
 			<p class="contact"><label for="name">Last Name</label></p> 
-    		<input id="lastN" name="lastN" placeholder="Last name" required pattern="[A-z]{2,20}" tabindex="1" type="text"> 
+    		<input id="lastN" name="lastN" placeholder="Last name" required pattern="[A-z0-9]{2,20}" tabindex="1" type="text"> 
     			 
     		<p class="contact"><label for="email">Email</label></p> 
     		<input id="email" name="email" placeholder="example@domain.com" required pattern="[A-z_0-9]+@(hotmail|yahoo|gmail).(com|ca)" type="email"> 
@@ -77,7 +77,7 @@
             </select><br><br>
             
             <p class="contact"><label for="phone">phone (Mobile/home)</label></p> 
-            <input id="phone" name="phone" placeholder="phone number" required pattern="d{3}(d{3}|-d{3})(d{4}|-d{4})" type="text"> <br>
+            <input id="phone" name="phone" placeholder="phone number" required pattern="[0-9]{10}" type="text"> <br>
             
 			<input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit"> 	 
 		</form> 

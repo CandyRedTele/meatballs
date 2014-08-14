@@ -12,12 +12,11 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="robots" content="index, follow">
+  <meta name="description" content="" />
   
   <link rel="stylesheet" href="stylesheet4.css" type="text/css">
-  
-  <script type="text/javascript" src="../js/domsort.js"></script>
-<script type="text/javascript" src="../js/ajaxHelper.js"></script>
-<link rel="stylesheet" href="../css/domsort.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
+  <link rel="stylesheet" type="text/css" href="../css/resume.css" media="all" />
 </head>
 
 <body>
@@ -29,68 +28,116 @@
       <td id="mainbg" valign="top"><div id="haupttext">
 <!--                                   INFORMATION TABLES                                          -->
 
-<div class="errorMessage"><?php /*echo $outputMessage*/?></div>
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+		<div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+					<h1><?php echo $_SESSION['name'];?></h1> <!-- NAME -->
+					<h2><?php echo $_SESSION['title'];?></h2> <!-- TITLE -->
+				</div>
+				<div class="yui-u">
+					<div class="contact-info">
+						<h3>LOCATION</h3>
+						<h3><a href="mailto:name@yourdomain.com"><?php echo"NO EMAIL!?";?></a></h3> <!-- EMAIL -->
+						<h3><?php echo "phone: ".$_SESSION['phone'];?></h3> <!-- PHONE -->
+					</div><!--// .contact-info -->
+				</div>
+			</div><!--// .yui-gc -->
+		</div><!--// hd -->
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>SSN</h2>
+						</div>
+						<div class="yui-u">
+							<p class="enlarge">
+								 <?php echo $_SESSION['ssn'];?>
+							</p>
+						</div>
+					</div><!--// .yui-gf -->
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>EXPERIENCE</h2>
+						</div>
+						<div class="yui-u">
+								<div class="talent">
+									<h2>START DATE/EXPERIENCE</h2> <!-- START DATE -->
+									<p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
+								</div>
+
+								<div class="talent">
+									<h2>Training</h2>
+									<p>Credibly streamline mission-critical value with multifunctional functionalities.	 </p>
+								</div>
+						</div>
+					</div><!--// .yui-gf -->
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Technical</h2>
+						</div>
+						<div class="yui-u">
+							<ul class="talent">
+								<li>XHTML</li>
+								<li>CSS</li>
+								<li class="last">Javascript</li>
+							</ul>
+
+							<ul class="talent">
+								<li>Jquery</li>
+								<li>PHP</li>
+								<li class="last">CVS / Subversion</li>
+							</ul>
+						</div>
+					</div><!--// .yui-gf-->
+
+					<div class="yui-gf">
 	
-<section>	<h1>ADD SOMETHING</h1>
-<div id="formContainer">
-	<div class="suggestion" id="suggestions"></div>
+						<div class="yui-u first">
+							<h2>PREVIOUS Experience</h2>
+						</div><!--// .yui-u -->
 
-<form action="<?php /*echo $_SERVER['PHP_SELF']; */?>" method="post" name="form1" id="form1">
-<fieldset>
-	<label for="itemName">Item Name</label>
-		<input name="itemName" onkeyup="" value="<?php /*echo saveFormValue('itemName');*/?>" required="true" pattern="[^|]+" type="text" /><br />
-	<label for="itemCode">Code</label>
-		<input name="itemCode" value="<?php /*echo saveFormValue('itemCode'); */?>" required="true" pattern="[^|]+" type="text" /><br />
-	<label for="itemPrice">Price</label>
-		<input name="itemPrice" value="<?php /*echo saveFormValue('itemPrice'); */?>" pattern="[1-9][0-9]*\.\d{2,}" title="Price should be a number and have two float digits" required="true" type="text" /><br />
-	<label for="itemQty">Quantity</label>
-		<input name="itemQty" value="<?php /*echo saveFormValue('itemQty'); */?>" required="true" type="number" /><br />
-	<label for="itemAmount">Amount</label>
-		<input name="itemAmount" value="<?php /*echo saveFormValue('itemAmount'); */?>" required="true" type="text" /><br />
-</fieldset>
-	<input type="hidden" name="formInsert" value="form1" />
-	<input type="submit">
-</form>
+						<div class="yui-u">
 
-</div>
-</section>
+							<div class="job">
+								<h2>Facebook</h2>
+								<h3>Senior Interface Designer</h3>
+								<h4>2005-2007</h4>
+								<p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>
+							</div>
 
-<p id="testing"> </p>
-<section><h1>Administration</h1>
-    <div id="thelist"><ul id="control">
-            <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">SKU</li>
-            <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
-			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">type</li>
-            <li></li></ul><?php 
-        $logger = Logger::getSingleInstace();
-        $logger->write("HelloLogger!");
-		
-			$query = new CustomQuery("SELECT * from customers");
-			//$query = new SelectAllQuery("customers");
-			if (!is_null($query)) 
-			{
-				//var_dump( $query);
-				$result = $query->execute();
-			}
-			
-        while($row = mysqli_fetch_row($result)) 
-        {
-			echo "<ul>";
-            foreach ($row as $field) {
-                echo "<li>" . $field . "</li>" ;   
-            }
-			echo "</ul>";
-            //echo $row['customerName'];
-            //var_dump($row);
-        }
-        ?></div>
-</section>
-</div></td>
-    </tr>
-    <tr>
-      <td id="unten" height="74">Your Website URL</td>
-    </tr>
-</table>
+						</div><!--// .yui-u -->
+					</div><!--// .yui-gf -->
+
+
+					<!--<div class="yui-gf last">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+						<div class="yui-u">
+							<h2>Indiana University - Bloomington, Indiana</h2>
+							<h3>Dual Major, Economics and English &mdash; <strong>4.0 GPA</strong> </h3>
+						</div>
+					</div><!--// .yui-gf -->
+
+				</div><!--// .yui-b -->
+			</div><!--// yui-main -->
+		</div><!--// bd -->
+
+		<!--<div id="ft">
+			<p>Jonathan Doe &mdash; <a href="mailto:name@yourdomain.com">name@yourdomain.com</a> &mdash; (313) - 867-5309</p>
+		</div><!--// footer -->
+
+	</div><!-- // inner -->
+</div><!--// doc -->
+
+<!--								THE END OF INFORMATION TABLE						-->
+<?php include_once("navigationBAR2.php"); ?>
 
 </body>
 </html>

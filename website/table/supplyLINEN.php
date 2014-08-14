@@ -19,9 +19,6 @@
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
 <link rel="stylesheet" href="../css/stylesheet6.css" type="text/css" />
-<script>
-
-</script>
 </head>
 
 <body>
@@ -46,13 +43,13 @@
      <td valign="top" class="links">
         <ul class="menue">
 		<?php if($_SESSION['accesslv']==4)
-				echo '<li>&raquo; Food</li>';
+				echo '<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>';
 			else if($_SESSION['accesslv']==1 || $_SESSION['accesslv']==2)
-				echo'<li>&raquo; OVERALL</li>
-					<li>&raquo; Food</li>
-					<li>&raquo; Service Item</li>
-					<li>&raquo; Linen</li>
-					<li>&raquo; Kitchen Equipment</li>';
+				echo'<li><a title="Overall" href="supplyHOME">&raquo; OVERALL</a></li>
+					<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>
+					<li><a title="Service Item" href="supplySERVICE.php">&raquo; Service Item</a></li>
+					<li><a title="Linen" href="supplyLINEN.php">&raquo; Linen</a></li>
+					<li><a title="Kitchen Equipment" href="supplyKITCHEN.php">&raquo; Kitchen Equipment</a></li>';
 		?>
         </ul>
       </td>

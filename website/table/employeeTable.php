@@ -21,12 +21,8 @@
 </head>
 
 <body>
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="865">
+<?php include_once("navigationBAR.php"); ?>
 
-	<?php include_once("navigationBAR.php"); ?>
-
-    <tr>
-      <td id="mainbg" valign="top"><div id="haupttext">
 <!--                                   INFORMATION TABLES                                          -->
 
 <div class="errorMessage"><?php /*echo $outputMessage*/?></div>
@@ -85,13 +81,8 @@
         }
         ?></div>
 </section>
-</div></td>
-    </tr>
-    <tr>
-      <td id="unten" height="74">Your Website URL</td>
-    </tr>
-</table>
-<!--Start: This code may not be removed or altered in the free of charge version!--> <div class="copyright" align="center"><a style="color:#8F8F8F;font-weight:normal;background-color:#DCDCDC" href="http://www.website-templates.info" target="_blank">Free Templates</a></div><!--End: This code may not be removed or altered in the free of charge version!-->
+<!--								THE END OF INFORMATION TABLE						-->
+<?php include_once("navigationBAR2.php"); ?>
 
 </body>
 </html>

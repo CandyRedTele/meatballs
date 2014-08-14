@@ -21,39 +21,10 @@
 </head>
 
 <body>
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="865">
-    
-	<?php include_once("navigationBAR.php"); ?>
+<?php include_once("navigationBAR.php"); ?>
 
-    <tr>
-      <td id="mainbg" valign="top"><div id="haupttext">
 <!--                                   INFORMATION TABLES                                          -->
-
 <div class="errorMessage"><?php /*echo $outputMessage*/?></div>
-	
-<section>	<h1>ADD SOMETHING</h1>
-<div id="formContainer">
-	<div class="suggestion" id="suggestions"></div>
-
-<form action="<?php /*echo $_SERVER['PHP_SELF']; */?>" method="post" name="form1" id="form1">
-<fieldset>
-	<label for="itemName">Item Name</label>
-		<input name="itemName" onkeyup="" value="<?php /*echo saveFormValue('itemName');*/?>" required="true" pattern="[^|]+" type="text" /><br />
-	<label for="itemCode">Code</label>
-		<input name="itemCode" value="<?php /*echo saveFormValue('itemCode'); */?>" required="true" pattern="[^|]+" type="text" /><br />
-	<label for="itemPrice">Price</label>
-		<input name="itemPrice" value="<?php /*echo saveFormValue('itemPrice'); */?>" pattern="[1-9][0-9]*\.\d{2,}" title="Price should be a number and have two float digits" required="true" type="text" /><br />
-	<label for="itemQty">Quantity</label>
-		<input name="itemQty" value="<?php /*echo saveFormValue('itemQty'); */?>" required="true" type="number" /><br />
-	<label for="itemAmount">Amount</label>
-		<input name="itemAmount" value="<?php /*echo saveFormValue('itemAmount'); */?>" required="true" type="text" /><br />
-</fieldset>
-	<input type="hidden" name="formInsert" value="form1" />
-	<input type="submit">
-</form>
-
-</div>
-</section>
 
 <p id="testing"> </p>
 <section><h1>Administration</h1>
@@ -85,13 +56,8 @@
         }
         ?></div>
 </section>
-</div></td>
-    </tr>
-    <tr>
-      <td id="unten" height="74">Your Website URL</td>
-    </tr>
-</table>
-<!--Start: This code may not be removed or altered in the free of charge version!--> <div class="copyright" align="center"><a style="color:#8F8F8F;font-weight:normal;background-color:#DCDCDC" href="http://www.website-templates.info" target="_blank">Free Templates</a></div><!--End: This code may not be removed or altered in the free of charge version!-->
+<!--								THE END OF INFORMATION TABLE						-->
+<?php include_once("navigationBAR2.php"); ?>
 
 </body>
 </html>
