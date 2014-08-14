@@ -14,42 +14,33 @@ public class generate_data {
 		//Scanner keyin = new Scanner(System.in);
 		//System.out.println("Where is the staff file located?");
 		//String staffloc = keyin.next();
-		
-		//String staffloc = "staffgen.sql";
+		//String staffloc = "";
+
 		
 		String slash = File.separator;
 		String folder = "output"+ slash;
         boolean genbills = false;
         boolean genstaff = false;
-		String staffloc = "";
+		String staffloc = "staffgen.sql";
+
                 
 		if(args.length == 0){
 			System.out.println("command line input required");
             System.exit(1);
         }
         if(args.length == 1){
-            if(args[0].equals("bill")){
-            	genbills = true;
-            }
-            else{
-	            staffloc = args[0];
-	            System.out.println("scanning from " + args[0]);
-            }
-        }
-
-        if(args.length == 2){
             if(args[0].equals("bills")){
             	genbills = true;
             }
             else if(args[0].equals("staff")){
             	genstaff = true;
-                staffloc = args[1];
+                //staffloc = args[1];
 
             }
             else if(args[0].equals("all")){
             	genbills = true;
             	genstaff = true;
-                staffloc = args[1];
+                //staffloc = args[1];
             }
             else{
             	System.out.println("input invalid, exiting");
