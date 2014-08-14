@@ -6,16 +6,16 @@ from datetime import date, timedelta
 from os.path import isfile
 from random import randint, sample, uniform, randrange
 
-inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
-           'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name, image) VALUES (',
-           'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES (',
-           'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
-           'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
-           'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
-           'facility_stock': 'INSERT INTO facilityStock (sku, f_id, quantity) VALUES (',
-           'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES (',
-           'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES (',
-           'order': 'INSERT INTO `order` (f_id, sku, order_date, order_qty) VALUES ('
+inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES',
+           'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name, image) VALUES',
+           'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES',
+           'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES',
+           'wine': 'INSERT INTO wine (rate, mitem_id) VALUES',
+           'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES',
+           'facility_stock': 'INSERT INTO facilityStock (sku, f_id, quantity) VALUES',
+           'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES',
+           'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES',
+           'order': 'INSERT INTO `order` (f_id, sku, order_date, order_qty) VALUES'
           }
 
 
@@ -27,11 +27,16 @@ class Recipe():
     def get_inserts(self):
         for tables in self.create_list():
             with open(tables[1] + '.sql', 'w') as f:
-                s = "use meatballs; "
-                for i in tables[0]:
-                    s += inserts[tables[1]]
-                    s += self.helper_l_s(i)
-                    s += '); '
+                s = "use meatballs;\n"
+                s += inserts[tables[1]]
+                for j, table in enumerate(tables[0]):
+                    s += '\n('
+                    s += self.helper_l_s(table)
+                    s += ')'
+                    if j == len(tables[0])-1:
+                        s += ';'
+                    else:
+                        s += ','
                 f.write(s.encode('ascii', 'ignore'))
 
     def helper_l_s(self, l):
@@ -169,8 +174,7 @@ class Recipe():
                 date_order = date.today()-timedelta(days=randrange(0,10))
                 date_order = date_order.isoformat()
                 pick = ingre_per_f[randint(0, len(ingre_per_f)-1)]
-                order.append([pick[1], pick[0], date_order, 80 - pick[2]])
-
+                order.append([pick[1], pick[0], date_order, (80 - pick[2])+1])
 
 
         vendor = []
