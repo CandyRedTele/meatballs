@@ -18,7 +18,7 @@ PWORD=''
 SCRIPTS=('create_table.sql' 
          'pay.sql' 'staffgen.sql' 'gen_admin.sql'
          'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql'  'vendor.sql' 'catalog.sql'
-         'gen_facility.sql' 'gen_localStaff.sql' 'gen_facilityHours.sql' 'facility_stock.sql'
+         'gen_facility.sql' 'gen_localStaff.sql' 'gen_facilityHours.sql' 'facility_stock.sql' 'order.sql'
          'gen_bills.sql' 'gen_bill_has_items.sql' 'gen_golden.sql' 'gen_golden_bills.sql'
          )
 TEMPO=tempo

@@ -2,7 +2,7 @@ from urlparse import urlparse
 from lxml import html
 import requests
 import json
-import datetime
+from datetime import date, timedelta
 from os.path import isfile
 from random import randint, sample, uniform, randrange
 
@@ -14,7 +14,8 @@ inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
            'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
            'facility_stock': 'INSERT INTO facilityStock (sku, f_id, quantity) VALUES (',
            'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES (',
-           'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES ('
+           'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES (',
+           'order': 'INSERT INTO `order` (f_id, sku, order_date, order_qty) VALUES ('
           }
 
 
@@ -22,7 +23,6 @@ class Recipe():
 
     def __init__(self):
         pass
-        #self.supply, self.menu_item, self.ingredient, self.menu, self.wine, self.other_supply, self.food = self.create_list()
 
     def get_inserts(self):
         for tables in self.create_list():
@@ -143,7 +143,7 @@ class Recipe():
         # `sku`       INTEGER NOT NULL,
         #  `f_id`      INTEGER NULL,
         #  `quantity`  INTEGER DEFAULT 0,
-        # now = datetime.datetime.now().strftime('%Y-%m-%d')
+        # now = datetime.now().strftime('%Y-%m-%d')
         facility_stock = []
         ingre_menu_set = set()
         for j in menu:
@@ -153,6 +153,25 @@ class Recipe():
                     if sku_ingre not in ingre_menu_set:
                         ingre_menu_set.add(sku_ingre)
                         facility_stock.append([k[1], j[0], randint(15, 80)])
+
+        #  order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
+        #  `f_id`      INTEGER NULL,
+        #  `sku`       INTEGER NULL,
+        #  `order_date` DATE NOT NULL,
+        #  `order_qty` INTEGER NULL,
+        def inFList(l, i):
+            return [x for x in l if x[1] == i]
+
+        order = []
+        for i in xrange(1, 13):
+            ingre_per_f = inFList(facility_stock, i)
+            for j in xrange(8):
+                date_order = date.today()-timedelta(days=randrange(0,10))
+                date_order = date_order.isoformat()
+                pick = ingre_per_f[randint(0, len(ingre_per_f)-1)]
+                order.append([pick[1], pick[0], date_order, 80 - pick[2]])
+
+
 
         vendor = []
         for i, j in enumerate(vendors, start=1):
@@ -180,7 +199,7 @@ class Recipe():
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
-                (vendor, 'vendor'), (acatalog, 'catalog'))
+                (vendor, 'vendor'), (acatalog, 'catalog'), (order, 'order'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
