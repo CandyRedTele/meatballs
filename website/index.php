@@ -53,7 +53,7 @@
 	?>
 	<li><a href="#" target="insideC">Find Us</a></li>
     <li><a href="#" target="insideC">About Us</a></li>
-    <li><a href="registation.php" target="insideC">Golden member</a></li>
+    <li><a href="registration.php" target="insideC">BECOME Golden member?</a></li>
   </menu>
 </nav>
 </div>
