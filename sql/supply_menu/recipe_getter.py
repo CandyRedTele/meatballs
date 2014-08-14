@@ -37,6 +37,7 @@ class Recipe():
                         s += ';'
                     else:
                         s += ','
+                s += '\n'
                 f.write(s.encode('ascii', 'ignore'))
 
     def helper_l_s(self, l):
