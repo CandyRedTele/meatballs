@@ -5,6 +5,7 @@ import json
 from datetime import date, timedelta
 from os.path import isfile
 from random import randint, sample, uniform, randrange
+from math import ceil
 
 inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES',
            'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name, image) VALUES',
@@ -209,7 +210,7 @@ class Recipe():
         # `balance`    INTEGER NOT NULL,
         facility_balance = []
         for f_id in xrange(1, 13):
-                facility_balance.append([f_id, randint(800, 1200)])
+                facility_balance.append([f_id, randint(1800, 2800)])
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
@@ -243,7 +244,7 @@ class Recipe():
         for row in table[1:]:
             if not ingre_names.count(row[3].text.replace("'", "")):
                 ingre_names.append(row[3].text.replace("'", ""))
-                amounts.append([float(row[1].text), row[3].text.replace("'", "")])
+                amounts.append([int(ceil(float(row[1].text))), row[3].text.replace("'", "")])
         price = randint(min, max)
         return {name: {'ingredients': amounts, 'price': price, 'image': image}}
 
