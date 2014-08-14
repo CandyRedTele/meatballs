@@ -2,6 +2,7 @@ source create_table.sql;
 source staff/pay.sql;
 source staff/staffgen.sql;
 source staff/gen_admin.sql;
+source staff/gen_access_level.sql;
 
 source customers/gen_golden.sql;
 
