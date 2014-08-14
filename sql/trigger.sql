@@ -22,15 +22,15 @@ CREATE TABLE IF NOT EXISTS update_stock_log
 
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -- 
--- TRIGGER : update_stock_trigger 
+-- TRIGGER : update_stock_on_order_trigger
 -- 
 -- PURPOSE : update the facilityStock quantity when a row
 --           is inserted in the `order` table.
 --
 -- ---------------------------------------------------------
-DROP TRIGGER IF EXISTS update_stock_trigger;
+DROP TRIGGER IF EXISTS update_stock_on_order_trigger;
 DELIMITER $$$
-CREATE TRIGGER update_stock_trigger
+CREATE TRIGGER update_stock_on_order_trigger
 AFTER INSERT ON `order`
 FOR EACH ROW
 BEGIN
@@ -69,3 +69,54 @@ DELIMITER ;
 --         VALUES ("Update Balance after order", NEW.f_id, @old_balance, @new_balance); 
 -- END; $$$
 -- DELIMITER ;
+
+
+DROP TRIGGER IF EXISTS update_stock_on_bill_trigger;
+DELIMITER $$$
+CREATE TRIGGER update_stock_on_bill_trigger
+AFTER INSERT ON bill
+BEGIN
+	
+    SET @old_qty = (SELECT quantity FROM facilityStock WHERE sku = NEW.sku);
+	SET @qty = (SELECT 
+					ingredients.amount
+				FROM
+					bill,
+					ingredients,
+					bill_has_menu_item,
+					menu_item
+				WHERE
+					bill.b_id = bill_has_menu_item.b_id
+						AND bill_has_menu_item.mitem_id = menu_item.mitem_id
+						AND menu_item.mitem_id = ingredients.mitem_id);
+	SET @sku = (SELECT 
+					ingredients.sku
+				FROM
+					bill,
+					ingredients,
+					bill_has_menu_item,
+					menu_item
+				WHERE
+					bill.b_id = bill_has_menu_item.b_id
+						AND bill_has_menu_item.mitem_id = menu_item.mitem_id
+						AND menu_item.mitem_id = ingredients.mitem_id);
+
+--     INSERT INTO facilityStock (sku, f_id, quantity) 
+--         VALUES (NEW.sku, NEW.f_id, NEW.order_qty)
+--         ON DUPLICATE KEY UPDATE quantity = @old_qty + NEW.order_qty;
+
+
+   -- 
+
+    -- UPDATE facilityStock
+--     SET quantity = @old_balance - @qty
+--     WHERE f_id = NEW.f_id and sku = @sku;
+
+
+    -- SET @new_balance = (SELECT balance FROM facilityBalance WHERE f_id = NEW.f_id);
+	 SET @new_qty = (SELECT quantity FROM facilityStock WHERE sku = NEW.sku);
+
+    -- INSERT INTO update_balance_log (msg, f_id, balance_old, balance_new)
+--         VALUES ("Update Balance after order", NEW.f_id, @old_balance, @new_balance); 
+END; $$$
+DELIMITER ;
