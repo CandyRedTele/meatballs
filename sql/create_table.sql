@@ -425,13 +425,14 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
 (
-    shift_id        INTEGER PRIMARY KEY AUTO_INCREMENT,
+    -- shift_id        INTEGER PRIMARY KEY AUTO_INCREMENT,
     `staff_id`      INTEGER NOT NULL,
     `date`          DATE NOT NULL,
     `time_start`    TIME NOT NULL,
     `time_end`      TIME NOT NULL,
     `paid`          BOOLEAN NOT NULL, -- indicates whether or not they have been paid for this shift
-    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
+    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`),
+    PRIMARY KEY (`staff_id`, `date`, `time_start`)
 );
 
 -- -----------------------------------------------------
