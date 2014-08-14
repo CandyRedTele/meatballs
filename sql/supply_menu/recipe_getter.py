@@ -2,19 +2,20 @@ from urlparse import urlparse
 from lxml import html
 import requests
 import json
-import datetime
+from datetime import date, timedelta
 from os.path import isfile
 from random import randint, sample, uniform, randrange
 
-inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES (',
-           'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name, image) VALUES (',
-           'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES (',
-           'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES (',
-           'wine': 'INSERT INTO wine (rate, mitem_id) VALUES (',
-           'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES (',
-           'facility_stock': 'INSERT INTO facilityStock (quantity, order_date, sku, f_id) VALUES (',
-           'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES (',
-           'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES ('
+inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES',
+           'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name, image) VALUES',
+           'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES',
+           'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES',
+           'wine': 'INSERT INTO wine (rate, mitem_id) VALUES',
+           'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES',
+           'facility_stock': 'INSERT INTO facilityStock (sku, f_id, quantity) VALUES',
+           'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES',
+           'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES',
+           'order': 'INSERT INTO `order` (f_id, sku, order_date, order_qty) VALUES'
           }
 
 
@@ -22,16 +23,21 @@ class Recipe():
 
     def __init__(self):
         pass
-        #self.supply, self.menu_item, self.ingredient, self.menu, self.wine, self.other_supply, self.food = self.create_list()
 
     def get_inserts(self):
         for tables in self.create_list():
             with open(tables[1] + '.sql', 'w') as f:
-                s = "use meatballs; "
-                for i in tables[0]:
-                    s += inserts[tables[1]]
-                    s += self.helper_l_s(i)
-                    s += '); '
+                s = "use meatballs;\n"
+                s += inserts[tables[1]]
+                for j, table in enumerate(tables[0]):
+                    s += '\n('
+                    s += self.helper_l_s(table)
+                    s += ')'
+                    if j == len(tables[0])-1:
+                        s += ';'
+                    else:
+                        s += ','
+                s += '\n'
                 f.write(s.encode('ascii', 'ignore'))
 
     def helper_l_s(self, l):
@@ -71,8 +77,6 @@ class Recipe():
 
         ingredients_name_set = []
         [ingredients_name_set.append(i) for i in ingredients_name if not ingredients_name_set.count(i)]
-        #ingredients_name_set = []
-        #[ingredients_name_set.append(i) for i in ingredients_name if not ingredients_name_set.count(i)]
 
         skus = sample(range(10000, 49999), len(ingredients_name_set))
         ingredients_name = []
@@ -142,12 +146,37 @@ class Recipe():
         for i, j in enumerate(other_supplies):
             j.insert(0, skus[i])
 
-        now = datetime.datetime.now().strftime('%Y-%m-%d')
+        # `sku`       INTEGER NOT NULL,
+        #  `f_id`      INTEGER NULL,
+        #  `quantity`  INTEGER DEFAULT 0,
+        # now = datetime.now().strftime('%Y-%m-%d')
         facility_stock = []
+        ingre_menu_set = set()
         for j in menu:
             for k in ingredients:
                 if j[1] == k[0]:
-                    facility_stock.append([randint(5, 100), now, k[1], j[0]])
+                    sku_ingre = k[1]
+                    if sku_ingre not in ingre_menu_set:
+                        ingre_menu_set.add(sku_ingre)
+                        facility_stock.append([k[1], j[0], randint(15, 80)])
+
+        #  order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
+        #  `f_id`      INTEGER NULL,
+        #  `sku`       INTEGER NULL,
+        #  `order_date` DATE NOT NULL,
+        #  `order_qty` INTEGER NULL,
+        def inFList(l, i):
+            return [x for x in l if x[1] == i]
+
+        order = []
+        for i in xrange(1, 13):
+            ingre_per_f = inFList(facility_stock, i)
+            for j in xrange(8):
+                date_order = date.today()-timedelta(days=randrange(0,10))
+                date_order = date_order.isoformat()
+                pick = ingre_per_f[randint(0, len(ingre_per_f)-1)]
+                order.append([pick[1], pick[0], date_order, (80 - pick[2])+1])
+
 
         vendor = []
         for i, j in enumerate(vendors, start=1):
@@ -175,7 +204,7 @@ class Recipe():
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
-                (vendor, 'vendor'), (acatalog, 'catalog'))
+                (vendor, 'vendor'), (acatalog, 'catalog'), (order, 'order'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
