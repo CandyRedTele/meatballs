@@ -21,7 +21,7 @@ public class generate_data {
 		String folder = "output"+ slash;
         boolean genbills = false;
         boolean genstaff = false;
-		String staffloc = "staffgen.sql";
+		String staffloc = "staff" + slash + "staffgen.sql";
 
                 
 		if(args.length == 0){
