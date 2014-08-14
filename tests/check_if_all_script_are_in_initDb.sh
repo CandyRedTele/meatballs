@@ -12,6 +12,7 @@ TEMPO='tempo.txt'
 TARGET='initDb.sh'
 
 
+RESULT=0;
 #
 # List all sql files under /sql
 #
@@ -40,11 +41,17 @@ while read line; do
         #
         grep  "^source" $(find . -name $line)  2>&1 1>/dev/null;
         if [ $? -eq 1 ];  then
+            RESULT=1;
             echo -n "Files missing in $TARGET : ";
             echo $line
         fi
     fi
 done < $TEMPO
 
+if [ $RESULT -eq 0 ]; then 
+    echo "it's fine";
+fi
 
 rm $TEMPO
+
+exit $RESULT
