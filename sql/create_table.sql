@@ -431,6 +431,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
     `date`          DATE NOT NULL,
     `time_start`    TIME NOT NULL,
     `time_end`      TIME NOT NULL,
+    `paid`          BOOLEAN NOT NULL, -- indicates whether or not they have been paid for this shift
     FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
 );
 

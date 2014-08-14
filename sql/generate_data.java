@@ -252,14 +252,14 @@ public class generate_data {
 		ArrayList<Object> has_items = new ArrayList<Object>();
 		for(int i = 0; i < numBills;i++){
 			
-			Object[] bill = {((i*29)%12+1),
+			Object[] bill = {(i %12+1),
 					gen_date()
 			};
 			bills.add(bill);
 			
 			for(int jay = 1; jay < 5; jay++){
 				Object[] has_item = {(i + 1),
-						(i * 101 % 80 + 1)
+						(random_num(1,80))
 				};
 				has_items.add(has_item);
 			}
