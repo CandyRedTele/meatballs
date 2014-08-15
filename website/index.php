@@ -49,7 +49,7 @@
 			if($_SESSION['accesslv'] != 5)
 				echo '<li><a href="table/tableHOME.php" target="insideC">DATABASE</a></li>';
 	?>
-	<li><a href="#" target="insideC">Reservation</a></li>
+	<li><a href="reservation.php" target="insideC">Reservation</a></li>
     <li><a href="aboutUS.php" target="insideC">About Us</a></li>
     <li><a href="registration.php" target="insideC">Golden member</a></li>
   </menu>
