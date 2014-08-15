@@ -14,7 +14,7 @@ div#thelist ul
 div#thelist ul li
 { display: table-cell;
   text-align: center;
-  padding: 5px;
+  padding: 1px;
   border: thin solid black;
 }
 

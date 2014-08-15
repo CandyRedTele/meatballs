@@ -1,0 +1,9 @@
+		<?php if($_SESSION['accesslv']==4)
+				echo '<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>';
+			else if($_SESSION['accesslv']==1 || $_SESSION['accesslv']==2)
+				echo'<li><a title="Overall" href="supplyHOME.php">&raquo; OVERALL</a></li>
+					<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>
+					<li><a title="Service Item" href="supplySERVICE.php">&raquo; Service Item</a></li>
+					<li><a title="Linen" href="supplyLINEN.php">&raquo; Linen</a></li>
+					<li><a title="Kitchen Equipment" href="supplyKITCHEN.php">&raquo; Kitchen Equipment</a></li>';
+		?>

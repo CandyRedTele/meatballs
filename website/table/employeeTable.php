@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-	<title>My Website from www.website-templates.info</title>
+	<title>employess information</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; CHARSET=ISO-8859-1">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -21,46 +21,17 @@
 </head>
 
 <body>
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="865">
-    <!--<tr>
-      <td id="oben" valign="top" height="156"><div class="headertextoben"><a href="#">Mail</a> | <a href="#">Imprint</a></div><div class="headertextgross">My beautiful new website</div>
-      <div class="headertextklein">Here you find everything you need to know</div></td>
-    </tr>-->
-    <tr>
-      <td id="navi" width="865"><div class="headernavi">
-	  
-		<?php if(isset($_SESSION['SID'])){
-				$personalINFO = '<a href="tableHOME.html">MY INFO</a>';
-				//$foodSUPPLY = '<a href="#">food supply</a>';
-				$localResto = '<a href="#">local restaurant</a>';
-				$employees = '<a href="table1.php">employees</a>';
-				$salesHist = '<a href="#.html">sales history</a>';
-				switch($_SESSION['accesslv']){
-					case 1:
-						echo $personalINFO . $localResto . $employees . $salesHist; break;
-					case 2:
-						echo $personalINFO . $localResto . $salesHist; break;
-					case 3:
-						echo $personalINFO . $employees; break;
-					case 4:
-						echo $personalINFO . $localResto; break;
-					default:
-						echo $personalINFO;
-				}
-			}
-		?></td>
-    </tr>
-    <tr>
-      <td id="mainbg" valign="top"><div id="haupttext">
+<?php include_once("navigationBAR.php"); ?>
+
 <!--                                   INFORMATION TABLES                                          -->
 
-        <div class="errorMessage"><?php /*echo $outputMessage*/?></div>
+<div class="errorMessage"><?php /*echo $outputMessage*/?></div>
 	
-<section>	<h1>ADD SOMETHING</h1>
+<section>	<h1>ADD NEW EMPLOYEE</h1>
 <div id="formContainer">
 	<div class="suggestion" id="suggestions"></div>
 
-<form action="<?php /*echo $_SERVER['PHP_SELF']; */?>" method="post" name="form1" id="form1">
+<form action="addEmployee.php" method="post" name="form1" id="form1">
 <fieldset>
 	<label for="itemName">Item Name</label>
 		<input name="itemName" onkeyup="" value="<?php /*echo saveFormValue('itemName');*/?>" required="true" pattern="[^|]+" type="text" /><br />
@@ -83,14 +54,17 @@
 <p id="testing"> </p>
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
-            <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">SKU</li>
+            <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">staff_id</li>
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
-			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">type</li>
+			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">address</li>
+			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">phone</li>
+			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">SSN</li>
+			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">title</li>
             <li></li></ul><?php 
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
-			$query = new CustomQuery("SELECT * from customers");
+			$query = new CustomQuery("SELECT * from staff");
 			//$query = new SelectAllQuery("customers");
 			if (!is_null($query)) 
 			{
@@ -110,13 +84,8 @@
         }
         ?></div>
 </section>
-</div></td>
-    </tr>
-    <tr>
-      <td id="unten" height="74">Your Website URL</td>
-    </tr>
-</table>
-<!--Start: This code may not be removed or altered in the free of charge version!--> <div class="copyright" align="center"><a style="color:#8F8F8F;font-weight:normal;background-color:#DCDCDC" href="http://www.website-templates.info" target="_blank">Free Templates</a></div><!--End: This code may not be removed or altered in the free of charge version!-->
+<!--								THE END OF INFORMATION TABLE						-->
+<?php include_once("navigationBAR2.php"); ?>
 
 </body>
 </html>

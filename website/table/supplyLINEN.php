@@ -8,7 +8,7 @@
 <html>
 <head>
 	<title>My Website from www.website-templates.info</title>
-  <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; CHARSET=ISO-8859-1">
+  <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; charset=utf-8">
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="robots" content="index, follow">
@@ -18,43 +18,18 @@
   <script type="text/javascript" src="../js/domsort.js"></script>
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
+<link rel="stylesheet" href="../css/stylesheet6.css" type="text/css" />
 </head>
 
 <body>
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="865">
-    <!--<tr>
-      <td id="oben" valign="top" height="156"><div class="headertextoben"><a href="#">Mail</a> | <a href="#">Imprint</a></div><div class="headertextgross">My beautiful new website</div>
-      <div class="headertextklein">Here you find everything you need to know</div></td>
-    </tr>-->
-    <tr>
-      <td id="navi" width="865"><div class="headernavi">
-	  
-		<?php if(isset($_SESSION['SID'])){
-				$personalINFO = '<a href="tableHOME.html">MY INFO</a>';
-				//$foodSUPPLY = '<a href="#">food supply</a>';
-				$localResto = '<a href="#">local restaurant</a>';
-				$employees = '<a href="table1.php">employees</a>';
-				$salesHist = '<a href="#.html">sales history</a>';
-				switch($_SESSION['accesslv']){
-					case 1:
-						echo $personalINFO . $localResto . $employees . $salesHist; break;
-					case 2:
-						echo $personalINFO . $localResto . $salesHist; break;
-					case 3:
-						echo $personalINFO . $employees; break;
-					case 4:
-						echo $personalINFO . $localResto; break;
-					default:
-						echo $personalINFO;
-				}
-			}
-		?></td>
-    </tr>
-    <tr>
-      <td id="mainbg" valign="top"><div id="haupttext">
-<!--                                   INFORMATION TABLES                                          -->
+<?php include_once("navigationBAR.php"); ?>
 
-        <div class="errorMessage"><?php /*echo $outputMessage*/?></div>
+<!--                                   INFORMATION TABLES                                          -->
+<?php 		include_once("supplyMENU.php");		?>
+<div class="haupttext" id="foodINFO">
+<!--                                   Content LIST                                          -->
+
+<div class="errorMessage"><?php /*echo $outputMessage*/?></div>
 	
 <section>	<h1>ADD SOMETHING</h1>
 <div id="formContainer">
@@ -90,7 +65,9 @@
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
-			$query = new CustomQuery("SELECT * from customers");
+		//if($_SESSION['accesslv']==1)
+		//if($_SESSION['accesslv']==2||$_SESSION['accesslv']==4)
+			$query = new CustomQuery("SELECT sku, name, price from supplies where type='linens'");
 			//$query = new SelectAllQuery("customers");
 			if (!is_null($query)) 
 			{
@@ -104,19 +81,24 @@
             foreach ($row as $field) {
                 echo "<li>" . $field . "</li>" ;   
             }
-			echo "</ul>";
+			echo "<li><a href='#'>REMOVE</a></ul>";
             //echo $row['customerName'];
             //var_dump($row);
         }
+		
         ?></div>
 </section>
-</div></td>
-    </tr>
-    <tr>
-      <td id="unten" height="74">Your Website URL</td>
-    </tr>
+		
+	  </td>
+        <td width="10px">&nbsp;</td>
+   </tr>
+   <!--<tr>
+      <td colspan="4"><div class="ueberschrift"><a href="mailto:ihreadresse@ihremprovider.de">Mail</a> | <a href="#">Imprint</a> | <a href="#">Terms of Use</a></div></td>
+   </tr>-->
 </table>
-<!--Start: This code may not be removed or altered in the free of charge version!--> <div class="copyright" align="center"><a style="color:#8F8F8F;font-weight:normal;background-color:#DCDCDC" href="http://www.website-templates.info" target="_blank">Free Templates</a></div><!--End: This code may not be removed or altered in the free of charge version!-->
+
+<!--									END OF INFORMATION TABLE								-->
+<?php include_once("navigationBAR2.php"); ?>
 
 </body>
 </html>
