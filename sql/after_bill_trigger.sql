@@ -37,9 +37,6 @@ CREATE TABLE IF NOT EXISTS update_stock_after_bill_log
 	mitem_id INTEGER,
     b_id    INTEGER,
     msg         VARCHAR(255),
-    FOREIGN KEY (`f_id`) REFERENCES `facilityBalance` (`f_id`)
-        ON DELETE NO ACTION
-        ON UPDATE CASCADE,
     FOREIGN KEY (`b_id`) REFERENCES `bill` (`b_id`)
         ON DELETE NO ACTION
         ON UPDATE CASCADE   
