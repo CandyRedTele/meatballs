@@ -1,52 +1,29 @@
-/*
-    Document   : main.css
-    Created on : 2-Nov-2013, 3:18:11 PM
-    Author     : shauheen
-    Description:
-        Purpose of the stylesheet follows.
-*/
+form {width: 90%;
+    margin: 0 auto;}
 
-form {
-    width: 90%;
-    margin: 0 auto;
-}
+label, input {/* in order to define widths */
+    display: inline-block;}
 
-label, input {
-    /* in order to define widths */
-    display: inline-block;
-}
-
-label {
-    width: 30%;
+label {width: 30%;
     /* positions the label text beside the input */
-    text-align: right;
-}
+    text-align: right;}
 
-label + input {
-    width: 30%;
+label + input {width: 30%;
     /* large margin-right to force the next element to the new-line
        and margin-left to create a gutter between the label and input */
-    margin: 0 30% 0 4%;
-}
+    margin: 0 30% 0 4%;}
 
 /* only the submit button is matched by this selector,
    but to be sure you could use an id or class for that button */
-input + input {
-    float: right;
-}
+input + input { float: right;}
 
-#formContainer {
-    position: relative;
-    width: 40%;
-}
+#formContainer {position: relative;
+    width: 40%;}
 
-.errorMessage {
-    color: red;
-    font-weight: bold;
-}
+.errorMessage {color: red;
+    font-weight: bold;}
 
-.suggestion {
-    position: absolute;
+.suggestion {position: absolute;
     background-color: #333;
     padding: 5px 3px;
     left:345px;
@@ -55,22 +32,147 @@ input + input {
     border-radius: 10px; 
 -moz-border-radius: 10px; 
 -webkit-border-radius: 10px; 
-border: 1px solid #800000;
-}
+border: 1px solid #800000;}
 
-div.suggestion ul
-{
-	list-style: none;
+div.suggestion ul{list-style: none;
 	margin: 0 0 -4px 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
-}
+	background-color: #333;}
 
-div.suggestion ul li
-{
-	color: #ccc;
+div.suggestion ul li{color: #ccc;
 	padding: 0;
 	margin: 0 4px 4px;
-	text-align: left;
-}
+	text-align: left;}
+
+section{ margin:3%; text-align: center;}
+/*====================================================================*/
+body {margin: 0px;
+  padding: 0px;
+  color: #5F5F5F;
+  background:url(../img/Tbg.jpg) repeat-x;
+  background-color: #DCDCDC;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-size: 10pt;}
+
+p {	margin: 8px 4px 4px 4px;}
+
+table,td,tr {color: #1F1F1F;
+  background-color: #FFFFFF;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-size: 10pt;}
+
+#oben {background:url(../img/Toben.jpg);
+  width: 865px;}
+
+.headertextoben {padding: 5px 45px 0px 0px;
+  font-size: 12pt;
+  color: #000000;
+  background-color: inherit;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-style: italic;
+  text-align: right;}
+
+.headertextgross {padding: 40px 0px 0px 45px;
+  font-size: 20pt;
+  color: #ffffff;
+  background-color: inherit;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-style: italic;}
+
+.headertextklein {padding: 5px 0px 0px 45px;
+  font-size: 10pt;
+  color: #ffffff;
+  background-color: inherit;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;}
+
+#navi {background:url(../img/Tnavi.jpg);
+  height: 29px;
+  text-align: center;}
+
+
+.headernavi a:link, .headernavi a:active, .headernavi a:visited {color: #FFFFFF;
+  background-color: transparent;
+  text-decoration: none;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-size: 12pt;
+  line-height: 29px;
+  padding: 2px 15px;
+  margin: 0px;
+  text-align: center;
+  border-left: solid 1px #F31414;
+  border-right: solid 1px #9D0000;}
+
+.headernavi a:hover {color: #CFCFCF;
+  background-color: transparent;
+  text-decoration: none;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;}
+
+#mainbg {background:url(../img/Tmainbg.jpg);
+  width: 865px;}
+
+#haupttext {font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  padding: 5px 35px 5px 35px;
+  text-align: justify;
+  font-size: 11pt;}
+
+#unten {color: #DFDFDF;
+  background-color: inherit;
+  background:url(../img/Tunten.jpg);
+  font-family: "Century Gothic",sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 3px;
+  padding-bottom: 20px;}
+
+.copyright {font-size: 6pt;
+  text-align: center;
+  font-weight: normal;}
+
+h1 {background-color: inherit;
+  color: #FF3F00;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-size: 18pt;
+  font-style: italic;
+  text-align: left;
+  margin: 0px;}
+
+h2 {color: #8F8F8F;
+  background-color: inherit;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-size: 14pt;
+  text-align: left;
+  padding-left: 16px;
+  text-decoration: none;
+  letter-spacing: 2px;}
+
+h3 {color: #7F0000;
+  background-color: inherit;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-size: 14pt;
+  font-style: italic;
+  padding-left: 5px;}
+
+h4 {color: #ffffff;
+  background-color: #BFBFBF;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-size: 14pt;
+  font-weight: bold;
+  padding-left: 5px;}
+
+h5 {color: #000000;
+  background-color: inherit;
+  font-family: "Trebuchet MS",verdana,arial,helvetica,sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding-left: 5px;}
+
+a:link,a:visited,a:active {color: #000000;
+  background-color: inherit;
+  text-decoration: none;
+  font-weight: bold;}
+
+a:hover {color: #000000;
+  background-color: #CFCFCF;
+  text-decoration: none;}

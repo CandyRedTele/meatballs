@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-	<title>My Website from www.website-templates.info</title>
+	<title>FOOD SUPPLY</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; charset=utf-8">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -88,13 +88,10 @@
 		
         ?></div>
 </section>
-		
+</div>
 	  </td>
         <td width="10px">&nbsp;</td>
    </tr>
-   <!--<tr>
-      <td colspan="4"><div class="ueberschrift"><a href="mailto:ihreadresse@ihremprovider.de">Mail</a> | <a href="#">Imprint</a> | <a href="#">Terms of Use</a></div></td>
-   </tr>-->
 </table>
 
 <!--									END OF INFORMATION TABLE								-->

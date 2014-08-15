@@ -34,10 +34,10 @@ table,td,tr {color: #FFFFFF;
   font-weight: bold;
   text-align: center;
   width: 200px;
-  height: 200px;}
+  height: 150px;}
 
 .oben {background: url(../img/Moben.jpg) repeat-x;
-  height: 200px;}
+  height: 150px;}
 
 #textobengross {font-size: 18pt;
   font-weight: bold;
