@@ -15,13 +15,17 @@
 Note: all of these need to have the feature of being updated by the executive.
 
 **Manager queries(Local facility access only):** 
-- 1. List local staff info(chef, cooks, manager, servers, HR, accountant, marketing staff, dishwasers, delivery personnel). 
+- 1. List local staff info(chef, cooks, manager, servers, HR, accountant, marketing staff, dishwasers, delivery personnel, shift       info). 
 - 2. List of local sales history. 
 - 3. List of local golden meatball customers.
+
+Note: Managers need modification privileges on shift info.
 
 **Chef queries(Local facility staff and menu access only):**
 - 1. List local cook and server info.
 - 2. List menu and menu item ingredients.
+
+Note: Chefs need modification privileges on menu and ingredients.
 
 **Wait staff/server queries(Local facility menu access only):**
 - 1. List personal info.
