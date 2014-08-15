@@ -45,7 +45,7 @@ $(function() {
 
 </head>
 <body>
-<?php include_once("menuNAVIGATION"); ?>
+<?php include_once("menuNAVIGATION.php"); ?>
 
 <!--								MENU starts HERE ! ! !							-->
 
