@@ -47,7 +47,7 @@ BEGIN
     set @price = (SELECt price FROM  menu_item WHERE menu_item.mitem_id = NEW.mitem_id);
 
     INSERT INTO facilityBalance (f_id, balance)  
-        VALUES (@location, @pric)
+        VALUES (@location, @price)
         ON DUPLICATE KEY UPDATE balance = @old_balance + @price;
 
     -- 1.1 Log it in `update_balance_after_bill_log`
