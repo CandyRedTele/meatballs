@@ -49,7 +49,7 @@ while read line; do
 done < $TEMPO
 
 if [ $RESULT -eq 0 ]; then 
-    echo "it's fine";
+    echo "[CHECK] initDb.sh is up to date.";
 fi
 
 rm $TEMPO

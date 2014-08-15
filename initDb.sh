@@ -29,6 +29,8 @@ function display_usage
     exit
 }
 
+bash tests/check_if_all_script_are_in_initDb.sh
+
 cd ./sql
 
 mkdir -p $TEMPO 
