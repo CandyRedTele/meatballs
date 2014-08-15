@@ -33,12 +33,13 @@
 		<div id="hd">
 			<div class="yui-gc">
 				<div class="yui-u first">
-					<h1><?php echo $_SESSION['name'];?></h1> <!-- NAME -->
+					<p id="staffNAME" style="font-size:30px;"><em><?php echo $_SESSION['name'];?></em></p> <!-- NAME -->
+					<br/>
 					<h2><?php echo $_SESSION['title'];?></h2> <!-- TITLE -->
 				</div>
 				<div class="yui-u">
 					<div class="contact-info">
-						<h3>LOCATION</h3>
+						<h3>LOCATION: <?php echo $_SESSION['location'];?></h3>
 						<h3><a href="mailto:name@yourdomain.com"><?php echo"NO EMAIL!?";?></a></h3> <!-- EMAIL -->
 						<h3><?php echo "phone: ".$_SESSION['phone'];?></h3> <!-- PHONE -->
 					</div><!--// .contact-info -->

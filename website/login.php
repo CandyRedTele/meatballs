@@ -34,9 +34,36 @@
 				$_SESSION['phone']=$row[3];
 				$_SESSION['ssn']=$row[4];
 				$_SESSION['title']=$row[5];
-				$_SESSION['accesslv']=$row[6];#or just = MeatballUser::getAccessLevel($_SESSION['SID']) is good as well
+				
+				$logger = Logger::getSingleInstace();
+				$logger->write("HelloLogger!");
+
+				$query = new CustomQuery('SELECT access_level from access_level where title="'.$_SESSION["title"].'"');
+				if (!is_null($query)) 
+				{
+					//var_dump( $query);
+					$result = $query->execute();
+				}
+				$row=mysqli_fetch_row($result);
+				$_SESSION['accesslv']=$row[0];#or just = MeatballUser::getAccessLevel($_SESSION['SID']) is good as well
+				
+				 
+				$query = new CustomQuery('SELECT location from facility, localstaff where staff_id="'.$_SESSION["SID"].'" AND facility.f_id=localstaff.f_id');
+				if (!is_null($query)) 
+					$result = $query->execute();
+				
+				$row=mysqli_fetch_row($result);
+				if($row[0]==""||$row[0]==null){
+					$query = new CustomQuery('SELECT location from admin where staff_id="'.$_SESSION["SID"].'"');
+					if (!is_null($query)) 
+						$result = $query->execute();
+					
+					$row=mysqli_fetch_row($result);
+				}
+
+				$_SESSION['location']=$row[0];
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
-						<meta http-equiv='Refresh' content='3;url=index.php'/>";
+						<meta http-equiv='Refresh' content='11;url=index.php'/>";
 			}
             //echo $_SESSION['SID'];
             //var_dump($row);
