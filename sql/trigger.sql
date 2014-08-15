@@ -67,6 +67,10 @@ BEGIN
     -- 1. update `facilityStock`
     SET @old_qty = (SELECT quantity FROM facilityStock WHERE sku = NEW.sku);
 
+    IF (@old_qty IS NULL)  THEN
+        SET @old_qty = 0;
+    END IF;
+
     INSERT INTO facilityStock (sku, f_id, quantity) 
         VALUES (NEW.sku, NEW.f_id, NEW.order_qty)
         ON DUPLICATE KEY UPDATE quantity = @old_qty + NEW.order_qty;
