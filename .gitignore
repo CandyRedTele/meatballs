@@ -5,3 +5,8 @@ project-description.pdf
 .DS_Store
 sql_OLD
 *~
+sql/tempo
+
+*.*LOCAL
+*.ipynb
+.ipynb_checkpoints

@@ -1,32 +1,46 @@
 from urlparse import urlparse
 from lxml import html
 import requests
-from random import randint, sample, uniform
+import json
+from datetime import date, timedelta
+from os.path import isfile
+from random import randint, sample, uniform, randrange
+from math import ceil
 
-inserts = {'supplies': 'INSERT INTO supplies (sku, name, type) VALUES (',
-           'menu_items': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES (',
-           'ingredients': 'INSERT INTO ingredients (sku, mitem_id, amount) VALUES (',
-           'menus': 'INSERT INTO menu (m_id, type, mitem_id) VALUES (',
-           'wines': 'INSERT INTO wine (rate, mitem_id) VALUES (',
-           'food': 'INSERT INTO food (sku, expire_date, perishable) VALUES ('}
+inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES',
+           'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name, image) VALUES',
+           'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES',
+           'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES',
+           'wine': 'INSERT INTO wine (rate, mitem_id) VALUES',
+           'food': 'INSERT INTO food (sku, capacity, days_till_expired, perishable) VALUES',
+           'facility_stock': 'INSERT INTO facilityStock (sku, f_id, quantity) VALUES',
+           'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES',
+           'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES',
+           'order': 'INSERT INTO `order` (f_id, sku, order_date, order_qty) VALUES',
+           'facility_balance': 'INSERT INTO facilityBalance (f_id, balance) VALUES'
+          }
 
 
 class Recipe():
 
     def __init__(self):
-        self.entree = self.getRecipe(entree_urls, 8, 16)
-        self.main = self.getRecipe(main_urls, min=15, max=34)
-        self.deserts = self.getRecipe(desert_urls, min=6, max=14)
-        self.kids = self.getRecipe(kids_urls, min=8, max=15)
-        self.supply, self.menu_item, self.ingredients, self.menu, self.wine, self.other_supply, self.food = self.create_list()
+        pass
 
-    def get_inserts(self, table, insert_statement):
-        s = "use meatballs; "
-        for i in table:
-            s += insert_statement
-            s += self.helper_l_s(i)
-            s += '); '
-        return s
+    def get_inserts(self):
+        for tables in self.create_list():
+            with open(tables[1] + '.sql', 'w') as f:
+                s = "use meatballs;\n"
+                s += inserts[tables[1]]
+                for j, table in enumerate(tables[0]):
+                    s += '\n('
+                    s += self.helper_l_s(table)
+                    s += ')'
+                    if j == len(tables[0])-1:
+                        s += ';'
+                    else:
+                        s += ','
+                s += '\n'
+                f.write(s.encode('ascii', 'ignore'))
 
     def helper_l_s(self, l):
         s = ""
@@ -41,35 +55,59 @@ class Recipe():
         return s[:-2]
 
     def create_dic(self):
-        d = {"deserts": self.deserts, "main": self.main,
-             "entree": self.entree, "kids": self.kids}
-        d.update(wines)
+        d = dict()
+        if isfile('supply_menu.json'):
+            with open('supply_menu.json', 'rb') as fp:
+                d = json.load(fp)
+        else:
+            entree = self.getRecipe(entree_urls, min=8, max=16)
+            main = self.getRecipe(main_urls, min=15, max=34)
+            deserts = self.getRecipe(desert_urls, min=6, max=14)
+            kids = self.getRecipe(kids_urls, min=8, max=15)
+            d = {"deserts": deserts, "main": main,
+                 "entree": entree, "kids": kids}
+            d.update(wines)
+            with open('supply_menu.json', 'w') as fp:
+                json.dump(d, fp)
         return d
 
     def create_list(self):
         d = self.create_dic()
 
-        skus_items = [k for i in d.itervalues()
-                      for j in i.itervalues() for k in j['ingredients']]
-        skus = sample(range(10000, 49999), len(skus_items))
-        supply = []
-        index = 0
+        ingredients_name = [k[1] for i in d.itervalues()
+              for j in i.itervalues() for k in j['ingredients']]
+
+        ingredients_name_set = []
+        [ingredients_name_set.append(i) for i in ingredients_name if not ingredients_name_set.count(i)]
+
+        skus = sample(range(10000, 49999), len(ingredients_name_set))
+        ingredients_name = []
+        for i, j in enumerate(ingredients_name_set):
+            ingredients_name.append((j, skus[i]))
+
+        ingredients_name_dict = dict(ingredients_name)
+
         for i in d.itervalues():
             for j in i.itervalues():
                 for k in j['ingredients']:
-                    k.append(skus[index])
-                    index += 1
-                    supply.append([k[2], k[1], 'food'])
+                    k.append(ingredients_name_dict[k[1]])
+
+        supply = []
+        for k in ingredients_name:
+            supply.append([k[1], k[0], 'food', uniform(0.5, 13.9)])
+
+        for i in other_supplies:
+            supply.append(i)
 
         menu_item = []
         index = 1
         for category, i in d.iteritems():
             for name, j in i.iteritems():
                 j.update({'id': index})
-                menu_item.append([index, category, j['price'], name])
+                menu_item.append([index, category, j['price'], name, j['image']])
                 index += 1
 
-        ingredients = [[k[2], j['id'], k[0]]
+        ingredients = [[j['id'], k[2], k[0]]
                        for i in d.itervalues()
                        for j in i.itervalues()
                        for k in j['ingredients']]
@@ -81,12 +119,12 @@ class Recipe():
                 for k in j['ingredients']:
                     if (category == "wines" or count % 5 == 0):
                         k.append(randint(45, 500))
-                        k.append(False)
+                        k.append(0)  # refers to false
                     else:
                         k.append(randint(5, 45))
-                        k.append(True)
+                        k.append(1)  # refers to true
                     count += 1
-                    food.append([k[2], k[3], k[4]])
+                    food.append([k[2], 100, k[3], k[4]])
 
         menus_kind = [menu_item[i::17] for i in xrange(17)]
 
@@ -97,11 +135,9 @@ class Recipe():
             for j in common_menus:
                 i.append(j)
         menu = []
-        count = 1
-        for i in specific_menus:
-            for k in i:
-                menu.append([count, k[1], k[0]])
-                count += 1
+        for i, j in enumerate(specific_menus, start=1):
+            for k in j:
+                menu.append([i, k[0]])
 
         wine_kind = [i[0] for i in menu_item if i[1] == 'wines']
         wine_rating = []
@@ -112,7 +148,73 @@ class Recipe():
         for i, j in enumerate(other_supplies):
             j.insert(0, skus[i])
 
-        return supply, menu_item, ingredients, menu, wine_rating, other_supplies, food
+        # `sku`       INTEGER NOT NULL,
+        #  `f_id`      INTEGER NULL,
+        #  `quantity`  INTEGER DEFAULT 0,
+        # now = datetime.now().strftime('%Y-%m-%d')
+        facility_stock = []
+        ingre_menu_set = set()
+        for j in menu:
+            for k in ingredients:
+                if j[1] == k[0]:
+                    sku_ingre = k[1]
+                    if sku_ingre not in ingre_menu_set:
+                        ingre_menu_set.add(sku_ingre)
+                        facility_stock.append([k[1], j[0], randint(15, 80)])
+
+        #  order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
+        #  `f_id`      INTEGER NULL,
+        #  `sku`       INTEGER NULL,
+        #  `order_date` DATE NOT NULL,
+        #  `order_qty` INTEGER NULL,
+        def inFList(l, i):
+            return [x for x in l if x[1] == i]
+
+        order = []
+        for i in xrange(1, 13):
+            ingre_per_f = inFList(facility_stock, i)
+            for j in xrange(8):
+                date_order = date.today()-timedelta(days=randrange(0,10))
+                date_order = date_order.isoformat()
+                pick = ingre_per_f[randint(0, len(ingre_per_f)-1)]
+                order.append([pick[1], pick[0], date_order, (80 - pick[2])+1])
+
+
+        vendor = []
+        for i, j in enumerate(vendors, start=1):
+            vendor.append([i, j[0], j[1]])
+            j.insert(0, i)
+
+
+        acatalog = []
+        food_vendors = [ven for ven in vendors if ven[3] == 'food']
+
+        for i in ingredients_name:
+            x = randrange(0, len(food_vendors))
+            acatalog.append([food_vendors[x][0], i[1]])
+
+        linens_vendors = [ven for ven in vendors if ven[3] == 'linens']
+        kitchen_vendors = [ven for ven in vendors if ven[3] == 'kitchen supplies']
+        serving_vendors = [ven for ven in vendors if ven[3] == 'serving items']
+        for i in other_supplies:
+            if i[2] == 'linens':
+                acatalog.append([linens_vendors[randrange(0, len(linens_vendors))][0], i[0]])
+            elif i[2] == 'kitchen supplies':
+                acatalog.append([kitchen_vendors[randrange(0, len(kitchen_vendors))][0], i[0]])
+            elif i[2] == 'serving items':
+                acatalog.append([serving_vendors[randrange(0, len(serving_vendors))][0], i[0]])
+
+        #  facilityBalance
+        # =================
+        #  f_id        INTEGER NOT NULL PRIMARY KEY,
+        # `balance`    INTEGER NOT NULL,
+        facility_balance = []
+        for f_id in xrange(1, 13):
+                facility_balance.append([f_id, randint(1800, 2800)])
+
+        return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
+                (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
+                (vendor, 'vendor'), (acatalog, 'catalog'), (order, 'order'), (facility_balance, 'facility_balance'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
@@ -134,12 +236,109 @@ class Recipe():
         h = tree.xpath('//table[1]//tr[2]/td[2]')[0]
         l = urlparse(h.text)
         name = l.path.split('/')[2]
+        image = tree.xpath('//table[1]//tr[5]/td[2]')[0].text
+        table = tree.xpath('//table[2]')[0]
         amounts = []
-        h = tree.xpath('//table[2]')[0]
-        for i in h[1:]:
-            amounts.append([float(i[1].text), i[3].text.replace("'", "")])
+        ingre_names = []
+
+        for row in table[1:]:
+            if not ingre_names.count(row[3].text.replace("'", "")):
+                ingre_names.append(row[3].text.replace("'", ""))
+                amounts.append([int(ceil(float(row[1].text))), row[3].text.replace("'", "")])
         price = randint(min, max)
-        return {name: {'ingredients': amounts, 'price': price}}
+        return {name: {'ingredients': amounts, 'price': price, 'image': image}}
+
+other_supplies = [['Oven', 'kitchen supplies', 1000],
+                  ['Pan', 'kitchen supplies', 50],
+                  ['Knife', 'kitchen supplies', 5],
+                  ['Table', 'kitchen supplies', 50],
+                  ['Fork', 'kitchen supplies', 5],
+                  ['Tongs', 'kitchen supplies', 5],
+                  ['Meat Hammer', 'kitchen supplies', 60],
+                  ['Waffle Iron', 'kitchen supplies', 50],
+                  ['Plate', 'serving items', 5],
+                  ['Fork', 'serving items', 5],
+                  ['Spoon', 'serving items', 5],
+                  ['Knife', 'serving items', 5],
+                  ['Steak Knife', 'serving items', 6],
+                  ['Bowl', 'serving items', 5],
+                  ['Napkins', 'serving items', 1],
+                  ['Tray', 'serving items', 4],
+                  ['Table Clothes', 'linens', 15],
+                  ['Aprons', 'linens', 6],
+                  ['Fry Pans', 'kitchen supplies', 21],
+                  ['Ingredient Bins', 'kitchen supplies', 10],
+                  ['Sheet Pans', 'kitchen supplies', 50],
+                  ['Roast Pan', 'kitchen supplies', 20],
+                  ['Stock Pot', 'kitchen supplies', 80],
+                  ['Deep Boiler', 'kitchen supplies', 60],
+                  ['Pasta Cooker', 'kitchen supplies', 50],
+                  ['Sauce Pot', 'kitchen supplies', 30],
+                  ['Sauce Pan', 'kitchen supplies', 20],
+                  ['Pizza Pan', 'kitchen supplies', 20],
+                  ['Pizza Dough Boxes', 'kitchen supplies', 10],
+                  ['Sheet Pan', 'kitchen supplies', 14],
+                  ['Tongs', 'kitchen supplies', 12],
+                  ['Disher', 'kitchen supplies', 10],
+                  ['Ladle', 'kitchen supplies', 14],
+                  ['Egg Slicer', 'kitchen supplies', 12],
+                  ['Tapered Grater', 'kitchen supplies', 12],
+                  ['Grill Cover', 'kitchen supplies', 21],
+                  ['Steak Weight', 'kitchen supplies', 30],
+                  ['Pancake Dispenser Stand', 'kitchen supplies', 30],
+                  ['Dredge', 'kitchen supplies', 21],
+                  ['Sandwich Spreader', 'kitchen supplies', 24],
+                  ['Fish Turner', 'kitchen supplies', 21],
+                  ['Cutting Board for Meat', 'kitchen supplies', 18],
+                  ['Cutting Board for Fish', 'kitchen supplies', 18],
+                  ['Cutting Board for Poultry', 'kitchen supplies', 18],
+                  ['Knife Rack', 'kitchen supplies', 38],
+                  ['Professional Cimeter', 'kitchen supplies', 50],
+                  ['Cleaver', 'kitchen supplies', 21],
+                  ['Sharpening Steel', 'kitchen supplies', 21],
+                  ['Refrigerator/Freezer Thermometer', 'kitchen supplies', 43],
+                  ['Can Opener', 'kitchen supplies', 15],
+                  ['Nitrile Gloves', 'linens', 14],
+                  ['Oven Mitt', 'linens', 16],
+                  ['Cloth Pot Holder', 'linens', 18],
+                  ['Digital Scale', 'kitchen supplies', 45],
+                  ['Manual Slicer', 'kitchen supplies', 90],
+                  ['Table Skirting', 'linens', 60],
+                  ['Vinyl Tablecloth', 'linens', 20],
+                  ['Salt and Pepper Shaker', 'serving items', 10],
+                  ['Single Jacket Menu', 'serving items', 17],
+                  ['Menu Holder', 'serving items', 10],
+                  ['Tabletop Sign Holder', 'serving items', 10],
+                  ['Table Top Napkin Holders', 'serving items', 8],
+                  ['Napkins', 'serving items', 1],
+                  ['Straw Dispenser', 'serving items', 10],
+                  ['Straw', 'serving items', 1],
+                  ['Cone Holder', 'serving items', 12],
+                  ['Countertop Organizer', 'serving items', 45],
+                  ['Beverage Dispenser', 'serving items', 120],
+                  ['Tea Urn', 'serving items', 80],
+                  ['Coffee Maker', 'serving items', 140],
+                  ['Espresso Maker', 'serving items', 180],
+                  ['Panini Grill', 'kitchen supplies', 70],
+                  ['Rice Cooker/Warmer', 'kitchen supplies', 90],
+                  ['Filter Drain Pot', 'kitchen supplies', 40],
+                  ['Bottle Cooler', 'kitchen supplies', 30],
+                  ['Overhead Glass Rack', 'kitchen supplies', 40],
+                  ['Ice bin', 'kitchen supplies', 90],
+                  ['Champagne Bucket and Stand', 'serving items', 20],
+                  ['Waiter Corkscrew', 'serving items', 10],
+                  ['Glass Storage Rack', 'kitchen supplies', 12],
+                  ['Sink', 'kitchen supplies', 300],
+                  ['Drainboards', 'kitchen supplies', 200],
+                  ['Refrigerator', 'kitchen supplies', 1200],
+                  ['Freezer', 'kitchen supplies', 1300],
+                  ['Chairs', 'serving items', 40]]
+
+vendors = [['Servu-online', '3201 Apollo Drive Champaign, IL', 'kitchen supplies'], ['PA Supermarche', '1420 Rue du Fort Montreal, QC', 'food'],
+           ['Provigo', '3421 Avenue du Parc Montreal, QC', 'food'], ['Segals Market', '4001 Boulevard Saint-Laurent Montreal, QC', 'food'],
+           ['Super C', '147 Avenue Atwater Montreal, QC', 'food'], ['Lucky', '4527 8 Ave SE, Calgary, AB', 'food'],
+           ['Island Market', '1502 W 2nd Ave #120, Vancouver, BC', 'food'], ['Stong Markets', '4560 Dunbar St, Vancouver, BC', 'food'],
+           ['Mikasa', '4450 Rochdale Blvd Regina, SK', 'serving items'], ['George Courey', '326 Victoria Ave Westmount, QC', 'linens']]
 
 url = "http://hangryingreedytest.herokuapp.com/?recipe_url="
 main_urls = [
@@ -206,117 +405,31 @@ kids_urls = [
     "http://allrecipes.com/Recipe/Creamy-Hot-Chocolate/Detail.aspx?evt19=1"]
 
 wines = {
-    'wines': {'Cune Rioja Imperial Gran Reserva': {'ingredients': [[1.0, 'Cune Rioja Imperial Gran Reserva']], 'price': 63},
-              'Chateau Canon-La Gaffeliere St.-Emilion': {'ingredients': [[1.0, 'Chateau Canon-La Gaffeliere St.-Emilion']], 'price': 21},
-              'Domaine Serene Pinot Noir Willamette Valley Evenstad Reserve': {'ingredients': [[1.0, 'Domaine Serene Pinot Noir Willamette Valley Evenstad Reserve']], 'price': 20},
-              'Hewitt Cabernet Sauvignon Rutherford': {'ingredients': [[1.0, 'Hewitt Cabernet Sauvignon Rutherford']], 'price': 29},
-              'Kongsgaard Chardonnay Napa Valley': {'ingredients': [[1.0, 'Kongsgaard Chardonnay Napa Valley']], 'price': 27},
-              'Giuseppe Mascarello & Figlio Barolo Monprivato': {'ingredients': [[1.0, 'Giuseppe Mascarello & Figlio Barolo Monprivato']], 'price': 21},
-              'Domaine du Pegau Chateauneuf-du-Pape Cuvee Reservee': {'ingredients': [[1.0, 'Domaine du Pegau Chateauneuf-du-Pape Cuvee Reservee']], 'price': 21},
-              'Chateau de Beaucastel Chateauneuf-du-Pape': {'ingredients': [[1.0, 'Chateau de Beaucastel Chateauneuf-du-Pape']], 'price': 21},
-              'Lewis Cabernet Sauvignon Napa Valley Reserve': {'ingredients': [[1.0, 'Lewis Cabernet Sauvignon Napa Valley Reserve']], 'price': 21},
-              'Quilceda Creek Cabernet Sauvignon Columbia Valley': {'ingredients': [[1.0, 'Quilceda Creek Cabernet Sauvignon Columbia Valley']], 'price': 21},
-              'Reynvaan Syrah Walla Walla Valley Stonessence': {'ingredients': [[1.0, 'Reynvaan Syrah Walla Walla Valley Stonessence']], 'price': 27},
-              'Turley Zinfandel Paso Robles Dusi Vineyard': {'ingredients': [[1.0, 'Turley Zinfandel Paso Robles Dusi Vineyard']], 'price': 24},
-              'Croft Vintage Port': {'ingredients': [[1.0, 'Croft Vintage Port']], 'price': 29},
-              'Bedrock The Bedrock Heritage Sonoma Valley': {'ingredients': [[1.0, 'Bedrock The Bedrock Heritage Sonoma Valley']], 'price': 23},
-              'Olivier Ravoire Gigondas': {'ingredients': [[1.0, 'Olivier Ravoire Gigondas']], 'price': 23},
-              'G.D. Vajra Barolo Albe': {'ingredients': [[1.0, 'G.D. Vajra Barolo Albe']], 'price': 24},
-              'Alexana Pinot Noir Dundee Hills Revana Vineyard': {'ingredients': [[1.0, 'Alexana Pinot Noir Dundee Hills Revana Vineyard']], 'price': 24},
-              'Poggerino Chianti Classico': {'ingredients': [[1.0, 'Poggerino Chianti Classico']], 'price': 22},
-              'Hamilton Russell Chardonnay Hemel-en-Aarde Valley': {'ingredients': [[1.0, 'Hamilton Russell Chardonnay Hemel-en-Aarde Valley']], 'price': 23},
-              'Chateau Dereszla Tokaji Aszu 5 Puttonyos': {'ingredients': [[1.0, 'Chateau Dereszla Tokaji Aszu 5 Puttonyos']], 'price': 24},
-              'Le Macchiole Bolgheri': {'ingredients': [[1.0, 'Le Macchiole Bolgheri']], 'price': 23},
-              'La Rioja Alta Rioja Vina Ardanza Reserva': {'ingredients': [[1.0, 'La Rioja Alta Rioja Vina Ardanza Reserva']], 'price': 23},
-              'Seghesio Zinfandel Dry Creek Valley Cortina': {'ingredients': [[1.0, 'Seghesio Zinfandel Dry Creek Valley Cortina']], 'price': 23},
-              'Livio Sassetti Brunello di Montalcino Pertimali': {'ingredients': [[1.0, 'Livio Sassetti Brunello di Montalcino Pertimali']], 'price': 25},
-              'Epoch Estate Blend Paderewski Vineyard Paso Robles': {'ingredients': [[1.0, 'Epoch Estate Blend Paderewski Vineyard Paso Robles']], 'price': 24},
-              'Alvaro Palacios Priorat Les Terrasses Velles Vinyes': {'ingredients': [[1.0, 'Alvaro Palacios Priorat Les Terrasses Velles Vinyes']], 'price': 24},
-              'Spring Valley Uriah Walla Walla Valley': {'ingredients': [[1.0, 'Spring Valley Uriah Walla Walla Valley']], 'price': 25},
-              'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana': {'ingredients': [[1.0, 'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana']], 'price': 19}}}
-
-other_supplies = [['Oven', 'kitchen supplies'],
-                  ['Pan', 'kitchen supplies'],
-                  ['Knife', 'kitchen supplies'],
-                  ['Table', 'kitchen supplies'],
-                  ['Fork', 'kitchen supplies'],
-                  ['Tongs', 'kitchen supplies'],
-                  ['Meat Hammer', 'kitchen supplies'],
-                  ['Waffle Iron', 'kitchen supplies'],
-                  ['Plate', 'serving items'],
-                  ['Fork', 'serving items'],
-                  ['Spoon', 'serving items'],
-                  ['Knife', 'serving items'],
-                  ['Steak Knife', 'serving items'],
-                  ['Bowl', 'serving items'],
-                  ['Napkins', 'serving items'],
-                  ['Tray', 'serving items'],
-                  ['Table Clothes', 'linens'],
-                  ['Aprons', 'linens'],
-                  ['Fry Pans', 'kitchen supplies'],
-                  ['Ingredient Bins', 'kitchen supplies'],
-                  ['Sheet Pans', 'kitchen supplies'],
-                  ['Roast Pan', 'kitchen supplies'],
-                  ['Stock Pot', 'kitchen supplies'],
-                  ['Deep Boiler', 'kitchen supplies'],
-                  ['Pasta Cooker', 'kitchen supplies'],
-                  ['Sauce Pot', 'kitchen supplies'],
-                  ['Sauce Pan', 'kitchen supplies'],
-                  ['Pizza Pan', 'kitchen supplies'],
-                  ['Pizza Dough Boxes', 'kitchen supplies'],
-                  ['Sheet Pan', 'kitchen supplies'],
-                  ['Tongs', 'kitchen supplies'],
-                  ['Disher', 'kitchen supplies'],
-                  ['Ladle', 'kitchen supplies'],
-                  ['Egg Slicer', 'kitchen supplies'],
-                  ['Tapered Grater', 'kitchen supplies'],
-                  ['Grill Cover', 'kitchen supplies'],
-                  ['Steak Weight', 'kitchen supplies'],
-                  ['Pancake Dispenser Stand', 'kitchen supplies'],
-                  ['Dredge', 'kitchen supplies'],
-                  ['Sandwich Spreader', 'kitchen supplies'],
-                  ['Fish Turner', 'kitchen supplies'],
-                  ['Cutting Board for Meat', 'kitchen supplies'],
-                  ['Cutting Board for Fish', 'kitchen supplies'],
-                  ['Cutting Board for Poultry', 'kitchen supplies'],
-                  ['Knife Rack', 'kitchen supplies'],
-                  ['Professional Cimeter', 'kitchen supplies'],
-                  ['Cleaver', 'kitchen supplies'],
-                  ['Sharpening Steel', 'kitchen supplies'],
-                  ['Refrigerator/Freezer Thermometer', 'kitchen supplies'],
-                  ['Can Opener', 'kitchen supplies'],
-                  ['Nitrile Gloves', 'linens'],
-                  ['Oven Mitt', 'linens'],
-                  ['Cloth Pot Holder', 'linens'],
-                  ['Digital Scale', 'kitchen supplies'],
-                  ['Manual Slicer', 'kitchen supplies'],
-                  ['Table Skirting', 'linens'],
-                  ['Vinyl Tablecloth', 'linens'],
-                  ['Salt and Pepper Shaker', 'serving items'],
-                  ['Single Jacket Menu', 'serving items'],
-                  ['Menu Holder', 'serving items'],
-                  ['Tabletop Sign Holder', 'serving items'],
-                  ['Table Top Napkin Holders', 'serving items'],
-                  ['Napkins', 'serving items'],
-                  ['Straw Dispenser', 'serving items'],
-                  ['Straw', 'serving items'],
-                  ['Cone Holder', 'serving items'],
-                  ['Countertop Organizer', 'serving items'],
-                  ['Beverage Dispenser', 'serving items'],
-                  ['Tea Urn', 'serving items'],
-                  ['Coffee Maker', 'serving items'],
-                  ['Espresso Maker', 'serving items'],
-                  ['Panini Grill', 'kitchen supplies'],
-                  ['Rice Cooker/Warmer', 'kitchen supplies'],
-                  ['Filter Drain Pot', 'kitchen supplies'],
-                  ['Bottle Cooler', 'kitchen supplies'],
-                  ['Overhead Glass Rack', 'kitchen supplies'],
-                  ['Ice bin', 'kitchen supplies'],
-                  ['Champagne Bucket and Stand', 'serving items'],
-                  ['Waiter Corkscrew', 'serving items'],
-                  ['Glass Storage Rack', 'kitchen supplies'],
-                  ['Sink', 'kitchen supplies'],
-                  ['Drainboards', 'kitchen supplies'],
-                  ['Refrigerator', 'kitchen supplies'],
-                  ['Freezer', 'kitchen supplies'],
-                  ['Chairs', 'serving items']]
+        'wines': {'Cune Rioja Imperial Gran Reserva': {'ingredients': [[1.0, 'Cune Rioja Imperial Gran Reserva']], 'price': 63, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Chateau Canon-La Gaffeliere St.-Emilion': {'ingredients': [[1.0, 'Chateau Canon-La Gaffeliere St.-Emilion']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Domaine Serene Pinot Noir Willamette Valley Evenstad Reserve': {'ingredients': [[1.0, 'Domaine Serene Pinot Noir Willamette Valley Evenstad Reserve']], 'price': 20, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Hewitt Cabernet Sauvignon Rutherford': {'ingredients': [[1.0, 'Hewitt Cabernet Sauvignon Rutherford']], 'price': 29, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Kongsgaard Chardonnay Napa Valley': {'ingredients': [[1.0, 'Kongsgaard Chardonnay Napa Valley']], 'price': 27, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Giuseppe Mascarello & Figlio Barolo Monprivato': {'ingredients': [[1.0, 'Giuseppe Mascarello & Figlio Barolo Monprivato']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Domaine du Pegau Chateauneuf-du-Pape Cuvee Reservee': {'ingredients': [[1.0, 'Domaine du Pegau Chateauneuf-du-Pape Cuvee Reservee']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Chateau de Beaucastel Chateauneuf-du-Pape': {'ingredients': [[1.0, 'Chateau de Beaucastel Chateauneuf-du-Pape']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Lewis Cabernet Sauvignon Napa Valley Reserve': {'ingredients': [[1.0, 'Lewis Cabernet Sauvignon Napa Valley Reserve']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Quilceda Creek Cabernet Sauvignon Columbia Valley': {'ingredients': [[1.0, 'Quilceda Creek Cabernet Sauvignon Columbia Valley']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Reynvaan Syrah Walla Walla Valley Stonessence': {'ingredients': [[1.0, 'Reynvaan Syrah Walla Walla Valley Stonessence']], 'price': 27, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Turley Zinfandel Paso Robles Dusi Vineyard': {'ingredients': [[1.0, 'Turley Zinfandel Paso Robles Dusi Vineyard']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Croft Vintage Port': {'ingredients': [[1.0, 'Croft Vintage Port']], 'price': 29, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Bedrock The Bedrock Heritage Sonoma Valley': {'ingredients': [[1.0, 'Bedrock The Bedrock Heritage Sonoma Valley']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Olivier Ravoire Gigondas': {'ingredients': [[1.0, 'Olivier Ravoire Gigondas']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'G.D. Vajra Barolo Albe': {'ingredients': [[1.0, 'G.D. Vajra Barolo Albe']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Alexana Pinot Noir Dundee Hills Revana Vineyard': {'ingredients': [[1.0, 'Alexana Pinot Noir Dundee Hills Revana Vineyard']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Poggerino Chianti Classico': {'ingredients': [[1.0, 'Poggerino Chianti Classico']], 'price': 22, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Hamilton Russell Chardonnay Hemel-en-Aarde Valley': {'ingredients': [[1.0, 'Hamilton Russell Chardonnay Hemel-en-Aarde Valley']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Chateau Dereszla Tokaji Aszu 5 Puttonyos': {'ingredients': [[1.0, 'Chateau Dereszla Tokaji Aszu 5 Puttonyos']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Le Macchiole Bolgheri': {'ingredients': [[1.0, 'Le Macchiole Bolgheri']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'La Rioja Alta Rioja Vina Ardanza Reserva': {'ingredients': [[1.0, 'La Rioja Alta Rioja Vina Ardanza Reserva']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Seghesio Zinfandel Dry Creek Valley Cortina': {'ingredients': [[1.0, 'Seghesio Zinfandel Dry Creek Valley Cortina']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Livio Sassetti Brunello di Montalcino Pertimali': {'ingredients': [[1.0, 'Livio Sassetti Brunello di Montalcino Pertimali']], 'price': 25, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Epoch Estate Blend Paderewski Vineyard Paso Robles': {'ingredients': [[1.0, 'Epoch Estate Blend Paderewski Vineyard Paso Robles']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Alvaro Palacios Priorat Les Terrasses Velles Vinyes': {'ingredients': [[1.0, 'Alvaro Palacios Priorat Les Terrasses Velles Vinyes']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Spring Valley Uriah Walla Walla Valley': {'ingredients': [[1.0, 'Spring Valley Uriah Walla Walla Valley']], 'price': 25, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana': {'ingredients': [[1.0, 'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana']], 'price': 19, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'}}}
