@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Shift{
 	
 
@@ -108,13 +110,47 @@ public class Shift{
 	//| paid       | tinyint(1) | NO   |     | NULL    |       |
 	//+------------+------------+------+-----+---------+-------+
 	
-	public Object format_data(int staff_id){
+	public Object format_data(int seeday, int month, 
+			int year, int staff_id){
+		
+		String startString = formathour(start);
+		String endString = formathour(end);
 		return new Object[] {
 			staff_id,
-			"'" + day + "'",
-			"'" + start + "'",
-			"'" + end + "'",
+			"'" + formatDate(seeday,day,month,year) + "'",
+			"'" + startString + "'",
+			"'" + endString + "'",
 			0
 		};
+	}
+	
+	private String formatDate(int seeday, int day, int month, int year){
+		String daystr;
+		String monthstr;
+		String yearstr;
+		if(day+seeday < 10){
+			System.out.println("day violator: " + day + "" + seeday);
+			daystr = "0" + (day+seeday);
+		}
+		else daystr = "" + (day+seeday);
+		
+		if(month < 10)monthstr = "0" + month;
+		else monthstr = "" + month;
+		
+		yearstr = "" + year;
+		
+		return yearstr + "-" + monthstr + "-" + daystr;
+		
+	}
+	
+	private String formathour(int hour){
+		
+		if(hour < 10){
+			return "0" + hour + ":00:00";
+		}
+		else{
+			return hour + ":00:00";
+		}
+		
 	}
 }

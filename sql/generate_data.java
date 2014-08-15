@@ -12,7 +12,7 @@ public class generate_data {
 	
 	static boolean debug = false;
 	final static int numBills = 300;
-	final static int numStaff = 500;
+	final static int numStaff = 1000;
 	public static void main(String[] args) throws FileNotFoundException {
 		//Scanner keyin = new Scanner(System.in);
 		//System.out.println("Where is the staff file located?");
@@ -56,34 +56,29 @@ public class generate_data {
         StaffMember[] arrStaff;
         PrintStream p = System.out;
         if(genstaff){
-        	
         	folder = "staff" + slash;
+        	
 			p = new PrintStream(folder + "staffgen.sql");
 			arrStaff = gen_staff(numStaff, p);
-			
-			for(int i = 0; i < arrStaff.length; i++){
-				System.out.println(arrStaff[i]);
-			}
 
 			
+			// File staff = new File(staffloc);
+			//Scanner staff_reader = new Scanner(staff);
 			p = new PrintStream(folder + "gen_admin.sql");
-	        File staff = new File(staffloc);
-	        
-			Scanner staff_reader = new Scanner(staff);
-			
-			gen_admins(staff_reader, p);
+			gen_admins(arrStaff, p);
 			
 	        
+			//staff = new File(staffloc);
+			//staff_reader = new Scanner(staff);
+			
 			p = new PrintStream(folder + "gen_localStaff.sql");
-			staff = new File(staffloc);
-			staff_reader = new Scanner(staff);
-			
-			gen_localstaff(staff_reader, p, arrStaff);
+			gen_localstaff(arrStaff, p);
 			
 			p = new PrintStream(folder + "gen_access_level.sql");
 			gen_access_level(p);
 			
-			gen_shift(arrStaff, System.out);
+			p = new PrintStream(folder + "gen_shift.sql");
+			gen_shift(arrStaff, p);
         }
 		
         if(genbills){
@@ -186,13 +181,32 @@ public class generate_data {
 
 	}
 	
-	private static void gen_localstaff(Scanner staff_reader, PrintStream p, StaffMember[] arrStaff) {
+	private static void gen_localstaff(/*Scanner staff_reader,*/ StaffMember[] arrStaff, PrintStream p) {
 		
 		String name = "localstaff";
 		String[] fields = {"start_date", "f_id", "staff_id"};
 		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		
+		for(int i = 0; i < arrStaff.length; i++){
+			
+			StaffMember staff = arrStaff[i];
+			if(!(staff.title.equals("ceo")
+					||staff.title.equals("cfo")
+					||staff.title.equals("cto"))
+					){
+				staff.start_date = gen_date();
+				staff.f_id = i%12 +1;
+				
+				localStaffs.add(new Object[]{
+					staff.start_date,
+					staff.f_id,
+					staff.staff_id
+				});	
+
+			}
+		}
+		/*
 		for(int i = 1; staff_reader.hasNext(); i++){
 			
 			String nextLine = staff_reader.nextLine();
@@ -202,12 +216,11 @@ public class generate_data {
 					||nextLine.contains("use meatballs"))
 					&& nextLine.contains(",")
 					){
+				
 				Object[] localStaff = {gen_date(),
 						(i%12 +1), 
 						i};
-//----------------------------------------------				
 				arrStaff[i-1].addF_id(i%12 + 1);
-//----------------------------------------------
 
 				localStaffs.add(localStaff);	
 			}
@@ -218,13 +231,15 @@ public class generate_data {
 
 			
 		}
+		*/
 		gen_data(name, fields, localStaffs.toArray(), p);
 		
+		if(debug) System.out.println("Local Staff Generated");
 		
 	}
 	
-	static void gen_admins(Scanner staff_reader, PrintStream p){
-		
+	static void gen_admins(StaffMember[] arrStaff, PrintStream p){
+		if(debug) System.out.println("Admins Started Generation");
 		String name = "admin";
 		String[] locations = {
 				"Montreal", "Toronto", "Winipeg", "Narnia",
@@ -235,7 +250,24 @@ public class generate_data {
 		
 		ArrayList<Object> admins = new ArrayList<Object>();
 
-		
+		for(int i = 0; i < arrStaff.length; i++){
+			StaffMember staff = arrStaff[i];
+			if(staff.title.equals("ceo")
+					||staff.title.equals("cfo")
+					||staff.title.equals("cto")
+					){
+				
+				staff.location = "'" + locations[random_num(0, locations.length-1)] + "'";
+				staff.yrs_exp = random_num(0, 4);
+				admins.add(new Object[]{
+					staff.staff_id,
+					staff.location,
+					staff.yrs_exp
+				});
+			}
+			
+		}
+		/*
 		for(int i = 1; staff_reader.hasNext(); i++){
 			String nextLine = staff_reader.nextLine();
 			if ((nextLine.contains("ceo") 
@@ -253,8 +285,11 @@ public class generate_data {
 				i--;
 			}
 		}
+		*/
 		gen_data(name, fields, admins.toArray(), p );
 		
+		if(debug) System.out.println("Admins Generated");
+
 	}
 	
 	static void gen_golden_bills(PrintStream p){
@@ -330,11 +365,22 @@ public class generate_data {
 		
 		
 		String[] fields = {"`staff_id`", "`date`", "`time_start`",
-				"`time_end`", "`paid"
+				"`time_end`", "`paid`"
 		};
 		String name = "shift";
 		ArrayList<Object> gen_shift = new ArrayList<Object>();
 		
+		System.out.println("when was the last monday(int)?");
+		Scanner gimmedate = new Scanner(System.in);
+		int seeday = gimmedate.nextInt();
+		
+		System.out.println("what is the current month(int)?");
+		int month = gimmedate.nextInt();
+		
+		System.out.println("WHAT YEAR IS IT(int");
+		int year = gimmedate.nextInt();
+		
+		gimmedate.close();
 		
 		for(int i = 0; i < arrStaff.length; i++){
 			Shift[] shifts = null;
@@ -350,7 +396,10 @@ public class generate_data {
 			if(shifts != null){
 				arrStaff[i].addShifts(shifts);
 				for(int jay = 0; jay < shifts.length; jay++){
-					gen_shift.add(shifts[jay].format_data(arrStaff[i].staff_id));
+					if(shifts[jay] != null)
+						gen_shift.add(shifts[jay].format_data(
+								seeday, month, year,
+								arrStaff[i].staff_id));
 				}
 			}
 		}

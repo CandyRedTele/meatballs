@@ -7,6 +7,14 @@ public class StaffMember {
 	final String phonenumber;
 	final String ssn;
 	int f_id;
+	
+	String start_date;
+	
+	//for admins
+	String location;
+	
+	int yrs_exp;
+	
 	Shift[] Shifts;
 
 	public StaffMember(int staff_id, String name, String streetname, 
@@ -18,7 +26,6 @@ public class StaffMember {
 		this.phonenumber = phonenumber;
 		this.ssn = ssn;
 		this.title = title;
-		
 	}
 	public void addF_id(int f_id){
 		this.f_id = f_id;
