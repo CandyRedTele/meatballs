@@ -4,7 +4,8 @@
 - Make a website for the documentation, including screenshots, er diagrams,
   and description.
 
-- **QUERY IDEAS: -Executive queries(No constraint on access):** 
+- **QUERY IDEAS:** 
+- Executive queries(No constraint on access): 
 - 1. List all employee info by type of employee(chef, cooks, manager, servers, HR, executives, accountants, marketing staff, dishwashers, delivery personnel) at any given facility. 
 - 2. List sales history (by entering date perhaps?) for any given facility. 
 - 3. Menu list of any given facility. 
