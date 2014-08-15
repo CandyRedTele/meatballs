@@ -13,6 +13,7 @@ public class generate_data {
 	static boolean debug = false;
 	final static int numBills = 300;
 	final static int numStaff = 1000;
+	final static String path_to_sql = "../sql/";
 	public static void main(String[] args) throws FileNotFoundException {
 		//Scanner keyin = new Scanner(System.in);
 		//System.out.println("Where is the staff file located?");
@@ -56,7 +57,7 @@ public class generate_data {
         StaffMember[] arrStaff;
         PrintStream p = System.out;
         if(genstaff){
-        	folder = "staff" + slash;
+        	folder = path_to_sql + "staff" + slash;
         	
 			p = new PrintStream(folder + "staffgen.sql");
 			arrStaff = gen_staff(numStaff, p);
@@ -82,7 +83,7 @@ public class generate_data {
         }
 		
         if(genbills){
-        	folder = "bills" + slash;
+        	folder = path_to_sql + "bills" + slash;
 			p = new PrintStream(folder +"gen_bills.sql");
 			PrintStream p2 = new PrintStream(folder + "gen_bill_has_items.sql");
 			gen_bills(p, p2);
