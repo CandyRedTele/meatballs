@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS wage;              -- DONE
 DROP TABLE IF EXISTS wine;              -- DONE
 DROP TABLE IF EXISTS shift;             -- 
 DROP TABLE IF EXISTS access_level;      -- DONE
-DROP TABLE IF EXISTS facilityBalance;   -- 
+DROP TABLE IF EXISTS facilityBalance;   -- DONE
 
 
 -- -----------------------------------------------------
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
 (
     `mitem_id`   INTEGER REFERENCES meatballs.menu_item (mitem_id),
     `sku`       INTEGER REFERENCES meatballs.ingredients (sku),
-    `amount`    VARCHAR(30) NULL,
+    `amount`    INTEGER NULL,
     PRIMARY KEY (mitem_id, sku)
 )
 ENGINE = InnoDB;
@@ -303,7 +303,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`bill` 
 (
   `b_id` INTEGER NOT NULL AUTO_INCREMENT,
-  -- `total` DOUBLE NULL,
   `f_id` INTEGER NOT NULL,
   `date` DATE NOT NULL,
   PRIMARY KEY (`b_id`),
@@ -426,13 +425,14 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
 (
-    shift_id        INTEGER PRIMARY KEY AUTO_INCREMENT,
+    -- shift_id        INTEGER PRIMARY KEY AUTO_INCREMENT,
     `staff_id`      INTEGER NOT NULL,
     `date`          DATE NOT NULL,
     `time_start`    TIME NOT NULL,
     `time_end`      TIME NOT NULL,
     `paid`          BOOLEAN NOT NULL, -- indicates whether or not they have been paid for this shift
-    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
+    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`),
+    PRIMARY KEY (`staff_id`, `date`, `time_start`)
 );
 
 -- -----------------------------------------------------
