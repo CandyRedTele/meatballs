@@ -40,32 +40,23 @@ CREATE TRIGGER update_after_bill_trigger
 AFTER INSERT ON `bill_has_menu_item`
 FOR EACH ROW
 BEGIN
--- 	-- 1. update `facilityBalance`
-	
--- 					set @location = (select facilityStock.f_id
--- 										from bill, ingredients natural join facilityStock
--- 										where ingredients.mitem_id = NEW.mitem_id and bill.b_id = NEW.b_id
--- 										group by facilityStock.f_id);
--- 
--- 
--- 					SET @old_balance = (SELECT balance FROM facilityBalance WHERE f_id = @location);
--- 
--- 					set @price = (select price
--- 									from bill, menu_item
--- 									where menu_item.mitem_id = NEW.mitem_id  and bill.b_id = NEW.b_id);
--- 
--- 					INSERT INTO facilityBalance (f_id, balance) 
--- 						VALUES (@location, @price)
--- 						ON DUPLICATE KEY UPDATE balance = @old_balance + @price;
--- 				-- 
--- 				-- 	-- 1.1 Log it in `update_balance_after_bill_log`
--- 					SET @new_balance = (SELECT balance FROM facilityBalance WHERE f_id = @location);
--- 					INSERT INTO update_balance_after_bill_log (msg, mitem_id, b_id, f_id, price, balance_old, balance_new)
--- 						VALUES ("Update Balance after bill", NEW.b_id, NEW.mitem_id, @location, @price, @old_balance, @new_balance);
--- 
+	-- 1. update `facilityBalance`
+    set @location    = (SELECT f_id  FROM bill WHERE bill.b_id = NEW.b_id);
+    SET @old_balance = (SELECT balance FROM facilityBalance WHERE f_id = @location);
 
--- 	-- 1. update `facilityStock`
+    set @price = (SELECt price FROM  menu_item WHERE menu_item.mitem_id = NEW.mitem_id);
 
+    INSERT INTO facilityBalance (f_id, balance)  
+        VALUES (@location, @price)
+        ON DUPLICATE KEY UPDATE balance = @old_balance + @price;
+
+    -- 1.1 Log it in `update_balance_after_bill_log`
+    SET @new_balance = (SELECT balance FROM facilityBalance WHERE f_id = @location);
+    INSERT INTO update_balance_after_bill_log (msg, mitem_id, b_id, f_id, price, balance_old, balance_new)
+        VALUES ("Update Balance after bill", NEW.b_id, NEW.mitem_id, @location, @price, @old_balance, @new_balance);
+
+
+ 	-- 1. update `facilityStock`
 	SET SQL_SAFE_UPDATES=0;
 	UPDATE facilityStock,
 		(
@@ -85,8 +76,8 @@ BEGIN
 	WHERE facilityStock.sku = T3.sku AND facilityStock.f_id = T3.newF_ID;
 	SET SQL_SAFE_UPDATES=1;
 
--- 	-- 1.1 Log it in `update_balance_after_bill_log`
--- TODO
+ 	-- 1.1 Log it in `update_balance_after_bill_log`
+    -- TODO
 
 END; $$$
 DELIMITER ;

@@ -16,7 +16,7 @@ RESULT=0;
 #
 # List all sql files under /sql
 #
-ALL_SQL=$(find sql -name "*.sql"  | awk -F "/"  '{print $3}' | grep sql --exclude populate)
+ALL_SQL=$(find sql -name "*.sql"  | awk -F "/"  '{print $NF}' | grep sql --exclude populate)
 
 for sql in ${ALL_SQL[@]}; do
     #
