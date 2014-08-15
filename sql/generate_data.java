@@ -15,7 +15,8 @@ public class generate_data {
 		//System.out.println("Where is the staff file located?");
 		//String staffloc = keyin.next();
 		//String staffloc = "";
-
+		
+		gen_shift(null, null);
 		
 		String slash = File.separator;
 		String folder = "output"+ slash;
@@ -71,6 +72,9 @@ public class generate_data {
 			p = new PrintStream(folder + "gen_access_level.sql");
 			gen_access_level(p);
 			
+			
+
+
         }
 		
         if(genbills){
@@ -82,8 +86,9 @@ public class generate_data {
 			p = new PrintStream(folder + "gen_golden_bills.sql");
 			gen_golden_bills(p);
         }
-		
+        
 
+        
 	}
 	
 	private static void gen_staff(PrintStream p){
@@ -239,8 +244,6 @@ public class generate_data {
 		gen_data(name, fields, golden_bills.toArray(), p);
 		
 	}
-
-	
 	
 	static void gen_bills(PrintStream p1, PrintStream p2){
 		String[] fields = {"f_id", "date"};
@@ -252,14 +255,14 @@ public class generate_data {
 		ArrayList<Object> has_items = new ArrayList<Object>();
 		for(int i = 0; i < numBills;i++){
 			
-			Object[] bill = {((i*29)%12+1),
+			Object[] bill = {(random_num(1,12)),
 					gen_date()
 			};
 			bills.add(bill);
 			
 			for(int jay = 1; jay < 5; jay++){
 				Object[] has_item = {(i + 1),
-						(i * 101 % 80 + 1)
+						(random_num(1,80))
 				};
 				has_items.add(has_item);
 			}
@@ -269,7 +272,27 @@ public class generate_data {
 		gen_data(item_name, fields_has_item, has_items.toArray(), p2);
 	}
 	
-
+	static void gen_shift(Scanner staff_reader, PrintStream p){
+		
+		/* 
+		 * Dishwashers and Cooking staff generally 
+		 * work 32-40 hours per week in **four to five** 8-hour shifts
+	     */
+		System.out.println("THIS IS A TEST IN GEN_SHIFT");
+		ShiftSet test = new ShiftSet(2);
+		
+		System.out.println(test);
+		
+		
+		
+		/*	
+		 * The wait staff has no predefined hours and can work as much as 60 hours/week, 
+		 * though no more than 12 hours per day
+		 * The wait staff has no predefined hours and can work as much as 60 hours/week, 
+		 * though no more than 12 hours per day
+		 */
+			 
+	}
 
 	
 	static void gen_data(String table, String[] fields, Object[] values, PrintStream p){
@@ -305,8 +328,8 @@ public class generate_data {
 		p.print(";");
 	}
 	
+	
 	/**
-	 * 
 	 * @param kind 1 for first name, 2 for second name, other for both.
 	 * @return
 	 */
@@ -325,11 +348,11 @@ public class generate_data {
 	
 	private static String gen_date(){
 		
-		int i = (int)(Math.random() *10);
+		//int i = (int)(Math.random() *10);
 		String[] years = {"2012", "2013", "2014"};
 		
-		String year = years[i%years.length];
-		int month = ((i*23)% 12+1);
+		String year = years[random_num(0,years.length-1)];
+		int month = (random_num(1,12));
 		String monthStr = "";
 		if(month < 10){
 			monthStr = "0" + month;
@@ -338,7 +361,7 @@ public class generate_data {
 		
 		String dayStr = "";
 		
-		int day = ((i*101)% 29+1);
+		int day = (random_num(1,28));
 
 		if(day < 10){
 			dayStr = "0" + day;
