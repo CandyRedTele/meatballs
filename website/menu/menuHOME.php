@@ -48,7 +48,7 @@ $(function() {
 
 	<div id="demo_top">
 		<div class="demo_container">
-			<div id="my_logo">Our logo</div>
+			<div id="my_logo">MENUS</div>
 		</div>
 	</div>
 
