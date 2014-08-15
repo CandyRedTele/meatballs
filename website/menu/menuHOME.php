@@ -13,6 +13,7 @@
 <!-- required for this demo -->
 <link rel="stylesheet" href="sticky-navigation.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<link rel="stylesheet" href="../css/stylesheet7.css" />
 <script>
 $(function() {
 	// grab the initial top offset of the navigation 
@@ -75,91 +76,9 @@ $(function() {
 <section id="main">
 
 	<div id="content">
+
 	
-	 
-<div class="grid_8"><!--.grid_8-->
-    <div class="txt-title">Breakfast</div><!--/.txt-title-->
-    <div class="txt"><!--.txt-->
-				<!-- image gous here-->
-                <span class="imgcard"><a href="images/001.jpg" rel="prettyPhoto"><img src="images/omelet.jpg" class="img1" width="220" height="72" alt="Omelette" /></a></span>   
-                    <ul>
-					<li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p> </li>
-					<li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p> </li>
-
-
-</ul>
-
-</div><!--/.txt-->
-<div class="txt-title">Tea &amp; cofee</div><!--/.txt-title-->
-    <div class="txt"><!--.txt-->
-    <!-- image gous here-->
-				<span class="imgcard"><a href="images/001.jpg" rel="prettyPhoto"><img src="images/omelet.jpg" class="img1" width="220" height="72" alt="Omelette" /></a></span>
-				<ul> 
-                <li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p> </li>
-					
-					<li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p></li>
-                 </ul>
-                    
-</div><!--/.txt-->
-</div><!--/.grid_8-->
-  <div class="grid_8"><!--.grid_8-->
-    <div class="txt-title">Lunch</div><!--/.txt-title-->
-    <div class="txt"><!--.txt-->
-    <!-- image gous here-->
-<span class="imgcard"><a href="images/001.jpg" rel="prettyPhoto"><img src="images/omelet.jpg" class="img1" width="220" height="72" alt="Omelette" /></a></span>
-					<ul>
-                    <li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p> </li>
-   
-					<li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p> </li>
-
-                    </ul></div><!--.txt-->
-  </div><!--/.grid_8-->
-    <div class="grid_8"><!--.grid_8-->
-    <div class="txt-title">Dinner</div><!--/.txt-title-->
-    <div class="txt"><!--.txt-->
-    <!-- image gous here-->
-   <span class="imgcard"><a href="images/001.jpg" rel="prettyPhoto"><img src="images/omelet.jpg" class="img1" width="220" height="72" alt="Omelette" /></a></span>
-   <ul>
-
-					<li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p> </li>
-
-					<li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p> </li>
-
-
-</ul>
-</div><!--/.txt-->
-<div class="txt-title">Drinks</div><!--/.txt-title-->
-    <div class="txt"><!--.txt-->
-    <!-- image gous here-->
-				<span class="imgcard"><a href="images/001.jpg" rel="prettyPhoto"><img src="images/omelet.jpg" class="img1" width="220" height="72" alt="Omelette" /></a></span>
-				<ul>  
-                <li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p> </li>
-					
-					<li><h2>Omelette</h2><br />
-<p class="cart2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-<p class="cartprice">price: 5,99$</p> </li>
-                    </ul>
-                    
-                 </div><!--/.txt-->
-                 </div>
+	
 <!--                end of main content									-->
 	</div>
 	
