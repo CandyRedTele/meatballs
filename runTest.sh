@@ -15,4 +15,4 @@
 
 # TODO check that we are under comp353-project directory
 # run all tests under /tests
-phpunit tests/unit
+phpunit  --configuration ./tests/unit/phpunit.xml tests/unit 
