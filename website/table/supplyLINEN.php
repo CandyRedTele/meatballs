@@ -67,7 +67,7 @@
 		
 		//if($_SESSION['accesslv']==1)
 		//if($_SESSION['accesslv']==2||$_SESSION['accesslv']==4)
-			$query = new CustomQuery("SELECT * from customers");
+			$query = new CustomQuery("SELECT sku, name, price from supplies where type='linens'");
 			//$query = new SelectAllQuery("customers");
 			if (!is_null($query)) 
 			{
@@ -81,7 +81,7 @@
             foreach ($row as $field) {
                 echo "<li>" . $field . "</li>" ;   
             }
-			echo "</ul>";
+			echo "<li><a href='#'>REMOVE</a></ul>";
             //echo $row['customerName'];
             //var_dump($row);
         }

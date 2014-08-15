@@ -60,14 +60,14 @@
     <div id="thelist"><ul id="control">
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">SKU</li>
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
-			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">type</li>
+			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">price</li>
             <li></li></ul><?php 
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
 		//if($_SESSION['accesslv']==1)
 		//if($_SESSION['accesslv']==2||$_SESSION['accesslv']==4)
-			$query = new CustomQuery("SELECT * from customers");
+			$query = new CustomQuery("SELECT sku, name, price from supplies where type='kitchen supplies'");
 			//$query = new SelectAllQuery("customers");
 			if (!is_null($query)) 
 			{
@@ -81,7 +81,7 @@
             foreach ($row as $field) {
                 echo "<li>" . $field . "</li>" ;   
             }
-			echo "</ul>";
+			echo "<li><a href='#'>REMOVE</a></ul>";
             //echo $row['customerName'];
             //var_dump($row);
         }
