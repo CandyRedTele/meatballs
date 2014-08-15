@@ -9,15 +9,16 @@ creates a gen_admins.sql file based on the staffgen.sql file that you select fro
 DO NO EDIT UNLESS YOU ARE GEOFFREY
 */
 public class generate_data {
+	
+	static boolean debug = false;
 	final static int numBills = 300;
+	final static int numStaff = 1000;
 	public static void main(String[] args) throws FileNotFoundException {
 		//Scanner keyin = new Scanner(System.in);
 		//System.out.println("Where is the staff file located?");
 		//String staffloc = keyin.next();
 		//String staffloc = "";
-		
-		gen_shift(null, null);
-		
+				
 		String slash = File.separator;
 		String folder = "output"+ slash;
         boolean genbills = false;
@@ -29,7 +30,7 @@ public class generate_data {
 			System.out.println("command line input required");
             System.exit(1);
         }
-        if(args.length == 1){
+        if(args.length >= 1){
             if(args[0].equals("bills")){
             	genbills = true;
             }
@@ -48,33 +49,36 @@ public class generate_data {
             	System.exit(1);
             }
         }
-
+        if(args.length == 2 && args[1].equals("1")){
+        	System.out.println("enabled debug");
+        	debug = true;
+        }
+        StaffMember[] arrStaff;
         PrintStream p = System.out;
         if(genstaff){
-        	
         	folder = "staff" + slash;
+        	
 			p = new PrintStream(folder + "staffgen.sql");
-			gen_staff(p);
+			arrStaff = gen_staff(numStaff, p);
+
 			
+			// File staff = new File(staffloc);
+			//Scanner staff_reader = new Scanner(staff);
 			p = new PrintStream(folder + "gen_admin.sql");
-	        File staff = new File(staffloc);
-	        
-			Scanner staff_reader = new Scanner(staff);
+			gen_admins(arrStaff, p);
 			
-			gen_admins(staff_reader, p);
 	        
+			//staff = new File(staffloc);
+			//staff_reader = new Scanner(staff);
+			
 			p = new PrintStream(folder + "gen_localStaff.sql");
-			staff = new File(staffloc);
-			staff_reader = new Scanner(staff);
-			
-			gen_localstaff(staff_reader, p);
+			gen_localstaff(arrStaff, p);
 			
 			p = new PrintStream(folder + "gen_access_level.sql");
 			gen_access_level(p);
 			
-			
-
-
+			p = new PrintStream(folder + "gen_shift.sql");
+			gen_shift(arrStaff, p);
         }
 		
         if(genbills){
@@ -91,20 +95,21 @@ public class generate_data {
         
 	}
 	
-	private static void gen_staff(PrintStream p){
+	private static StaffMember[] gen_staff(int numStaff, PrintStream p){
 		String[] titles = {
 				"ceo", "cto", "cfo", "human resources", 
 				"accounting","marketing","manager", "chef",
 				"shift supervisor", "delivery personnel",
-				"dishwasher","wait staff"
+				"dishwasher","wait staff","cook"
 		};
 		
 		String name = "staff";
 		String[] fields = {"`name`", "`address`", "`phone`", "`ssn`", "`title`"};
 		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
+		StaffMember[] staffs = new StaffMember[numStaff];
 		
-		for(int i = 0; i < 150; i++){
+		for(int i = 0; i < staffs.length; i++){
 			String title = "";
 			if(i < 3) {
 				title = titles[i];
@@ -125,16 +130,31 @@ public class generate_data {
 				title = titles[7];
 			}
 			else
-				title = titles[random_num(8,11)];
+				title = titles[random_num(8,12)];
+			
+			staffs[i]  = new StaffMember (i + 1,
+					gen_name(3),
+					streetnames[random_num(0, streetnames.length-1)], 
+					gen_phone(),
+					gen_SSN(),
+					title
+			);
 			
 			localStaffs.add(new Object[] {
-				"'" + gen_name(3)+"'",
-				"'" + streetnames[random_num(0, streetnames.length-1)]+ "'", 
-				"'" + gen_phone() + "'", "'" + gen_SSN() + "'", "'" + title + "'"
+				"'" + staffs[i].name + "'",
+				"'" + staffs[i].streetname + "'", 
+				"'" + staffs[i].phonenumber + "'",
+				"'" + staffs[i].ssn + "'", 
+				"'" + staffs[i].title + "'"
 			});
+
+			
+			//System.out.println(staffs[0]);
 		}
 		
 		gen_data(name, fields, localStaffs.toArray(), p);
+		
+		return staffs;
 		
 	}
 	
@@ -161,13 +181,32 @@ public class generate_data {
 
 	}
 	
-	private static void gen_localstaff(Scanner staff_reader, PrintStream p) {
+	private static void gen_localstaff(/*Scanner staff_reader,*/ StaffMember[] arrStaff, PrintStream p) {
 		
 		String name = "localstaff";
 		String[] fields = {"start_date", "f_id", "staff_id"};
 		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		
+		for(int i = 0; i < arrStaff.length; i++){
+			
+			StaffMember staff = arrStaff[i];
+			if(!(staff.title.equals("ceo")
+					||staff.title.equals("cfo")
+					||staff.title.equals("cto"))
+					){
+				staff.start_date = gen_date();
+				staff.f_id = i%12 +1;
+				
+				localStaffs.add(new Object[]{
+					staff.start_date,
+					staff.f_id,
+					staff.staff_id
+				});	
+
+			}
+		}
+		/*
 		for(int i = 1; staff_reader.hasNext(); i++){
 			
 			String nextLine = staff_reader.nextLine();
@@ -177,25 +216,30 @@ public class generate_data {
 					||nextLine.contains("use meatballs"))
 					&& nextLine.contains(",")
 					){
+				
 				Object[] localStaff = {gen_date(),
 						(i%12 +1), 
 						i};
-				
+				arrStaff[i-1].addF_id(i%12 + 1);
+
 				localStaffs.add(localStaff);	
 			}
 			if (nextLine.contains("use meatballs")
 					|| nextLine.contains("insert")){
 				i--;
 			}
+
 			
 		}
+		*/
 		gen_data(name, fields, localStaffs.toArray(), p);
 		
+		if(debug) System.out.println("Local Staff Generated");
 		
 	}
 	
-	static void gen_admins(Scanner staff_reader, PrintStream p){
-		
+	static void gen_admins(StaffMember[] arrStaff, PrintStream p){
+		if(debug) System.out.println("Admins Started Generation");
 		String name = "admin";
 		String[] locations = {
 				"Montreal", "Toronto", "Winipeg", "Narnia",
@@ -206,7 +250,24 @@ public class generate_data {
 		
 		ArrayList<Object> admins = new ArrayList<Object>();
 
-		
+		for(int i = 0; i < arrStaff.length; i++){
+			StaffMember staff = arrStaff[i];
+			if(staff.title.equals("ceo")
+					||staff.title.equals("cfo")
+					||staff.title.equals("cto")
+					){
+				
+				staff.location = "'" + locations[random_num(0, locations.length-1)] + "'";
+				staff.yrs_exp = random_num(0, 4);
+				admins.add(new Object[]{
+					staff.staff_id,
+					staff.location,
+					staff.yrs_exp
+				});
+			}
+			
+		}
+		/*
 		for(int i = 1; staff_reader.hasNext(); i++){
 			String nextLine = staff_reader.nextLine();
 			if ((nextLine.contains("ceo") 
@@ -224,8 +285,11 @@ public class generate_data {
 				i--;
 			}
 		}
+		*/
 		gen_data(name, fields, admins.toArray(), p );
 		
+		if(debug) System.out.println("Admins Generated");
+
 	}
 	
 	static void gen_golden_bills(PrintStream p){
@@ -272,28 +336,75 @@ public class generate_data {
 		gen_data(item_name, fields_has_item, has_items.toArray(), p2);
 	}
 	
-	static void gen_shift(Scanner staff_reader, PrintStream p){
+	static void gen_shift(StaffMember[] arrStaff, PrintStream p){
 		
 		/* 
 		 * Dishwashers and Cooking staff generally 
 		 * work 32-40 hours per week in **four to five** 8-hour shifts
 	     */
-		System.out.println("THIS IS A TEST IN GEN_SHIFT");
-		ShiftSet test = new ShiftSet(2);
-		
-		System.out.println(test);
-		
-		
-		
 		/*	
 		 * The wait staff has no predefined hours and can work as much as 60 hours/week, 
 		 * though no more than 12 hours per day
 		 * The wait staff has no predefined hours and can work as much as 60 hours/week, 
 		 * though no more than 12 hours per day
-		 */
-			 
-	}
+		 */	
+		
+		//+------------+------------+------+-----+---------+-------+
+		//| Field      | Type       | Null | Key | Default | Extra |
+		//+------------+------------+------+-----+---------+-------+
+		//| staff_id   | int(11)    | NO   | PRI | NULL    |       |
+		//| date       | date       | NO   | PRI | NULL    |       |
+		//| time_start | time       | NO   | PRI | NULL    |       |
+		//| time_end   | time       | NO   |     | NULL    |       |
+		//| paid       | tinyint(1) | NO   |     | NULL    |       |
+		//+------------+------------+------+-----+---------+-------+
 
+		ShiftSet cookingShifts = new ShiftSet(Shift.cook);
+		ShiftSet dishwasherShifts = new ShiftSet(Shift.dish);
+		ShiftSet waitStaff = new ShiftSet(Shift.wait);
+		
+		
+		String[] fields = {"`staff_id`", "`date`", "`time_start`",
+				"`time_end`", "`paid`"
+		};
+		String name = "shift";
+		ArrayList<Object> gen_shift = new ArrayList<Object>();
+		
+		System.out.println("when was the last monday(int)?");
+		Scanner gimmedate = new Scanner(System.in);
+		int seeday = gimmedate.nextInt();
+		
+		System.out.println("what is the current month(int)?");
+		int month = gimmedate.nextInt();
+		
+		System.out.println("WHAT YEAR IS IT(int");
+		int year = gimmedate.nextInt();
+		
+		gimmedate.close();
+		
+		for(int i = 0; i < arrStaff.length; i++){
+			Shift[] shifts = null;
+			if(arrStaff[i].title.equals("cook")){
+				shifts = cookingShifts.getStaffShifts(Shift.cook, 4, arrStaff[i].f_id -1, arrStaff[i].staff_id);
+			}
+			if(arrStaff[i].title.equals("dishwasher")){
+				shifts = dishwasherShifts.getStaffShifts(Shift.dish, 4, arrStaff[i].f_id-1, arrStaff[i].staff_id);
+			}
+			if(arrStaff[i].title.equals("wait")){
+				shifts = waitStaff.getStaffShifts(Shift.dish, 4, arrStaff[i].f_id-1, arrStaff[i].staff_id);
+			}
+			if(shifts != null){
+				arrStaff[i].addShifts(shifts);
+				for(int jay = 0; jay < shifts.length; jay++){
+					if(shifts[jay] != null)
+						gen_shift.add(shifts[jay].format_data(
+								seeday, month, year,
+								arrStaff[i].staff_id));
+				}
+			}
+		}
+		gen_data(name, fields, gen_shift.toArray(), p);
+	}
 	
 	static void gen_data(String table, String[] fields, Object[] values, PrintStream p){
 		p.println("use meatballs;");
