@@ -42,23 +42,62 @@ $(function() {
 });
 </script>
 
-
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <?php include_once("menuNAVIGATION"); ?>
-
 <!--								MENU starts HERE ! ! !							-->
 
-
+	<div id="main">
+		<div class="width-container">
+			<div class="grid2column">
+				<h3 class="header-underline">Main Courses</h3>
+				<ul class="menu-items">
+					<li>
+						<a href="menu-post.html"><div class="grid2column">Roasted Apple Tart</div>
+						<div class="grid2column lastcolumn">$12,00</div>
+						<div class="clearfix"></div>
+						<div class="item-description-menu">Cras eget est tempor odio molestie ultricies. Donec gravida libero at metus tincidunt sit amet.</div></a>
+					</li>
+					
+				</ul>
+				
+				<div class="menu-spacer"></div>
+			</div>
+			<div class="grid2column lastcolumn">
+				<h3 class="header-underline">Drinks</h3>
+				<ul class="menu-items">
+					<li>
+						<div class="grid2column">Cola</div>
+						<div class="grid2column lastcolumn">$4,00</div>
+						<div class="clearfix"></div>
+					</li>
+					
+				</ul>
+				
+				<div class="menu-spacer"></div>
+				<h3 class="header-underline">Salads</h3>
+				<ul class="menu-items">
+					<li>
+						<div class="grid2column">Sundried Tomato Salad</div>
+						<div class="grid2column lastcolumn">$10,00</div>
+						<div class="clearfix"></div>
+						<div class="item-description-menu">Cras eget est tempor odio molestie ultricies. Donec gravida libero at metus tincidunt sit amet.</div>
+					</li>
+					
+				</ul>
+				
+				<div class="menu-spacer"></div>
+			</div>
+			<div class="clearfix"></div>
+			
+			
+		<div class="clearfix"></div>
+		</div><!-- 						close .width-container (INNER MENU ends HERE!!!)							-->
+		
+	</div><!-- close #main -->
 	
 <!--								MENU ends HERE ! ! !							-->
-	</div>
-	
-</section><!-- #main -->
-
-<footer>
-	<p>Copyright © 2014 Backslash • Created by XXX XXX XXX</p>
-</footer>
 
 </body>
 </html>

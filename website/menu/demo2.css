@@ -67,7 +67,7 @@ p { line-height:1.5em }
 /* float clearing for everyone else */
 .clearfix:after{ clear: both; content: "."; display: block; height: 0; visibility: hidden; font-size: 0;}
 
-#main {  width:970px; margin:0 auto;  }
-	#content { padding:30px; background:#fff; min-height:500px; }
+#mainSECTION {  width:100%; margin:0 auto;  }
+	#content { padding:30px; background:#fff; min-height:500px; width:100%;}
 
 footer { padding:15px 0; font-size:11px; text-align:center; color:#777 }
