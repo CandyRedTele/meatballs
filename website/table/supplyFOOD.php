@@ -4,6 +4,8 @@
         include_once("IncludeAllQueries.php"); 
 	
 	session_start();
+
+
 ?>
 <html>
 <head>
@@ -54,7 +56,15 @@
 
 </div>
 </section>
+<?php 
+if (is_float('27.25')) {
+    echo "is float\n";
+} else 
+    echo "is not float\n";
 
+
+
+?>
 <p id="testing"> </p>
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
@@ -79,7 +89,10 @@
         {
 			echo "<ul>";
             foreach ($row as $field) {
-                echo "<li>" . $field . "</li>" ;   
+				if(is_float($field))
+					echo number_format($field, 2)."X";
+				else
+					echo "<li>" . $field . "</li>" ;   
             }
 			echo "<li><a href='#'>REMOVE</a></li></ul>";
             //echo $row['customerName'];

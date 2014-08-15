@@ -75,8 +75,8 @@ iframe {	width:100%;
 		background-color:#CCCCFF;
 		border-radius:8px;}				
 
-#topright{	float:left;
-			width:27%;
+#topright{	float:right;
+			width:25%;
 			text-align:center;}
 
 #topright img{	border-radius:10px;
@@ -108,7 +108,7 @@ iframe {	width:100%;
 							margin: 25px 0px 0px 0px;
 							color: #8C8033;
 							font-weight: bold;
-							font-size: 14px;}
+							font-size: 18px;}
 
 #templatemo_login_left {
 	text-align:center;
