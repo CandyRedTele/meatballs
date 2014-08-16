@@ -18,9 +18,9 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 				switch($_SESSION['accesslv']){
 					case 1:
 						echo $personalINFO . $localResto . $employees . $salesHist; break;
-					case 2:
-						echo $personalINFO . $localResto . $salesHist; break;
 					case 3:
+						echo $personalINFO . $localResto . $employees . $salesHist; break;
+					case 0:
 						echo $personalINFO . $employees; break;
 					case 4:
 						echo $personalINFO . $localResto; break;

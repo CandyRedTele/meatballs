@@ -10,8 +10,8 @@ DROP TABLE IF EXISTS update_balance_after_bill_log;
 CREATE TABLE IF NOT EXISTS update_balance_after_bill_log
 (
     log_id      INTEGER PRIMARY KEY AUTO_INCREMENT,
-    b_id    INTEGER,
-	mitem_id INTEGER,
+    b_id        INTEGER,
+	mitem_id    INTEGER,
     msg         VARCHAR(255),
     f_id        INTEGER,
     balance_old     FLOAT,
@@ -23,6 +23,27 @@ CREATE TABLE IF NOT EXISTS update_balance_after_bill_log
     FOREIGN KEY (`b_id`) REFERENCES `bill` (`b_id`)
         ON DELETE NO ACTION
         ON UPDATE CASCADE   
+);
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- 
+-- TABLE : update_stock_after_bill_log
+-- 
+-- PURPOSE : Log the updates made to the facilityStock table
+--
+-- ---------------------------------------------------------
+CREATE TABLE IF NOT EXISTS update_stock_after_bill_log
+(
+    log_id      INTEGER PRIMARY KEY AUTO_INCREMENT,
+    f_id        INTEGER,
+	mitem_id    INTEGER,
+    b_id        INTEGER,
+    msg         VARCHAR(255),
+    FOREIGN KEY (`b_id`) REFERENCES `bill` (`b_id`)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE,   
+    FOREIGN KEY (`f_id`) REFERENCES `facilityBalance` (`f_id`)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE
 );
 
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -56,7 +77,9 @@ BEGIN
         VALUES ("Update Balance after bill", NEW.b_id, NEW.mitem_id, @location, @price, @old_balance, @new_balance);
 
 
+	
  	-- 1. update `facilityStock`
+
 	SET SQL_SAFE_UPDATES=0;
 	UPDATE facilityStock,
 		(
@@ -77,7 +100,8 @@ BEGIN
 	SET SQL_SAFE_UPDATES=1;
 
  	-- 1.1 Log it in `update_balance_after_bill_log`
-    -- TODO
+    INSERT INTO update_stock_after_bill_log (msg, f_id, mitem_id, b_id)
+        VALUES ("Update Stock after bill", @location, NEW.mitem_id, NEW.b_id);
 
 END; $$$
 DELIMITER ;

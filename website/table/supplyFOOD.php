@@ -4,8 +4,6 @@
         include_once("IncludeAllQueries.php"); 
 	
 	session_start();
-
-
 ?>
 <html>
 <head>
@@ -56,15 +54,6 @@
 
 </div>
 </section>
-<?php 
-if (is_float('27.25')) {
-    echo "is float\n";
-} else 
-    echo "is not float\n";
-
-
-
-?>
 <p id="testing"> </p>
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
@@ -76,7 +65,7 @@ if (is_float('27.25')) {
         $logger->write("HelloLogger!");
 		
 		//if($_SESSION['accesslv']==1)
-		//if($_SESSION['accesslv']==2||$_SESSION['accesslv']==4)
+		//if($_SESSION['accesslv']==3||$_SESSION['accesslv']==4)
 			$query = new CustomQuery("SELECT sku, name, price from supplies where type='food'");
 			//$query = new SelectAllQuery("customers");
 			if (!is_null($query)) 
@@ -85,14 +74,12 @@ if (is_float('27.25')) {
 				$result = $query->execute();
 			}
 			
+	if(isset($row))
         while($row = mysqli_fetch_row($result)) 
         {
 			echo "<ul>";
             foreach ($row as $field) {
-				if(is_float($field))
-					echo number_format($field, 2)."X";
-				else
-					echo "<li>" . $field . "</li>" ;   
+				echo "<li>" . $field . "</li>" ;   
             }
 			echo "<li><a href='#'>REMOVE</a></li></ul>";
             //echo $row['customerName'];

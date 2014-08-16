@@ -36,11 +36,10 @@
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
-			$query = new CustomQuery("SELECT * from customers");
-			//$query = new SelectAllQuery("customers");
+			$query = new GetBillDetailsQuery();
 			if (!is_null($query)) 
 			{
-				//var_dump( $query);
+				var_dump( $query);
 				$result = $query->execute();
 			}
 			
