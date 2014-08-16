@@ -10,15 +10,37 @@ DO NO EDIT UNLESS YOU ARE GEOFFREY
 */
 public class generate_data {
 	
+	static int numCO 	= 3;
+	static int numHR 	= 12;
+	static int numAcc 	= 12;
+	static int numMark 	= 12;
+	static int numMana	= 12;
+	static int numChef 	= 12;
+	static int numShift = 12;
+	static int numDeli	= 12;
+	static int numDish	= 12;
+	static int numWait 	= 12;
+	static int numCook	= 12;
+	
+	
 	static boolean debug = false;
 	final static int numBills = 300;
-	final static int numStaff = 1000;
+	final static int numStaff = numCO + numHR + numAcc + numMark + numMana + numChef +
+			numShift + numDeli + numDish + numWait + numCook;
 	final static String path_to_sql = "../sql/";
 	public static void main(String[] args) throws FileNotFoundException {
 		//Scanner keyin = new Scanner(System.in);
 		//System.out.println("Where is the staff file located?");
 		//String staffloc = keyin.next();
 		//String staffloc = "";
+		
+        PrintStream p = System.out;
+		
+		int[] seq = sequence(12, 3);
+		
+		for(int i = 0; i < seq.length; i++){
+			p.println(seq[i]);
+		}
 				
 		String slash = File.separator;
 		String folder = "output"+ slash;
@@ -55,29 +77,26 @@ public class generate_data {
         	debug = true;
         }
         StaffMember[] arrStaff;
-        PrintStream p = System.out;
         if(genstaff){
         	folder = path_to_sql + "staff" + slash;
         	
+        	//generate staff
 			p = new PrintStream(folder + "staffgen.sql");
 			arrStaff = gen_staff(numStaff, p);
-
 			
-			// File staff = new File(staffloc);
-			//Scanner staff_reader = new Scanner(staff);
+			//generate admin info
 			p = new PrintStream(folder + "gen_admin.sql");
 			gen_admins(arrStaff, p);
 			
-	        
-			//staff = new File(staffloc);
-			//staff_reader = new Scanner(staff);
-			
+			//generate local staff info
 			p = new PrintStream(folder + "gen_localStaff.sql");
 			gen_localstaff(arrStaff, p);
 			
+			//generate access levels
 			p = new PrintStream(folder + "gen_access_level.sql");
 			gen_access_level(p);
 			
+			//generate shifts
 			p = new PrintStream(folder + "gen_shift.sql");
 			gen_shift(arrStaff, p);
         }
@@ -112,6 +131,7 @@ public class generate_data {
 		
 		for(int i = 0; i < staffs.length; i++){
 			String title = "";
+			
 			if(i < 3) {
 				title = titles[i];
 			}
@@ -498,6 +518,26 @@ public class generate_data {
 	
 	static int random_num(int min, int max){
 		return (int) (Math.random() * (max-min + 1) + min);
+	}
+	
+	static int[] sequence(int max, int numRepeat){
+		int[] unsorted = new int[max * numRepeat];
+		for(int eye = 0; eye < numRepeat; eye++){
+			for(int jay = 0; jay < max; jay++){
+				unsorted[eye * max + jay] = jay + 1;
+			}
+		}
+		return unsorted;
+	}
+	
+	static int[] random_sequence(int[] arr){
+		int[] newArr = new int[arr.length];
+		
+		while(arr.length > 0){
+			
+		}
+		
+		return newArr;
 	}
 	
 	
