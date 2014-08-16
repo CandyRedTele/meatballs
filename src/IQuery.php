@@ -22,17 +22,16 @@ abstract class IQuery
     public function __construct() 
     {
 		$this->logger = Logger::getSingleInstace();
-		// $this->logger->write("[" . __CLASS__ . "] $ __construct()"); // DEBUG
 		
-        if (preg_match('/unit$/', getcwd())) {
-            $config_path = '../../src/project.config.xml'; // For testing purpose
-        } else {
-			$config_path = $_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src/project.config.xml';
-		}
+        $config_path = $_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src/project.config.xml';
+
+        if (!file_exists($config_path)) {
+            $config_path = __DIR__ . '/project.config.xml'; 
+        }
 		
         if (!IQuery::$log_once_flag) {
 		    $this->logger->write("\t? \$config_path = " . $config_path);
-		    $this->logger->write("\t? include path : " . get_include_path());
+		    $this->logger->write("\t? \$include path = " . get_include_path());
             IQuery::$log_once_flag = true;
         }
 

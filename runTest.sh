@@ -27,17 +27,23 @@ fi
 #
 # check that we are under comp353-project directory
 #
-pwd | egrep 'comp353-project$' 2>/dev/null
+pwd | egrep 'comp353-project$' 2>&1 1>/dev/null
 exit_sts=$?;
 if [ $exit_sts -ne 0 ]; then
     echo "[$0] run the script from the root of the project";
     exit $exit_sts;
 fi
 
+rm -f src/log
+
 #
 # run all tests under /tests
 #
-phpunit  --configuration ./tests/unit/phpunit.xml tests/unit 
+#phpunit  --configuration ./tests/unit/phpunit.xml tests/unit 
+phpunit --verbose  tests/unit 
+
+## rm -f src/log
+
 exit_sts=$?;
 if [ $exit_sts -ne 0 ]; then
     echo -e "[$0] Unit tests...\t\t\t \e[31m [FAILURE]\e[0m"
