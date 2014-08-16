@@ -8,6 +8,16 @@
 #
 #   PHPUnit - Unit Testing Framework
 #   http://phpunit.de/getting-started.html
+#  
+#   mysqli issues not there?
+#       sudo apt-get install php5-mysqlnd
+#
+#       possibly modify php.ini : 
+#           php -i | grep php.ini 
+#           vim /etc/php5/cli/conf.d/mysqli.ini 
+#               pdo_mysql.default_socket=  /opt/lampp/var/mysql/mysql.sock
+#                   mysql.defaul_socket =/opt/lampp/var/mysql/mysql.sock
+#                   mysqli.defaul_socket=/opt/lampp/var/mysql/mysql.sock
 #
 #
 #******************************************************************************
