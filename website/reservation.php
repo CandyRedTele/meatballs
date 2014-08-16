@@ -7,6 +7,7 @@
 <script type="text/javascript" src="js/reservationVIEW.js"></script>
 <script type="text/javascript" src="js/reservationCALENDER.js"></script>
 <link rel="stylesheet" href="http://yui.yahooapis.com/3.17.2/build/cssbutton/cssbutton.css">
+<style> body{background-color:#C3D9FF}</style>
 </head>
 <body>
 	<img id="top" src="img/top.png" alt="">
@@ -22,45 +23,45 @@
 					<li id="li_2" >
 		<label class="description" for="element_2">Your Name </label>
 		<span>
-			<input id="element_2_1" name= "element_2_1" class="element text" maxlength="44" size="15" value=""/>
+			<input id="firstN" name= "firstN" class="element text" maxlength="44" size="15" value=""/>
 			<label>First</label>
 		</span>
 		<span>
-			<input id="element_2_2" name= "element_2_2" class="element text" maxlength="44" size="15" value=""/>
+			<input id="lastN" name= "lastN" class="element text" maxlength="44" size="15" value=""/>
 			<label>Last</label>
 		</span> 
 		</li>		<li id="li_4" >
-		<label class="description" for="element_4">Your Email </label>
+		<label class="description" for="email">Your Email </label>
 		<div>
-			<input id="element_4" name="element_4" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="email" name="email" class="element text medium" type="text" maxlength="55" value=""/> 
 		</div> 
 		</li>		<li id="li_9" >
-		<label class="description" for="element_9">Your Phone </label>
-		<span><input id="element_9_1" name="element_9_1" class="element text" size="3" maxlength="3" value="" type="text"> -
-			<label for="element_9_1">(###)</label>
+		<label class="description" for="phone">Your Phone </label>
+		<span><input id="phone1" name="phone1" class="element text" size="3" maxlength="3" value="" type="text"> -
+			<label for="phone1">(###)</label>
 		</span>
 		<span>
-			<input id="element_9_2" name="element_9_2" class="element text" size="3" maxlength="3" value="" type="text"> -
-			<label for="element_9_2">###</label>
+			<input id="phone2" name="phone2" class="element text" size="3" maxlength="3" value="" type="text"> -
+			<label for="phone2">###</label>
 		</span>
 		<span>
-	 		<input id="element_9_3" name="element_9_3" class="element text" size="4" maxlength="4" value="" type="text">
-			<label for="element_9_3">####</label>
+	 		<input id="phone3" name="phone3" class="element text" size="4" maxlength="4" value="" type="text">
+			<label for="phone3">####</label>
 		</span>
 		 
 		</li>		<li id="li_3" >
 		<label class="description" for="element_3">Date </label>
 		<span>
-			<input id="element_3_1" name="element_3_1" class="element text" size="2" maxlength="2" value="" type="text"> /
-			<label for="element_3_1">MM</label>
+			<input id="date1" name="date1" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<label for="date1">MM</label>
 		</span>
 		<span>
-			<input id="element_3_2" name="element_3_2" class="element text" size="2" maxlength="2" value="" type="text"> /
-			<label for="element_3_2">DD</label>
+			<input id="date2" name="date2" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<label for="date2">DD</label>
 		</span>
 		<span>
-	 		<input id="element_3_3" name="element_3_3" class="element text" size="4" maxlength="4" value="" type="text">
-			<label for="element_3_3">YYYY</label>
+	 		<input id="date3" name="date3" class="element text" size="4" maxlength="4" value="" type="text">
+			<label for="date3">YYYY</label>
 		</span>
 	
 		<span id="calendar_3">
@@ -68,7 +69,7 @@
 		</span>
 		<script type="text/javascript">
 			Calendar.setup({
-			inputField	 : "element_3_3",
+			inputField	 : "date3",
 			baseField    : "element_3",
 			displayArea  : "calendar_3",
 			button		 : "cal_img_3",

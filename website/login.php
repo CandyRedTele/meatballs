@@ -48,11 +48,12 @@
 				$_SESSION['accesslv']=$row[0];#or just = MeatballUser::getAccessLevel($_SESSION['SID']) is good as well
 				
 				 
-				$query = new CustomQuery('SELECT location from facility, localstaff where staff_id="'.$_SESSION["SID"].'" AND facility.f_id=localstaff.f_id');
+				$query = new GetLocationQuery($_SESSION['SID']);//CustomQuery('SELECT location from facility, localstaff where staff_id="'.$_SESSION["SID"].'" AND facility.f_id=localstaff.f_id');
 				if (!is_null($query)) 
 					$result = $query->execute();
 				
 				$row=mysqli_fetch_row($result);
+				
 				if($row[0]==""||$row[0]==null){
 					$query = new CustomQuery('SELECT location from admin where staff_id="'.$_SESSION["SID"].'"');
 					if (!is_null($query)) 
