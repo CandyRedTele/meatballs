@@ -10,6 +10,5 @@ class ConfigLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($loader->getPassword(), '');
         $this->assertEquals($loader->getDatabase(), 'classicmodels');
     }
-
 }
 ?>

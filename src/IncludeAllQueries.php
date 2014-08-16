@@ -13,7 +13,7 @@
  *************************************************************************/
 include_once("Logger.php");
 
-$path = get_include_path();
+$path = __DIR__;
 $logger = Logger::getSingleInstace();
 
 if ($handle = opendir($path)) 
@@ -34,6 +34,7 @@ if ($handle = opendir($path))
     }
 
     $included_files .= ")";
+    $logger->write($path);
     $logger->write($included_files);
 
     closedir($handle);

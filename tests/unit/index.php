@@ -32,7 +32,7 @@
         }
 
         error_reporting(E_ALL);
-        set_include_path(getSrcPath());         // <- +++++++  Set Your Include Path!
+        set_include_path(get_include_path(). PATH_SEPARATOR . getSrcPath());         // <- +++++++  Set Your Include Path!
         include_once("IncludeAllQueries.php");  // <- +++++++ Include ALL the queries in one shot!
         include_once("TestQuery.php");          // <- ------- Test stuff = don't care
         include_once("Logger.php");             // <- +++++++ You want to LOG stuff???
