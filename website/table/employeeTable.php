@@ -64,6 +64,7 @@
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
+		if($_SESSION['accesslv']==1){
 			$query = new CustomQuery("SELECT * from staff");
 			//$query = new SelectAllQuery("customers");
 			if (!is_null($query)) 
@@ -71,17 +72,27 @@
 				//var_dump( $query);
 				$result = $query->execute();
 			}
-			
-        while($row = mysqli_fetch_row($result)) 
-        {
+		}
+		else if($_SESSION['accesslv']==3){
+			$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
+			//$query = new SelectAllQuery("customers");
+			if (!is_null($query)) 
+			{
+				//var_dump( $query);
+				$result = $query->execute();
+			}
+		}
+		
+		while($row = mysqli_fetch_row($result)) 
+		{
 			echo "<ul>";
-            foreach ($row as $field) {
-                echo "<li>" . $field . "</li>" ;   
-            }
+			foreach ($row as $field) {
+				echo "<li>" . $field . "</li>" ;   
+			}
 			echo "<li><a href='#'>REMOVE</a></li></ul>";
-            //echo $row['customerName'];
-            //var_dump($row);
-        }
+			//var_dump($row);
+		}
+		
         ?></div>
 </section>
 <!--								THE END OF INFORMATION TABLE						-->

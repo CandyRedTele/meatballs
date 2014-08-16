@@ -16,9 +16,9 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
    <tr> <td width="20px">&nbsp;</td>
      <td valign="top" class="links">
         <ul class="menue">';
-	if($_SESSION['accesslv']==4)
+			if($_SESSION['accesslv']==4)
 				echo '<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>';
-			else if($_SESSION['accesslv']==1 || $_SESSION['accesslv']==2)
+			else if($_SESSION['accesslv']==1 || $_SESSION['accesslv']==3)
 				echo'<li><a title="Overall" href="localTable.php">&raquo; OVERALL</a></li>
 					<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>
 					<li><a title="Service Item" href="supplySERVICE.php">&raquo; Service Item</a></li>

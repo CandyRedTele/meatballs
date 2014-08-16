@@ -64,16 +64,14 @@
             <li></li></ul><?php 
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
+
+		$query = new CustomQuery("SELECT sku, name, price from supplies where type='serving items'");
 		
-		//if($_SESSION['accesslv']==1)
-		//if($_SESSION['accesslv']==2||$_SESSION['accesslv']==4)
-			$query = new CustomQuery("SELECT sku, name, price from supplies where type='serving items'");
-			//$query = new SelectAllQuery("customers");
-			if (!is_null($query)) 
-			{
-				//var_dump( $query);
-				$result = $query->execute();
-			}
+		if (!is_null($query)) 
+		{
+			//var_dump( $query);
+			$result = $query->execute();
+		}
 			
         while($row = mysqli_fetch_row($result)) 
         {
@@ -82,10 +80,9 @@
                 echo "<li>" . $field . "</li>" ;   
             }
 			echo "<li><a href='#'>REMOVE</a></li></ul>";
-            //echo $row['customerName'];
             //var_dump($row);
         }
-		
+
         ?></div>
 </section>
 </div>

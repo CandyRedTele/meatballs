@@ -65,26 +65,33 @@
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
-		//if($_SESSION['accesslv']==1)
-		//if($_SESSION['accesslv']==2||$_SESSION['accesslv']==4)
+		if($_SESSION['accesslv']==1){
 			$query = new CustomQuery("SELECT sku, name, price from supplies where type='linens'");
-			//$query = new SelectAllQuery("customers");
 			if (!is_null($query)) 
 			{
 				//var_dump( $query);
 				$result = $query->execute();
 			}
-			
-        while($row = mysqli_fetch_row($result)) 
-        {
+		}
+		else if($_SESSION['accesslv']==3){
+			$query = new CustomQuery("SELECT sku, name, price from supplies NATURAL JOIN (select * from order NATURAL JOIN facility) where location='".$_SESSION['location']."' AND type='linens'");
+			if (!is_null($query)) 
+			{
+				//var_dump( $query);
+				$result = $query->execute();
+			}
+		}
+
+	if(isset($row))
+		while($row = mysqli_fetch_row($result)) 
+		{
 			echo "<ul>";
-            foreach ($row as $field) {
-                echo "<li>" . $field . "</li>" ;   
-            }
+			foreach ($row as $field) {
+				echo "<li>" . $field . "</li>" ;   
+			}
 			echo "<li><a href='#'>REMOVE</a></li></ul>";
-            //echo $row['customerName'];
-            //var_dump($row);
-        }
+			//var_dump($row);
+		}
 		
         ?></div>
 </section>
