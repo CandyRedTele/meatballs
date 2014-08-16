@@ -9,7 +9,7 @@
 #   PHPUnit - Unit Testing Framework
 #   http://phpunit.de/getting-started.html
 #  
-#   mysqli issues not there?
+#   mysqli missing?
 #       sudo apt-get install php5-mysqlnd
 #
 #       possibly modify php.ini : 
