@@ -14,7 +14,8 @@ $val=true;
 if(empty($_POST['firstN'])&& empty($_POST['lastN'])&& empty($_POST['email']) && empty($_POST['phone']) && empty($_POST['sex'])){
 	echo "<div id='msg'><h5>Some required informations is not filled!<br/>Please try again!!!<br/>
 			redirecting to the registration page in 5 seconds</h5></div>
-			<meta http-equiv='Refresh' content='5; url=../registration_form.php'/>"; 
+			<meta http-equiv='Refresh' content='5; url=menu/menuHOME.php'/>"; 
+	//echo .$_POST['firstN'].$_POST['lastN'].$_POST['email'].$_POST['phone'].$_POST['sex'];
 	$val=false;
 }
 else echo "testing";
@@ -37,9 +38,10 @@ if($val){
 		$result = $query->execute();
 	}
 	
-	echo "<div id='msg'><h5>You have been successfully registered!<br/>!!!<br/>redirecting to the home page in 5 seconds</h5></div>
-	<meta http-equiv='Refresh' content='1111;
+	echo "<div id='msg'><h5>You have been successfully registered!<br/>!!!<br/>redirecting to the home page in 3 seconds</h5></div>
+	<meta http-equiv='Refresh' content='3;
 	url=menu/menuHOME.php'/>";
+	//echo .$_POST['firstN'].$_POST['lastN'].$_POST['email'].$_POST['phone'].$_POST['sex'];
 }
 
 ?>
