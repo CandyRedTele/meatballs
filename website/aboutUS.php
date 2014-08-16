@@ -15,12 +15,15 @@
 </script>
 <link rel="stylesheet" href="css/stylesheet8.css" />
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<style> 
+#companyDESCRIPTION {width: 70%;}
+</style>
 </head>
 <div id="main">
 		<div class="widget-area-highlight">
 		<div class="width-container">
 			
-			<div class="grid4column homepage-widget">
+			<div class="grid4column homepage-widget" id="companyDESCRIPTION">
 				<h3 class="header-underline">About us</h3>
 				<p>At dawn on the 13th the Carnatic entered the port of Yokohama. This is an important port of call in the Pacific, where all the mail-steamers.</p>
 			</div>
@@ -96,7 +99,7 @@
 				
 				<div class="grid2column"></br></br>
 					<h3 class="header-underline">Visit us</h3>
-					<a href="index.html"><img src="img/aboutUSimg.jpg" width="50%" height="50%" alt="Logo-footer"></a>
+					<a href="index.html"><img src="img/aboutUSimg.jpg" width="88%" height="88%" alt="Logo-footer"></a>
 				</div>
 				
 				<div class="widget-area-highlight2">
@@ -110,10 +113,21 @@
 					<div class="e-mail-widget"><span>E-mail:</span> <a href="#">admin@e-mail.com</a></div>
 				</div>
 
+				
+				<div class="grid4column homepage-widget">
+					</br></br>
+					<h6 class="heading-address-widget">White Rock Restaurant</h6>
+					<div class="address-widget">1422 1st St. Napa, CA 94559</div>
+					<div class="phone-widget"><span>Phone:</span> (707) 255-0211</div>
+					<div class="e-mail-widget"><span>E-mail:</span> <a href="#">admin@e-mail.com</a></div>
+				</div>
+
 			
 				<div class="clearfix"></div>
 			</div><!-- close .width-container -->
 		</div><!-- close .widget-area-highlight -->
+		
+		
 				
 			<div class="clearfix"></div>
 			</div><!-- close #copyright -->

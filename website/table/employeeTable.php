@@ -24,12 +24,10 @@
 <?php include_once("navigationBAR.php"); ?>
 
 <!--                                   INFORMATION TABLES                                          -->
-
-<div class="errorMessage"><?php /*echo $outputMessage*/?></div>
 	
 <section>	<h1>ADD NEW EMPLOYEE</h1>
 <div id="formContainer">
-	<div class="suggestion" id="suggestions"></div>
+<div class="suggestion" id="suggestions"></div>
 
 <form action="addEmployee.php" method="post" name="form1" id="form1">
 <fieldset>
@@ -66,7 +64,6 @@
 		
 		if($_SESSION['accesslv']==1){
 			$query = new CustomQuery("SELECT * from staff");
-			//$query = new SelectAllQuery("customers");
 			if (!is_null($query)) 
 			{
 				//var_dump( $query);
@@ -75,7 +72,6 @@
 		}
 		else if($_SESSION['accesslv']==3){
 			$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
-			//$query = new SelectAllQuery("customers");
 			if (!is_null($query)) 
 			{
 				//var_dump( $query);
