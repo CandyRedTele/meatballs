@@ -10,6 +10,7 @@
     <p><b><h2>Test Site</h2></b></p>
 
     <?php
+        error_reporting(E_ALL);
         
        /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         *
@@ -19,20 +20,8 @@
         *           to get the proper path when calling set_include_path()
         *
         *--------------------------------------------------------------------*/
-        function getSrcPath()
-        {
-            $root =  $_SERVER['DOCUMENT_ROOT'];
+        include_once("../../src/SetPath.php");
 
-            if (strrpos($root, '/') == strlen($root) - 1) 
-            {
-                $root = substr($root, 0, -1); // remove trailing '/' (for windows)
-            }
-
-            return $root."/comp353-project/src"; 
-        }
-
-        error_reporting(E_ALL);
-        set_include_path(get_include_path(). PATH_SEPARATOR . getSrcPath());         // <- +++++++  Set Your Include Path!
         include_once("IncludeAllQueries.php");  // <- +++++++ Include ALL the queries in one shot!
         include_once("TestQuery.php");          // <- ------- Test stuff = don't care
         include_once("Logger.php");             // <- +++++++ You want to LOG stuff???
