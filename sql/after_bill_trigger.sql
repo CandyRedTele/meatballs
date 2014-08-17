@@ -19,10 +19,10 @@ CREATE TABLE IF NOT EXISTS update_balance_after_bill_log
     price           FLOAT,
     FOREIGN KEY (`f_id`) REFERENCES `facilityBalance` (`f_id`)
         ON DELETE NO ACTION
-        ON UPDATE CASCADE-- ,
--- 	 FOREIGN KEY (`b_id`) REFERENCES `bill` (`b_id`)
--- 			ON DELETE NO ACTION
--- 			ON UPDATE CASCADE   
+        ON UPDATE CASCADE,
+	 FOREIGN KEY (`b_id`) REFERENCES `bill` (`b_id`)
+			ON DELETE NO ACTION
+			ON UPDATE CASCADE   
 );
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -- 
