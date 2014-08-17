@@ -12,14 +12,6 @@
     <?php
         error_reporting(E_ALL);
         
-       /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        *
-        * NAME : getSrcPath
-        *
-        * PURPOSE : you can copy paste the function in your code and use it
-        *           to get the proper path when calling set_include_path()
-        *
-        *--------------------------------------------------------------------*/
         include_once("../../src/SetPath.php");
 
         include_once("IncludeAllQueries.php");  // <- +++++++ Include ALL the queries in one shot!
