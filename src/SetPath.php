@@ -5,7 +5,7 @@
  *
  * NAME : SetPath.php
  *
- * HOWTO  include_once(relativePathTo/SetPath.php);  that's it
+ * HOWTO  include_once(relativePathTo/src/SetPath.php);  that's it
  *
  *************************************************************************/
     error_reporting(E_ALL);
