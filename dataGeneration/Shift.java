@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class Shift{
 	
-
-
 	static final int cook = 0;
 	static final int dish = 1;
 	static final int wait = 2;
@@ -12,15 +10,7 @@ public class Shift{
 	public int end;
 	public int day;
 	String title;
-	public final String[] days = {
-		"Monday",
-		"Tuesday",
-		"Wednesday",
-		"Thursday",
-		"Friday", 
-		"Saturday",
-		"Sunday"
-	};
+
 	
 	final int shifthours[] = {
 			8,
@@ -97,7 +87,7 @@ public class Shift{
 	
 	public String toString(){
 		if(taken[0] == 0 || taken[1] == 0 || taken[2] == 0){
-			return("start, " + start + " end, " + end + " day, " + days[day]);
+			return("start, " + start + " end, " + end + " day, " + generate_data.days[day]);
 
 		}
 		else{
