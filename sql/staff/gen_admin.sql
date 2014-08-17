@@ -1,5 +1,5 @@
 use meatballs;
 insert into admin ( staff_id,  location,  yrs_exp) Values
-(1, 'Ottowa', 2),
-(2, 'Ottowa', 3),
-(3, 'Montreal', 2);
+(1, 'Quebec', 0),
+(2, 'Regina', 0),
+(3, 'Calgary', 2);

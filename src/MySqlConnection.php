@@ -114,11 +114,31 @@ class MySqlConnection
      *-----------------------------------------------------------*/
     public function execute($query)
     {
-
+        
         $this->logger->write("[" . __CLASS__ . "]" . " $ execute() : '" . $query . "'"); 
 
         if ($this->connection) {
-            $result = mysqli_query($this->connection, $query);
+            $semicolons_count = substr_count($query, ';');
+
+            if ($semicolons_count > 1) 
+            {
+                $result = mysqli_multi_query($this->connection, $query);
+
+                /*
+                 * NOTE We use multiple queries for INSERTION only, hence we free the results here! <--------- IMPORTANT
+                 *
+                 */
+                while (mysqli_more_results($this->connection) && mysqli_next_result($this->connection)) 
+                {
+                    if ($result = mysqli_store_result($this->connection)) {
+                        mysqli_free_result($result);
+                    }
+                }
+
+                $result = true;
+            } else {
+                $result = mysqli_query($this->connection, $query);
+            }
         }
 
         return $result;
