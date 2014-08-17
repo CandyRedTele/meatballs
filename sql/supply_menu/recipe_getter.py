@@ -347,9 +347,9 @@ class Recipe():
 
         for row in table[1:]:
             ingre_n = row[3].text.replace("'", "")
-            if not ingre_names.count(row[3].text.replace("'", "")):
-                ingre_names.append(row[3].text.replace("'", ""))
-                amounts.append([int(ceil(float(row[1].text))), row[3].text.replace("'", "")])
+            if not ingre_names.count(ingre_n):
+                ingre_names.append(ingre_n)
+                amounts.append([int(ceil(float(row[1].text))), ingre_n])
         price = randint(min, max)
         return {name: {'ingredients': amounts, 'price': price, 'image': image}}
 
