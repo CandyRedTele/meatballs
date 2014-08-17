@@ -65,7 +65,7 @@ AFTER INSERT ON `order`
 FOR EACH ROW
 BEGIN
     -- 1. update `facilityStock`
-    SET @old_qty = (SELECT quantity FROM facilityStock WHERE sku = NEW.sku);
+    SET @old_qty = (SELECT quantity FROM facilityStock WHERE sku = NEW.sku and f_id = NEW.f_id);
 
     IF (@old_qty IS NULL)  THEN
         SET @old_qty = 0;
@@ -76,7 +76,7 @@ BEGIN
         ON DUPLICATE KEY UPDATE quantity = @old_qty + NEW.order_qty;
 
     -- 1.1 Log it in `update_stock_log`
-    SET @new_qty = (SELECT quantity FROM facilityStock WHERE sku = NEW.sku);
+    SET @new_qty = (SELECT quantity FROM facilityStock WHERE sku = NEW.sku and f_id = NEW.f_id);
     INSERT INTO update_stock_log (msg, order_id, sku, qty_old, qty_new)
         VALUES ("Update Stock after order", NEW.order_id, NEW.sku, @old_qty, @new_qty); 
 
