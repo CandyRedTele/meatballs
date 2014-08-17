@@ -1,6 +1,10 @@
 body
 {
+<<<<<<< HEAD
+	background:#C3D9FF;
+=======
 	background:#000000;/*#C3D9FF*/
+>>>>>>> 9050d8576f140dc349d7c39cff43199bbffda30c
 	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
 	font-size:small;
 	margin:8px 0 16px;
@@ -328,7 +332,11 @@ span.symbol
 
 input.text
 {
+<<<<<<< HEAD
+	background:#fff url(../../../images/shadow.gif) repeat-x top;
+=======
 	background:#fff url(../img/shadow.gif) repeat-x top;
+>>>>>>> 9050d8576f140dc349d7c39cff43199bbffda30c
 	border-bottom:1px solid #ddd;
 	border-left:1px solid #c3c3c3;
 	border-right:1px solid #c3c3c3;
@@ -349,7 +357,11 @@ input.file
 
 textarea.textarea
 {
+<<<<<<< HEAD
+	background:#fff url(../../../images/shadow.gif) repeat-x top;
+=======
 	background:#fff url(../img/shadow.gif) repeat-x top;
+>>>>>>> 9050d8576f140dc349d7c39cff43199bbffda30c
 	border-bottom:1px solid #ddd;
 	border-left:1px solid #c3c3c3;
 	border-right:1px solid #c3c3c3;
@@ -367,7 +379,11 @@ select.select
 	font-size:100%;
 	margin:1px 0;
 	padding:1px 0 0;
+<<<<<<< HEAD
+	background:#fff url(../../../images/shadow.gif) repeat-x top;
+=======
 	background:#fff url(../img/shadow.gif) repeat-x top;
+>>>>>>> 9050d8576f140dc349d7c39cff43199bbffda30c
 	border-bottom:1px solid #ddd;
 	border-left:1px solid #c3c3c3;
 	border-right:1px solid #c3c3c3;
@@ -888,7 +904,11 @@ font-weight: bold;
 }
 
 .yui3-button-icon {
+<<<<<<< HEAD
+    background-image: url("../assets/button/icon-sprite-dark-and-light-24.png");
+=======
 
+>>>>>>> 9050d8576f140dc349d7c39cff43199bbffda30c
     background-repeat: no-repeat;
     display: inline-block;
     height: 20px;

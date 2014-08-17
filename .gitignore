@@ -8,5 +8,4 @@ sql_OLD
 sql/tempo
 
 *.*LOCAL
-*.ipynb
 .ipynb_checkpoints
