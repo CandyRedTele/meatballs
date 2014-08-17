@@ -3,9 +3,9 @@
  *
  * AUTHORS : Team 3, Joseph
  *
- * NAME : Path.php
+ * NAME : SetPath.php
  *
- * HOWTO  1. Copy this file to the folder where your php file is.
+ * HOWTO  include_once(relativePathTo/SetPath.php);  that's it
  *
  *************************************************************************/
     error_reporting(E_ALL);
