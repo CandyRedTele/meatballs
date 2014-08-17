@@ -19,7 +19,8 @@ inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES',
            'order': 'INSERT INTO `order` (f_id, sku, order_date, order_qty) VALUES',
            'facility_balance': 'INSERT INTO facilityBalance (f_id, balance) VALUES',
            'bill': 'INSERT INTO bill (b_id, f_id, `date`) VALUES',
-           'bill_has_menu_item': 'INSERT INTO bill_has_menu_item (b_id, mitem_id) VALUES'
+           'bill_has_menu_item': 'INSERT INTO bill_has_menu_item (b_id, mitem_id) VALUES',
+           'golden_has_bills': 'INSERT INTO golden_has_bills (g_id, b_id) VALUES'
           }
 
 
@@ -206,13 +207,25 @@ class Recipe():
         # `b_id` INTEGER NOT NULL AUTO_INCREMENT,
         # `f_id` INTEGER NOT NULL,
         # `date` DATE NOT NULL,
+
+        # golden_has_bills
+        # ================
+        # `g_id`    INTEGER NOT NULL,
+        # `b_id`    INTEGER PRIMARY KEY,
+
+        # generate 100 bills.
+        bill_len = 120
+        # we have 30 golden menbers
+        golden_members = 30
+
         bill = []
-        # generate 60 bills.
-        bill_len = 60
+        golden_has_bills = []
         for i in xrange(bill_len):
             date_bill = date.today() - timedelta(days=randrange(0, 5))
             date_bill = date_bill.isoformat()
-            bill.append([i + 1, randint(1, 12), date_bill])
+            bill.append([(i + 1), randint(1, 12), date_bill])
+            if (i % 3) == 0:
+                golden_has_bills.append([randint(1, golden_members), (i + 1)])
 
         # bill_has_menu_item
         # ===================
@@ -226,8 +239,8 @@ class Recipe():
             return j
 
         bill_has_menu_item = []
-        for i, bi in enumerate(bill):
-            poss = find_in_menu(menu, bi[1])
+        for i, bil in enumerate(bill):
+            poss = find_in_menu(menu, bil[1])
             samp = sample(poss, 6)
             for ss in samp:
                 bill_has_menu_item.append([i + 1, ss])
@@ -304,7 +317,7 @@ class Recipe():
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
                 (vendor, 'vendor'), (acatalog, 'catalog'), (order, 'order'), (facility_balance, 'facility_balance'),
-                (bill, 'bill'), (bill_has_menu_item, 'bill_has_menu_item'))
+                (bill, 'bill'), (bill_has_menu_item, 'bill_has_menu_item'), (golden_has_bills, 'golden_has_bills'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
