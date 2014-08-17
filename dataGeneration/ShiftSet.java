@@ -52,10 +52,10 @@ public class ShiftSet{
 			boolean gotShift = false;
 			if(generate_data.debug)
 				System.out.println("shift" + shift);
-			for(int day = 0; day < numDays; day++){
-				if(generate_data.debug)System.out.println("day" + day);
-				for(int time = 0; time < numTimes; time++){
-					if(generate_data.debug)System.out.println("time" + time);
+			for(int time = 0; time < numTimes; time++){
+				if(generate_data.debug)System.out.println("time" + time);
+				for(int day = 0; day < numDays; day++){
+					if(generate_data.debug)System.out.println("day" + day);
 					if(shift_available(day,time,facility, staff_id)
 							&&gotShift == false){
 						Shift tmp = removeShift(day, time, facility, staff_id);
