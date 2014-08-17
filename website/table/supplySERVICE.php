@@ -84,7 +84,7 @@
             foreach ($row as $field) {
                 echo "<li>" . $field . "</li>" ;   
             }
-			echo "<li><a href='#'>REMOVE</a></li></ul>";
+			echo "<li><a href='remove.php?id=".$row[0]."-supply'></li></ul>";
             //var_dump($row);
         }
 
