@@ -114,7 +114,7 @@ if(isset($result))
 					foreach ($row as $field) {
 						echo "<li>" . $field . "</li>" ;   
 					}
-					echo "<li><a href='remove.php?id=$var'>REMOVE</a></li></ul>";
+					echo "<li><a href='remove.php'>REMOVE</a></li></ul>";
 					//var_dump($row);
 				}
 		
