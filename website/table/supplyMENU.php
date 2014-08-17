@@ -1,10 +1,11 @@
 <html>
 <body>
 <?php 
+
 echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="790" id="innerTABLE">
    <tr>
      <td width="20px">&nbsp;</td>
-      <td colspan="2"><div class="ueberschrift">Put a little heading here</div></td>
+      <td colspan="2"><div class="ueberschrift">'.$_SESSION['location'].'</div></td>
       <td width="20px">&nbsp;</td>
    </tr>
    <tr>

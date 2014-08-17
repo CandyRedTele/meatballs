@@ -60,29 +60,26 @@
     <div id="thelist"><ul id="control">
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">SKU</li>
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
-			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">price</li>
+			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">location</li>
+			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">quantity</li>
+			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">price</li>
             <li></li></ul><?php 
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
-		if($_SESSION['accesslv']==1){
-			$query = new CustomQuery("SELECT sku, name, price from supplies where type='linens'");
-			if (!is_null($query)) 
-			{
-				//var_dump( $query);
-				$result = $query->execute();
-			}
-		}
-		else if($_SESSION['accesslv']==3){
-			$query = new CustomQuery("SELECT sku, name, price from supplies NATURAL JOIN (select * from order NATURAL JOIN facility) where location='".$_SESSION['location']."' AND type='linens'");
-			if (!is_null($query)) 
-			{
-				//var_dump( $query);
-				$result = $query->execute();
-			}
-		}
+		if($_SESSION['accesslv']==1)
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='linens'");
+		else if($_SESSION['accesslv']==3)
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='linens'");
+		
 
-	if(isset($row))
+		if (!is_null($query)) 
+		{
+			//var_dump( $query);
+			$result = $query->execute();
+		}
+		
+	if(isset($result))
 		while($row = mysqli_fetch_row($result)) 
 		{
 			echo "<ul>";

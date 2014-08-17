@@ -12,7 +12,7 @@
         include_once("IncludeAllQueries.php"); 
 		
 $val=true;
-if(empty($_POST['firstN'])&& empty($_POST['lastN'])&& empty($_POST['email']) && empty($_POST['phone']) && empty($_POST['sex'])){
+if(empty($_POST['EmployeeN'])&& empty($_POST['address'])&& empty($_POST['phone']) && empty($_POST['title']) && empty($_POST['ssn'])){
 	echo "<div id='msg'><h5>Some required informations is not filled!<br/>Please try again!!!<br/>
 			redirecting to the registration page in 5 seconds</h5></div>
 			<meta http-equiv='Refresh' content='5; url=menu/menuHOME.php'/>"; 
@@ -20,7 +20,6 @@ if(empty($_POST['firstN'])&& empty($_POST['lastN'])&& empty($_POST['email']) && 
 	$val=false;
 }
 else echo "testing";
-
 ?>
 </head>
 <body>
@@ -45,5 +44,6 @@ if($val){
 }
 
 ?>
+
 </body>
 </html>

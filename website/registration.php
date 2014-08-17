@@ -74,7 +74,8 @@
             <option value="m">male</option>
             <option value="f">female</option>
 			<option value="o">other</option>
-            </select><br><br>
+			<option value="n">other</option>
+            </select><br/><br/>
             
             <p class="contact"><label for="phone">phone (Mobile/home)</label></p> 
             <input id="phone" name="phone" placeholder="###-###-####" required pattern="[0-9]{3}([0-9]{3}|\-[0-9]{3})([0-9]{4}|\-[0-9]{4})" type="text"> <br>

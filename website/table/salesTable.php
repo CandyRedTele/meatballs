@@ -36,12 +36,40 @@
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
-			$query = new GetBillDetailsQuery();
-			if (!is_null($query)) 
-			{
-				var_dump( $query);
-				$result = $query->execute();
-			}
+		$query = new CustomQuery("select b_id from bill");
+		if (!is_null($query)) 
+			$bills = $query->execute();
+
+		
+		 while($b_id = mysqli_fetch_row($bills)) 
+        {
+
+            foreach ($b_id as $id) {
+			
+                $query = new getBillDetailsQuery($id);
+				
+				if (!is_null($query)) 
+					$result = $query->execute();
+					
+				while($row = mysqli_fetch_row($result)) 
+				{
+					echo "<ul>";
+					foreach ($row as $field) {
+					echo "<li>" . $field . "</li>" ;   
+				}
+				echo "</ul>";
+
+				}
+            }
+
+        }
+		
+		$query = new GetBillDetailsQuery();
+		if (!is_null($query)) 
+		{
+			//echo var_dump( $query);
+			$result = $query->execute();
+		}
 			
         while($row = mysqli_fetch_row($result)) 
         {

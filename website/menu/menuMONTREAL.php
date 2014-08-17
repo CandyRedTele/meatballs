@@ -45,9 +45,46 @@ $(function() {
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<?php include_once("menuNAVIGATION"); ?>
+<?php include_once("menuNAVIGATION.php"); ?>
 <!--								MENU starts HERE ! ! !							-->
+<?php 
+	
+	$rawQ = "Select distinct menu_item.category from menu_item natural join (select * from menu natural join facility) as menu where location='Montreal'";
+	$query = new CustomQuery("Select distinct menu_item.category from menu_item natural join (select * from menu natural join facility) as menu where location='Montreal'");
+	if (!is_null($query)) 
+			$result = $query->execute();
+	
+	if(isset($result))
+        while($row = mysqli_fetch_row($result)) 
+        {
+			echo "<ul>";
+            foreach ($row as $field) {
+				echo "<li>" . $field . "</li>" ;   
+            }
+			echo "<li></ul>";
+            //var_dump($row);
+        }
+	
+	$query = new CustomQuery("SELECT menu_item.name, menu_item.price from menu_item natural join (select * from menu natural join facility) as menu where location='Montreal' AND (".$rawQ."));
+		
+		if (!is_null($query)) 
+			$result = $query->execute();
 
+			
+	if(isset($result))
+        while($row = mysqli_fetch_row($result)) 
+        {
+			echo "<ul>";
+            foreach ($row as $field) {
+				echo "<li>" . $field . "</li>" ;   
+            }
+			echo "<li></ul>";
+            //var_dump($row);
+        }
+
+
+
+?>
 	<div id="main">
 		<div class="width-container">
 			<div class="grid2column">
