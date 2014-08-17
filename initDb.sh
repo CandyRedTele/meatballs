@@ -15,7 +15,7 @@ HOST="127.0.0.1"
 PWORD=''
 
 ### NOTE Please do not remove all those scripts to replace with populate.sql, I want to execute them one by one, :-)
-SCRIPTS=('create_table.sql' 'trigger.sql' 'after_bill_trigger.sql'
+SCRIPTS=('create_table.sql' 'trigger_on_order.sql' 'after_bill_trigger.sql'
          'pay.sql' 'staffgen.sql' 'gen_admin.sql' 'gen_access_level.sql'
          'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql'  'vendor.sql' 'catalog.sql'
          'gen_facility.sql' 'gen_localStaff.sql' 'gen_facilityHours.sql' 'facility_stock.sql' 'facility_balance.sql' 'order.sql'
