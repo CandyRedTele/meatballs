@@ -209,8 +209,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`schedule` 
 (
   `title` VARCHAR(45) NOT NULL,
-  `hours_week` DOUBLE NULL,
-  `hours_day` DOUBLE NULL,
+  `min_per_week` INT DEFAULT 0,
+  `max_per_week` INT NOT NULL,
+  `min_per_day` INT DEFAULT 0,
+  `max_per_day` INT NOT NULL,
   PRIMARY KEY (`title`)
 )
 ENGINE = InnoDB;
