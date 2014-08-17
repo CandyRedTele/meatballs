@@ -2,32 +2,31 @@ import java.util.Scanner;
 
 public class Shift{
 	
-
-
 	static final int cook = 0;
 	static final int dish = 1;
 	static final int wait = 2;
+	static final int supervisor = 3;
 	int[] taken = new int[3];
 	public int start;
 	public int end;
 	public int day;
 	String title;
-	public final String[] days = {
-		"Monday",
-		"Tuesday",
-		"Wednesday",
-		"Thursday",
-		"Friday", 
-		"Saturday",
-		"Sunday"
-	};
+
 	
 	final int shifthours[] = {
 			8,
 			8,
+			6,
 			6
 	};
 	
+	
+	/**
+	 * 
+	 * @param start an int between 0 and 1 that says whether it's a morning or night shift
+	 * @param type the type of the employee
+	 * @param day they day of the week on which it occurs. monday == 0; sunday == 6
+	 */
 	public Shift(int start, int type, int day){
 		
 		if(type == cook){
@@ -38,6 +37,15 @@ public class Shift{
 		}
 		if(type == wait){
 			title = "wait staff";
+		}
+		if(type == generate_data.supervId){
+			title = generate_data.titles[generate_data.supervId];
+		}
+		
+		int weekendExtra = 0;
+		
+		if((day == 4 || day == 5)&&(start == 1)){
+			weekendExtra = 2;
 		}
 		
 		//hour at which they begin their shift
@@ -55,7 +63,7 @@ public class Shift{
 		}
 		
 		this.start = start;
-		this.end = start + shifthours[type];
+		this.end = (start + shifthours[type] + weekendExtra)%24;
 		this.day = day;
 	}
 	
@@ -97,7 +105,7 @@ public class Shift{
 	
 	public String toString(){
 		if(taken[0] == 0 || taken[1] == 0 || taken[2] == 0){
-			return("start, " + start + " end, " + end + " day, " + days[day]);
+			return("start, " + start + " end, " + end + " day, " + generate_data.days[day]);
 
 		}
 		else{

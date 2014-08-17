@@ -12,6 +12,7 @@ abstract class IQuery
 {
     static protected $mysql;  // only one connection to avoid connect/unconnect multiple times
     protected $logger;
+    protected $result;
     static private $log_once_flag = false; // log only when the first IQuery is created, not after
 	
     /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -44,6 +45,23 @@ abstract class IQuery
                                                $loader->getDatabase());
         } 
     }
+    
+    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     * 
+     * NAME : __destruct
+     *
+     *-----------------------------------------------------------*/
+    public function __destruct()
+    {
+        $this->free();
+    }
+
+    public function free()
+    {
+        if (isset($this->result) && gettype($this->result) == 'mysqli_result') {
+            mysqli_free_result($this->result);
+        }
+    }
 
     /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
      * 
@@ -70,14 +88,14 @@ abstract class IQuery
 			$this->logger->write(__CLASS__ . "not connected");
 		}
 		
-        $result = self::$mysql->execute($this->getQueryString());
+        $this->result = self::$mysql->execute($this->getQueryString());
 
-        if (!$result) {
+        if (!$this->result) {
             $this->logger->write("[".__CLASS__ ."] $ ".__FUNCTION__."() ? "
                                     .self::$mysql->getLastError());
         }
 
-        return $result;
+        return $this->result;
     }
 }
 ?>
