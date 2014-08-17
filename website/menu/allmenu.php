@@ -37,7 +37,7 @@ $(function() {
 	$('a[href="#"]').click(function(event){	event.preventDefault(); });
 });
 </script>
-
+<link rel="stylesheet" href="../css/stylesheet7.css" />
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -60,21 +60,29 @@ while($category = mysqli_fetch_row($categories)) {
     if (!is_null($query2)) { $menus_items = $query2->execute();}
 	
     echo "<ul class='menu-items'>";
-	
+	$ing = array();
     while($menu_items = mysqli_fetch_row($menus_items)) {
-        echo "<li>";
+        // echo "<li>";
         //foreach ($menu_items as $menu_item) {
-            echo "<a href='#'><div class='grid2column'>" . $menu_items[0] . "</div></a>
-            <a href='#'><div class='grid2column lastcolumn'>" . $menu_items[1] . "</div></a>
-            <div class='clearfix'></div>";
+            // echo "<a href='#'><div class='grid2column'>" . $menu_items[0] . "</div></a>
+            // <a href='#'><div class='grid2column lastcolumn'>" . $menu_items[1] . "</div></a>
+            // <div class='clearfix'></div>";
         //}
-        echo "</li>";
+        // echo "</li>";
+		$ing[] = "<span class='numF'>$menu_items[0]<br/>amount: $menu_items[1]</span>";
     }
-	
+	foreach($ing as $i){echo $i;}
     echo "</ul>";
     echo "<div class='menu-spacer'></div>";
 }
 echo "</div></div></div>";
+
+// $array = array();
+// for ($x = 1; $x <= 1000; $x++)
+// {
+    // $array[] = $x;
+// }
+// print_r($array);
 ?>
 </body>
 </html>
