@@ -48,7 +48,6 @@ echo "<div id='main'>
 			<div class='grid2column'>";
 
 $query1 = new CustomQuery("select distinct category from menu_item");
-//$query = new SelectAllQuery("customers");
 if (!is_null($query1)) { $categories = $query1->execute();}
 
 while($category = mysqli_fetch_row($categories)) {
