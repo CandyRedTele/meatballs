@@ -8,7 +8,7 @@ from random import randint, sample, uniform, randrange
 from math import ceil
 
 inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES',
-           'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, namee) VALUES',
+           'menu_item': 'INSERT INTO menu_item (mitem_id, category, price, name) VALUES',
            'ingredients': 'INSERT INTO ingredients (mitem_id, sku, amount) VALUES',
            'menu': 'INSERT INTO menu (m_id, mitem_id) VALUES',
            'wine': 'INSERT INTO wine (rate, mitem_id) VALUES',
@@ -199,7 +199,7 @@ class Recipe():
 
         for i in xrange(12):
             for j in other_supplies:
-                facility_stock.append([j[0], (i+1), j[0], randint(1, 8)])
+                facility_stock.append([j[0], (i+1), randint(1, 8)])
 
         # bill
         # ====
