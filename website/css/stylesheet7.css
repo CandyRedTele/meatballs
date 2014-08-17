@@ -1,5 +1,5 @@
 header .width-container {position:relative;}
-.width-container, #page-title-divider {width:1140px; margin: 0 auto;}
+.width-container, #page-title-divider {width:2140px; margin: 0 auto;}
 .width-container.paged-title {position:relative;}
 
 ul.menu-items .grid2column, .pagination a 
@@ -7,7 +7,6 @@ ul.menu-items .grid2column, .pagination a
 body #main ul.menu-items .grid2column {font-style:italic; font-size:16px;}
 .grid2column, .grid3column, .grid3columnbig, .grid4column, .grid4columnbig {float:left; margin-right:3%;  }
 .grid2column { width: 48.5%;}
-.lt-ie8 .grid2column {width: 48%;  }
 
 .header-underline {border-bottom:3px solid #bdb7a4;}
 .header-underline { padding-bottom:10px; margin-bottom:14px;}

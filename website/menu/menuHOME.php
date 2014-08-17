@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="sticky-navigation.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="../css/stylesheet7.css" />
+<link rel="stylesheet" href="../css/recipeBOX.css" />
 <script>
 $(function() {
 	// grab the initial top offset of the navigation 
@@ -42,7 +43,10 @@ $(function() {
 });
 </script>
 
+<style>
+#demo_top_wrapper,#sticky_navigation_wrapper,#sticky_navigation,#demo_container {width:100%;}
 
+</style>
 </head>
 <body>
 <?php include_once("menuNAVIGATION.php"); ?>
@@ -60,7 +64,7 @@ if (!is_null($query1)) { $categories = $query1->execute();}
 
 while($category = mysqli_fetch_row($categories)) {
 
-    echo "<h3 class='header-underline'>".$category[0]. $parameter."</h3>";
+    echo "<h3 class='header-underline'>".$category[0]."</h3>";
 	
     $query2 = new CustomQuery("select name, price from menu_item natural join (menu natural join facility) where
         facility.f_id ='" . $parameter . "' and menu_item.category = '". $category[0]. "'");
@@ -70,13 +74,22 @@ while($category = mysqli_fetch_row($categories)) {
     echo "<ul class='menu-items'>";
 	
     while($menu_items = mysqli_fetch_row($menus_items)) {
-        echo "<li>";
-        //foreach ($menu_items as $menu_item) {
-            echo "<a href='#'><div class='grid2column'>" . $menu_items[0] . "</div></a>
-            <a href='#'><div class='grid2column lastcolumn'>" . $menu_items[1] . "</div></a>
-            <div class='clearfix'></div>";
-        //}
-        echo "</li>";
+		echo "<li><a href='#'><div class='grid2column'>" . $menu_items[0] . 
+		"</div></a><div class='grid2column lastcolumn'>$" . $menu_items[1] . 
+		"</div>";
+        
+		$query3 = new CustomQuery("select image, menuI.name, category, supplies.name, amount from supplies inner join 
+								(select * from menu_item natural join ingredients where name = '".$menu_items[0].
+								"') as menuI on supplies.sku = menuI.sku;");
+		
+		if (!is_null($query3)) { $recipe = $query3->execute();}
+		
+		$info = mysqli_fetch_row($recipe);
+		echo "<div class='itemINFO'>
+				<img src='$info[0]' width='10%' height='10%'/>$menu_items[0]
+				<span class='numF'>$info[3]<br/>amount: $info[4]</span>
+				<form action=''><input type='button' value='add friend'/></form>
+			</div><div class='clearfix'></div></li>";
     }
 	
     echo "</ul>";

@@ -76,16 +76,16 @@
 			$result = $query->execute();
 
 			
-	if(isset($result))
-        while($row = mysqli_fetch_row($result)) 
-        {
-			echo "<ul>";
-            foreach ($row as $field) {
-				echo "<li>" . $field . "</li>" ;   
-            }
-			echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
-            //var_dump($row);
-        }
+		if(isset($result))
+			while($row = mysqli_fetch_row($result)) 
+			{
+				echo "<ul>";
+				foreach ($row as $field) {
+					echo "<li>" . $field . "</li>" ;   
+				}
+				echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
+				//var_dump($row);
+			}
 		
         ?></div>
 </section>

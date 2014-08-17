@@ -1,3 +1,9 @@
+<?php 
+	error_reporting(E_ALL);
+	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
+        include_once("IncludeAllQueries.php");
+	//session_start();
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -147,6 +153,16 @@
 					<label class="description" for="element_7">Please choose your location</label>
 					<div>
 						<select class="element select medium" id="location" name="location"> 
+						<option value="" selected="selected"></option>
+						<?php//not working well,IDK why
+								// $query = new CustomQuery("SELECT f_id, location from facility");
+								// if (!is_null($query))
+									// $result = $query->execute();
+								// while($row = mysqli_fetch_row($result)) 
+								// {	
+									// echo '<option value="'.$row[0].'" >'.$row[1].'</option>' ;
+								// }
+						?>
 							<option value="" selected="selected"></option>
 							<option value="Montreal" >Montreal</option>
 							<option value="Toronto" >Toronto</option>
@@ -163,7 +179,6 @@
 						</select>
 					</div> 
 				</li>
-					
 				<li class="buttons">
 					<input type="hidden" name="form_id" value="888344" />
 					<input id="saveForm" class="yui3-button" type="submit" name="submit" value="Submit" />
