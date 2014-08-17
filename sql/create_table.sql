@@ -29,9 +29,10 @@ DROP TABLE IF EXISTS supplies;          -- DONE
 DROP TABLE IF EXISTS vendor;            -- DONE
 DROP TABLE IF EXISTS wage;              -- DONE
 DROP TABLE IF EXISTS wine;              -- DONE
-DROP TABLE IF EXISTS shift;             -- 
+DROP TABLE IF EXISTS shift;             -- DONE
 DROP TABLE IF EXISTS access_level;      -- DONE
 DROP TABLE IF EXISTS facilityBalance;   -- DONE
+DROP TABLE IF EXISTS bill_has_menu_item;-- DONE
 
 
 -- -----------------------------------------------------

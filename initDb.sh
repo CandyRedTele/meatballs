@@ -15,11 +15,11 @@ HOST="127.0.0.1"
 PWORD=''
 
 ### NOTE Please do not remove all those scripts to replace with populate.sql, I want to execute them one by one, :-)
-SCRIPTS=('create_table.sql' 'trigger.sql'
+SCRIPTS=('create_table.sql' 'trigger.sql' 'after_bill_trigger.sql'
          'pay.sql' 'staffgen.sql' 'gen_admin.sql' 'gen_access_level.sql'
          'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql'  'vendor.sql' 'catalog.sql'
          'gen_facility.sql' 'gen_localStaff.sql' 'gen_facilityHours.sql' 'facility_stock.sql' 'facility_balance.sql' 'order.sql'
-         'gen_bills.sql' 'gen_bill_has_items.sql' 'gen_golden.sql' 'gen_golden_bills.sql'
+         'gen_bills.sql' 'gen_bill_has_items.sql' 'gen_golden.sql' 'gen_golden_bills.sql' 'gen_shift.sql'
          )
 TEMPO=tempo
 
@@ -28,6 +28,8 @@ function display_usage
     echo "To be run from the root of the project";
     exit
 }
+
+bash tests/check_if_all_script_are_in_initDb.sh
 
 cd ./sql
 

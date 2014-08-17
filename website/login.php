@@ -8,10 +8,7 @@
 	<?php 
 		error_reporting(E_ALL);
 		set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
-        include_once("CustomQuery.php"); 
-        include_once("Logger.php"); 
-        include_once("SelectAllQuery.php"); 
-		include_once("MeatballsUser.php"); 
+        include_once("IncludeAllQueries.php"); 
 		
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
@@ -34,30 +31,47 @@
 				$_SESSION['SID']=$row[0];
 				$_SESSION['name']=$row[1];
 				$_SESSION['time']=time();
-				$_SESSION['phone']=$row[4];
+				$_SESSION['phone']=$row[3];
+				$_SESSION['ssn']=$row[4];
 				$_SESSION['title']=$row[5];
-<<<<<<< HEAD
-				$_SESSION['accesslv'] = MeatballUser::getAccessLevel($_SESSION['SID']);#or just = $row[6] is good as well
-				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 5 secs</div>
-						<meta http-equiv='Refresh' content='5;url=index.php'/>";
-=======
-				$_SESSION['accesslv']=$row[6];#or just = MeatballUser::getAccessLevel($_SESSION['SID']) is good as well
+				
+				$logger = Logger::getSingleInstace();
+				$logger->write("HelloLogger!");
+
+				$query = new CustomQuery('SELECT access_level from access_level where title="'.$_SESSION["title"].'"');
+				if (!is_null($query)) 
+				{
+					//var_dump( $query);
+					$result = $query->execute();
+				}
+				$row=mysqli_fetch_row($result);
+				$_SESSION['accesslv']=$row[0];#or just = MeatballUser::getAccessLevel($_SESSION['SID']) is good as well
+				
+				 
+				$query = new CustomQuery('SELECT location from facility, localstaff where staff_id="'.$_SESSION["SID"].'" AND facility.f_id=localstaff.f_id');
+				if (!is_null($query)) 
+					$result = $query->execute();
+				
+				$row=mysqli_fetch_row($result);
+				if($row[0]==""||$row[0]==null){
+					$query = new CustomQuery('SELECT location from admin where staff_id="'.$_SESSION["SID"].'"');
+					if (!is_null($query)) 
+						$result = $query->execute();
+					
+					$row=mysqli_fetch_row($result);
+				}
+
+				$_SESSION['location']=$row[0];
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
-						<meta http-equiv='Refresh' content='3;url=index.php'/>";
->>>>>>> Mike
+						<meta http-equiv='Refresh' content='11;url=index.php'/>";
 			}
             //echo $_SESSION['SID'];
             //var_dump($row);
         }
 		
 		if(!isset($_SESSION['SID']))
-<<<<<<< HEAD
-			echo "<div id='notF'><h3>wrong e-mail or password<br/>please try again!</h3><br/>refreshing in 5 secs</div>
-				<meta http-equiv='Refresh' content='5;url=index.php'/>";
-=======
-			echo "<div id='notF'><h3>wrong e-mail or password<br/>please try again!</h3><br/>refreshing in 3 secs</div>
+			echo "<div id='notF'><h3>wrong ID<br/>please try again!</h3><br/>refreshing in 3 secs</div>
 				<meta http-equiv='Refresh' content='3;url=index.php'/>";
->>>>>>> Mike
 		?>
 </head>
 <body>

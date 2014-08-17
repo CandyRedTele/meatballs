@@ -11,12 +11,14 @@
 TEMPO='tempo.txt'
 TARGET='initDb.sh'
 
+# exclude those files : 
+EXCLUDE_LIST='populate.sql|test_if_populated.sql'; 
 
 RESULT=0;
 #
 # List all sql files under /sql
 #
-ALL_SQL=$(find sql -name "*.sql"  | awk -F "/"  '{print $3}' | grep sql --exclude populate)
+ALL_SQL=$(find sql -name "*.sql"  | awk -F "/"  '{print $NF}' | grep sql | egrep -v $EXCLUDE_LIST)
 
 for sql in ${ALL_SQL[@]}; do
     #
@@ -49,9 +51,9 @@ while read line; do
 done < $TEMPO
 
 if [ $RESULT -eq 0 ]; then 
-    echo "it's fine";
+    echo "[CHECK] initDb.sh is up to date.";
 fi
 
-rm $TEMPO
+rm -f $TEMPO
 
 exit $RESULT

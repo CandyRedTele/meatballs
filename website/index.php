@@ -10,37 +10,25 @@
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 	<title> Mamma Meatballs </title>
 	<link rel="stylesheet" type="text/css" href="css/stylesheet1.css" />
-<<<<<<< HEAD
-	
-=======
 	<link rel="stylesheet" href="http://yoursite.com/custom.ashx?user=1231">
->>>>>>> Mike
+
 </head>
 	
 <body>
 <header>
 <div id="topleft">
 	<div id="login_section">
-<<<<<<< HEAD
-	<div id="templatemo_login_left">STAFF LOGIN</div>
-=======
->>>>>>> Mike
 	<?php 
 	if(isset($_SESSION['SID']))
-	{
 		echo '<div id="templatemo_login_right">
-				hello ' . $_SESSION['name'] . '! </br> Views: '. $_SESSION['views'] .' </br> acess level: '. $_SESSION['accesslv'] .'
+				hello ' . $_SESSION['name'] . '! </br> location: '. $_SESSION['location'] .' </br> access level: '. $_SESSION['accesslv'] .'
 				<form id="form1" name="form1" method="post" action="logout.php">			
 					<label><input type="submit" name="logout" id="logout" value="LOG OUT" /></label>
 				</form>
 			</div>';
-	}
-<<<<<<< HEAD
-	else echo '<div id="templatemo_login_right">
-=======
 	else echo '<div id="templatemo_login_left">STAFF LOGIN</div>
 				<div id="templatemo_login_right">
->>>>>>> Mike
+
 				<form id="form1" name="form1" method="post" action="login.php">
 					Staff ID: 
 					<label><input type="text" name="username" id="username" placeholder="please enter s_id" required/></label>
@@ -55,15 +43,15 @@
 	</div>
 <nav class="menu2">
   <menu>
-    <li><a href="welcome.php" target="insideC">Home</a></li>
-	<li><a href="#" target="insideC">Menu</a></li>
+    <!--<li><a href="welcome.php" target="insideC">Home</a></li>-->
+	<li><a href="menu/menuHOME.php" target="insideC">HOME</a></li>
 	<?php if(isset($_SESSION['SID']))
 			if($_SESSION['accesslv'] != 5)
-				echo '<li><a href="table/table1.php" target="insideC">DATABASE</a></li>';
+				echo '<li><a href="table/tableHOME.php" target="insideC">DATABASE</a></li>';
 	?>
-	<li><a href="#" target="insideC">Find Us</a></li>
-    <li><a href="#" target="insideC">About Us</a></li>
-    <li><a href="#" class="selected" target="insideC">Contact Us</a></li>
+	<li><a href="#" target="insideC">Reservation</a></li>
+    <li><a href="aboutUS.php" target="insideC">About Us</a></li>
+    <li><a href="registration.php" target="insideC">Golden member</a></li>
   </menu>
 </nav>
 </div>
@@ -72,7 +60,7 @@
 </div>
 </header>
 
-<iframe id="insideC" src="welcome.php">
+<iframe id="insideC" src="menu/menuHOME.php">
 
 <div id="bottom">
 <footer id="footer">

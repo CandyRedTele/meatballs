@@ -8,19 +8,19 @@ function sortTable(c, n, d)
     numerical = (n == "num");
     var list = document.getElementById("thelist");
     var r = list.childNodes;
-<<<<<<< HEAD
-=======
+
+
 	
->>>>>>> Mike
+
     n = r.length;
     var arr = new Array(n-1);
     for(i=1; i < n; i++){
         arr[i-1]=r.item(i);
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> Mike
+
+
+
     quicksort(arr, 0, n-2);
     for(i=0; i < n-1; i++) list.appendChild(arr[i]);
 }
@@ -67,14 +67,14 @@ function quicksort(arr, l, h)
         {  swap(arr, l, h)   }
         return;
     }
-<<<<<<< HEAD
+
     var k = partition(arr, l, h);
-=======
+
 		
 	//document.getElementById("testing").innerHTML = "111111111111";
     var k = partition(arr, l, h);
 	//document.getElementById("testing").innerHTML = "999999999999";
->>>>>>> Mike
+
     quicksort(arr, l, k-1);
     quicksort(arr, k+1, h);
 }
@@ -83,7 +83,7 @@ function partition(arr, l, h)
 {   var i=l, j=h;
     swap(arr, ((i+j)+(i+j)%2)/2, h);
     var pe = arr[h];
-<<<<<<< HEAD
+
     while (i < j)
     {  while (i < j && compare(arr[i], pe) < 1)
        {  i++; }   // from left side
@@ -91,7 +91,7 @@ function partition(arr, l, h)
        {  j--; }   // from right side
        if (i < j) {  swap(arr, i++, j); }
     }
-=======
+
 	//document.getElementById("testing").innerHTML = "222222222222";
     while (i < j)
     {  
@@ -105,7 +105,7 @@ function partition(arr, l, h)
 	   //document.getElementById("testing").innerHTML = "555555555555";
     }
 	
->>>>>>> Mike
+
     if (i != h) swap(arr, i, h);
     return i;
 }

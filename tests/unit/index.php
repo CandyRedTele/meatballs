@@ -7,29 +7,17 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <p><b>Test Site :</b></p>
+    <p><b><h2>Test Site</h2></b></p>
 
     <?php
-
-        function getSrcPath()
-        {
-            $root =  $_SERVER['DOCUMENT_ROOT'];
-
-            if (strrpos($root, '/') == strlen($root) - 1) 
-            {
-                $root = substr($root, 0, -1); // remove trailing '/' (for windows)
-            }
-
-            return $root."/comp353-project/src"; 
-        }
-
         error_reporting(E_ALL);
-        echo "<p><b>include path</b> : ". getSrcPath(). "</p>";
-        set_include_path(getSrcPath());
-        include_once("IncludeAllQueries.php");
-        include_once("TestQuery.php"); 
-        include_once("Logger.php"); 
-        include_once("MeatballsUser.php");
+        
+        include_once("../../src/SetPath.php");
+
+        include_once("IncludeAllQueries.php");  // <- +++++++ Include ALL the queries in one shot!
+        include_once("TestQuery.php");          // <- ------- Test stuff = don't care
+        include_once("Logger.php");             // <- +++++++ You want to LOG stuff???
+        include_once("MeatballsUser.php");      // <- +++++++ Possibly useful too...
     ?> 
 
     <?php
@@ -39,6 +27,9 @@
         $query2 = new TestQuery();
         $query1 = new CustomQuery("SELECT customerName from customers");
         $query3 = new SelectAllQuery("staff");
+
+        // just display what getSrcPath returned
+        echo "<p><b>include path</b> : ". getSrcPath(). "</p>";
 
         //$result = $query1->execute();
         //$result = $query2->execute();
@@ -66,6 +57,9 @@
             echo "access level  $access_level";
         }
 
+       /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        * InsertIntoGoldenQuery 
+        * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
         $insert = new InsertIntoGoldenQuery('Joseph', 'Martineau', 'M', 'jos@msn.com', '123-123-1234');
         $insert->execute();
 
@@ -75,11 +69,33 @@
         $insert_staff->execute();
 
 
+       /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        * GetLocationQuery
+        * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
         $staff_id = "10"; 
         $locationQuery = new GetLocationQuery($staff_id);
         $result = $locationQuery->execute();
         $location = mysqli_fetch_row($result)[0];
         echo "<br><br>location of staff_id $staff_id is : " . $location;
+
+       /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        * GetBillDetailsQuery
+        * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+        echo "<br><b> GetBillDetailsQuery(b_id) : <b><br>";
+        $b_id = '1';
+        $bill_details_query = new GetBillDetailsQuery($b_id);
+        $result = $bill_details_query->execute();
+        if ($result) {
+            while($row = mysqli_fetch_row($result)) 
+            {
+                foreach ($row as $field) {
+                    echo $field . " ";
+                    
+                }
+
+                echo "<br>" ;
+            }
+        }
     ?>
 
 
