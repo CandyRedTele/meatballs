@@ -339,12 +339,14 @@ class Recipe():
         h = tree.xpath('//table[1]//tr[2]/td[2]')[0]
         l = urlparse(h.text)
         name = l.path.split('/')[2]
+        name = name.replace('-', ' ').title()
         image = tree.xpath('//table[1]//tr[5]/td[2]')[0].text
         table = tree.xpath('//table[2]')[0]
         amounts = []
         ingre_names = []
 
         for row in table[1:]:
+            ingre_n = row[3].text.replace("'", "")
             if not ingre_names.count(row[3].text.replace("'", "")):
                 ingre_names.append(row[3].text.replace("'", ""))
                 amounts.append([int(ceil(float(row[1].text))), row[3].text.replace("'", "")])
