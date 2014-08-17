@@ -11,32 +11,90 @@ DO NO EDIT UNLESS YOU ARE GEOFFREY
 */
 public class generate_data {
 	
-	static int numCO 	= 3;
-	static int numHR 	= 12;
-	static int numAcc 	= 12;
-	static int numMark 	= 12;
-	static int numMana	= 12;
-	static int numChef 	= 12;
-	static int numShift = 12;
-	static int numDeli	= 12;
-	static int numDish	= 126;
-	static int numWait 	= 126;
-	static int numCook	= 126;
+	public static final String[] days = {
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday", 
+		"Saturday",
+		"Sunday"
+	};
+	
+	public static final String[] titles = {
+		"ceo", 
+		"cto",
+		"cfo",
+		"human resources",
+		"accounting",
+		"marketing",
+		"manager",
+		"chef",
+		"shift supervisor", 
+		"delivery personnel",
+		"dishwasher",
+		"wait staff",
+		"cook"
+	};
+	
+	public static int[] numOfType= {
+		1, 		//ceo
+		1,		//cto
+		1,		//cfo
+		12,		//HR
+		12,		//accounting
+		12, 	//Marketing
+		12,		//manager
+		12,		//chef
+		12,		//shift supervisor
+		12,		//delivery personnel
+		233,	//dish washer
+		233,	//wait staff
+		233		//cook staff
+	};
+	
+	static int CeoId	= 0;
+	static int CtoId	= 1;
+	static int CfoId	= 2;
+	static int HRId		= 3;
+	static int AccId	= 4;
+	static int MarkId	= 5;
+	static int ManaId	= 6;
+	static int ChefId	= 7;
+	static int ShiftId	= 8;
+	static int DeliId	= 9;
+	static int DishId	= 10;
+	static int WaitId	= 11;
+	static int CookId	= 12;
+	/**
+	 * {minWeek, maxWeek, minDay, maxDay}
+	 */
+	static int[][] hour_constraints = {
+		
+		{100}, //ceo (100 is to signify that they don't have constraint)
+		{100}, //cto (100 is to signify that they don't have constraint)
+		{100}, //cfo (100 is to signify that they don't have constraint)
+		{100}, //hr (100 is to signify that they don't have constraint)
+		{100}, //acc (100 is to signify that they don't have constraint)
+		{100}, //mark (100 is to signify that they don't have constraint)
+		{100}, //mana
+		{100}, //chef
+		{ 0, 60, 0, 12}, //shift
+		{100}, //deli
+		{32, 40, 0,  8}, //dish
+		{ 0, 60, 0, 12}, //wait
+		{32, 40, 0,  8} //cook
+		
+	};
 	
 	
 	static boolean debug = false;
 	final static int numBills = 300;
-	final static int numStaff = numCO + numHR + numAcc + numMark + numMana + numChef +
-			numShift + numDeli + numDish + numWait + numCook + 320;
+	final static int numStaff = sumArr(numOfType, 0, numOfType.length-1)+320;
 	final static String path_to_sql = "../sql/";
 	public static void main(String[] args) throws FileNotFoundException {
-		//Scanner keyin = new Scanner(System.in);
-		//System.out.println("Where is the staff file located?");
-		//String staffloc = keyin.next();
-		//String staffloc = "";
 		
         PrintStream p = System.out;
-        
 				
 		String slash = File.separator;
 		String folder = "output"+ slash;
@@ -78,7 +136,9 @@ public class generate_data {
         	
         	//generate staff
 			p = new PrintStream(folder + "staffgen.sql");
-			arrStaff = gen_staff(numStaff, p);
+
+			arrStaff = gen_staff(p);
+
 			
 			//generate admin info
 			p = new PrintStream(folder + "gen_admin.sql");
@@ -95,6 +155,10 @@ public class generate_data {
 			//generate shifts
 			p = new PrintStream(folder + "gen_shift.sql");
 			gen_shift(arrStaff, p);
+			
+			//generate constraints on scheduling
+			p = new PrintStream(folder + "gen_schedule.sql");
+			gen_sched(p);
         }
 		/*
         if(genbills){
@@ -112,13 +176,31 @@ public class generate_data {
         
 	}
 	
-	private static StaffMember[] gen_staff(int numStaff, PrintStream p){
-		String[] titles = {
-				"ceo", "cto", "cfo", "human resources", 
-				"accounting","marketing","manager", "chef",
-				"shift supervisor", "delivery personnel",
-				"dishwasher","wait staff","cook"
+	private static void gen_sched(PrintStream p) {
+		String name = "schedule";
+		String[] fields = {"`title`","`min_per_week`", "`max_per_week`",
+				"`min_per_day`", "`max_per_day`", 
 		};
+		ArrayList<Object> constraints = new ArrayList<Object>();
+		for(int i = 0; i < hour_constraints.length; i++){
+			if(hour_constraints[i][0] == 100){
+				System.out.println("not generating for " + titles[i]);
+			}
+			else{
+				constraints.add(new Object[]{
+					"'" + titles[i] + "'",
+					hour_constraints[i][0],
+					hour_constraints[i][1],
+					hour_constraints[i][2],
+					hour_constraints[i][3],
+				});
+			}
+		}
+		gen_data(name, fields, constraints.toArray(), p);
+		
+	}
+
+	private static StaffMember[] gen_staff(PrintStream p){
 		
 		String name = "staff";
 		String[] fields = {"`name`", "`address`", "`phone`", "`ssn`", "`title`"};
@@ -130,8 +212,8 @@ public class generate_data {
 		for(int i = 0; i < staffs.length; i++){
 			String title = "";
 			
-			if(i < numCO) {
-				title = titles[i%numCO];
+			if(i < 3) {
+				title = titles[i%3];
 			}			
 			else if(i < 15) {
 				title = titles[3];
@@ -180,18 +262,18 @@ public class generate_data {
 		String[] fields = {"title", "access_level"};
 		ArrayList<Object> access_level = new ArrayList<Object>();
 		
-		access_level.add(new Object[] {"'ceo'", 1});
-		access_level.add(new Object[] {"'cto'", 1});
-		access_level.add(new Object[] {"'cfo'", 1});
-		access_level.add(new Object[] {"'human resources'", 1});
-		access_level.add(new Object[] {"'accounting'", 2});
-		access_level.add(new Object[] {"'marketing'", 2});
-		access_level.add(new Object[] {"'manager'", 3});
-		access_level.add(new Object[] {"'chef'", 4});
-		access_level.add(new Object[] {"'shift supervisor'", 5});
-		access_level.add(new Object[] {"'delivery personnel'", 6});
-		access_level.add(new Object[] {"'dishwasher'", 6});
-		access_level.add(new Object[] {"'wait staff'", 6});
+		access_level.add(new Object[] {"'" + titles[CeoId] + "'", 1});
+		access_level.add(new Object[] {"'" + titles[CtoId] + "'", 1});
+		access_level.add(new Object[] {"'" + titles[CfoId] + "'", 1});
+		access_level.add(new Object[] {"'" + titles[HRId] + "'", 1});
+		access_level.add(new Object[] {"'" + titles[AccId] + "'", 2});
+		access_level.add(new Object[] {"'" + titles[MarkId] + "'", 2});
+		access_level.add(new Object[] {"'" + titles[ManaId] + "'", 3});
+		access_level.add(new Object[] {"'" + titles[ChefId] + "'", 4});
+		access_level.add(new Object[] {"'" + titles[ShiftId] + "'", 5});
+		access_level.add(new Object[] {"'" + titles[DeliId] + "'", 6});
+		access_level.add(new Object[] {"'" + titles[DishId] + "'", 6});
+		access_level.add(new Object[] {"'" + titles[WaitId] + "'", 6});
 
 
 		gen_data(name, fields, access_level.toArray(), p);
@@ -205,27 +287,33 @@ public class generate_data {
 		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		
+		/*
 		int count = 0;
 		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
-			if(!(staff.title.equals("ceo")
-					||staff.title.equals("cfo")
-					||staff.title.equals("cto"))
+			if(!(staff.title.equals(titles[CeoId])
+					||staff.title.equals(titles[CfoId])
+					||staff.title.equals(titles[CtoId]))
 					){
 				count++;
 			}
 		}
+
 		
 		int staffperfacility = (count / 12)+1;
 
 		int[] seq = sequence(12, staffperfacility);
 		
 		seq = random_sequence(seq);
+
+		*/
+		
+		
 		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
-			if(!(staff.title.equals("ceo")
-					||staff.title.equals("cfo")
-					||staff.title.equals("cto"))
+			if(!(staff.title.equals(titles[CeoId])
+					||staff.title.equals(titles[CfoId])
+					||staff.title.equals(titles[CtoId]))
 					){
 				staff.start_date = gen_date();
 				staff.f_id = i%12 + 1;
@@ -577,6 +665,17 @@ public class generate_data {
 		}
 		
 		return newArr;
+	}
+	
+	public static int sumArr(int[] arr, int begin, int end){
+		if(debug){
+			System.out.println("adding " +Arrays.toString(arr) + " from index " + begin + " to " + end);
+		}
+		int sum = 0;
+		for(int i = begin; i < end; i++){
+			sum += arr[i];
+		}
+		return sum;
 	}
 	
 	

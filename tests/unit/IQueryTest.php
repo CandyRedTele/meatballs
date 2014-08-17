@@ -1,5 +1,7 @@
 <?php
+include_once("src/IncludeAllQueries.php");
 include_once("src/CustomQuery.php");
+include_once("src/InsertIntoStaffQuery.php");
 putenv("DOCUMENT_ROOT='/home/jamg85/git");
 
 /**
@@ -14,20 +16,99 @@ class IQueryTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    public function testInsertIntoStaffQuery_localstaffGetsUpdated()
+    {
+        $name = 'Jean-Paul III';
+        $title = 'cook';
+        $f_id = 1;
+
+        // 1. Insert some values.
+        $insert= new InsertIntoStaffQuery($name, 
+                                            '224 rue XYZ', 
+                                            '819-789-1234', 
+                                            '123456789', 
+                                            $title, 
+                                            $f_id);
+        if(!$insert->execute()) {
+            $this->fail('execute failed');
+        }
+
+        
+        // 2. Retreive those values.
+        $select = new CustomQuery("select name, title from localstaff natural join staff where name='".$name."';");
+        $result = $select->execute();
+        
+        if (!$result) {
+            mysqli_free_result($result);
+            $this->assertTrue(false); // Fail it.
+        }
+
+
+        $actual = mysqli_fetch_assoc($result);
+        mysqli_free_result($result);
+
+        // 3. assert
+        $this->assertEquals($name, $actual['name']);
+        $this->assertEquals($title, $actual['title']);
+
+    }
+
+
+    public function testInsertIntoStaffQuery_adminGetsUpdated()
+    {
+        $name = 'Jean-Paul II';
+        $title = 'ceo';
+
+        // 1. Insert some values.
+        $insert= new InsertIntoStaffQuery($name, 
+                                            '224 rue XYZ', 
+                                            '819-789-1234', 
+                                            '123456789', 
+                                            $title, 
+                                            'Montreal');
+
+        if(!$insert->execute()) {
+            $this->fail('execute failed');
+        }
+
+        
+        // 2. Retreive those values.
+        $select = new CustomQuery("select name, title from admin natural join staff where name='".$name."';");
+        $result = $select->execute();
+        
+        if (!$result) {
+            mysqli_free_result($result);
+            $this->assertTrue(false); // Fail it.
+        }
+
+
+        $actual = mysqli_fetch_assoc($result);
+        mysqli_free_result($result);
+
+        // 3. assert
+        $this->assertEquals($name, $actual['name']);
+        $this->assertEquals($title, $actual['title']);
+
+    }
+
+
     public function testCustomQuery()
     {
         $expected = 'phpunit';
 
         // 1. Insert some values.
-        $insert = new CustomQuery("insert into staff (name) values ('" . $expected . "')");
-        $insert->execute();
+        $insert = new CustomQuery("insert into staff (name) values ('" . $expected . "');");
+
+        if (!($result = $insert->execute())) {
+            $this->fail('insertion failed');    
+        }
         
         // 2. Retreive those values.
-        $select = new CustomQuery("select name from staff where name='phpunit'");
+        $select = new CustomQuery("select name from staff where name='phpunit';");
         $result = $select->execute();
         
         if (!$result) {
-            $this->assertTrue(false); // Fail it.
+            $this->fail('result is null');
         }
 
         $actual = mysqli_fetch_row($result);
@@ -35,8 +116,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
         // 3. assert
         $this->assertEquals($expected, $actual[0]);
 
-        // 4. check logs
-
+        mysqli_free_result($result);
     }
 
     public function testGetAccessLevelQuery()

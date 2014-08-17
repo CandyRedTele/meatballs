@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`admin`
 (
     `staff_id`  INTEGER NOT NULL,
     `location`  VARCHAR(55) NULL DEFAULT 'Montreal',
-    `yrs_exp`   INTEGER NULL,
+    `yrs_exp`   INTEGER     NOT NULL DEFAULT 0,
     `training`  VARCHAR(45) NULL,
     PRIMARY KEY (staff_id, location), -- Assuming that an employee might work in different locations during his career.
     CONSTRAINT `fk_admin_staff_id`
@@ -209,8 +209,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`schedule` 
 (
   `title` VARCHAR(45) NOT NULL,
-  `hours_week` DOUBLE NULL,
-  `hours_day` DOUBLE NULL,
+  `min_per_week` INT DEFAULT 0,
+  `max_per_week` INT NOT NULL,
+  `min_per_day` INT DEFAULT 0,
+  `max_per_day` INT NOT NULL,
   PRIMARY KEY (`title`)
 )
 ENGINE = InnoDB;
