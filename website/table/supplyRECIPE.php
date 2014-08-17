@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-	<title>FOOD SUPPLY</title>
+	<title>RECIPES</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; charset=utf-8">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -28,7 +28,7 @@
 <!--                                   INFORMATION TABLES                                          -->
 <?php 		include_once("supplyMENU.php");		?>
 <div class="haupttext" id="foodINFO">
-<!--                                   MENU LIST                                          -->
+<!--                                   Content LIST                                          -->
 
 <div class="errorMessage"><?php /*echo $outputMessage*/?></div>
 	
@@ -55,6 +55,7 @@
 
 </div>
 </section>
+
 <p id="testing"> </p>
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
@@ -67,24 +68,23 @@
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
-		if($_SESSION['accesslv']==1)
-			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='food'");
-		else if($_SESSION['accesslv']==3||$_SESSION['accesslv']==4)
-			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='food'");
-		
+				if($_SESSION['accesslv']==1)
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='kitchen supplies'");
+		else if($_SESSION['accesslv']==3)
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='kitchen supplies'");
+
+		//$query = new SelectAllQuery("customers");
 		if (!is_null($query)) 
 			$result = $query->execute();
 
 			
-	if(isset($result))
         while($row = mysqli_fetch_row($result)) 
         {
 			echo "<ul>";
             foreach ($row as $field) {
-				echo "<li>" . $field . "</li>" ;   
+                echo "<li>" . $field . "</li>" ;   
             }
 			echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
-            //var_dump($row);
         }
 		
         ?></div>

@@ -2,7 +2,7 @@
 	error_reporting(E_ALL);
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php");
-	session_start();
+	//session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,6 +49,41 @@ $(function() {
 
 <!--								MENU starts HERE ! ! !							-->
 
+<?php
+$parameter = $_SERVER['QUERY_STRING'];
+echo "<div id='main'>
+		<div class='width-container'>
+			<div class='grid2column'>";
+
+$query1 = new CustomQuery("select distinct category from menu_item");
+if (!is_null($query1)) { $categories = $query1->execute();}
+
+while($category = mysqli_fetch_row($categories)) {
+
+    echo "<h3 class='header-underline'>".$category[0]. $parameter."</h3>";
+	
+    $query2 = new CustomQuery("select name, price from menu_item natural join (menu natural join facility) where
+        facility.f_id ='" . $parameter . "' and menu_item.category = '". $category[0]. "'");
+		
+    if (!is_null($query2)) { $menus_items = $query2->execute();}
+	
+    echo "<ul class='menu-items'>";
+	
+    while($menu_items = mysqli_fetch_row($menus_items)) {
+        echo "<li>";
+        //foreach ($menu_items as $menu_item) {
+            echo "<a href='#'><div class='grid2column'>" . $menu_items[0] . "</div></a>
+            <a href='#'><div class='grid2column lastcolumn'>" . $menu_items[1] . "</div></a>
+            <div class='clearfix'></div>";
+        //}
+        echo "</li>";
+    }
+	
+    echo "</ul>";
+    echo "<div class='menu-spacer'></div>";
+}
+echo "</div></div></div>";
+?>
 
 	
 <!--								MENU ends HERE ! ! !							-->

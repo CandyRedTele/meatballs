@@ -40,48 +40,32 @@
 					// </form>
 				// </div>
 				// <!--End MailChimp Signup Form-->
-				//<div class="social-icons">
-						// <a class="rss" href="#" target="_blank">r</a>
-						// <a class="facebook" href="http://facebook.com" target="_blank">F</a>
-						// <a class="twitter" href="https://twitter.com/Progression_S" target="_blank">t</a>
-						// <a class="skype" href="http://skype.com" target="_blank">s</a>
-						// <a class="vimeo" href="http://vimeo.com" target="_blank">v</a>
-						// <a class="linkedin" href="http://linkedin.com/" target="_blank">l</a>
-						// <!--a class="dribbble" href="http://dribbble.com/" target="_blank">d</a-->
-						// <!--a class="forrst" href="http://forrst.com/" target="_blank">f</a-->
-						// <!--a class="flickr" href="http://flickr.com" target="_blank">n</a-->
-						// <!--a class="google" href="http://google.com" target="_blank">g</a-->
-						// <!--a class="youtube" href="http://youtube.com" target="_blank">y</a-->
-						// <div class="clearfix"></div>
-				// </div><!-- close .social-icons -->
 			// </div>
 			
 ?>				
-
 			<div class="grid4column homepage-widget lastcolumn">
 				<h3 class="header-underline">Our Hours</h3>
 				<ul id="open-hours">
-					<li>
-						<div class="date-day grid2column"><h6>Monday</h6></div><div class="hours-date grid2column lastcolumn">8:00 AM - 11:00 PM</div><div class="clearfix"></div>
-					</li>
-					<li>
-						<div class="date-day grid2column"><h6>Tuesday</h6></div><div class="hours-date grid2column lastcolumn">8:00 AM - 11:00 PM</div><div class="clearfix"></div>
-					</li>
-					<li>
-						<div class="date-day grid2column"><h6>Wednesday</h6></div><div class="hours-date grid2column lastcolumn">8:00 AM - 11:00 PM</div><div class="clearfix"></div>
-					</li>
-					<li>
-						<div class="date-day grid2column"><h6>Thursday</h6></div><div class="hours-date grid2column lastcolumn">8:00 AM - 11:00 PM</div><div class="clearfix"></div>
-					</li>
-					<li>
-						<div class="date-day grid2column"><h6>Friday</h6></div><div class="hours-date grid2column lastcolumn">11:00 AM - 11:00 PM</div><div class="clearfix"></div>
-					</li>
-					<li>
-						<div class="date-day grid2column"><h6>Saturday</h6></div><div class="hours-date grid2column lastcolumn">11:00 AM - 11:00 PM</div><div class="clearfix"></div>
-					</li>
-					<li>
-						<div class="date-day grid2column"><h6>Monday</h6></div><div class="hours-date grid2column lastcolumn">Closed</div><div class="clearfix"></div>
-					</li>
+				<?php	$logger = Logger::getSingleInstace();
+						$logger->write("HelloLogger!");
+						
+					$query = new CustomQuery("SELECT * from facilityhours");
+						
+					if (!is_null($query)) 
+						$result = $query->execute();
+
+							
+					if(isset($result))
+						while($row = mysqli_fetch_row($result)) 
+						{
+							$row[1]=preg_replace("/\:[0-9]{2}$/","",$row[1]);
+							$row[2]=preg_replace("/\:[0-9]{2}$/","",$row[2]);
+							echo "<li><div class='date-day grid2column'><h6>" . $row[0] . 
+									"</h6></div><div class='hours-date grid2column lastcolumn'>" . $row[1] . 
+									" to " . $row[2]. "</div><div class='clearfix'></div></li>";   
+						}
+				?>
+
 				</ul>
 			</div>
 			

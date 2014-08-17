@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-	<title>FOOD SUPPLY</title>
+	<title>Kitchen SUPPLY</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; charset=utf-8">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -19,6 +19,7 @@
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
 <link rel="stylesheet" href="../css/stylesheet6.css" type="text/css" />
+<style>label {width:33%;}	#formContainer{width:75%;}</style>
 </head>
 
 <body>
