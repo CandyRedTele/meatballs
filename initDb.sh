@@ -19,7 +19,7 @@ SCRIPTS=('create_table.sql' 'trigger.sql' 'after_bill_trigger.sql'
          'pay.sql' 'staffgen.sql' 'gen_admin.sql' 'gen_access_level.sql'
          'menu_item.sql' 'supply.sql' 'ingredients.sql' 'menu.sql' 'wine.sql' 'food.sql'  'vendor.sql' 'catalog.sql'
          'gen_facility.sql' 'gen_localStaff.sql' 'gen_facilityHours.sql' 'facility_stock.sql' 'facility_balance.sql' 'order.sql'
-         'gen_bills.sql' 'gen_bill_has_items.sql' 'gen_golden.sql' 'gen_golden_bills.sql' 'gen_shift.sql' 'gen_schedule.sql'
+         'bills.sql' 'bill_has_items.sql' 'golden.sql' 'golden_bills.sql' 'gen_shift.sql' 'gen_schedule.sql'
          )
 TEMPO=tempo
 
