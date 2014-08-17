@@ -40,7 +40,7 @@ public class StaffMember {
 		if(f_id != 0){
 			fd = new Integer(f_id).toString();
 		}
-		return staff_id + ", " + name + ", " + title; 
+		return staff_id + ", " + name + ", " + title + "," + fd; 
 	}
 	
 }

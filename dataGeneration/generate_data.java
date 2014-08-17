@@ -61,7 +61,7 @@ public class generate_data {
 	static int MarkId	= 5;
 	static int ManaId	= 6;
 	static int ChefId	= 7;
-	static int ShiftId	= 8;
+	static int supervId	= 8;
 	static int DeliId	= 9;
 	static int DishId	= 10;
 	static int WaitId	= 11;
@@ -184,7 +184,7 @@ public class generate_data {
 		ArrayList<Object> constraints = new ArrayList<Object>();
 		for(int i = 0; i < hour_constraints.length; i++){
 			if(hour_constraints[i][0] == 100){
-				System.out.println("not generating for " + titles[i]);
+				System.out.println("not generating schedule constraints for " + titles[i]);
 			}
 			else{
 				constraints.add(new Object[]{
@@ -270,7 +270,7 @@ public class generate_data {
 		access_level.add(new Object[] {"'" + titles[MarkId] + "'", 2});
 		access_level.add(new Object[] {"'" + titles[ManaId] + "'", 3});
 		access_level.add(new Object[] {"'" + titles[ChefId] + "'", 4});
-		access_level.add(new Object[] {"'" + titles[ShiftId] + "'", 5});
+		access_level.add(new Object[] {"'" + titles[supervId] + "'", 5});
 		access_level.add(new Object[] {"'" + titles[DeliId] + "'", 6});
 		access_level.add(new Object[] {"'" + titles[DishId] + "'", 6});
 		access_level.add(new Object[] {"'" + titles[WaitId] + "'", 6});
