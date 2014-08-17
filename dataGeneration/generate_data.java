@@ -78,7 +78,7 @@ public class generate_data {
         	
         	//generate staff
 			p = new PrintStream(folder + "staffgen.sql");
-			arrStaff = gen_staff(numStaff, p);
+        	arrStaff = gen_staff(numStaff, p);
 			
 			//generate admin info
 			p = new PrintStream(folder + "gen_admin.sql");
@@ -205,6 +205,7 @@ public class generate_data {
 		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		
+		/*
 		int count = 0;
 		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
@@ -215,12 +216,15 @@ public class generate_data {
 				count++;
 			}
 		}
+
 		
 		int staffperfacility = (count / 12)+1;
 
 		int[] seq = sequence(12, staffperfacility);
 		
 		seq = random_sequence(seq);
+		
+		 */
 		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
 			if(!(staff.title.equals("ceo")
