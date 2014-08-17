@@ -17,6 +17,7 @@
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <style> 
 #companyDESCRIPTION {width: 70%;}
+#localADDRESS0, #localADDRESS1, #localADDRESS2{float:left;}
 </style>
 </head>
 <div id="main">
@@ -96,38 +97,63 @@
 <footer>
 		<div class="width-container">
 			<div id="copyright">
+				</br></br>
+				<h3 class="header-underline">Visit us</h3>
 				
-				<div class="grid2column"></br></br>
-					<h3 class="header-underline">Visit us</h3>
-					<a href="index.html"><img src="img/aboutUSimg.jpg" width="88%" height="88%" alt="Logo-footer"></a>
-				</div>
-				
-				<div class="widget-area-highlight2">
-			<div class="width-container">
-			
-				<div class="grid4column homepage-widget">
-					</br></br>
-					<h6 class="heading-address-widget">White Rock Restaurant</h6>
-					<div class="address-widget">1422 1st St. Napa, CA 94559</div>
-					<div class="phone-widget"><span>Phone:</span> (707) 255-0211</div>
-					<div class="e-mail-widget"><span>E-mail:</span> <a href="#">admin@e-mail.com</a></div>
-				</div>
+				<div class="widget-area-highlight2" id="localADDRESS1">
+					<div class="width-container">
+						
+
+						<div class="grid4column homepage-widget">
+							</br></br>
+							<h6 class="heading-address-widget">White Rock Restaurant</h6>
+							<div class="address-widget">1422 1st St. Napa, CA 94559</div>
+							<div class="phone-widget"><span>Phone:</span> (707) 255-0211</div>
+							<div class="e-mail-widget"><span>E-mail:</span> <a href="#">admin@e-mail.com</a></div>
+						</div>
 
 				
-				<div class="grid4column homepage-widget">
-					</br></br>
-					<h6 class="heading-address-widget">White Rock Restaurant</h6>
-					<div class="address-widget">1422 1st St. Napa, CA 94559</div>
-					<div class="phone-widget"><span>Phone:</span> (707) 255-0211</div>
-					<div class="e-mail-widget"><span>E-mail:</span> <a href="#">admin@e-mail.com</a></div>
-				</div>
+						<div class="grid4column homepage-widget">
+							</br></br>
+							<h6 class="heading-address-widget">White Rock Restaurant</h6>
+							<div class="address-widget">1422 1st St. Napa, CA 94559</div>
+							<div class="phone-widget"><span>Phone:</span> (707) 255-0211</div>
+							<div class="e-mail-widget"><span>E-mail:</span> <a href="#">admin@e-mail.com</a></div>
+						</div>
 
 			
-				<div class="clearfix"></div>
-			</div><!-- close .width-container -->
-		</div><!-- close .widget-area-highlight -->
+						<div class="clearfix"></div>
+					</div><!-- close .width-container -->
+				</div><!-- close .widget-area-highlight -->
 		
-		
+				<div class="widget-area-highlight2" id="localADDRESS2">
+					<div class="width-container">
+					
+						<div class="grid4column homepage-widget">
+							</br></br>
+							<h6 class="heading-address-widget">White Rock Restaurant</h6>
+							<div class="address-widget">1422 1st St. Napa, CA 94559</div>
+							<div class="phone-widget"><span>Phone:</span> (707) 255-0211</div>
+							<div class="e-mail-widget"><span>E-mail:</span> <a href="#">admin@e-mail.com</a></div>
+						</div>
+
+						
+						<div class="grid4column homepage-widget">
+							</br></br>
+							<h6 class="heading-address-widget">White Rock Restaurant</h6>
+							<div class="address-widget">1422 1st St. Napa, CA 94559</div>
+							<div class="phone-widget"><span>Phone:</span> (707) 255-0211</div>
+							<div class="e-mail-widget"><span>E-mail:</span> <a href="#">admin@e-mail.com</a></div>
+						</div>
+					
+						<div class="clearfix"></div>
+					</div><!-- close .width-container -->
+				</div><!-- close .widget-area-highlight -->
+				
+				<div class="grid2column" width="30%" id="localADDRESS0"></br></br>
+					<img src="img/aboutUSimg.jpg" width="100%" height="100%" alt="Logo-footer">
+				</div>
+				
 				
 			<div class="clearfix"></div>
 			</div><!-- close #copyright -->

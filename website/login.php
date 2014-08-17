@@ -8,12 +8,12 @@
 	<?php 
 		error_reporting(E_ALL);
 		set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
-        include_once("IncludeAllQueries.php"); 
+		//echo get_include_path();
+			include_once("IncludeAllQueries.php");
 		
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 
-		//$query = new CustomQuery("SELECT * from staff");
 		$query = new SelectAllQuery("staff");
 		
 		if (!is_null($query)) 
@@ -38,12 +38,10 @@
 				$logger = Logger::getSingleInstace();
 				$logger->write("HelloLogger!");
 
-				$query = new CustomQuery('SELECT access_level from access_level where title="'.$_SESSION["title"].'"');
+				$query = new GetAccessLevelQuery($_SESSION['SID']);
 				if (!is_null($query)) 
-				{
-					//var_dump( $query);
 					$result = $query->execute();
-				}
+				
 				$row=mysqli_fetch_row($result);
 				$_SESSION['accesslv']=$row[0];#or just = MeatballUser::getAccessLevel($_SESSION['SID']) is good as well
 				
@@ -54,19 +52,11 @@
 				
 				$row=mysqli_fetch_row($result);
 				
-				if($row[0]==""||$row[0]==null){
-					$query = new CustomQuery('SELECT location from admin where staff_id="'.$_SESSION["SID"].'"');
-					if (!is_null($query)) 
-						$result = $query->execute();
-					
-					$row=mysqli_fetch_row($result);
-				}
 
 				$_SESSION['location']=$row[0];
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
 						<meta http-equiv='Refresh' content='3;url=index.php'/>";
 			}
-            //echo $_SESSION['SID'];
             //var_dump($row);
         }
 		

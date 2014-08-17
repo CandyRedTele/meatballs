@@ -21,7 +21,7 @@
 	<?php 
 	if(isset($_SESSION['SID']))
 		echo '<div id="templatemo_login_right">
-				hello ' . $_SESSION['name'] . '! </br> location: '. $_SESSION['location'] .' </br> access level: '. $_SESSION['accesslv'] .'
+				Hello ' . $_SESSION['name'] . '! </br> location: '. $_SESSION['location'] .' </br> access level: '. $_SESSION['accesslv'] .'
 				<form id="form1" name="form1" method="post" action="logout.php">			
 					<label><input type="submit" name="logout" id="logout" value="LOG OUT" /></label>
 				</form>
