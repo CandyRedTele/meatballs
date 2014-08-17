@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -10,15 +11,32 @@ DO NO EDIT UNLESS YOU ARE GEOFFREY
 */
 public class generate_data {
 	
+	static int numCO 	= 3;
+	static int numHR 	= 12;
+	static int numAcc 	= 12;
+	static int numMark 	= 12;
+	static int numMana	= 12;
+	static int numChef 	= 12;
+	static int numShift = 12;
+	static int numDeli	= 12;
+	static int numDish	= 126;
+	static int numWait 	= 126;
+	static int numCook	= 126;
+	
+	
 	static boolean debug = false;
 	final static int numBills = 300;
-	final static int numStaff = 1000;
+	final static int numStaff = numCO + numHR + numAcc + numMark + numMana + numChef +
+			numShift + numDeli + numDish + numWait + numCook + 320;
 	final static String path_to_sql = "../sql/";
 	public static void main(String[] args) throws FileNotFoundException {
 		//Scanner keyin = new Scanner(System.in);
 		//System.out.println("Where is the staff file located?");
 		//String staffloc = keyin.next();
 		//String staffloc = "";
+		
+        PrintStream p = System.out;
+        
 				
 		String slash = File.separator;
 		String folder = "output"+ slash;
@@ -55,33 +73,30 @@ public class generate_data {
         	debug = true;
         }
         StaffMember[] arrStaff;
-        PrintStream p = System.out;
         if(genstaff){
         	folder = path_to_sql + "staff" + slash;
         	
+        	//generate staff
 			p = new PrintStream(folder + "staffgen.sql");
 			arrStaff = gen_staff(numStaff, p);
-
 			
-			// File staff = new File(staffloc);
-			//Scanner staff_reader = new Scanner(staff);
+			//generate admin info
 			p = new PrintStream(folder + "gen_admin.sql");
 			gen_admins(arrStaff, p);
 			
-	        
-			//staff = new File(staffloc);
-			//staff_reader = new Scanner(staff);
-			
+			//generate local staff info
 			p = new PrintStream(folder + "gen_localStaff.sql");
 			gen_localstaff(arrStaff, p);
 			
+			//generate access levels
 			p = new PrintStream(folder + "gen_access_level.sql");
 			gen_access_level(p);
 			
+			//generate shifts
 			p = new PrintStream(folder + "gen_shift.sql");
 			gen_shift(arrStaff, p);
         }
-		
+		/*
         if(genbills){
         	folder = path_to_sql + "bills" + slash;
 			p = new PrintStream(folder +"gen_bills.sql");
@@ -91,6 +106,7 @@ public class generate_data {
 			p = new PrintStream(folder + "gen_golden_bills.sql");
 			gen_golden_bills(p);
         }
+        */
         
 
         
@@ -110,11 +126,13 @@ public class generate_data {
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		StaffMember[] staffs = new StaffMember[numStaff];
 		
+
 		for(int i = 0; i < staffs.length; i++){
 			String title = "";
-			if(i < 3) {
-				title = titles[i];
-			}
+			
+			if(i < numCO) {
+				title = titles[i%numCO];
+			}			
 			else if(i < 15) {
 				title = titles[3];
 			}
@@ -131,7 +149,7 @@ public class generate_data {
 				title = titles[7];
 			}
 			else
-				title = titles[random_num(8,12)];
+				title = titles[i%5 + 8];
 			
 			staffs[i]  = new StaffMember (i + 1,
 					gen_name(3),
@@ -148,8 +166,6 @@ public class generate_data {
 				"'" + staffs[i].ssn + "'", 
 				"'" + staffs[i].title + "'"
 			});
-
-			
 			//System.out.println(staffs[0]);
 		}
 		
@@ -182,22 +198,37 @@ public class generate_data {
 
 	}
 	
-	private static void gen_localstaff(/*Scanner staff_reader,*/ StaffMember[] arrStaff, PrintStream p) {
+	private static void gen_localstaff( StaffMember[] arrStaff, PrintStream p) {
 		
 		String name = "localstaff";
 		String[] fields = {"start_date", "f_id", "staff_id"};
 		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		
+		int count = 0;
 		for(int i = 0; i < arrStaff.length; i++){
-			
+			StaffMember staff = arrStaff[i];
+			if(!(staff.title.equals("ceo")
+					||staff.title.equals("cfo")
+					||staff.title.equals("cto"))
+					){
+				count++;
+			}
+		}
+		
+		int staffperfacility = (count / 12)+1;
+
+		int[] seq = sequence(12, staffperfacility);
+		
+		seq = random_sequence(seq);
+		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
 			if(!(staff.title.equals("ceo")
 					||staff.title.equals("cfo")
 					||staff.title.equals("cto"))
 					){
 				staff.start_date = gen_date();
-				staff.f_id = i%12 +1;
+				staff.f_id = i%12 + 1;
 				
 				localStaffs.add(new Object[]{
 					staff.start_date,
@@ -292,7 +323,7 @@ public class generate_data {
 		if(debug) System.out.println("Admins Generated");
 
 	}
-	
+	/*
 	static void gen_golden_bills(PrintStream p){
 		
 		String[] fields = {"g_id", "b_id"};
@@ -309,7 +340,8 @@ public class generate_data {
 		gen_data(name, fields, golden_bills.toArray(), p);
 		
 	}
-	
+	*/
+	/*
 	static void gen_bills(PrintStream p1, PrintStream p2){
 		String[] fields = {"f_id", "date"};
 		String name = "bill";
@@ -336,6 +368,7 @@ public class generate_data {
 		gen_data(name, fields, bills.toArray(), p1);
 		gen_data(item_name, fields_has_item, has_items.toArray(), p2);
 	}
+	*/
 	
 	static void gen_shift(StaffMember[] arrStaff, PrintStream p){
 		
@@ -391,7 +424,7 @@ public class generate_data {
 			if(arrStaff[i].title.equals("dishwasher")){
 				shifts = dishwasherShifts.getStaffShifts(Shift.dish, 4, arrStaff[i].f_id-1, arrStaff[i].staff_id);
 			}
-			if(arrStaff[i].title.equals("wait")){
+			if(arrStaff[i].title.equals("wait staff")){
 				shifts = waitStaff.getStaffShifts(Shift.dish, 4, arrStaff[i].f_id-1, arrStaff[i].staff_id);
 			}
 			if(shifts != null){
@@ -404,6 +437,11 @@ public class generate_data {
 				}
 			}
 		}
+		System.out.println(cookingShifts);
+		System.out.println(dishwasherShifts);
+		System.out.println(waitStaff);
+		
+
 		gen_data(name, fields, gen_shift.toArray(), p);
 	}
 	
@@ -460,7 +498,6 @@ public class generate_data {
 	
 	private static String gen_date(){
 		
-		//int i = (int)(Math.random() *10);
 		String[] years = {"2012", "2013", "2014"};
 		
 		String year = years[random_num(0,years.length-1)];
@@ -498,6 +535,48 @@ public class generate_data {
 	
 	static int random_num(int min, int max){
 		return (int) (Math.random() * (max-min + 1) + min);
+	}
+	
+	static int[] sequence(int max, int numRepeat){
+		int[] unsorted = new int[max * numRepeat];
+		for(int eye = 0; eye < numRepeat; eye++){
+			for(int jay = 0; jay < max; jay++){
+				unsorted[eye * max + jay] = jay + 1;
+			}
+		}
+		return unsorted;
+	}
+	
+	static int[] random_sequence(int[] arr){
+		PrintStream p = System.out;
+		int[] newArr = new int[arr.length];
+		
+		for(int i = 0; arr.length > 0; i++){
+			int ran = random_num(0, arr.length-1);
+			if(debug){p.println("ran = " +ran);}
+			newArr[i] = arr[ran];
+			
+			int[] tmpArr = new int[arr.length-1];
+			for(int jay = 0; jay < ran; jay++){
+				tmpArr[jay] = arr[jay];
+				if(debug){
+					p.println(jay + "moved into "+ jay);
+					p.println("tmparr\t"+Arrays.toString(tmpArr));
+					p.println("arr\t"+ Arrays.toString(arr));
+				}
+			}
+			for(int jay = ran+1; jay < arr.length; jay++){
+				tmpArr[jay - 1] = arr[jay];
+				if(debug){
+					p.println(jay-1 + "moved into "+ jay);
+					p.println("tmparr\t"+Arrays.toString(tmpArr));
+					p.println("arr\t" + Arrays.toString(arr));
+				}
+			}
+			arr = tmpArr;			
+		}
+		
+		return newArr;
 	}
 	
 	

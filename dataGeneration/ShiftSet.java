@@ -35,9 +35,7 @@ public class ShiftSet{
 		for(int day = 0; day < 7; day++){
 		    for(int time = 0; time < 2; time++){
 		      for(int fac = 0; fac < 12; fac++){
-			    for(int conc = 0; conc < 3; conc++){
-					str += shifts[day][time][fac]/*[conc]*/.toString() + "\n";
-				}
+					str += shifts[day][time][fac].toString() + "\n";
 		      }
 		    }
 		}
