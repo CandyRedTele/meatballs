@@ -64,6 +64,7 @@ public class Shift{
 			if(taken[i] == staff_id){
 				System.out.println("Shift take rejected. Staff #" + staff_id 
 						+ "is already doing Shift");
+				System.exit(0);
 				return null;
 			}
 			if(taken[i] == 0){
@@ -95,7 +96,13 @@ public class Shift{
 	}
 	
 	public String toString(){
-		return("start, " + start + " end, " + end + " day, " + days[day]);
+		if(taken[0] == 0 || taken[1] == 0 || taken[2] == 0){
+			return("start, " + start + " end, " + end + " day, " + days[day]);
+
+		}
+		else{
+			return "shift taken";	
+		}
 	}
 	
 	
