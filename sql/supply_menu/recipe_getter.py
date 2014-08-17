@@ -17,7 +17,9 @@ inserts = {'supply': 'INSERT INTO supplies (sku, name, type, price) VALUES',
            'vendor': 'INSERT INTO vendor (vendor_id, company_name, address) VALUES',
            'catalog': 'INSERT INTO catalog (vendor_id, sku) VALUES',
            'order': 'INSERT INTO `order` (f_id, sku, order_date, order_qty) VALUES',
-           'facility_balance': 'INSERT INTO facilityBalance (f_id, balance) VALUES'
+           'facility_balance': 'INSERT INTO facilityBalance (f_id, balance) VALUES',
+           'bill': 'INSERT INTO bill (b_id, f_id, `date`) VALUES',
+           'bill_has_menu_item': 'INSERT INTO bill_has_menu_item (b_id, mitem_id) VALUES'
           }
 
 
@@ -35,7 +37,7 @@ class Recipe():
                     s += '\n('
                     s += self.helper_l_s(table)
                     s += ')'
-                    if j == len(tables[0])-1:
+                    if j == (len(tables[0]) - 1):
                         s += ';'
                     else:
                         s += ','
@@ -92,26 +94,49 @@ class Recipe():
                 for k in j['ingredients']:
                     k.append(ingredients_name_dict[k[1]])
 
+        # supply
+        # ========
+        # `sku`     INTEGER NOT NULL,
+        # `name`    VARCHAR(85) NULL,
+        # `type`    VARCHAR(45) NULL,
+        # `price`   DOUBLE NULL,
         supply = []
         for k in ingredients_name:
             supply.append([k[1], k[0], 'food', uniform(0.5, 13.9)])
-
         for i in other_supplies:
             supply.append(i)
 
+        # menu_item
+        # ==========
+        # `mitem_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+        # `category` CHAR(45) NULL,
+        # `price` DOUBLE NULL,
+        # `name` VARCHAR(65) NULL,
+        # `image` VARCHAR(95) NULL
         menu_item = []
         index = 1
         for category, i in d.iteritems():
             for name, j in i.iteritems():
                 j.update({'id': index})
-                menu_item.append([index, category, j['price'], name, j['image']])
+                menu_item.append([index, category, j['price'], name])
                 index += 1
 
+        # ingredients
+        # ============
+        # `mitem_id`   INTEGER REFERENCES meatballs.menu_item (mitem_id),
+        # `sku`       INTEGER REFERENCES meatballs.ingredients (sku),
+        # `amount`    VARCHAR(30) NULL,
         ingredients = [[j['id'], k[2], k[0]]
                        for i in d.itervalues()
                        for j in i.itervalues()
                        for k in j['ingredients']]
 
+        # food
+        # =====
+        # `sku` INTEGER NOT NULL,
+        # `capacity`  INTEGER  NOT NULL,
+        # `days_till_expired` INT NOT NULL,
+        # `perishable` BOOLEAN NULL,
         food = []
         count = 0
         for category, i in d.iteritems():
@@ -126,6 +151,19 @@ class Recipe():
                     count += 1
                     food.append([k[2], 100, k[3], k[4]])
 
+        # menu
+        # ======
+        # `m_id` INTEGER NOT NULL,
+        # `mitem_id` INTEGER NOT NULL,
+        def find_skus_fa(di, a):
+            for i in di.itervalues():
+                for j in i.itervalues():
+                    if j['id'] == a:
+                        x = []
+                        for k in j['ingredients']:
+                            x.append(k[2])
+            return x
+
         menus_kind = [menu_item[i::17] for i in xrange(17)]
 
         common_menus = [item for sublist in menus_kind[12:]
@@ -134,34 +172,78 @@ class Recipe():
         for i in specific_menus:
             for j in common_menus:
                 i.append(j)
+
         menu = []
+        sku_per_facility = [[] for i in range(len(specific_menus))]
         for i, j in enumerate(specific_menus, start=1):
             for k in j:
                 menu.append([i, k[0]])
+                skus_ingre = find_skus_fa(d, k[0])
+                for sku_ingre in skus_ingre:
+                    if sku_ingre not in sku_per_facility[i - 1]:
+                        sku_per_facility[i - 1].append(sku_ingre)
 
+        # facility_stock
+        # ==============
+        # `sku`       INTEGER NOT NULL,
+        #  `f_id`      INTEGER NULL,
+        #  `quantity`  INTEGER DEFAULT 0,
+        skus = sample(range(50000, 99999), len(other_supplies))
+        for i, j in enumerate(other_supplies):
+            j.insert(0, skus[i])
+
+        facility_stock = []
+        for i, fa in enumerate(sku_per_facility):
+            for sk in fa:
+                facility_stock.append([sk, (i+1), randint(15, 80)])
+
+        for i in xrange(12):
+            for j in other_supplies:
+                facility_stock.append([j[0], (i+1), j[0], randint(1, 8)])
+
+        # bill
+        # ====
+        # `b_id` INTEGER NOT NULL AUTO_INCREMENT,
+        # `f_id` INTEGER NOT NULL,
+        # `date` DATE NOT NULL,
+        bill = []
+        # generate 60 bills.
+        bill_len = 60
+        for i in xrange(bill_len):
+            date_bill = date.today() - timedelta(days=randrange(0, 5))
+            date_bill = date_bill.isoformat()
+            bill.append([i + 1, randint(1, 12), date_bill])
+
+        # bill_has_menu_item
+        # ===================
+        # `b_id`        INTEGER NOT NULL,
+        # `mitem_id`    INTEGER NOT NULL,
+        def find_in_menu(l, a):
+            j = []
+            for x in l:
+                if x[0] == a:
+                    j.append(x[1])
+            return j
+
+        bill_has_menu_item = []
+        for i, bi in enumerate(bill):
+            poss = find_in_menu(menu, bi[1])
+            samp = sample(poss, 6)
+            for ss in samp:
+                bill_has_menu_item.append([i + 1, ss])
+
+        # wine
+        # =====
+        # `rate` DOUBLE NULL,
+        # `mitem_id` INTEGER NULL,
+        # PRIMARY KEY (mitem_id),
         wine_kind = [i[0] for i in menu_item if i[1] == 'wines']
         wine_rating = []
         for i in wine_kind:
             wine_rating.append([uniform(6.5, 10), i])
 
-        skus = sample(range(50000, 99999), len(other_supplies))
-        for i, j in enumerate(other_supplies):
-            j.insert(0, skus[i])
-
-        # `sku`       INTEGER NOT NULL,
-        #  `f_id`      INTEGER NULL,
-        #  `quantity`  INTEGER DEFAULT 0,
-        # now = datetime.now().strftime('%Y-%m-%d')
-        facility_stock = []
-        ingre_menu_set = set()
-        for j in menu:
-            for k in ingredients:
-                if j[1] == k[0]:
-                    sku_ingre = k[1]
-                    if sku_ingre not in ingre_menu_set:
-                        ingre_menu_set.add(sku_ingre)
-                        facility_stock.append([k[1], j[0], randint(15, 80)])
-
+        # order
+        # =======
         #  order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
         #  `f_id`      INTEGER NULL,
         #  `sku`       INTEGER NULL,
@@ -179,13 +261,20 @@ class Recipe():
                 pick = ingre_per_f[randint(0, len(ingre_per_f)-1)]
                 order.append([pick[1], pick[0], date_order, (80 - pick[2])+1])
 
-
+        # vendor
+        # ========
+        # `vendor_id`     INTEGER PRIMARY KEY,
+        # `company_name`  VARCHAR(45) NULL,
+        # `address`       VARCHAR(45) NULL
         vendor = []
         for i, j in enumerate(vendors, start=1):
             vendor.append([i, j[0], j[1]])
             j.insert(0, i)
 
-
+        # catalog
+        # =========
+        # `vendor_id`     INTEGER NOT NULL REFERENCES meatballs.vendor (vendor_id),
+        # `sku`           INTEGER NOT NULL REFERENCES meatballs.supplies (sku),
         acatalog = []
         food_vendors = [ven for ven in vendors if ven[3] == 'food']
 
@@ -210,11 +299,12 @@ class Recipe():
         # `balance`    INTEGER NOT NULL,
         facility_balance = []
         for f_id in xrange(1, 13):
-                facility_balance.append([f_id, randint(1800, 2800)])
+            facility_balance.append([f_id, randint(800, 1200)])
 
         return ((supply, 'supply'), (menu_item, 'menu_item'), (ingredients, 'ingredients'),
                 (menu, 'menu'), (wine_rating, 'wine'), (food, 'food'), (facility_stock, 'facility_stock'),
-                (vendor, 'vendor'), (acatalog, 'catalog'), (order, 'order'), (facility_balance, 'facility_balance'))
+                (vendor, 'vendor'), (acatalog, 'catalog'), (order, 'order'), (facility_balance, 'facility_balance'),
+                (bill, 'bill'), (bill_has_menu_item, 'bill_has_menu_item'))
 
     def generateUrlRecipe(self, urls):
         newlist = []
