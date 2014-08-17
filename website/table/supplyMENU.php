@@ -19,17 +19,20 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
         <ul class="menue">';
 			if($_SESSION['accesslv']==4)
 				echo '<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>
-					<li><a title="Food" href="supplyRECIPEE.php">&raquo; Recipee</a></li>';
+					<li><a title="recipes" href="supplyRECIPE.php">&raquo; Recipee</a></li>';
 			else if($_SESSION['accesslv']==1 || $_SESSION['accesslv']==3)
 				echo'<li><a title="Overall" href="localTable.php">&raquo; OVERALL</a></li>
 					<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>
 					<li><a title="Service Item" href="supplySERVICE.php">&raquo; Service Item</a></li>
 					<li><a title="Linen" href="supplyLINEN.php">&raquo; Linen</a></li>
 					<li><a title="Kitchen Equipment" href="supplyKITCHEN.php">&raquo; Kitchen Equipment</a></li>
-					<li><a title="Food" href="supplyRECIPEE.php">&raquo; Recipee</a></li>';
+					<li><a title="recipes" href="supplyRECIPE.php">&raquo; Recipee</a></li>';
 	echo '</ul>
 		</td>
 	<td class="hauptfenster" valign="top">';
+	
+	
+	
 		?>
 </body>
 </html>

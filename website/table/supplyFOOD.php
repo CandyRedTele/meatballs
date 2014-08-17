@@ -19,6 +19,7 @@
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
 <link rel="stylesheet" href="../css/stylesheet6.css" type="text/css" />
+<style>label {width:33%;}	#formContainer{width:75%;}</style>
 </head>
 
 <body>
@@ -75,16 +76,16 @@
 			$result = $query->execute();
 
 			
-	if(isset($result))
-        while($row = mysqli_fetch_row($result)) 
-        {
-			echo "<ul>";
-            foreach ($row as $field) {
-				echo "<li>" . $field . "</li>" ;   
-            }
-			echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
-            //var_dump($row);
-        }
+		if(isset($result))
+			while($row = mysqli_fetch_row($result)) 
+			{
+				echo "<ul>";
+				foreach ($row as $field) {
+					echo "<li>" . $field . "</li>" ;   
+				}
+				echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
+				//var_dump($row);
+			}
 		
         ?></div>
 </section>
