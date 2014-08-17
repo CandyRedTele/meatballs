@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS shift;             -- DONE
 DROP TABLE IF EXISTS access_level;      -- DONE
 DROP TABLE IF EXISTS facilityBalance;   -- DONE
 DROP TABLE IF EXISTS bill_has_menu_item;-- DONE
-
+DROP TABLE IF EXISTS golden_has_bills;  -- DONE
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`staff`
@@ -331,6 +331,9 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`golden`
 )
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `meatballs`.`golden_has_bills`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS meatballs.golden_has_bills
 (
     `g_id`    INTEGER NOT NULL,
