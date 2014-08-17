@@ -113,13 +113,11 @@ public class generate_data {
             }
             else if(args[0].equals("staff")){
             	genstaff = true;
-                //staffloc = args[1];
 
             }
             else if(args[0].equals("all")){
             	genbills = true;
             	genstaff = true;
-                //staffloc = args[1];
             }
             else{
             	System.out.println("input invalid, exiting");
@@ -138,7 +136,6 @@ public class generate_data {
 			p = new PrintStream(folder + "staffgen.sql");
 
 			arrStaff = gen_staff(p);
-
 			
 			//generate admin info
 			p = new PrintStream(folder + "gen_admin.sql");
