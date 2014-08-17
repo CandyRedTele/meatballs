@@ -66,6 +66,26 @@ public class generate_data {
 	static int DishId	= 10;
 	static int WaitId	= 11;
 	static int CookId	= 12;
+	/**
+	 * {minWeek, maxWeek, minDay, maxDay}
+	 */
+	static int[][] hour_constraints = {
+		
+		{100}, //ceo (100 is to signify that they don't have constraint)
+		{100}, //cto (100 is to signify that they don't have constraint)
+		{100}, //cfo (100 is to signify that they don't have constraint)
+		{100}, //hr (100 is to signify that they don't have constraint)
+		{100}, //acc (100 is to signify that they don't have constraint)
+		{100}, //mark (100 is to signify that they don't have constraint)
+		{100}, //mana
+		{100}, //chef
+		{ 0, 60, 0, 12}, //shift
+		{100}, //deli
+		{32, 40, 0,  8}, //dish
+		{ 0, 60, 0, 12}, //wait
+		{32, 40, 0,  8} //cook
+		
+	};
 	
 	
 	static boolean debug = false;
@@ -75,7 +95,6 @@ public class generate_data {
 	public static void main(String[] args) throws FileNotFoundException {
 		
         PrintStream p = System.out;
-        
 				
 		String slash = File.separator;
 		String folder = "output"+ slash;
@@ -134,6 +153,10 @@ public class generate_data {
 			//generate shifts
 			p = new PrintStream(folder + "gen_shift.sql");
 			gen_shift(arrStaff, p);
+			
+			//generate constraints on scheduling
+			p = new PrintStream(folder + "gen_schedule.sql");
+			gen_sched(p);
         }
 		/*
         if(genbills){
@@ -151,8 +174,31 @@ public class generate_data {
         
 	}
 	
-	private static StaffMember[] gen_staff(PrintStream p){
+	private static void gen_sched(PrintStream p) {
+		String name = "schedule";
+		String[] fields = {"`title`","`min_per_week`", "`max_per_week`",
+				"`min_per_day`", "`max_per_day`", 
+		};
+		ArrayList<Object> constraints = new ArrayList<Object>();
+		for(int i = 0; i < hour_constraints.length; i++){
+			if(hour_constraints[i][0] == 100){
+				System.out.println("not generating for " + titles[i]);
+			}
+			else{
+				constraints.add(new Object[]{
+					"'" + titles[i] + "'",
+					hour_constraints[i][0],
+					hour_constraints[i][1],
+					hour_constraints[i][2],
+					hour_constraints[i][3],
+				});
+			}
+		}
+		gen_data(name, fields, constraints.toArray(), p);
+		
+	}
 
+	private static StaffMember[] gen_staff(PrintStream p){
 		
 		String name = "staff";
 		String[] fields = {"`name`", "`address`", "`phone`", "`ssn`", "`title`"};
