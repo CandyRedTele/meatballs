@@ -1,5 +1,5 @@
 use meatballs;
-INSERT INTO menu_item (mitem_id, category, price, name) VALUES
+INSERT INTO menu_item (mitem_id, category, price, name, image) VALUES
 (1, 'main', 31, 'Yummy Honey Chicken Kabobs', 'http://images.media-allrecipes.com/userphotos/250x250/01/01/72/1017234.jpg'),
 (2, 'main', 24, 'Sloppy Joes Ii', 'http://images.media-allrecipes.com/userphotos/250x250/00/74/72/747244.jpg'),
 (3, 'main', 15, 'Aussie Chicken', 'http://images.media-allrecipes.com/userphotos/250x250/00/70/88/708833.jpg'),
