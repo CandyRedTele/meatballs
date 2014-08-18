@@ -86,7 +86,10 @@ function remC() {
 					$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
 				
 				if (!is_null($query)) 
+				{
+					//var_dump( $query);
 					$result = $query->execute();
+				}
 				
 				while($row = mysqli_fetch_row($result)) 
 				{
@@ -94,7 +97,7 @@ function remC() {
 					foreach ($row as $field) {
 						echo "<li>" . $field . "</li>" ;   
 					}
-					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>REMOVE</a></li><li><a href='#'>MODIFY</a></li></ul>";
+					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>REMOVE</a></li><li><a onclick='remC()' href='#'>MODIFY</a></li></ul>";
 					//var_dump($row);
 				}
 		

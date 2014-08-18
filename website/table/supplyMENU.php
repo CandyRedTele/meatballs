@@ -29,10 +29,39 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
 					<li><a title="recipes" href="supplyRECIPE.php">&raquo; Recipee</a></li>';
 	echo '</ul>
 		</td>
-	<td class="hauptfenster" valign="top">';
+	<td class="hauptfenster" valign="top">
+	
+	
+	
+	';
 	
 	
 	
 		?>
+<div class="errorMessage">$outputMessage</div>
+	
+<section>	<h1>ADD SOMETHING</h1>
+<div id="formContainer">
+	<div class="suggestion" id="suggestions"></div>
+
+<form action="$_SERVER['PHP_SELF'];" method="post" name="form1" id="form1">
+<fieldset>
+	<label for="sku">SKU</label>
+		<input name="sku" value="" required="true" pattern="[0-9]+" type="text" /><br />
+	<label for="itemName">Item Name</label>
+		<input name="itemName" onkeyup="" value="" required="true" pattern="[a-Z]+" type="text" /><br />
+	<label for="itemPrice">Price</label>
+		<input name="itemPrice" value="" pattern="[1-9][0-9]*\.\d{2,}" title="Price should be a number and have two float digits" required="true" type="text" /><br />
+	<label for="itemQty">Quantity</label>
+		<input name="itemQty" value="" pattern="[0-9]+" required="true" type="number" /><br />
+	<label for="itemAmount">Amount</label>
+		<input name="itemAmount" value="" required="true" type="text" /><br />
+</fieldset>
+	<input type="hidden" name="formInsert" value="form1" />
+	<input type="submit">
+</form>
+
+</div>
+</section>
 </body>
 </html>
