@@ -39,5 +39,23 @@ class MeatballUser
 
         return $level;
     }
+
+    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     * 
+     * NAME : removeTrailingSlash 
+     *
+     * RETURNS : removes the trailing slash of a path (intended to 
+     *           Windows user)
+     *
+     *-----------------------------------------------------------*/
+    public static function removeTrailingSlash(&$str)
+    {
+        if (strrpos($str, '/') == strlen($str) - 1) 
+        {
+            $str = substr($str, 0, -1); // remove trailing '/' (for windows)
+        }
+        
+        return $str;
+    }
 }
 ?>
