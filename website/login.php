@@ -22,9 +22,9 @@
 		
 
 		if(isset($result)) {
+			$row = mysqli_fetch_row($result);
 			
-				$row = mysqli_fetch_row($result);
-				
+			if($row[0]!=null && $row[0]!=""){	
 				session_start();
 				$_SESSION["views"]=0;
 				$_SESSION['SID']=$row[0];
@@ -54,6 +54,7 @@
 				$_SESSION['location']=$row[0];
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
 						<meta http-equiv='Refresh' content='3;url=index.php'/>";
+			}
 		}
 
 		
