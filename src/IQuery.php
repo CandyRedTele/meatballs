@@ -24,7 +24,11 @@ abstract class IQuery
     {
 		$this->logger = Logger::getSingleInstace();
 		
-        $config_path = $_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src/project.config.xml';
+        $config_path = $_SERVER['DOCUMENT_ROOT'];
+
+        MeatballUser::removeTrailingSlash($config_path);
+
+        $config_path .= '/comp353-project/src/project.config.xml';
 
         if (!file_exists($config_path)) {
             $config_path = __DIR__ . '/project.config.xml'; 
