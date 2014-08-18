@@ -8,16 +8,7 @@ public class Shift{
 	public int start;
 	public int end;
 	public int day;
-	String title;
-
-	
-	final int shifthours[] = {
-			8,
-			8,
-			6,
-			6
-	};
-	
+	public String title;
 	
 	/**
 	 * 
@@ -25,21 +16,92 @@ public class Shift{
 	 * @param type the type of the employee
 	 * @param day they day of the week on which it occurs. monday == 0; sunday == 6
 	 */
-	public Shift(int start, int type, int day){
+	public Shift(int time, int type, int day){
 		
-		if(type == cook){
-			title = "cook";
+		int regMorning = 0;
+		int regNoon = 0;
+		int regNight = 0;
+		int fridayMorning = 0;
+		int fridayNoon = 0;
+		int fridayNight = 0;
+		
+		if(type == cook || type == dish){
+			
+			//cook or dish:
+			//	11 + 8 = 19 + 8 = 27:00
+			//	close is usually at 23:00
+			//	regular day, cook dish start 11 - 3 = 8:00 and end at 11+1 = 12
+			//	so shifts would be 8-16, and 16-12
+			//
+			//	Fridays and Saturdays, close is at 25:00(1:00 the next day.)
+			//	on Fridays and Saturdays, cook and dish should start at 25-16 = 9
+			//	that means their shifts would be 9-17, and 17-25 (1:00)
+			
+			if(type == cook)
+				title = "cook";
+			if(type == dish)
+				title ="dishwasher";
+			
+			regMorning = 8;
+			regNoon = 16;
+			regNight = 12;
+			fridayMorning = 9;
+			fridayNoon = 17;
+			fridayNight = 25;
+			
 		}
-		if(type == dish){
-			title = "dishwasher";
-		}
-		if(type == wait){
-			title = "wait staff";
-		}
-		if(type == generate_data.supervId){
-			title = generate_data.titles[generate_data.supervId];
+		if(type == wait||type == supervisor){
+			
+			/*wait/shift supervisors employees start at 11 every day
+			 *	on regular days, there are two 6 hour shifts.
+			 *		shifts are 11-17,17-23
+			 *	on irregular days, there is one 6 hour shift and one 8 hour shift. 
+			 *		the shifts are 11-17, 17-25
+			 * 
+			 */
+			if(type == wait){
+				title = generate_data.titles[generate_data.WaitId];
+			}
+			if(type == supervisor){
+				title = generate_data.titles[generate_data.supervId];
+			}
+			
+			regMorning = 11;
+			regNoon = 17;
+			regNight = 23;
+			fridayMorning = 11;
+			fridayNoon = 17;
+			fridayNight = 25;
+			
+			
 		}
 		
+		//if morning shift
+		if (time == 0){
+			//if Friday or Saturday
+			if(day == 4 || day == 5){
+				this.start = fridayMorning;
+				this.end = fridayNoon;
+			}
+			//any other day
+			else{
+				this.start = regMorning;
+				this.end = regNoon;
+			}	
+		}
+		//if night shift
+		if(time == 1){
+			if(day == 4 || day == 5){
+				this.start = fridayNoon;
+				this.end = fridayNight%24;
+			}
+			else{
+				this.start = regNoon;
+				this.end = regNight%24;
+			}
+		}
+		this.day = day;
+		/*
 		int weekendExtra = 0;
 		
 		if((day == 4 || day == 5)&&(start == 1)){
@@ -62,7 +124,7 @@ public class Shift{
 		
 		this.start = start;
 		this.end = (start + shifthours[type] + weekendExtra)%24;
-		this.day = day;
+		this.day = day;*/
 	}
 	
 	public Shift take(int staff_id){
