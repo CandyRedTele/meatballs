@@ -2,8 +2,9 @@
 	error_reporting(E_ALL);
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php"); 
-	
+
 	session_start();
+
 ?>
 <html>
 <head>
@@ -18,6 +19,7 @@
   <script type="text/javascript" src="../js/domsort.js"></script>
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
+<style>label {width:33%;}	#formContainer{width:75%;}</style>
 </head>
 
 <body>
@@ -25,24 +27,26 @@
 
 <!--                                   INFORMATION TABLES                                          -->
 
-<div class="errorMessage"><?php /*echo $outputMessage*/?></div>
-	
+<div class="errorMessage"><?php echo $outputMessage?></div>
+
 <section>	<h1>ADD NEW EMPLOYEE</h1>
 <div id="formContainer">
-	<div class="suggestion" id="suggestions"></div>
+<div class="suggestion" id="suggestions"></div>
 
-<form action="addEmployee.php" method="post" name="form1" id="form1">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
 <fieldset>
-	<label for="itemName">Item Name</label>
-		<input name="itemName" onkeyup="" value="<?php /*echo saveFormValue('itemName');*/?>" required="true" pattern="[^|]+" type="text" /><br />
-	<label for="itemCode">Code</label>
-		<input name="itemCode" value="<?php /*echo saveFormValue('itemCode'); */?>" required="true" pattern="[^|]+" type="text" /><br />
-	<label for="itemPrice">Price</label>
-		<input name="itemPrice" value="<?php /*echo saveFormValue('itemPrice'); */?>" pattern="[1-9][0-9]*\.\d{2,}" title="Price should be a number and have two float digits" required="true" type="text" /><br />
-	<label for="itemQty">Quantity</label>
-		<input name="itemQty" value="<?php /*echo saveFormValue('itemQty'); */?>" required="true" type="number" /><br />
-	<label for="itemAmount">Amount</label>
-		<input name="itemAmount" value="<?php /*echo saveFormValue('itemAmount'); */?>" required="true" type="text" /><br />
+	<label for="EmployeeN">Employee Name</label>
+		<input name="EmployeeN" onkeyup="" value="<?php /*echo saveFormValue('EmployeeN');*/?>" placeholder="firstName, lastname" required="true" pattern="[A-z]{2,70}" type="text" /><br />
+	<label for="address">address</label>
+		<input name="address" value="<?php /*echo saveFormValue('address'); */?>" placeholder="living place" required="true" pattern="[A-z0-9]{2,50}" type="text" /><br />
+	<label for="phone">phone</label>
+		<input name="phone" value="<?php /*echo saveFormValue('phone'); */?>" placeholder="###-###-####" required="true" pattern="[0-9]{3}([0-9]{3}|\-[0-9]{3})([0-9]{4}|\-[0-9]{4})" title="phone" required="true" type="text" /><br />
+	<label for="title">title</label>
+		<input name="title" value="<?php /*echo saveFormValue('title'); */?>" placeholder="ex: marketing"required="true" type="text" pattern="[A-z]{2,20}"/><br />
+	<label for="ssn">ssn</label>
+		<input name="ssn" value="<?php /*echo saveFormValue('ssn'); */?>" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
+	<label for="location">location</label>
+		<input name="location" value="<?php /*echo saveFormValue('location'); */?>" placeholder="working place" type="text" pattern="[A-z0-9]{2,50}"/><br />
 </fieldset>
 	<input type="hidden" name="formInsert" value="form1" />
 	<input type="submit">
@@ -61,27 +65,30 @@
 			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">SSN</li>
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">title</li>
             <li></li></ul><?php 
-        $logger = Logger::getSingleInstace();
-        $logger->write("HelloLogger!");
+				$logger = Logger::getSingleInstace();
+				$logger->write("HelloLogger!");
+				
+				if($_SESSION['accesslv']==1)
+					$query = new CustomQuery("SELECT * from staff");
+				else if($_SESSION['accesslv']==3)
+					$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
+				
+				if (!is_null($query)) 
+				{
+					//var_dump( $query);
+					$result = $query->execute();
+				}
+				
+				while($row = mysqli_fetch_row($result)) 
+				{
+					echo "<ul>";
+					foreach ($row as $field) {
+						echo "<li>" . $field . "</li>" ;   
+					}
+					echo "<li><a href='remove.php?id=". $row[0] ."-employee'>REMOVE</a></li></ul>";
+					//var_dump($row);
+				}
 		
-			$query = new CustomQuery("SELECT * from staff");
-			//$query = new SelectAllQuery("customers");
-			if (!is_null($query)) 
-			{
-				//var_dump( $query);
-				$result = $query->execute();
-			}
-			
-        while($row = mysqli_fetch_row($result)) 
-        {
-			echo "<ul>";
-            foreach ($row as $field) {
-                echo "<li>" . $field . "</li>" ;   
-            }
-			echo "<li><a href='#'>REMOVE</a></li></ul>";
-            //echo $row['customerName'];
-            //var_dump($row);
-        }
         ?></div>
 </section>
 <!--								THE END OF INFORMATION TABLE						-->

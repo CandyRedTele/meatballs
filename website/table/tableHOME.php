@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="stylesheet4.css" type="text/css">
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
   <link rel="stylesheet" type="text/css" href="../css/resume.css" media="all" />
+  <style> #staffTITLE{ text-transform: uppercase;} </style>
 </head>
 
 <body>
@@ -35,13 +36,13 @@
 				<div class="yui-u first">
 					<p id="staffNAME" style="font-size:30px;"><em><?php echo $_SESSION['name'];?></em></p> <!-- NAME -->
 					<br/>
-					<h2><?php echo $_SESSION['title'];?></h2> <!-- TITLE -->
+					<h2>ID: <?php echo $_SESSION['SID'];?></h2> <!-- TITLE -->
 				</div>
 				<div class="yui-u">
 					<div class="contact-info">
-						<h3>LOCATION: <?php echo $_SESSION['location'];?></h3>
-						<h3><a href="mailto:name@yourdomain.com"><?php echo"NO EMAIL!?";?></a></h3> <!-- EMAIL -->
-						<h3><?php echo "phone: ".$_SESSION['phone'];?></h3> <!-- PHONE -->
+						<h3>SSN: <?php echo $_SESSION['ssn'];?></h3>
+						<h3>Location: <?php echo $_SESSION['location'];?></h3> 
+						<h3>Phone: <?php echo $_SESSION['phone'];?></h3> <!-- PHONE -->
 					</div><!--// .contact-info -->
 				</div>
 			</div><!--// .yui-gc -->
@@ -52,11 +53,11 @@
 				<div class="yui-b">
 					<div class="yui-gf">
 						<div class="yui-u first">
-							<h2>SSN</h2>
+							<h2>Title</h2>
 						</div>
 						<div class="yui-u">
-							<p class="enlarge">
-								 <?php echo $_SESSION['ssn'];?>
+							<p class="enlarge" id="staffTITLE">
+								 <?php echo $_SESSION['title'];?>
 							</p>
 						</div>
 					</div><!--// .yui-gf -->
@@ -67,7 +68,7 @@
 						</div>
 						<div class="yui-u">
 								<div class="talent">
-									<h2>START DATE/EXPERIENCE</h2> <!-- START DATE -->
+									<h2>START DATE/ EXPERIENCE</h2> <!-- START DATE -->
 									<p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
 								</div>
 

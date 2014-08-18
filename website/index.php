@@ -21,7 +21,7 @@
 	<?php 
 	if(isset($_SESSION['SID']))
 		echo '<div id="templatemo_login_right">
-				hello ' . $_SESSION['name'] . '! </br> location: '. $_SESSION['location'] .' </br> access level: '. $_SESSION['accesslv'] .'
+				Hello ' . $_SESSION['name'] . '! </br> location: '. $_SESSION['location'] .' </br> access level: '. $_SESSION['accesslv'] .'
 				<form id="form1" name="form1" method="post" action="logout.php">			
 					<label><input type="submit" name="logout" id="logout" value="LOG OUT" /></label>
 				</form>
@@ -49,7 +49,7 @@
 			if($_SESSION['accesslv'] != 5)
 				echo '<li><a href="table/tableHOME.php" target="insideC">DATABASE</a></li>';
 	?>
-	<li><a href="#" target="insideC">Reservation</a></li>
+	<li><a href="reservation.php" target="insideC">Reservation</a></li>
     <li><a href="aboutUS.php" target="insideC">About Us</a></li>
     <li><a href="registration.php" target="insideC">Golden member</a></li>
   </menu>

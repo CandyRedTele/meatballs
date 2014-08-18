@@ -1,0 +1,35 @@
+ul.userP li{list-style-type:none; margin:10px;}
+
+ul.userP li img {margin-left:8%; width:100px; height:60px; -webkit-border-radius:10px;}
+
+
+.menu-items li .itemINFOimg{width:100%; height:50%; margin-bottom:5px; margin-left:0%;}
+
+.numF:hover{text-decoration:underline;}
+
+ul.userP li p { float:right;
+			background:white;
+			margin:3px;
+			-webkit-border-radius: 3px;
+			font-size:15px;}
+
+.menu-items li:hover .itemINFO{display:block;
+					position:absolute;
+					-webkit-border-radius: 10px;
+					background:white;
+					text-align:center;
+					width:450px;
+					height:900px;
+					left:55%;
+					/*margin-top:60px;*/}
+
+.menu-items li .itemINFOspan{font-size:12px;
+				float:right;}
+				
+.invB {float:left;}
+
+.dd{display:none;}
+
+
+.menu-items li .itemINFO{display:none; float:left;}
+.menu-items li .itemINFO  .numF{float:none; padding:1%;}

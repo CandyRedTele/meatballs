@@ -28,12 +28,12 @@
 		<img src="img/goldMember.jpg"/>
 	</div> 
       <div  class="form">
-    	<form id="contactform" action="register_valid.php" onsubmit="return(validate());" enctype="multipart/form-data"> 
+    	<form id="contactform" action="register_valid.php" onsubmit="return(validate());" method="post" enctype="multipart/form-data"> 
     		<p class="contact"><label for="name">First Name</label></p> 
-    		<input id="firstN" name="firstN" placeholder="First name" required pattern="[A-z0-9]{2,20}" tabindex="1" type="text">
+    		<input id="firstN" name="firstN" placeholder="First name" required pattern="[A-z]{2,20}" tabindex="1" type="text">
 				
 			<p class="contact"><label for="name">Last Name</label></p> 
-    		<input id="lastN" name="lastN" placeholder="Last name" required pattern="[A-z0-9]{2,20}" tabindex="1" type="text"> 
+    		<input id="lastN" name="lastN" placeholder="Last name" required pattern="[A-z]{2,20}" tabindex="1" type="text"> 
     			 
     		<p class="contact"><label for="email">Email</label></p> 
     		<input id="email" name="email" placeholder="example@domain.com" required pattern="[A-z_0-9]+@(hotmail|yahoo|gmail).(com|ca)" type="email"> 
@@ -68,16 +68,17 @@
                 <label>Day<input class="birthday" maxlength="2" name="BirthDay"  placeholder="Day" pattern="d{2}"></label>
                 <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" pattern="d{2}"></label>
             </fieldset>
-  
+			
+			<p class="contact"><label for="sex">gender</label></p> 
             <select class="select-style gender" name="sex" required>
             <option value="m">male</option>
             <option value="f">female</option>
-            <option value="p">private</option>
-            <option value="o">Other</option>
-            </select><br><br>
+			<option value="o">other</option>
+			<option value="n">other</option>
+            </select><br/><br/>
             
             <p class="contact"><label for="phone">phone (Mobile/home)</label></p> 
-            <input id="phone" name="phone" placeholder="phone number" required pattern="[0-9]{10}" type="text"> <br>
+            <input id="phone" name="phone" placeholder="###-###-####" required pattern="[0-9]{3}([0-9]{3}|\-[0-9]{3})([0-9]{4}|\-[0-9]{4})" type="text"> <br>
             
 			<input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit"> 	 
 		</form> 

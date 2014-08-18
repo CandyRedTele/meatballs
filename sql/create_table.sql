@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS shift;             -- DONE
 DROP TABLE IF EXISTS access_level;      -- DONE
 DROP TABLE IF EXISTS facilityBalance;   -- DONE
 DROP TABLE IF EXISTS bill_has_menu_item;-- DONE
-
+DROP TABLE IF EXISTS golden_has_bills;  -- DONE
 
 -- -----------------------------------------------------
 -- Table `meatballs`.`staff`
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`admin`
 (
     `staff_id`  INTEGER NOT NULL,
     `location`  VARCHAR(55) NULL DEFAULT 'Montreal',
-    `yrs_exp`   INTEGER NULL,
+    `yrs_exp`   INTEGER     NOT NULL DEFAULT 0,
     `training`  VARCHAR(45) NULL,
     PRIMARY KEY (staff_id, location), -- Assuming that an employee might work in different locations during his career.
     CONSTRAINT `fk_admin_staff_id`
@@ -172,7 +172,7 @@ ENGINE = InnoDB;
 create TABLE IF NOT EXISTS `meatballs`.`localstaff` 
 
 (
-  `start_date`  DATE NULL,
+  `start_date`  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `f_id`        INTEGER NULL,
   `staff_id`    INTEGER PRIMARY KEY,
   CONSTRAINT `fk_staff_id2`
@@ -209,8 +209,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`schedule` 
 (
   `title` VARCHAR(45) NOT NULL,
-  `hours_week` DOUBLE NULL,
-  `hours_day` DOUBLE NULL,
+  `min_per_week` INT DEFAULT 0,
+  `max_per_week` INT NOT NULL,
+  `min_per_day` INT DEFAULT 0,
+  `max_per_day` INT NOT NULL,
   PRIMARY KEY (`title`)
 )
 ENGINE = InnoDB;
@@ -331,6 +333,9 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`golden`
 )
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `meatballs`.`golden_has_bills`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS meatballs.golden_has_bills
 (
     `g_id`    INTEGER NOT NULL,

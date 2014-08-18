@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-	<title>FOOD SUPPLY</title>
+	<title>service item SUPPLY</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; charset=utf-8">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -19,6 +19,7 @@
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
 <link rel="stylesheet" href="../css/stylesheet6.css" type="text/css" />
+<style>label {width:33%;}	#formContainer{width:75%;}</style>
 </head>
 
 <body>
@@ -60,20 +61,23 @@
     <div id="thelist"><ul id="control">
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">SKU</li>
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
-			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">price</li>
+			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">location</li>
+			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">quantity</li>
+			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">price</li>
             <li></li></ul><?php 
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
+
+		if($_SESSION['accesslv']==1)
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='service items'");
+		else if($_SESSION['accesslv']==3)
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='service items'");
 		
-		//if($_SESSION['accesslv']==1)
-		//if($_SESSION['accesslv']==2||$_SESSION['accesslv']==4)
-			$query = new CustomQuery("SELECT sku, name, price from supplies where type='serving items'");
-			//$query = new SelectAllQuery("customers");
-			if (!is_null($query)) 
-			{
-				//var_dump( $query);
-				$result = $query->execute();
-			}
+		if (!is_null($query)) 
+		{
+			//var_dump( $query);
+			$result = $query->execute();
+		}
 			
         while($row = mysqli_fetch_row($result)) 
         {
@@ -81,11 +85,10 @@
             foreach ($row as $field) {
                 echo "<li>" . $field . "</li>" ;   
             }
-			echo "<li><a href='#'>REMOVE</a></li></ul>";
-            //echo $row['customerName'];
+			echo "<li><a href='remove.php?id=".$row[0]."-supply'></li></ul>";
             //var_dump($row);
         }
-		
+
         ?></div>
 </section>
 </div>

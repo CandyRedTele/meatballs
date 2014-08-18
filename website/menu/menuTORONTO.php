@@ -45,7 +45,7 @@ $(function() {
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<?php include_once("menuNAVIGATION"); ?>
+<?php include_once("menuNAVIGATION.php"); ?>
 <!--								MENU starts HERE ! ! !							-->
 
 	<div id="main">
