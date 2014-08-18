@@ -113,13 +113,11 @@ public class generate_data {
             }
             else if(args[0].equals("staff")){
             	genstaff = true;
-                //staffloc = args[1];
 
             }
             else if(args[0].equals("all")){
             	genbills = true;
             	genstaff = true;
-                //staffloc = args[1];
             }
             else{
             	System.out.println("input invalid, exiting");
@@ -138,7 +136,6 @@ public class generate_data {
 			p = new PrintStream(folder + "staffgen.sql");
 
 			arrStaff = gen_staff(p);
-
 			
 			//generate admin info
 			p = new PrintStream(folder + "gen_admin.sql");
@@ -509,10 +506,11 @@ public class generate_data {
 			if(arrStaff[i].title.equals("cook")){
 				shifts = cookingShifts.getStaffShifts(Shift.cook, 4, arrStaff[i].f_id -1, arrStaff[i].staff_id);
 			}
-			if(arrStaff[i].title.equals("dishwasher")){
+			else if(arrStaff[i].title.equals("dishwasher")){
 				shifts = dishwasherShifts.getStaffShifts(Shift.dish, 4, arrStaff[i].f_id-1, arrStaff[i].staff_id);
 			}
-			if(arrStaff[i].title.equals("wait staff")){
+			else if(arrStaff[i].title.equals("wait staff") || 
+					arrStaff[i].title.equals(titles[supervId])){
 				shifts = waitStaff.getStaffShifts(Shift.dish, 4, arrStaff[i].f_id-1, arrStaff[i].staff_id);
 			}
 			if(shifts != null){
