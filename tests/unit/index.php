@@ -68,7 +68,9 @@
                                                 '819-789-1234', 
                                                 '123456789', 
                                                 'ceo', 
-                                                'Montreal');
+                                                'Montreal',
+                                                32,
+                                                'Master Of The Street');
         $result = $insert_staff->execute();
 
        /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
