@@ -7,7 +7,8 @@
 	
 	<?php 
 		error_reporting(E_ALL);
-		set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
+         include_once("../src/SetPath.php");
+        //set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
 		//echo get_include_path();
 			include_once("IncludeAllQueries.php");
 		
