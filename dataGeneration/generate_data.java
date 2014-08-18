@@ -308,10 +308,9 @@ public class generate_data {
 		
 		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
-			if(!(staff.title.equals(titles[CeoId])
-					||staff.title.equals(titles[CfoId])
-					||staff.title.equals(titles[CtoId]))
-					){
+			if(!isAdmin(staff.title)
+					&& !staff.title.equals(titles[DeliId])){
+				
 				staff.start_date = gen_date();
 				staff.f_id = i%12 + 1;
 				
@@ -369,10 +368,8 @@ public class generate_data {
 
 		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
-			if(staff.title.equals("ceo")
-					||staff.title.equals("cfo")
-					||staff.title.equals("cto")
-					){
+			if(isAdmin(staff.title)
+					&& !staff.title.equals(titles[DeliId])){
 				
 				staff.location = "'" + locations[random_num(0, locations.length-1)] + "'";
 				staff.yrs_exp = random_num(0, 4);
@@ -381,6 +378,7 @@ public class generate_data {
 					staff.location,
 					staff.yrs_exp
 				});
+				
 			}
 			
 		}
@@ -408,6 +406,18 @@ public class generate_data {
 		if(debug) System.out.println("Admins Generated");
 
 	}
+	
+	static boolean isAdmin(String title){
+		return(
+			title.equals(titles[CeoId])
+			||title.equals(titles[CtoId])
+			||title.equals(titles[CfoId])
+			||title.equals(titles[HRId])
+			||title.equals(titles[AccId])
+			||title.equals(titles[MarkId])
+		);
+	}
+	
 	/*
 	static void gen_golden_bills(PrintStream p){
 		
