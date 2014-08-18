@@ -506,10 +506,11 @@ public class generate_data {
 			if(arrStaff[i].title.equals("cook")){
 				shifts = cookingShifts.getStaffShifts(Shift.cook, 4, arrStaff[i].f_id -1, arrStaff[i].staff_id);
 			}
-			if(arrStaff[i].title.equals("dishwasher")){
+			else if(arrStaff[i].title.equals("dishwasher")){
 				shifts = dishwasherShifts.getStaffShifts(Shift.dish, 4, arrStaff[i].f_id-1, arrStaff[i].staff_id);
 			}
-			if(arrStaff[i].title.equals("wait staff")){
+			else if(arrStaff[i].title.equals("wait staff") || 
+					arrStaff[i].title.equals(titles[supervId])){
 				shifts = waitStaff.getStaffShifts(Shift.dish, 4, arrStaff[i].f_id-1, arrStaff[i].staff_id);
 			}
 			if(shifts != null){
