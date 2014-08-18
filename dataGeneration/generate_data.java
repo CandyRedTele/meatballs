@@ -262,15 +262,17 @@ public class generate_data {
 		access_level.add(new Object[] {"'" + titles[CeoId] + "'", 1});
 		access_level.add(new Object[] {"'" + titles[CtoId] + "'", 1});
 		access_level.add(new Object[] {"'" + titles[CfoId] + "'", 1});
-		access_level.add(new Object[] {"'" + titles[HRId] + "'", 1});
-		access_level.add(new Object[] {"'" + titles[AccId] + "'", 2});
-		access_level.add(new Object[] {"'" + titles[MarkId] + "'", 2});
-		access_level.add(new Object[] {"'" + titles[ManaId] + "'", 3});
-		access_level.add(new Object[] {"'" + titles[ChefId] + "'", 4});
-		access_level.add(new Object[] {"'" + titles[supervId] + "'", 5});
+		access_level.add(new Object[] {"'" + titles[HRId] + "'", 2});
+		access_level.add(new Object[] {"'" + titles[AccId] + "'", 3});
+		access_level.add(new Object[] {"'" + titles[MarkId] + "'", 3});
+		access_level.add(new Object[] {"'" + titles[ManaId] + "'", 4});
+		access_level.add(new Object[] {"'" + titles[ChefId] + "'", 5});
 		access_level.add(new Object[] {"'" + titles[DeliId] + "'", 6});
-		access_level.add(new Object[] {"'" + titles[DishId] + "'", 6});
 		access_level.add(new Object[] {"'" + titles[WaitId] + "'", 6});
+		access_level.add(new Object[] {"'" + titles[supervId] + "'", 7});
+		access_level.add(new Object[] {"'" + titles[DishId] + "'", 10});
+		access_level.add(new Object[] {"'" + titles[CookId] + "'", 10});
+
 
 
 		gen_data(name, fields, access_level.toArray(), p);

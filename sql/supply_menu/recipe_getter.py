@@ -150,7 +150,7 @@ class Recipe():
                         k.append(randint(5, 45))
                         k.append(1)  # refers to true
                     count += 1
-                    food.append([k[2], 100, k[3], k[4]])
+                    food.append([k[2], 1000, k[3], k[4]])
 
         # menu
         # ======
@@ -196,7 +196,7 @@ class Recipe():
         facility_stock = []
         for i, fa in enumerate(sku_per_facility):
             for sk in fa:
-                facility_stock.append([sk, (i+1), randint(15, 80)])
+                facility_stock.append([sk, (i+1), randint(300, 800)])
 
         for i in xrange(12):
             for j in other_supplies:
@@ -297,13 +297,13 @@ class Recipe():
 
         linens_vendors = [ven for ven in vendors if ven[3] == 'linens']
         kitchen_vendors = [ven for ven in vendors if ven[3] == 'kitchen supplies']
-        serving_vendors = [ven for ven in vendors if ven[3] == 'serving items']
+        serving_vendors = [ven for ven in vendors if ven[3] == 'service items']
         for i in other_supplies:
             if i[2] == 'linens':
                 acatalog.append([linens_vendors[randrange(0, len(linens_vendors))][0], i[0]])
             elif i[2] == 'kitchen supplies':
                 acatalog.append([kitchen_vendors[randrange(0, len(kitchen_vendors))][0], i[0]])
-            elif i[2] == 'serving items':
+            elif i[2] == 'service items':
                 acatalog.append([serving_vendors[randrange(0, len(serving_vendors))][0], i[0]])
 
         #  facilityBalance
@@ -349,7 +349,10 @@ class Recipe():
             ingre_n = row[3].text.replace("'", "")
             if not ingre_names.count(ingre_n):
                 ingre_names.append(ingre_n)
-                amounts.append([int(ceil(float(row[1].text))), ingre_n])
+                qty = int(ceil(float(row[1].text)))
+                if qty == 0:
+                    qty = 1
+                amounts.append([qty, ingre_n])
         price = randint(min, max)
         return {name: {'ingredients': amounts, 'price': price, 'image': image}}
 
@@ -361,14 +364,14 @@ other_supplies = [['Oven', 'kitchen supplies', 1000],
                   ['Tongs', 'kitchen supplies', 5],
                   ['Meat Hammer', 'kitchen supplies', 60],
                   ['Waffle Iron', 'kitchen supplies', 50],
-                  ['Plate', 'serving items', 5],
-                  ['Fork', 'serving items', 5],
-                  ['Spoon', 'serving items', 5],
-                  ['Knife', 'serving items', 5],
-                  ['Steak Knife', 'serving items', 6],
-                  ['Bowl', 'serving items', 5],
-                  ['Napkins', 'serving items', 1],
-                  ['Tray', 'serving items', 4],
+                  ['Plate', 'service items', 5],
+                  ['Fork', 'service items', 5],
+                  ['Spoon', 'service items', 5],
+                  ['Knife', 'service items', 5],
+                  ['Steak Knife', 'service items', 6],
+                  ['Bowl', 'service items', 5],
+                  ['Napkins', 'service items', 1],
+                  ['Tray', 'service items', 4],
                   ['Table Clothes', 'linens', 15],
                   ['Aprons', 'linens', 6],
                   ['Fry Pans', 'kitchen supplies', 21],
@@ -410,40 +413,40 @@ other_supplies = [['Oven', 'kitchen supplies', 1000],
                   ['Manual Slicer', 'kitchen supplies', 90],
                   ['Table Skirting', 'linens', 60],
                   ['Vinyl Tablecloth', 'linens', 20],
-                  ['Salt and Pepper Shaker', 'serving items', 10],
-                  ['Single Jacket Menu', 'serving items', 17],
-                  ['Menu Holder', 'serving items', 10],
-                  ['Tabletop Sign Holder', 'serving items', 10],
-                  ['Table Top Napkin Holders', 'serving items', 8],
-                  ['Napkins', 'serving items', 1],
-                  ['Straw Dispenser', 'serving items', 10],
-                  ['Straw', 'serving items', 1],
-                  ['Cone Holder', 'serving items', 12],
-                  ['Countertop Organizer', 'serving items', 45],
-                  ['Beverage Dispenser', 'serving items', 120],
-                  ['Tea Urn', 'serving items', 80],
-                  ['Coffee Maker', 'serving items', 140],
-                  ['Espresso Maker', 'serving items', 180],
+                  ['Salt and Pepper Shaker', 'service items', 10],
+                  ['Single Jacket Menu', 'service items', 17],
+                  ['Menu Holder', 'service items', 10],
+                  ['Tabletop Sign Holder', 'service items', 10],
+                  ['Table Top Napkin Holders', 'service items', 8],
+                  ['Napkins', 'service items', 1],
+                  ['Straw Dispenser', 'service items', 10],
+                  ['Straw', 'service items', 1],
+                  ['Cone Holder', 'service items', 12],
+                  ['Countertop Organizer', 'service items', 45],
+                  ['Beverage Dispenser', 'service items', 120],
+                  ['Tea Urn', 'service items', 80],
+                  ['Coffee Maker', 'service items', 140],
+                  ['Espresso Maker', 'service items', 180],
                   ['Panini Grill', 'kitchen supplies', 70],
                   ['Rice Cooker/Warmer', 'kitchen supplies', 90],
                   ['Filter Drain Pot', 'kitchen supplies', 40],
                   ['Bottle Cooler', 'kitchen supplies', 30],
                   ['Overhead Glass Rack', 'kitchen supplies', 40],
                   ['Ice bin', 'kitchen supplies', 90],
-                  ['Champagne Bucket and Stand', 'serving items', 20],
-                  ['Waiter Corkscrew', 'serving items', 10],
+                  ['Champagne Bucket and Stand', 'service items', 20],
+                  ['Waiter Corkscrew', 'service items', 10],
                   ['Glass Storage Rack', 'kitchen supplies', 12],
                   ['Sink', 'kitchen supplies', 300],
                   ['Drainboards', 'kitchen supplies', 200],
                   ['Refrigerator', 'kitchen supplies', 1200],
                   ['Freezer', 'kitchen supplies', 1300],
-                  ['Chairs', 'serving items', 40]]
+                  ['Chairs', 'service items', 40]]
 
 vendors = [['Servu-online', '3201 Apollo Drive Champaign, IL', 'kitchen supplies'], ['PA Supermarche', '1420 Rue du Fort Montreal, QC', 'food'],
            ['Provigo', '3421 Avenue du Parc Montreal, QC', 'food'], ['Segals Market', '4001 Boulevard Saint-Laurent Montreal, QC', 'food'],
            ['Super C', '147 Avenue Atwater Montreal, QC', 'food'], ['Lucky', '4527 8 Ave SE, Calgary, AB', 'food'],
            ['Island Market', '1502 W 2nd Ave #120, Vancouver, BC', 'food'], ['Stong Markets', '4560 Dunbar St, Vancouver, BC', 'food'],
-           ['Mikasa', '4450 Rochdale Blvd Regina, SK', 'serving items'], ['George Courey', '326 Victoria Ave Westmount, QC', 'linens']]
+           ['Mikasa', '4450 Rochdale Blvd Regina, SK', 'service items'], ['George Courey', '326 Victoria Ave Westmount, QC', 'linens']]
 
 url = "http://hangryingreedytest.herokuapp.com/?recipe_url="
 main_urls = [
@@ -510,31 +513,31 @@ kids_urls = [
     "http://allrecipes.com/Recipe/Creamy-Hot-Chocolate/Detail.aspx?evt19=1"]
 
 wines = {
-        'wines': {'Cune Rioja Imperial Gran Reserva': {'ingredients': [[1.0, 'Cune Rioja Imperial Gran Reserva']], 'price': 63, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Chateau Canon-La Gaffeliere St.-Emilion': {'ingredients': [[1.0, 'Chateau Canon-La Gaffeliere St.-Emilion']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Domaine Serene Pinot Noir Willamette Valley Evenstad Reserve': {'ingredients': [[1.0, 'Domaine Serene Pinot Noir Willamette Valley Evenstad Reserve']], 'price': 20, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Hewitt Cabernet Sauvignon Rutherford': {'ingredients': [[1.0, 'Hewitt Cabernet Sauvignon Rutherford']], 'price': 29, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Kongsgaard Chardonnay Napa Valley': {'ingredients': [[1.0, 'Kongsgaard Chardonnay Napa Valley']], 'price': 27, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Giuseppe Mascarello & Figlio Barolo Monprivato': {'ingredients': [[1.0, 'Giuseppe Mascarello & Figlio Barolo Monprivato']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Domaine du Pegau Chateauneuf-du-Pape Cuvee Reservee': {'ingredients': [[1.0, 'Domaine du Pegau Chateauneuf-du-Pape Cuvee Reservee']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Chateau de Beaucastel Chateauneuf-du-Pape': {'ingredients': [[1.0, 'Chateau de Beaucastel Chateauneuf-du-Pape']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Lewis Cabernet Sauvignon Napa Valley Reserve': {'ingredients': [[1.0, 'Lewis Cabernet Sauvignon Napa Valley Reserve']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Quilceda Creek Cabernet Sauvignon Columbia Valley': {'ingredients': [[1.0, 'Quilceda Creek Cabernet Sauvignon Columbia Valley']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Reynvaan Syrah Walla Walla Valley Stonessence': {'ingredients': [[1.0, 'Reynvaan Syrah Walla Walla Valley Stonessence']], 'price': 27, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Turley Zinfandel Paso Robles Dusi Vineyard': {'ingredients': [[1.0, 'Turley Zinfandel Paso Robles Dusi Vineyard']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Croft Vintage Port': {'ingredients': [[1.0, 'Croft Vintage Port']], 'price': 29, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Bedrock The Bedrock Heritage Sonoma Valley': {'ingredients': [[1.0, 'Bedrock The Bedrock Heritage Sonoma Valley']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Olivier Ravoire Gigondas': {'ingredients': [[1.0, 'Olivier Ravoire Gigondas']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'G.D. Vajra Barolo Albe': {'ingredients': [[1.0, 'G.D. Vajra Barolo Albe']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Alexana Pinot Noir Dundee Hills Revana Vineyard': {'ingredients': [[1.0, 'Alexana Pinot Noir Dundee Hills Revana Vineyard']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Poggerino Chianti Classico': {'ingredients': [[1.0, 'Poggerino Chianti Classico']], 'price': 22, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Hamilton Russell Chardonnay Hemel-en-Aarde Valley': {'ingredients': [[1.0, 'Hamilton Russell Chardonnay Hemel-en-Aarde Valley']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Chateau Dereszla Tokaji Aszu 5 Puttonyos': {'ingredients': [[1.0, 'Chateau Dereszla Tokaji Aszu 5 Puttonyos']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Le Macchiole Bolgheri': {'ingredients': [[1.0, 'Le Macchiole Bolgheri']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'La Rioja Alta Rioja Vina Ardanza Reserva': {'ingredients': [[1.0, 'La Rioja Alta Rioja Vina Ardanza Reserva']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Seghesio Zinfandel Dry Creek Valley Cortina': {'ingredients': [[1.0, 'Seghesio Zinfandel Dry Creek Valley Cortina']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Livio Sassetti Brunello di Montalcino Pertimali': {'ingredients': [[1.0, 'Livio Sassetti Brunello di Montalcino Pertimali']], 'price': 25, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Epoch Estate Blend Paderewski Vineyard Paso Robles': {'ingredients': [[1.0, 'Epoch Estate Blend Paderewski Vineyard Paso Robles']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Alvaro Palacios Priorat Les Terrasses Velles Vinyes': {'ingredients': [[1.0, 'Alvaro Palacios Priorat Les Terrasses Velles Vinyes']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Spring Valley Uriah Walla Walla Valley': {'ingredients': [[1.0, 'Spring Valley Uriah Walla Walla Valley']], 'price': 25, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana': {'ingredients': [[1.0, 'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana']], 'price': 19, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'}}}
+        'wines': {'Cune Rioja Imperial Gran Reserva': {'ingredients': [[1, 'Cune Rioja Imperial Gran Reserva']], 'price': 63, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Chateau Canon-La Gaffeliere St.-Emilion': {'ingredients': [[1, 'Chateau Canon-La Gaffeliere St.-Emilion']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Domaine Serene Pinot Noir Willamette Valley Evenstad Reserve': {'ingredients': [[1, 'Domaine Serene Pinot Noir Willamette Valley Evenstad Reserve']], 'price': 20, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Hewitt Cabernet Sauvignon Rutherford': {'ingredients': [[1, 'Hewitt Cabernet Sauvignon Rutherford']], 'price': 29, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Kongsgaard Chardonnay Napa Valley': {'ingredients': [[1, 'Kongsgaard Chardonnay Napa Valley']], 'price': 27, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Giuseppe Mascarello & Figlio Barolo Monprivato': {'ingredients': [[1, 'Giuseppe Mascarello & Figlio Barolo Monprivato']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Domaine du Pegau Chateauneuf-du-Pape Cuvee Reservee': {'ingredients': [[1, 'Domaine du Pegau Chateauneuf-du-Pape Cuvee Reservee']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Chateau de Beaucastel Chateauneuf-du-Pape': {'ingredients': [[1, 'Chateau de Beaucastel Chateauneuf-du-Pape']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Lewis Cabernet Sauvignon Napa Valley Reserve': {'ingredients': [[1, 'Lewis Cabernet Sauvignon Napa Valley Reserve']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Quilceda Creek Cabernet Sauvignon Columbia Valley': {'ingredients': [[1, 'Quilceda Creek Cabernet Sauvignon Columbia Valley']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Reynvaan Syrah Walla Walla Valley Stonessence': {'ingredients': [[1, 'Reynvaan Syrah Walla Walla Valley Stonessence']], 'price': 27, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Turley Zinfandel Paso Robles Dusi Vineyard': {'ingredients': [[1, 'Turley Zinfandel Paso Robles Dusi Vineyard']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Croft Vintage Port': {'ingredients': [[1, 'Croft Vintage Port']], 'price': 29, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Bedrock The Bedrock Heritage Sonoma Valley': {'ingredients': [[1, 'Bedrock The Bedrock Heritage Sonoma Valley']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Olivier Ravoire Gigondas': {'ingredients': [[1, 'Olivier Ravoire Gigondas']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'G.D. Vajra Barolo Albe': {'ingredients': [[1, 'G.D. Vajra Barolo Albe']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Alexana Pinot Noir Dundee Hills Revana Vineyard': {'ingredients': [[1, 'Alexana Pinot Noir Dundee Hills Revana Vineyard']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Poggerino Chianti Classico': {'ingredients': [[1, 'Poggerino Chianti Classico']], 'price': 22, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Hamilton Russell Chardonnay Hemel-en-Aarde Valley': {'ingredients': [[1, 'Hamilton Russell Chardonnay Hemel-en-Aarde Valley']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Chateau Dereszla Tokaji Aszu 5 Puttonyos': {'ingredients': [[1, 'Chateau Dereszla Tokaji Aszu 5 Puttonyos']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Le Macchiole Bolgheri': {'ingredients': [[1, 'Le Macchiole Bolgheri']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'La Rioja Alta Rioja Vina Ardanza Reserva': {'ingredients': [[1, 'La Rioja Alta Rioja Vina Ardanza Reserva']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Seghesio Zinfandel Dry Creek Valley Cortina': {'ingredients': [[1, 'Seghesio Zinfandel Dry Creek Valley Cortina']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Livio Sassetti Brunello di Montalcino Pertimali': {'ingredients': [[1, 'Livio Sassetti Brunello di Montalcino Pertimali']], 'price': 25, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Epoch Estate Blend Paderewski Vineyard Paso Robles': {'ingredients': [[1, 'Epoch Estate Blend Paderewski Vineyard Paso Robles']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Alvaro Palacios Priorat Les Terrasses Velles Vinyes': {'ingredients': [[1, 'Alvaro Palacios Priorat Les Terrasses Velles Vinyes']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Spring Valley Uriah Walla Walla Valley': {'ingredients': [[1, 'Spring Valley Uriah Walla Walla Valley']], 'price': 25, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
+              'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana': {'ingredients': [[1, 'Bodegas Hidalgo Gitana Manzanilla Jerez La Gitana']], 'price': 19, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'}}}
