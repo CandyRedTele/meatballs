@@ -9,13 +9,13 @@
 #
 #******************************************************************************
 
-USER="root"
+DB_USER="root"
 HOST="127.0.0.1"
 PWORD=''
 
 while getopts "u:h:p:" opt; do
     case "$opt" in
-        u) USER=$OPTARG
+        u) DB_USER=$OPTARG
         ;;
         h) HOST=$OPTARG 
         ;;
@@ -66,7 +66,7 @@ do
     if [[ "$OSTYPE" == "darwin"* ]]; then
         mysql -uroot -h $HOST < $TEMPO/$file || display_usage;
     else
-        mysql -u $USER --password="$PWORD" -h $HOST < $TEMPO/$file || display_usage;
+        mysql -u $DB_USER --password="$PWORD" -h $HOST < $TEMPO/$file || display_usage;
     fi
     echo "... OK"
 done
@@ -74,3 +74,5 @@ done
 rm -r $TEMPO
 
 cd ../
+
+bash src/create_log_dir.sh
