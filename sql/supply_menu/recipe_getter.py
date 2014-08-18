@@ -119,7 +119,7 @@ class Recipe():
         for category, i in d.iteritems():
             for name, j in i.iteritems():
                 j.update({'id': index})
-                menu_item.append([index, category, j['price'], name])
+                menu_item.append([index, category, j['price'], name, j['image']])
                 index += 1
 
         # ingredients
