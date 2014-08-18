@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-	<title>Kitchen SUPPLY</title>
+	<title>RECIPES</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; charset=utf-8">
   <meta name="description" content="">
   <meta name="keywords" content="">

@@ -13,19 +13,17 @@
 		
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
-
-		$query = new SelectAllQuery("staff");
 		
+		$query = new CustomQuery("select * from staff where staff_id='".$_POST['username']."'");
+		//$query = new SelectAllQuery("staff");
 		if (!is_null($query)) 
-		{
-			//var_dump( $query);
 			$result = $query->execute();
-		}
 		
-        while($row = mysqli_fetch_row($result)) 
-        {
-			if($row[0] == $_POST['username'])
-			{
+
+		if(isset($result)) {
+			
+				$row = mysqli_fetch_row($result);
+				
 				session_start();
 				$_SESSION["views"]=0;
 				$_SESSION['SID']=$row[0];
@@ -52,13 +50,11 @@
 				
 				$row=mysqli_fetch_row($result);
 				
-
 				$_SESSION['location']=$row[0];
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
 						<meta http-equiv='Refresh' content='3;url=index.php'/>";
-			}
-            //var_dump($row);
-        }
+		}
+
 		
 		if(!isset($_SESSION['SID']))
 			echo "<div id='notF'><h3>wrong ID<br/>please try again!</h3><br/>refreshing in 3 secs</div>

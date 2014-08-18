@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-	<title>FOOD SUPPLY</title>
+	<title>service item SUPPLY</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; charset=utf-8">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -19,6 +19,7 @@
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
 <link rel="stylesheet" href="../css/stylesheet6.css" type="text/css" />
+<style>label {width:33%;}	#formContainer{width:75%;}</style>
 </head>
 
 <body>
@@ -84,7 +85,7 @@
             foreach ($row as $field) {
                 echo "<li>" . $field . "</li>" ;   
             }
-			echo "<li><a href='#'>REMOVE</a></li></ul>";
+			echo "<li><a href='remove.php?id=".$row[0]."-supply'></li></ul>";
             //var_dump($row);
         }
 

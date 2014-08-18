@@ -59,33 +59,36 @@
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">id</li>
-            <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
-			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">address</li>
-			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">phone</li>
-			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">SSN</li>
-			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">title</li>
+            <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">first name</li>
+			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">last name</li>
+			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">email</li>
+			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">phone</li>
+			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">sex</li>
             <li></li></ul><?php 
 				$logger = Logger::getSingleInstace();
 				$logger->write("HelloLogger!");
 				
-				if($_SESSION['accesslv']==1)
-					$query = new CustomQuery("SELECT * from staff");
-				else if($_SESSION['accesslv']==3)
-					$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
+				// if($_SESSION['accesslv']==1)
+					// $query = new CustomQuery("SELECT * from staff");
+				// else if($_SESSION['accesslv']==3)
+					// $query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
 				
+				$query = new CustomQuery("SELECT DISTINCT g_id, firstname, lastname, email, phone, sex FROM golden");
 				if (!is_null($query)) 
 				{
 					//var_dump( $query);
 					$result = $query->execute();
 				}
 				
+			if(isset($result))
 				while($row = mysqli_fetch_row($result)) 
 				{
 					echo "<ul>";
 					foreach ($row as $field) {
 						echo "<li>" . $field . "</li>" ;   
 					}
-					echo "<li><a href='remove.php?id=". $row[0] ."-employee'>REMOVE</a></li></ul>";
+					echo "<li><a href='#'>REMOVE</a></li></ul>";
+					//echo $row['customerName'];
 					//var_dump($row);
 				}
 		

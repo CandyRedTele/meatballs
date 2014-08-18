@@ -19,7 +19,7 @@ if(empty($_POST['firstN'])&& empty($_POST['lastN'])&& empty($_POST['email']) && 
 	//echo .$_POST['firstN'].$_POST['lastN'].$_POST['email'].$_POST['phone'].$_POST['sex'];
 	$val=false;
 }
-else echo "testing";
+//else echo "testing";
 
 ?>
 </head>
@@ -39,8 +39,7 @@ if($val){
 	}
 	
 	echo "<div id='msg'><h5>You have been successfully registered!<br/>!!!<br/>redirecting to the home page in 3 seconds</h5></div>
-	<meta http-equiv='Refresh' content='3;
-	url=menu/menuHOME.php'/>";
+	<meta http-equiv='Refresh' content='3;url=menu/menuHOME.php'/>";
 	//echo .$_POST['firstN'].$_POST['lastN'].$_POST['email'].$_POST['phone'].$_POST['sex'];
 }
 

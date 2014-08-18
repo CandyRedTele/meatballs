@@ -3,7 +3,7 @@
 	//set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
  include_once("../../src/SetPath.php");
 include_once("IncludeAllQueries.php");
-	session_start();
+	//session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +37,7 @@ $(function() {
 	$('a[href="#"]').click(function(event){	event.preventDefault(); });
 });
 </script>
-
+<link rel="stylesheet" href="../css/stylesheet7.css" />
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -51,24 +51,38 @@ $query1 = new CustomQuery("select distinct category from menu_item");
 if (!is_null($query1)) { $categories = $query1->execute();}
 
 while($category = mysqli_fetch_row($categories)) {
+
     echo "<h3 class='header-underline'>".$category[0]."</h3>";
+	
     $query2 = new CustomQuery("select name, price from menu_item natural join (menu natural join facility) where
         facility.f_id ='" . $parameter . "' and menu_item.category = '". $category[0]. "'");
+		
     if (!is_null($query2)) { $menus_items = $query2->execute();}
+	
     echo "<ul class='menu-items'>";
+	$ing = array();
     while($menu_items = mysqli_fetch_row($menus_items)) {
-        echo "<li>";
+        // echo "<li>";
         //foreach ($menu_items as $menu_item) {
-            echo "<a href='#'><div class='grid2column'>" . $menu_items[0] . "</div></a>
-            <a href='#'><div class='grid2column lastcolumn'>" . $menu_items[1] . "</div></a>
-            <div class='clearfix'></div>";
+            // echo "<a href='#'><div class='grid2column'>" . $menu_items[0] . "</div></a>
+            // <a href='#'><div class='grid2column lastcolumn'>" . $menu_items[1] . "</div></a>
+            // <div class='clearfix'></div>";
         //}
-        echo "</li>";
+        // echo "</li>";
+		$ing[] = "<span class='numF'>$menu_items[0]<br/>amount: $menu_items[1]</span>";
     }
+	foreach($ing as $i){echo $i;}
     echo "</ul>";
     echo "<div class='menu-spacer'></div>";
 }
 echo "</div></div></div>";
+
+// $array = array();
+// for ($x = 1; $x <= 1000; $x++)
+// {
+    // $array[] = $x;
+// }
+// print_r($array);
 ?>
 </body>
 </html>
