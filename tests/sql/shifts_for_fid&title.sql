@@ -1,4 +1,4 @@
-SET @title = "wait staff";
+SET @title = "shift supervisor";
 SET @f_id = 1;
 use meatballs;
 SELECT name, title, f_id, date, time_start, time_end 
