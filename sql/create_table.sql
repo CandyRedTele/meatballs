@@ -172,7 +172,7 @@ ENGINE = InnoDB;
 create TABLE IF NOT EXISTS `meatballs`.`localstaff` 
 
 (
-  `start_date`  DATE NULL,
+  `start_date`  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `f_id`        INTEGER NULL,
   `staff_id`    INTEGER PRIMARY KEY,
   CONSTRAINT `fk_staff_id2`
