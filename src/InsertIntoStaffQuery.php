@@ -58,6 +58,8 @@ class InsertIntoStaffQuery extends IQuery
 
     /* admin */
     private $location;
+    private $yrs_exp;
+    private $training;
 
     public function __construct()
     {
@@ -80,40 +82,40 @@ class InsertIntoStaffQuery extends IQuery
 
     private function __construct_1($name)
     {
-        $this->name = $name;
+        $this->init($name, null, null, null, null, null, null, null);
     }
 
     private function __construct_2($name, $address)
     {
-        $this->name = $name;
-        $this->address = $address;
+        $this->init($name, $address, null, null, null, null, null, null);
     }
 
     private function __construct_3($name, $address, $phone)
     {
-        $this->name = $name;
-        $this->address = $address;
-        $this->phone = $phone;
+        $this->init($name, $address, $phone, null, null, null, null, null);
     }
 
     private function __construct_4($name, $address, $phone, $ssn)
     {
-        $this->name = $name;
-        $this->address = $address;
-        $this->phone = $phone;
-        $this->ssn = $ssn;
+        $this->init($name, $address, $phone, $ssn, null, null, null, null);
     }
     
     private function __construct_5($name, $address, $phone, $ssn, $title)
     {
-        $this->name = $name;
-        $this->address = $address;
-        $this->phone = $phone;
-        $this->ssn = $ssn;
-        $this->title = $title;
+        $this->init($name, $address, $phone, $ssn, $title, null, null, null);
     }
 
     private function __construct_6($name, $address, $phone, $ssn, $title, $location)
+    {
+        $this->init($name, $address, $phone, $ssn, $title, $location, null, null);
+    }
+
+    private function __construct_8($name, $address, $phone, $ssn, $title, $location, $yrs_exp, $training)
+    {
+        $this->init($name, $address, $phone, $ssn, $title, $location, $yrs_exp, $training);
+    }
+
+    private function init($name, $address, $phone, $ssn, $title, $location, $yrs_exp, $training)
     {
         $this->name = $name;
         $this->address = $address;
@@ -121,8 +123,9 @@ class InsertIntoStaffQuery extends IQuery
         $this->ssn = $ssn;
         $this->title = $title;
         $this->location = $location;
+        $this->training = $training;
+        $this->yrs_exp = $yrs_exp;
     }
-
 
     private function setColumnsAnsValues()
     {
@@ -168,6 +171,16 @@ class InsertIntoStaffQuery extends IQuery
         if (isset($this->location)) {
             $this->columns['admin'] .= "location";
             $this->values['admin']  .= "'$this->location'"; 
+        }
+
+        if (isset($this->training)) {
+            $this->columns['admin'] .= ", training";
+            $this->values['admin']  .= ", '$this->training'"; 
+        }
+
+        if (isset($this->yrs_exp)) {
+            $this->columns['admin'] .= ", yrs_exp";
+            $this->values['admin']  .= ", '$this->yrs_exp'"; 
         }
 
         /* localstaff 

@@ -9,10 +9,21 @@
 #
 #******************************************************************************
 
-
 USER="root"
 HOST="127.0.0.1"
 PWORD=''
+
+while getopts "u:h:p:" opt; do
+    case "$opt" in
+        u) USER=$OPTARG
+        ;;
+        h) HOST=$OPTARG 
+        ;;
+        p) PWORD=$OPTARG
+        ;;
+    esac 
+done
+
 
 ### NOTE Please do not remove all those scripts to replace with populate.sql, I want to execute them one by one, :-)
 SCRIPTS=('create_table.sql' 'trigger_on_order.sql' 'after_bill_trigger.sql'

@@ -35,7 +35,7 @@ while read line; do
     #
     # exclude those under sql/scripts, they do not contribute to the creation/population of the database 
     #
-    exclude=$(find sql/scripts -name $line); 
+    exclude=$(find sql/scripts -name $line 2>/dev/null);
 
     if [ "$exclude" == "" ]; then
         #

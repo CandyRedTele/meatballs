@@ -46,7 +46,7 @@
 
             foreach ($b_id as $id) {
 			
-                $query = new getBillDetailsQuery($id);
+                $query = new GetBillDetailsQuery($id);
 				
 				if (!is_null($query)) 
 					$result = $query->execute();
