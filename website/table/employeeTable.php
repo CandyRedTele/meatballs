@@ -97,7 +97,7 @@ function remC() {
 					foreach ($row as $field) {
 						echo "<li>" . $field . "</li>" ;   
 					}
-					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>REMOVE</a></li></ul>";
+					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>REMOVE</a></li><li><a onclick='remC()' href='#'>MODIFY</a></li></ul>";
 					//var_dump($row);
 				}
 		
