@@ -1,0 +1,8 @@
+
+insert into reservation :
+
+name (varchar(45))
+#_seats (int(11))
+time (datetime)
+event_type (varchar(45))
+f_id (int)
