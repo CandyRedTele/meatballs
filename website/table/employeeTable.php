@@ -80,7 +80,7 @@ function remC() {
 				$logger = Logger::getSingleInstace();
 				$logger->write("HelloLogger!");
 				
-				if($_SESSION['accesslv']==1)
+				if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
 					$query = new CustomQuery("SELECT * from staff");
 				else if($_SESSION['accesslv']==3)
 					$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");

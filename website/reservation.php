@@ -112,7 +112,6 @@
 					<label class="description" for="element_7">Number of Guests </label>
 					<div>
 					<select class="element select medium" id="guestNO" name="guestNO"> 
-						<option value="" selected="selected"></option>
 						<option value="5" >less than 5</option>
 						<option value="10" >5 to 10</option>
 						<option value="15" >10 to 15</option>
@@ -126,7 +125,6 @@
 					<label class="description" for="element_7">Type of banquet</label>
 					<div>
 						<select class="element select medium" id="resTYPE" name="resTYPE"> 
-							<option value="" selected="selected"></option>
 							<option value="1" >Birthday</option>
 							<option value="2" >Company festival</option>
 							<option value="3" >Individual party</option>
@@ -153,17 +151,6 @@
 					<label class="description" for="element_7">Please choose your location</label>
 					<div>
 						<select class="element select medium" id="location" name="location"> 
-						<option value="" selected="selected"></option>
-						<?php//not working well,IDK why
-								// $query = new CustomQuery("SELECT f_id, location from facility");
-								// if (!is_null($query))
-									// $result = $query->execute();
-								// while($row = mysqli_fetch_row($result)) 
-								// {	
-									// echo '<option value="'.$row[0].'" >'.$row[1].'</option>' ;
-								// }
-						?>
-							<option value="" selected="selected"></option>
 							<option value="Montreal" >Montreal</option>
 							<option value="Toronto" >Toronto</option>
 							<option value="Winipeg" >Winipeg</option>
@@ -187,6 +174,14 @@
 		</form>	
 	</div>
 	<img id="bottom" src="img/bottom.png" alt="">
-
+						<!--//not working well,IDK why
+								// $query = new CustomQuery("SELECT f_id, location from facility");
+								// if (!is_null($query))
+									// $result = $query->execute();
+								// while($row = mysqli_fetch_row($result)) 
+								// {	
+									// echo '<option value="'.$row[0].'" >'.$row[1].'</option>' ;
+								// }
+						-->
 </body>
 </html>
