@@ -20,6 +20,17 @@
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
 <style>label {width:33%;}	#formContainer{width:75%;}</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+function remC() {
+    //document.getElementById("errorMessage").innerHTML = id;
+    if (confirm("Are you sure to remove?!") == true) {
+        // document.write("<meta http-equiv='Refresh' content='5;url=employeeTable.php?id="+id+"-employee'/>");
+    } else {
+			event.preventDefault();
+    }
+}
+</script>
 </head>
 
 <body>
@@ -27,7 +38,7 @@
 
 <!--                                   INFORMATION TABLES                                          -->
 
-<div class="errorMessage"><?php echo $outputMessage?></div>
+<div id="errorMessage" class="errorMessage"><?php echo $outputMessage?></div>
 
 <section>	<h1>ADD NEW EMPLOYEE</h1>
 <div id="formContainer">
@@ -51,9 +62,10 @@
 	<input type="hidden" name="formInsert" value="form1" />
 	<input type="submit">
 </form>
-
 </div>
 </section>
+
+<?php include_once("searchBOX.php"); ?>
 
 <p id="testing"> </p>
 <section><h1>Administration</h1>
@@ -85,7 +97,7 @@
 					foreach ($row as $field) {
 						echo "<li>" . $field . "</li>" ;   
 					}
-					echo "<li><a href='remove.php?id=". $row[0] ."-employee'>REMOVE</a></li></ul>";
+					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>REMOVE</a></li><li><a onclick='remC()' href='#'>MODIFY</a></li></ul>";
 					//var_dump($row);
 				}
 		
