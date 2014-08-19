@@ -61,7 +61,12 @@ class Logger
         }
 
 
-        $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
+        $this->fd = fopen($this->filename, 'w'); 
+
+        if (!$this->fd) { // give it another try
+            $this->filename = $this->filename = "./log/phpunit_log";;
+            $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
+        }
     }
 
     private function __construct_1($filename)

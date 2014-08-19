@@ -10,7 +10,7 @@ mkdir -p log
 if [  $(uname -o) == 'Cygwin' ]; then
     chown $USER:SYSTEM log
 else 
-    chown $USER:daemon log
+    sudo chown $USER:daemon log
 fi
 
 chmod g+w log
