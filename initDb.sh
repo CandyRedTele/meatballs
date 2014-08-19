@@ -80,6 +80,7 @@ if [ $SKIP -eq 0 ]; then
     cd ../
 fi
 
-echo "[INFO] create log directory and setup permission... we need root : "
+#
+# create log dir, set permissions
+#
 bash src/create_log_dir.sh
-echo "... OK"
