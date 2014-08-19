@@ -206,7 +206,8 @@ class InsertIntoStaffQuery extends IQuery
 
     public function getQueryString()
     {
-        $query = "INSERT INTO " . $this->tables['staff'] . " ". $this->columns['staff']
+        $query = "START TRANSACTION;\n";
+        $query .= "INSERT INTO " . $this->tables['staff'] . " ". $this->columns['staff']
                    . " VALUES " . $this->values['staff'] . ";";
 
 
@@ -228,6 +229,7 @@ class InsertIntoStaffQuery extends IQuery
             }
         }
 
+        $query .= "COMMIT;";
         return $query;
     }
 }
