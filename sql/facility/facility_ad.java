@@ -1,7 +1,7 @@
  String[] f_address =
                 {
                  "1455 Boulevard de Maisonneuve Ouest Montreal, QC H3G 1M8",
-                 "27 King's College Cir Toronto, ON M5S",
+                 "27 King's College Cir Toronto, ON M5S 3R6",
                  "66 Chancellors Cir Winnipeg, MB R3T 2N2",
                  "500 College Dr Narnia, YT Y1A 5K4",
                  "2500 University Dr NW Calgary, AB T2N 1N4",
