@@ -32,8 +32,9 @@ class MeatballUser
             $logger->write("[" . __CLASS__ . "] $ " . __FUNCTION__ . "() ? No row returned for staff id : ".$staff_id );
             return false;
         }
-
-        $level = mysqli_fetch_row($result)[0];
+        
+        $row = mysqli_fetch_row($result);
+        $level = $row[0];
 
         $logger->write("[" . __CLASS__ . "] $ ".__FUNCTION__."() ? level = " . $level);
 

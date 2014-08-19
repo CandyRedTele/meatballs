@@ -61,12 +61,7 @@ class Logger
         }
 
 
-        $this->fd = fopen($this->filename, 'w'); 
-
-        if (!$this->fd) { // give it another try
-            $this->filename = $this->filename = "./log/phpunit_log";;
-            $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
-        }
+        $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
     }
 
     private function __construct_1($filename)
@@ -85,7 +80,12 @@ class Logger
     {
         $filename = $_SERVER['DOCUMENT_ROOT'];
         MeatballUser::removeTrailingSlash($filename);
-        $filename .= "/comp353-project/log/log";
+
+        if (!file_exists($filename)) {
+            $filename = getcwd() . "/log/phpunit_log";
+        } else {
+            $filename .= "/comp353-project/log/log";
+        }
 
         return $filename;
     }
