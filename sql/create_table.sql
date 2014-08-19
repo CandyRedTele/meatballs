@@ -286,9 +286,9 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`reservation`
 (
   `r_id` INTEGER NOT NULL,
   `name` VARCHAR(45) NULL,
-  `time` DATE NULL,
-  `#_seats` INTEGER NULL,
-  `event_type` VARCHAR(45) NULL,
+  `time` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `#_seats` INTEGER DEFAULT 1,
+  `event_type` VARCHAR(25) NULL,
   `f_id` INTEGER NOT NULL,
   PRIMARY KEY (`r_id`),
   INDEX `fk_reservation_facility1_idx` (`f_id` ASC),
@@ -328,7 +328,6 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`golden`
     `lastname`      VARCHAR(45)     NOT NULL,
     `email`         VARCHAR(45)     NOT NULL,
     phone           CHAR(12)        NULL, 
-    picture_path    VARCHAR(100)    NULL,
     `sex`           CHAR(1)    NOT NULL
 )
 ENGINE = InnoDB;
