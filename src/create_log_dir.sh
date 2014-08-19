@@ -12,7 +12,7 @@ mkdir -p log
 # NB : `uname -o` does not work on MAC, `uname` does... $OSTYPE is another option that should work on
 #       Cygwin, Linux and Mac
 #
-if [ $(uname) == 'Darwin' -o $OSTYPE == 'linux-gnu' ]; then
+if [ $(uname) == 'Darwin' -o $(uname) == 'Linux' ]; then
     # Linux, Unix and Mac users
     sudo chown $USER:daemon log
 else 
