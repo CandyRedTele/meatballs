@@ -213,7 +213,6 @@ class InsertIntoStaffQuery extends IQuery
         $isAdmin = false;
 
         if (isset($this->title)) {
-            $this->logger->write("check");
             foreach (InsertIntoStaffQuery::$admin as $title) {
                 if (strcasecmp($this->title, $title) == 0) {
                     $isAdmin = true;
