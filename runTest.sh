@@ -21,6 +21,7 @@
 #
 #
 #******************************************************************************
+CREATE_DIR_SH=src/create_log_dir.sh    
 
 
 #
@@ -42,6 +43,14 @@ exit_sts=$?;
 if [ $exit_sts -ne 0 ]; then
     echo "[$0] run the script from the root of the project";
     exit $exit_sts;
+fi
+
+
+#
+# check that the LOG dir exists
+#
+if [ ! -d "log" ]; then
+    bash $CREATE_DIR_SH
 fi
 
 rm -f src/log

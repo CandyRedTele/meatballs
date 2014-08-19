@@ -206,14 +206,14 @@ class InsertIntoStaffQuery extends IQuery
 
     public function getQueryString()
     {
-        $query = "INSERT INTO " . $this->tables['staff'] . " ". $this->columns['staff']
+        $query = "START TRANSACTION;\n";
+        $query .= "INSERT INTO " . $this->tables['staff'] . " ". $this->columns['staff']
                    . " VALUES " . $this->values['staff'] . ";";
 
 
         $isAdmin = false;
 
         if (isset($this->title)) {
-            $this->logger->write("check");
             foreach (InsertIntoStaffQuery::$admin as $title) {
                 if (strcasecmp($this->title, $title) == 0) {
                     $isAdmin = true;
@@ -229,6 +229,7 @@ class InsertIntoStaffQuery extends IQuery
             }
         }
 
+        $query .= "COMMIT;";
         return $query;
     }
 }
