@@ -154,6 +154,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facility`
 (
   `f_id` INTEGER NOT NULL,
   `location` VARCHAR(45) NULL,
+  `address` VARCHAR(100) NULL,
   `m_id` INTEGER NOT NULL,
   `phone` CHAR(13) NULL,
   PRIMARY KEY (`f_id`),
@@ -286,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`reservation`
 (
   `r_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `time` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `nb_of_seats` INTEGER DEFAULT 1,
   `event_type` VARCHAR(25) NULL,
   `f_id` INTEGER NOT NULL,
