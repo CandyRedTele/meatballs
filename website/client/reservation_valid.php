@@ -30,16 +30,16 @@ if ($val) {
     $logger->write("HelloLogger!");
 
     $dt = $_POST['date'] . " " . $_POST['timeHour'] . ":" . $_POST['timeMins'] . ":00";
+    $dt = preg_replace('#(\d{2})/(\d{2})/(\d{4})\s(.*)#', '$3-$1-$2 $4', $dt);
+    $dt_temp= date_parse($dt);
+    $dtime =  date('Y-m-d H:i:s', mktime($dt_temp['hour'], $dt_temp['minute'], $dt_temp['second'], $dt_temp['month'], $dt_temp['day'], $dt_temp['year']));
 
-    $dtime = preg_replace('#(\d{2})/(\d{2})/(\d{4})\s(.*)#', '$3-$2-$1 $4', $dt);
+    $query= new InsertIntoReservation($_POST['userName'], $dtime, $_POST['guestNO'], $_POST['resTYPE'], $parameter);
 
-    // TODO
-    // $query = new InsertIntoGoldenQuery($_POST['firstN'], $_POST['lastN'], $_POST['sex'], $_POST['email'], $_POST['phone']);
-
-    // if (!is_null($query))
-    // {
-    // 	$result = $query->execute();
-    // }
+    if (!is_null($query))
+    {
+        $result = $query->execute();
+    }
 
     echo "<div id='msg'>
 	<h5>
@@ -49,7 +49,7 @@ if ($val) {
 		event_type" . $_POST['resTYPE'] . "<br>
 		f_id" . $parameter . "
 	</h5>
-	<h5>You have been successfully registered!<br/>!!!<br/>redirecting to the home page in 3 seconds</h5>
+	<h5>You have successfully made a reservation!<br/>!!!<br/>redirecting to the home page in 3 seconds</h5>
 	</div><meta http-equiv='Refresh' content='3; url=home.php?" . $parameter . "'/>";
 }
 ?>
