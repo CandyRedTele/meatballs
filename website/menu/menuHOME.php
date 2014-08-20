@@ -37,13 +37,16 @@ $(function() {
 	// and run it again every time you scroll
 	$(window).scroll(function() { sticky_navigation();});
 	
-	// NOT required:
-	// for this demo disable all links that point to "#"
+	// NOT required: for this demo disable all links that point to "#"
 	$('a[href="#"]').click(function(event){	event.preventDefault(); });
 });
 </script>
 <link rel="stylesheet" href="../css/recipeBOX.css" />
-<style>.menu-items li{width:50%}</style>
+<style>
+.menu-items li{width:50%; color:#7D7D7D; font-size:15px; border-bottom: 1px dotted #bdb7a4;} 
+#pr_or{float:left;} .header-underline{color:#999966;}
+</style>
+<link rel="stylesheet" href="http://yui.yahooapis.com/3.17.2/build/cssbutton/cssbutton.css">
 </head>
 <body>
 <?php include_once("menuNAVIGATION.php"); ?>
@@ -61,8 +64,8 @@ if (!is_null($query1)) { $categories = $query1->execute();}
 
 while($category = mysqli_fetch_row($categories)) {
 
-    echo "<h3 class='header-underline'>".$category[0]."</h3>";
-	
+    //echo "<h3 class='header-underline'>".$category[0]."</h3>";
+	// echo ?><h3 class='header-underline'><?php echo $category[0] ?></h3><?php
     $query2 = new CustomQuery("select name, price from menu_item natural join (menu natural join facility) where
         facility.f_id ='" . $parameter . "' and menu_item.category = '". $category[0]. "'");
 		
@@ -71,8 +74,8 @@ while($category = mysqli_fetch_row($categories)) {
     echo "<ul class='menu-items'>";
 	
     while($menu_items = mysqli_fetch_row($menus_items)) {
-		echo "<li><div class='grid2column'>" . $menu_items[0] . 
-		"</div><div class='grid2column lastcolumn'>$" . $menu_items[1] . "</div>";
+		echo "<li><div class='grid2column'>" . $menu_items[0] .  
+		"</div>$" . $menu_items[1] ."<div class='grid2column lastcolumn' id='pr_or'><form action='' id='orderB'><input class='yui3-button' type='button' value='order'/></form></div>";//order button is here
 		
         
 		$query3 = new CustomQuery("select image, menuI.name, supplies.name, amount
@@ -96,8 +99,7 @@ as menuI on supplies.sku = menuI.sku;");
 				// $l=1;
 		foreach($ing as $i){echo $i;}//$l++."_".
 		
-		echo "<form action=''><input type='button' value='order'/></form>
-			</div><div class='clearfix'></div></li>";
+		echo "</div><div class='clearfix'></div></li>";
 		unset($img);
     }
 	

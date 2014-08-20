@@ -4,22 +4,25 @@
 #
 # PURPOSE : run sql scripts to create/populate meatballs DB
 # 
-# NOTES : works with BASH, not with DASH (arrays not supported, change your default shell!)
-#                                        (or use 'bash initDb.sh')
+# NOTES : works with BASH, not with DASH (arrays not supported)
+#         use 'bash initDb.sh'
 #
 #******************************************************************************
 
-USER="root"
+DB_USER="root"
 HOST="127.0.0.1"
 PWORD=''
+SKIP=0
 
-while getopts "u:h:p:" opt; do
+while getopts "u:h:p:s" opt; do
     case "$opt" in
-        u) USER=$OPTARG
+        u) DB_USER=$OPTARG
         ;;
         h) HOST=$OPTARG 
         ;;
         p) PWORD=$OPTARG
+        ;;
+        s) SKIP=1;
         ;;
     esac 
 done
@@ -40,37 +43,44 @@ function display_usage
     exit
 }
 
-bash tests/check_if_all_script_are_in_initDb.sh
+if [ $SKIP -eq 0 ]; then
+    bash src/check_if_all_script_are_in_initDb.sh
 
-cd ./sql
+    cd ./sql
 
-mkdir -p $TEMPO 
+    mkdir -p $TEMPO 
 
-cp *.sql $TEMPO
+    cp *.sql $TEMPO
+
+    #
+    # copy all sql under $TEMPO 
+    #
+    for dir in $(ls -d */); do
+        if [ $dir != "tempo/" ]; then 
+            echo -n "[initDb.sh] "
+            echo "cp $dir*.sql $TEMPO" 
+            cp $dir*.sql $TEMPO 
+        fi
+    done
+
+
+    for file in ${SCRIPTS[@]}
+    do
+        echo -n "[initDb.sh] executing $file ..."
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            mysql -uroot -h $HOST < $TEMPO/$file || display_usage;
+        else
+            mysql -u $DB_USER --password="$PWORD" -h $HOST < $TEMPO/$file || display_usage;
+        fi
+        echo "... OK"
+    done
+
+    rm -r $TEMPO
+
+    cd ../
+fi
 
 #
-# copy all sql under $TEMPO 
-
-for dir in $(ls -d */); do
-    if [ $dir != "tempo/" ]; then 
-        echo -n "[initDb.sh] "
-        echo "cp $dir*.sql $TEMPO" 
-        cp $dir*.sql $TEMPO 
-    fi
-done
-
-
-for file in ${SCRIPTS[@]}
-do
-    echo -n "[initDb.sh] executing $file ..."
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        mysql -uroot -h $HOST < $TEMPO/$file || display_usage;
-    else
-        mysql -u $USER --password="$PWORD" -h $HOST < $TEMPO/$file || display_usage;
-    fi
-    echo "... OK"
-done
-
-rm -r $TEMPO
-
-cd ../
+# create log dir, set permissions
+#
+bash src/create_log_dir.sh

@@ -15,16 +15,20 @@ abstract class IQuery
     protected $result;
     static private $log_once_flag = false; // log only when the first IQuery is created, not after
 	
-    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-     * 
-     * NAME : __construct, no arguments 
-     *
-     *-----------------------------------------------------------*/
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : __construct, no arguments 
+    *
+    *-----------------------------------------------------------*/
     public function __construct() 
     {
 		$this->logger = Logger::getSingleInstace();
 		
-        $config_path = $_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src/project.config.xml';
+        $config_path = $_SERVER['DOCUMENT_ROOT'];
+
+        MeatballUser::removeTrailingSlash($config_path);
+
+        $config_path .= '/comp353-project/src/project.config.xml';
 
         if (!file_exists($config_path)) {
             $config_path = __DIR__ . '/project.config.xml'; 
@@ -46,11 +50,11 @@ abstract class IQuery
         } 
     }
     
-    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-     * 
-     * NAME : __destruct
-     *
-     *-----------------------------------------------------------*/
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : __destruct
+    *
+    *-----------------------------------------------------------*/
     public function __destruct()
     {
         $this->free();
@@ -63,25 +67,25 @@ abstract class IQuery
         }
     }
 
-    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-     * 
-     * NAME : getQueryString 
-     *
-     * PURPOSE : To be overriden by subclasses.
-     *
-     * RETURNS : The query string to be executed by execute()
-     *
-     *-----------------------------------------------------------*/
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : getQueryString 
+    *
+    * PURPOSE : To be overriden by subclasses.
+    *
+    * RETURNS : The query string to be executed by execute()
+    *
+    *-----------------------------------------------------------*/
     abstract protected function getQueryString();
 
 
-    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-     * 
-     * NAME : execute 
-     *
-     * PURPOSE : Execute the query returned by getQueryString()
-     *
-     *-----------------------------------------------------------*/
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : execute 
+    *
+    * PURPOSE : Execute the query returned by getQueryString()
+    *
+    *-----------------------------------------------------------*/
     public function execute()
     {
 		if (is_null(self::$mysql)) {
