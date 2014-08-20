@@ -88,15 +88,19 @@
 		</div>
 		<div class="col span_1_of_contact">
 			<div class="contact_info">
-			<?php
-			// TODO
-			?>
 			     	<h3>Address</h3>
-			     	<p>500 Lorem Ipsum Dolor Sit,</p>
-					<p>22-56-2-9 Sit Amet, Lorem,</p>
-			   		<p>Phone:(00) 222 666 444</p>
-			   		<p>Fax: (000) 000 00 00 0</p>
-			 	 	<p>Email: <span>info[at]mycompany.com</span></p>
+			<?php
+					$query = new CustomQuery("SELECT address, phone from facility where f_id = ". $parameter. "");
+
+					if (!is_null($query))
+						$result = $query->execute();
+
+					if(isset($result)) {
+						$row = mysqli_fetch_row($result);
+							echo "<p>" .$row[0]. "</p>
+                                  <p>Phone: " .$row[1]."</p>";
+                    }
+			?>
 			</div>
 		<div class="clear"></div>
 	</div>
