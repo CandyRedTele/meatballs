@@ -1,3 +1,16 @@
+#******************************************************************************
+#
+# AUTHOR : Joseph, comp353-project TEAM 3
+#
+# FILE : create_log_dir.sh
+#
+# PURPOSE : Creates the log folder, change the group and permissions
+#           so that the server can write to it.
+# 
+# NOTES : tested with BASH on Linux, Windows (Cygwin) and Mac 
+#         -> to be run from the root of the project
+#
+#******************************************************************************
 #
 # create the /log folder 
 #
