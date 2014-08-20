@@ -125,9 +125,12 @@ entree_urls = [
     "http://allrecipes.com/Recipe/Jet-Swirl-Pizza-Appetizers/Detail.aspx?evt19=1"]
 kids_urls = [
     "http://allrecipes.com/Recipe/Tuna-Noodle-Casserole-from-Scratch/Detail.aspx?evt19=1",
+    "http://allrecipes.com/Recipe/Angelas-Awesome-Enchiladas/",
+    "http://allrecipes.com/Recipe/Pan-Fried-Asparagus/",
     "http://allrecipes.com/Recipe/EZ-Pizza-for-Kids/",
     "http://allrecipes.com/Recipe/Bacon-Wrapped-Smokies/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Homemade-Mac-and-Cheese/Detail.aspx?evt19=1",
+    "http://allrecipes.com/Recipe/Crispy-Fish/",
     "http://allrecipes.com/Recipe/Baked-Ziti-I/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Spinach-Quiche-with-Kid-Appeal/Detail.aspx?evt19=1",
     "http://allrecipes.com/Recipe/Millys-Oatmeal-Brownies/Detail.aspx?evt19=1",
@@ -148,7 +151,6 @@ wines = {
               'Quilceda Creek Cabernet Sauvignon Columbia Valley': {'ingredients': [[1, 'Quilceda Creek Cabernet Sauvignon Columbia Valley']], 'price': 21, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
               'Reynvaan Syrah Walla Walla Valley Stonessence': {'ingredients': [[1, 'Reynvaan Syrah Walla Walla Valley Stonessence']], 'price': 27, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
               'Turley Zinfandel Paso Robles Dusi Vineyard': {'ingredients': [[1, 'Turley Zinfandel Paso Robles Dusi Vineyard']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
-              'Croft Vintage Port': {'ingredients': [[1, 'Croft Vintage Port']], 'price': 29, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
               'Bedrock The Bedrock Heritage Sonoma Valley': {'ingredients': [[1, 'Bedrock The Bedrock Heritage Sonoma Valley']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
               'Olivier Ravoire Gigondas': {'ingredients': [[1, 'Olivier Ravoire Gigondas']], 'price': 23, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
               'G.D. Vajra Barolo Albe': {'ingredients': [[1, 'G.D. Vajra Barolo Albe']], 'price': 24, 'image': 'http://www.greenerpackage.com/sites/default/files/Boisset.jpg'},
