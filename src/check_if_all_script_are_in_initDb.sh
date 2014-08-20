@@ -30,25 +30,26 @@ for sql in ${ALL_SQL[@]}; do
     fi
 done
 
-
-while read line; do
-    #
-    # exclude those under sql/scripts, they do not contribute to the creation/population of the database 
-    #
-    exclude=$(find sql/scripts -name $line 2>/dev/null);
-
-    if [ "$exclude" == "" ]; then
+if [ -f $TEMPO ]; then
+    while read line; do
         #
-        # exclude : those that are just use to 'source' others
+        # exclude those under sql/scripts, they do not contribute to the creation/population of the database 
         #
-        grep  "^source" $(find . -name $line)  2>&1 1>/dev/null;
-        if [ $? -eq 1 ];  then
-            RESULT=1;
-            echo -n "Files missing in $TARGET : ";
-            echo $line
+        exclude=$(find sql/scripts -name $line 2>/dev/null);
+
+        if [ "$exclude" == "" ]; then
+            #
+            # exclude : those that are just use to 'source' others
+            #
+            grep  "^source" $(find . -name $line)  2>&1 1>/dev/null;
+            if [ $? -eq 1 ];  then
+                RESULT=1;
+                echo -n "Files missing in $TARGET : ";
+                echo $line
+            fi
         fi
-    fi
-done < $TEMPO
+    done < $TEMPO
+fi
 
 if [ $RESULT -eq 0 ]; then 
     echo "[CHECK] initDb.sh is up to date.";
