@@ -13,6 +13,11 @@ class GetLocationQuery extends IQuery
 {
     private $staff_id;
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : __construct
+    *
+    *-----------------------------------------------------------*/
     public function __construct($staff_id)
     {
 		parent::__construct();
@@ -21,6 +26,11 @@ class GetLocationQuery extends IQuery
         $this->staff_id= $staff_id;
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : getQueryString
+    *
+    *-----------------------------------------------------------*/
     public function getQueryString()
     {
         return "SELECT location FROM facility WHERE f_id = (SELECT f_id FROM staff NATURAL JOIN localstaff WHERE staff_id="

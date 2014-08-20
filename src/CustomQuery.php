@@ -13,6 +13,11 @@ class CustomQuery extends IQuery
 {
     private $query_string;
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : __construct 
+    *
+    *-----------------------------------------------------------*/
     public function __construct($query_string)
     {
 		parent::__construct();
@@ -20,6 +25,11 @@ class CustomQuery extends IQuery
 		$this->logger->write("[" . __CLASS__ . "] - __construct()");
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : getQueryString 
+    *
+    *-----------------------------------------------------------*/
     public function getQueryString()
     {
         return $this->query_string;

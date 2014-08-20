@@ -17,7 +17,7 @@ abstract class IQuery
 	
    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     * 
-    * NAME : __construct, no arguments 
+    * NAME : __construct
     *
     *-----------------------------------------------------------*/
     public function __construct() 
