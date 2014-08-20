@@ -25,7 +25,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
     public function testInsertIntoReservationQuery_success()
     {
         $name = 'Jean-Paul 666';
-        $time = '1967-11-12 12:12:12';
+        $time =  date('Y-m-d H:i:s', mktime(0, 0, 0, 1, 1, 1998));
         $nb_of_seats = 666;
         $event_type  = 'french ballet';
         $f_id = 6;
