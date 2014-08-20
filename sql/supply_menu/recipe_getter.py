@@ -193,10 +193,6 @@ def create_list():
         for sk in fa:
             facility_stock.append([sk, (i+1), randint(300, 800)])
 
-    for i in xrange(12):
-        for j in other_supplies:
-            facility_stock.append([j[0], (i+1), randint(1, 8)])
-
     # bill
     # ====
     # `b_id` INTEGER NOT NULL AUTO_INCREMENT,
@@ -267,8 +263,12 @@ def create_list():
             date_order = date.today()-timedelta(days=randrange(0,10))
             date_order = date_order.isoformat()
             pick = ingre_per_f[randint(0, len(ingre_per_f)-1)]
-            order.append([pick[1], pick[0], date_order, (80 - pick[2])+1])
+            order.append([pick[1], pick[0], date_order, (800 - pick[2])+1])
 
+    # Add the remaining items to facility stock.
+    for i in xrange(12):
+        for j in other_supplies:
+            facility_stock.append([j[0], (i+1), randint(1, 8)])
     # vendor
     # ========
     # `vendor_id`     INTEGER PRIMARY KEY,
