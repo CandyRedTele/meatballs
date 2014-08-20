@@ -1,3 +1,16 @@
+#******************************************************************************
+#
+# AUTHOR : Joseph, comp353-project TEAM 3
+#
+# FILE : create_log_dir.sh
+#
+# PURPOSE : Creates the log folder, change the group and permissions
+#           so that the server can write to it.
+# 
+# NOTES : tested with BASH on Linux, Windows (Cygwin) and Mac 
+#         -> to be run from the root of the project
+#
+#******************************************************************************
 #
 # create the /log folder 
 #
@@ -12,7 +25,7 @@ mkdir -p log
 # NB : `uname -o` does not work on MAC, `uname` does... $OSTYPE is another option that should work on
 #       Cygwin, Linux and Mac
 #
-if [ $OSTYPE == 'darwin' -o $OSTYPE == 'linux-gnu' ]; then
+if [ $(uname) == 'Darwin' -o $(uname) == 'Linux' ]; then
     # Linux, Unix and Mac users
     sudo chown $USER:daemon log
 else 
