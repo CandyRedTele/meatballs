@@ -284,13 +284,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`reservation` 
 (
-  `r_id` INTEGER NOT NULL,
+  `r_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `time` DATETIME DEFAULT CURRENT_TIMESTAMP,
-  `#_seats` INTEGER DEFAULT 1,
+  `nb_of_seats` INTEGER DEFAULT 1,
   `event_type` VARCHAR(25) NULL,
   `f_id` INTEGER NOT NULL,
-  PRIMARY KEY (`r_id`),
   INDEX `fk_reservation_facility1_idx` (`f_id` ASC),
   CONSTRAINT `fk_reservation_facility1`
     FOREIGN KEY (`f_id`)
