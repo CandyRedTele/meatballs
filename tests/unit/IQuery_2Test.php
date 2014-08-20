@@ -19,7 +19,28 @@ class IQuery_2Test extends PHPUnit_Framework_TestCase
 
     public function testGetAccesLevel_success()
     {
-        $this->fail("TODO");
+        $title = 'manager';
+        $access_level = 4;
+
+ 
+
+        // 1. Retreive those values.
+        $select = new CustomQuery("select title, access_level from access_level where title='".$title."' and access_level='".$access_level."';");
+        $result = $select->execute();
+
+        if (!$result) {
+            mysqli_free_result($result);
+            $this->assertTrue(false); // Fail it.
+        }
+
+        $actual = mysqli_fetch_assoc($result);
+        mysqli_free_result($result);
+
+        // 2. assert
+        $this->assertEquals($title, $actual['title']);
+        $this->assertEquals($access_level, $actual['access_level']);
+
+        //$this->fail("TODO");
 
     }
 /*
