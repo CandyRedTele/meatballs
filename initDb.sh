@@ -4,8 +4,8 @@
 #
 # PURPOSE : run sql scripts to create/populate meatballs DB
 # 
-# NOTES : works with BASH, not with DASH (arrays not supported, change your default shell!)
-#                                        (or use 'bash initDb.sh')
+# NOTES : works with BASH, not with DASH (arrays not supported)
+#         use 'bash initDb.sh'
 #
 #******************************************************************************
 
