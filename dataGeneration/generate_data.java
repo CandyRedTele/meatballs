@@ -98,7 +98,7 @@ public class generate_data {
 				
 		String slash = File.separator;
 		String folder = "output"+ slash;
-        boolean genbills = false;
+        boolean genfacility = false;
         boolean genstaff = false;
 		String staffloc = "staff" + slash + "staffgen.sql";
 
@@ -108,15 +108,15 @@ public class generate_data {
             System.exit(1);
         }
         if(args.length >= 1){
-            if(args[0].equals("bills")){
-            	genbills = true;
+            if(args[0].equals("facility")){
+            	genfacility = true;
             }
             else if(args[0].equals("staff")){
             	genstaff = true;
 
             }
             else if(args[0].equals("all")){
-            	genbills = true;
+            	genfacility = true;
             	genstaff = true;
             }
             else{
@@ -156,6 +156,13 @@ public class generate_data {
 			//generate constraints on scheduling
 			p = new PrintStream(folder + "gen_schedule.sql");
 			gen_sched(p);
+        }
+        if(genfacility){
+        	folder = path_to_sql + "facility" + slash;
+
+        	//generate facility
+        	p = new PrintStream(folder + "gen_facility.sql");
+        	gen_facility(p);
         }
 		/*
         if(genbills){
@@ -277,6 +284,54 @@ public class generate_data {
 
 		gen_data(name, fields, access_level.toArray(), p);
 
+	}
+	
+	private static void gen_facility(PrintStream p){
+		
+		String[] fields = {"`f_id`", "`location`", "`address`", "`m_id`", "`phone`"};
+		String[] f_address = {
+		          "1455 Boulevard de Maisonneuve Ouest Montreal, QC H3G 1M8",
+		          "27 King\\'s College Cir Toronto, ON M5S 3R6",
+		          "66 Chancellors Cir Winnipeg, MB R3T 2N2",
+		          "500 College Dr Narnia, YT Y1A 5K4",
+		          "2500 University Dr NW Calgary, AB T2N 1N4",
+		          "1111 Resolute, Faraway, NU X0A 0V0",
+		          "6299 South St Halifax, NS B3H 4R2",
+		          "75 Laurier Ave E Ottawa, ON K1N 6N5",
+		          "2329 W Mall Vancouver, BC V6T 1Z4",
+		          "3737 Wascana Pkwy Regina, SK S4S 0A2",
+		          "2325 Rue de l\\'Universite Quebec, QC G1V 0A6",
+		          "2500 boul. de l\\'Universite Sherbrooke, QC J1K 2R1",
+		 };
+		String[] location = {
+				"Montreal",
+				"Toronto",
+				"Winipeg",
+				"Narnia",
+				"Calgary",
+				"Faraway",
+				"Halifax",
+				"Ottowa",
+				"Vancouver",
+				"Regina",
+				"Quebec",
+				"Sherbrooke"
+		};
+		
+		Object[] facilities = new Object[12];
+		for(int i = 0; i < facilities.length; i++){
+			 facilities[i] = new Object[] {
+				 (i + 1),
+				 "'" + location[i] + "'",
+				 "'" + f_address[i] + "'",
+				 (i + 1),
+				 "'" + gen_phone() + "'"
+			 };
+		}
+		
+		gen_data("facility", fields, facilities, p);
+
+		
 	}
 	
 	private static void gen_localstaff( StaffMember[] arrStaff, PrintStream p) {
