@@ -9,4 +9,5 @@ sql/tempo
 
 *.*LOCAL
 .ipynb_checkpoints
+*.pyc
 log
