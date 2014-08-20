@@ -138,9 +138,6 @@ class InsertIntoStaffQuery extends IQuery
         $this->columns['localstaff'] = "(";
         $this->values['localstaff'] = "(";
 
-        $this->localstaff_col = "(";
-        $this->localstaff_val = "(";
-
         /* staff */
         if (isset($this->name)) {
             $this->columns['staff'] .= "name";
