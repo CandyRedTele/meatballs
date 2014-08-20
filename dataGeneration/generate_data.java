@@ -87,6 +87,11 @@ public class generate_data {
 		
 	};
 	
+	String[] locations = {
+			"Montreal", "Toronto", "Winipeg", "Narnia",
+			"Calgary", "Faraway", "Halifax", "Ottowa", 
+			"Vancouver", "Regina", "Quebec", "Sherbrooke"};
+	
 	
 	static boolean debug = false;
 	final static int numBills = 300;
@@ -365,8 +370,7 @@ public class generate_data {
 		
 		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
-			if(!isAdmin(staff.title)
-					&& !staff.title.equals(titles[DeliId])){
+			if(!isAdmin(staff.title)){
 				
 				staff.start_date = gen_date();
 				staff.f_id = i%12 + 1;
@@ -414,10 +418,7 @@ public class generate_data {
 	static void gen_admins(StaffMember[] arrStaff, PrintStream p){
 		if(debug) System.out.println("Admins Started Generation");
 		String name = "admin";
-		String[] locations = {
-				"Montreal", "Toronto", "Winipeg", "Narnia",
-				"Calgary", "Faraway", "Halifax", "Ottowa", 
-				"Vancouver", "Regina", "Quebec", "Sherbrooke"};
+
 		
 		String[] fields = {"staff_id", "location", "yrs_exp"};
 		
@@ -425,10 +426,9 @@ public class generate_data {
 
 		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
-			if(isAdmin(staff.title)
-					&& !staff.title.equals(titles[DeliId])){
+			if(isAdmin(staff.title)){
 				
-				staff.location = "'" + locations[random_num(0, locations.length-1)] + "'";
+				staff.location = "'" + "Montreal" + "'";//+ locations[random_num(0, locations.length-1)] + "'";
 				staff.yrs_exp = random_num(0, 4);
 				admins.add(new Object[]{
 					staff.staff_id,
