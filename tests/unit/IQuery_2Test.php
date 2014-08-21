@@ -19,13 +19,19 @@ class IQuery_2Test extends PHPUnit_Framework_TestCase
 
     public function testGetAccesLevel_success()
     {
-        $title = 'manager';
-        $access_level = 4;
+        $staff_id = 12;
+        $table = 'access_level';
+        $column = 'access_level';
 
- 
+        // 1. Insert a staff id.
+        $access = new GetAccessLevelQuery($staff_id);
 
-        // 1. Retreive those values.
-        $select = new CustomQuery("select title, access_level from access_level where title='".$title."' and access_level='".$access_level."';");
+            if(!$access->execute()) {
+            $this->fail('execute failed');
+        }
+
+        // 2. Retreive the access level value.
+        $select = new CustomQuery("select access_level from access_level  natural join staff where staff_id='".$staff_id."';");
         $result = $select->execute();
 
         if (!$result) {
@@ -36,9 +42,9 @@ class IQuery_2Test extends PHPUnit_Framework_TestCase
         $actual = mysqli_fetch_assoc($result);
         mysqli_free_result($result);
 
-        // 2. assert
-        $this->assertEquals($title, $actual['title']);
-        $this->assertEquals($access_level, $actual['access_level']);
+        // 3. assert
+        
+        $this->assertEquals($column, $actual['access_level']);
         
         //$this->fail("TODO");
 
