@@ -39,7 +39,7 @@ class IQuery_2Test extends PHPUnit_Framework_TestCase
         // 2. assert
         $this->assertEquals($title, $actual['title']);
         $this->assertEquals($access_level, $actual['access_level']);
-
+        
         //$this->fail("TODO");
 
     }
