@@ -15,6 +15,11 @@ class GetAccessLevelQuery extends IQuery
     private $staff_id;
     private $column;
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : __construct 
+    *
+    *-----------------------------------------------------------*/
     public function __construct($staff_id)
     {
 		parent::__construct();
@@ -24,6 +29,11 @@ class GetAccessLevelQuery extends IQuery
         $this->column = 'access_level'; // yes, same name as the table...
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : getQueryString 
+    *
+    *-----------------------------------------------------------*/
     public function getQueryString()
     {
         return    "SELECT " . $this->table
