@@ -20,7 +20,7 @@ class IQuery_2Test extends PHPUnit_Framework_TestCase
     public function testGetAccesLevel_success()
     {
         $staff_id = 12;
-        $table = 'access_level';
+        $table = 'access_level'; // needed?
         $column = 'access_level';
 
         // 1. Create a new instance of GetAccessLevelQuery based on staff id.
