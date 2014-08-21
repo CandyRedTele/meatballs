@@ -85,7 +85,7 @@
     <div class="main">
 
         <div>
-        <h1 class="logoTitle">Welcome To Mamma Meatballs!</h1>
+        <h1 class='logotitle'>Welcome to Mamma Meatballs!</h1>
         </div>
         <div class="heading3">
         <h3>Our Restaurants</h3>
