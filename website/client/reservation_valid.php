@@ -10,7 +10,7 @@ $parameter = $_SERVER['QUERY_STRING'];
 	<meta charset="utf-8"/>
 	<title>Transfering</title>
 	<style type="text/css">
-	#msg {border:thin solid grey; background-color:#D6D6FF; text-align:center; width:25%; }
+	#msg {border:thin solid grey; background-color:#F0745F; text-align:center; width:25%; }
 	</style>
 <?php
 $val = true;

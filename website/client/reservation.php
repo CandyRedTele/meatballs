@@ -63,7 +63,7 @@
           					echo '<form action="reservation_valid.php?'.$parameter.'" onsubmit="return(validate());" method="post" enctype="multipart/form-data">'?> 
 					    	<div>
 						    	<span><label>Name</label></span>
-						    	<span><input name="userName" type="text" class="textbox"></span>
+						    	<span><input name="userName" type="text" class="textbox" required></span>
 						    </div>
 						    <div>
 						    	<span><label>Date</label></span>
