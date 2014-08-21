@@ -23,7 +23,7 @@ class IQuery_2Test extends PHPUnit_Framework_TestCase
         $table = 'access_level';
         $column = 'access_level';
 
-        // 1. Insert a staff id.
+        // 1. Create a new instance of GetAccessLevelQuery based on staff id.
         $access = new GetAccessLevelQuery($staff_id);
 
             if(!$access->execute()) {
