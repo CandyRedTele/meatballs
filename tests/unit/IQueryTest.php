@@ -1,8 +1,14 @@
 <?php
+/**************************************************************************
+ *
+ * AUTHORS : Team 3, Joseph
+ *
+ * NAME : IQueryTest 
+ *
+ * PURPOSE : Test all IQuery's
+ *
+ **************************************************************************/
 include_once("src/IncludeAllQueries.php");
-include_once("src/CustomQuery.php");
-include_once("src/InsertIntoStaffQuery.php");
-putenv("DOCUMENT_ROOT='/home/jamg85/git");
 
 /**
  * @requires extension mysqli
@@ -15,6 +21,42 @@ class IQueryTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('The MySQLi extension is not available.'); // Does the same job as the '@requires extension mysqli
         }
     }
+    
+    public function testInsertIntoReservationQuery_success()
+    {
+        $name = 'Jean-Paul 666';
+        $time =  date('Y-m-d H:i:s', mktime(0, 0, 0, 1, 1, 1998));
+        $nb_of_seats = 666;
+        $event_type  = 'french ballet';
+        $f_id = 6;
+
+        // 1. Insert some values.
+        $insert= new InsertIntoReservation($name, $time, $nb_of_seats, $event_type, $f_id);
+
+        if(!$insert->execute()) {
+            $this->fail('execute failed');
+        }
+
+        // 2. Retreive those values.
+        $select = new CustomQuery("select name, time, nb_of_seats, event_type, f_id" 
+                                    . " FROM reservation WHERE r_id = (select max(r_id) from reservation);");
+        $result = $select->execute();
+        
+        if (!$result) {
+            $this->assertTrue(false); // Fail it.
+        }
+
+        $actual = mysqli_fetch_assoc($result);
+
+        // 3. assert
+        $this->assertEquals($name, $actual['name']);
+        $this->assertEquals($time, $actual['time']);
+        $this->assertEquals($nb_of_seats, $actual['nb_of_seats']);
+        $this->assertEquals($event_type, $actual['event_type']);
+        $this->assertEquals($f_id,       $actual['f_id']);
+
+    }
+
 
     public function testInsertIntoStaffQuery_localstaffGetsUpdated()
     {

@@ -1,0 +1,39 @@
+#topright{	float:right;
+			width:25%;
+			text-align:center;}
+
+#topright img{	border-radius:10px;
+
+				box-shadow:10px 10px 55px 33px #FFE6E6;}
+
+#login, #logout {	font-size: 10px;
+		font-weight: bold;
+		width: 88px;
+		height: 22px;
+		background: #9e5846;
+		border: 1px solid #8e4d3d;
+		color: #FFFFFF;
+		margin: 11px 0px 0px 22px;}
+
+
+#username {	width: 100px;
+			font-size: 10px;
+			margin: 10px 0px 0px 5px;}
+
+#templatemo_login_right {	float: left;
+							width: 175px;
+							margin: 25px 0px 0px 0px;
+							color: #FF9966;
+							font-weight: bold;
+							font-size: 15px;}
+
+#templatemo_login_left {
+	color:#3b3b39;
+	font-size: 1.3em;
+	line-height: 1.2;
+	font-family: 'Merriweather Sans', sans-serif;
+	text-align:center;
+	width: 100%;
+	padding-top: 30px;
+}
+#login_section{	float: right; text-align:center; margin-right: 40px}
