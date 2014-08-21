@@ -9,16 +9,21 @@
 <head>
     <meta charset="utf-8"/>
     <title> Mamma Meatballs </title>
+    <link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/stylesheet1.css" />
     <link href="css/hheader.css" rel="stylesheet" type="text/css" media="all" />
     <style type="text/css">* {margin: 0; padding: 0;}
+    .logos {
+        font-family: 'Yellowtail', cursive;
+        font-size:2.8em;
+    }
     .menu {
-      width: 80%;
+        width: 80%;
         margin: 0 auto;
     }
 
     ul {
-      list-style-type: none;
+        list-style-type: none;
     }
     li h3 {
         text-decoration: none;
@@ -79,8 +84,8 @@
 <div class="wrap">
     <div class="main">
 
-        <div class="heading1">
-        <h1>Welcome To Mamma Meatballs!</h1>
+        <div>
+        <h1 class="logos">Welcome To Mamma Meatballs!</h1>
         </div>
         <div class="heading3">
         <h3>Our Restaurants</h3>

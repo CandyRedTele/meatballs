@@ -12,9 +12,12 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="css/stylesheet7.css" />
 
+<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/recipeBOX.css" />
-<style>.menu-items li{width:50%}</style>
-	<link href="css/hheader.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/hheader.css" rel="stylesheet" type="text/css" media="all" />
+<style type="text/css">
+    .menu-items li{width:50%}
+</style>
 
 </head>
 
@@ -44,11 +47,17 @@
 		</div>
 <div class="clear"></div>
 
+<div id="main">
 <?php
-echo "<div id='main'>
-		<div class='width-container'>
-			<div class='grid2column'>";
+    $queryLocation = new CustomQuery("select location from facility where f_id=".$parameter."");
+    if (!is_null($queryLocation)) { $resultF = $queryLocation->execute();}
+    if(isset($resultF)) {
+            $rowF = mysqli_fetch_row($resultF);}
+    echo "<h1 class='logotitle'>".$rowF[0]."'s Mamma Meatballs!</h1>";?>
+    <div class="width-container">
+        <div class="grid2column">
 
+<?php
 $categories=array("entree","main","kids","deserts","wines");
 $arrlength=count($categories);
 for($x=0;$x<$arrlength;$x++) {
@@ -79,7 +88,6 @@ as menuI on supplies.sku = menuI.sku;");
 				if(!isset($img))
 					$img=$info[0];
 		}
-
 		echo "<div class='itemINFO'>
 				<img src='".$img."' width='40%' height='20%'/><h3>".$menu_items[0]."</h3>";
 		foreach($ing as $i){echo $i;}
