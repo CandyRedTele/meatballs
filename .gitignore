@@ -3,7 +3,6 @@ src/log
 *.*.bak
 project-description.pdf
 .DS_Store
-sql_OLD
 *~
 sql/tempo
 
@@ -11,3 +10,4 @@ sql/tempo
 .ipynb_checkpoints
 *.pyc
 log
+todo.txt
