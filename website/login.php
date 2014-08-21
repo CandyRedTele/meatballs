@@ -53,7 +53,7 @@
 				
 				$_SESSION['location']=$row[0];
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
-						<meta http-equiv='Refresh' content='3;url=index.php'/>";
+						<meta http-equiv='Refresh' content='3;url=table/tableHOME.php'/>";
 		}
 
 		
