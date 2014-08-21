@@ -13,10 +13,6 @@
     <link rel="stylesheet" type="text/css" href="client/css/stylesheet1.css" />
     <link href="client/css/hheader.css" rel="stylesheet" type="text/css" media="all" />
     <style type="text/css">* {margin: 0; padding: 0;}
-    .logos {
-        font-family: 'Yellowtail', cursive;
-        font-size:2.8em;
-    }
     .menu {
         width: 80%;
         margin: 0 auto;
