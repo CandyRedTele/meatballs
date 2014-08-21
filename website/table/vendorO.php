@@ -4,7 +4,6 @@
         include_once("IncludeAllQueries.php"); 
 
 	session_start();
-
 ?>
 <html>
 <head>
