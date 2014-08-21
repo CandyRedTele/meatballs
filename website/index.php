@@ -2,7 +2,11 @@
     error_reporting(E_ALL);
     set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php");
-    //session_start();
+    session_start();
+    if(isset($_SESSION['views']))
+        $_SESSION['views']=$_SESSION['views']+1;
+    else
+        $_SESSION['views']=1;
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-CA" xml:lang="en-CA">
