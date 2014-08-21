@@ -35,7 +35,7 @@
 		<div class="header">
 			<div class="header-bot">
 				<div class="logo">
-					<a href="index.php"><img width="300px" height="150px" src="img/welcomeALT1.jpg" alt=""/></a>
+					<a href="../index.php"><img width="300px" height="150px" src="img/welcomeALT1.jpg" alt=""/></a>
 				</div>
 			    <!-- <div class="clear"></div> -->
 			</div>
@@ -63,7 +63,7 @@
           					echo '<form action="reservation_valid.php?'.$parameter.'" onsubmit="return(validate());" method="post" enctype="multipart/form-data">'?> 
 					    	<div>
 						    	<span><label>Name</label></span>
-						    	<span><input name="userName" type="text" class="textbox"></span>
+						    	<span><input name="userName" type="text" class="textbox" required></span>
 						    </div>
 						    <div>
 						    	<span><label>Date</label></span>
