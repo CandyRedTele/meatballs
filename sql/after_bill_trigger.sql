@@ -70,8 +70,10 @@ BEGIN
 
     SET @isGolden = (select g_id from golden_has_bills where b_id=NEW.b_id);
 
-    if (@isGolden IS NOT NULL) THEN
+    IF (@isGolden IS NOT NULL) THEN
         SET @price = @price * 0.9;
+    ELSE
+        SET @isGolden = -1;
     END IF;
 
     INSERT INTO facilityBalance (f_id, balance)  
