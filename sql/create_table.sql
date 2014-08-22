@@ -307,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`bill`
 (
   `b_id` INTEGER NOT NULL AUTO_INCREMENT,
   `f_id` INTEGER NOT NULL,
-  `date` DATE NOT NULL,
+  `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`b_id`),
   INDEX `fk_bill_facility1_idx` (`f_id` ASC),
   CONSTRAINT `fk_bill_f_id`
