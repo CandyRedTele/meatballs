@@ -109,6 +109,24 @@
         $menu_item_array = array(1, 2, 3); 
         $query = new InsertIntoBillQuery($f_id, $menu_item_array, $g_id);
         $query->execute();
+
+       /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        * GetBillTotalQuery 
+        * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+        $b_id = 1;
+        $query = new GetBillTotalQuery($b_id);
+        $result = $query->execute();
+        if ($result) {
+            while($row = mysqli_fetch_row($result)) 
+            {
+                foreach ($row as $field) {
+                    echo $field . " ";
+                    
+                }
+
+                echo "<br>" ;
+            }
+        }
     ?>
 
 
