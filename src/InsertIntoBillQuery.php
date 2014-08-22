@@ -148,18 +148,18 @@ class InsertIntoBillQuery extends IQuery
         $query .= "INSERT INTO " . $this->tables['bill'] . " ". $this->columns['bill']
                    . " VALUES " . $this->values['bill'] . ";";
 
+        if (isset($this->g_id))
+        {
+            $query .= " INSERT INTO ".$this->tables['golden_has_bills']." ".$this->columns['golden_has_bills']
+                     ." VALUES " . $this->values['golden_has_bills']. ";";
+        }
+
 
         if (isset($this->menu_item_array) 
                         && count($this->menu_item_array) > 0) 
         {
             $query .= " INSERT INTO ".$this->tables['bill_has_menu_item']." ".$this->columns['bill_has_menu_item']
                      ." VALUES " . $this->values['bill_has_menu_item']. ";";
-        }
-
-        if (isset($this->g_id))
-        {
-            $query .= " INSERT INTO ".$this->tables['golden_has_bills']." ".$this->columns['golden_has_bills']
-                     ." VALUES " . $this->values['golden_has_bills']. ";";
         }
 
         $query .= "COMMIT;";

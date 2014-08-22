@@ -113,7 +113,7 @@
        /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         * GetBillTotalQuery 
         * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
-        $b_id = 1;
+        $b_id = 122;
         $query = new GetBillTotalQuery($b_id);
         $result = $query->execute();
         if ($result) {
