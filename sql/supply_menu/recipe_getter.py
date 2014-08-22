@@ -184,14 +184,30 @@ def create_list():
     # `sku`       INTEGER NOT NULL,
     #  `f_id`      INTEGER NULL,
     #  `quantity`  INTEGER DEFAULT 0,
+    # Add other_supplies to facilityStock
     skus = sample(range(50000, 99999), len(other_supplies))
     for i, j in enumerate(other_supplies):
         j.insert(0, skus[i])
 
     facility_stock = []
+    for i in xrange(12):
+        for j in other_supplies:
+            facility_stock.append([j[0], (i+1), randint(1, 8)])
+
+    # order
+    # =======
+    #  order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
+    #  `f_id`      INTEGER NULL,
+    #  `sku`       INTEGER NULL,
+    #  `order_date` DATE NOT NULL,
+    #  `order_qty` INTEGER NULL,
+    order = []
     for i, fa in enumerate(sku_per_facility):
         for sk in fa:
-            facility_stock.append([sk, (i+1), randint(300, 800)])
+            date_order = date.today()-timedelta(days=randrange(0,10))
+            date_order = date_order.isoformat()
+            order.append([(i+1), sk, date_order, randint(700, 1000)])
+            count = count + 1
 
     # bill
     # ====
@@ -204,7 +220,7 @@ def create_list():
     # `g_id`    INTEGER NOT NULL,
     # `b_id`    INTEGER PRIMARY KEY,
 
-    # generate 100 bills.
+    # generate 120 bills.
     bill_len = 120
     # we have 30 golden menbers
     golden_members = 30
@@ -230,11 +246,11 @@ def create_list():
         return j
 
     bill_has_menu_item = []
-    for i, bil in enumerate(bill):
+    for i, bil in enumerate(bill, start=1):
         poss = find_in_menu(menu, bil[1])
         samp = sample(poss, 6)
         for ss in samp:
-            bill_has_menu_item.append([i + 1, ss])
+            bill_has_menu_item.append([i, ss])
 
     # wine
     # =====
@@ -246,29 +262,6 @@ def create_list():
     for i in wine_kind:
         wine_rating.append([uniform(6.5, 10), i])
 
-    # order
-    # =======
-    #  order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
-    #  `f_id`      INTEGER NULL,
-    #  `sku`       INTEGER NULL,
-    #  `order_date` DATE NOT NULL,
-    #  `order_qty` INTEGER NULL,
-    def inFList(l, i):
-        return [x for x in l if x[1] == i]
-
-    order = []
-    for i in xrange(1, 13):
-        ingre_per_f = inFList(facility_stock, i)
-        for j in xrange(8):
-            date_order = date.today()-timedelta(days=randrange(0,10))
-            date_order = date_order.isoformat()
-            pick = ingre_per_f[randint(0, len(ingre_per_f)-1)]
-            order.append([pick[1], pick[0], date_order, (800 - pick[2])+1])
-
-    # Add the remaining items to facility stock.
-    for i in xrange(12):
-        for j in other_supplies:
-            facility_stock.append([j[0], (i+1), randint(1, 8)])
     # vendor
     # ========
     # `vendor_id`     INTEGER PRIMARY KEY,
@@ -310,7 +303,7 @@ def create_list():
     # `balance`    INTEGER NOT NULL,
     facility_balance = []
     for f_id in xrange(1, 13):
-        facility_balance.append([f_id, randint(800, 1200)])
+        facility_balance.append([f_id, randint(920000, 1100000)])
 
     return ((supply, 'supply'), (menu_item, 'menu_item'),
             (ingredients, 'ingredients'), (menu, 'menu'),

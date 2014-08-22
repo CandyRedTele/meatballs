@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
 (
   `mitem_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `category` CHAR(45) NULL,
-  `price` DOUBLE NULL,
+  `price` DECIMAL(15,2) NULL,
   `name` VARCHAR(65) NULL,
   `image` VARCHAR(95) NULL
 )
@@ -307,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`bill`
 (
   `b_id` INTEGER NOT NULL AUTO_INCREMENT,
   `f_id` INTEGER NOT NULL,
-  `date` DATE NOT NULL,
+  `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`b_id`),
   INDEX `fk_bill_facility1_idx` (`f_id` ASC),
   CONSTRAINT `fk_bill_f_id`
