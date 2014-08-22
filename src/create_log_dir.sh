@@ -33,4 +33,6 @@ else
     chown $USER:SYSTEM log
 fi
 
+# temporarily grant write to everyone
 chmod g+w log
+chmod o+w log
