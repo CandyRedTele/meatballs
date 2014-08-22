@@ -1,10 +1,10 @@
 <?php 
 	error_reporting(E_ALL);
+	include_once("../../src/SetPath.php");
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php"); 
 
 	session_start();
-
 ?>
 <html>
 <head>
@@ -25,15 +25,15 @@
 <body>
 <?php include_once("navigationBAR.php"); ?>
 
-<!--                                   INFORMATION TABLES                                          -->
+<!--                                   INFORMATION TABLES                                         
 
-<div class="errorMessage"><?php echo $outputMessage?></div>
+<div class="errorMessage"><?php //echo $outputMessage?></div>
 
 <section>	<h1>ADD NEW EMPLOYEE</h1>
 <div id="formContainer">
 <div class="suggestion" id="suggestions"></div>
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
+<form action="<?php //echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
 <fieldset>
 	<label for="EmployeeN">Employee Name</label>
 		<input name="EmployeeN" onkeyup="" value="<?php /*echo saveFormValue('EmployeeN');*/?>" placeholder="firstName, lastname" required="true" pattern="[A-z]{2,70}" type="text" /><br />
@@ -53,7 +53,7 @@
 </form>
 
 </div>
-</section>
+</section> -->
 
 <p id="testing"> </p>
 <section><h1>Administration</h1>
@@ -64,21 +64,15 @@
 			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">email</li>
 			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">phone</li>
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">sex</li>
-            <li></li></ul><?php 
+            <li></li><li></li></ul><?php 
 				$logger = Logger::getSingleInstace();
 				$logger->write("HelloLogger!");
 				
-				// if($_SESSION['accesslv']==1)
-					// $query = new CustomQuery("SELECT * from staff");
-				// else if($_SESSION['accesslv']==3)
-					// $query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
 				
 				$query = new CustomQuery("SELECT DISTINCT g_id, firstname, lastname, email, phone, sex FROM golden");
 				if (!is_null($query)) 
-				{
-					//var_dump( $query);
 					$result = $query->execute();
-				}
+				
 				
 			if(isset($result))
 				while($row = mysqli_fetch_row($result)) 
@@ -87,9 +81,7 @@
 					foreach ($row as $field) {
 						echo "<li>" . $field . "</li>" ;   
 					}
-					echo "<li><a href='#'>REMOVE</a></li></ul>";
-					//echo $row['customerName'];
-					//var_dump($row);
+					echo "<li><a href='#'>REMOVE</a></li><li><a href='#'>MODIFY</a></li></ul>";
 				}
 		
         ?></div>
