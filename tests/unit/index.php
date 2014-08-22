@@ -105,8 +105,9 @@
         * InsertIntoBill 
         * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
         $f_id = 1;
+        $g_id = 30;
         $menu_item_array = array(1, 2, 3); 
-        $query = new InsertIntoBillQuery($f_id, $menu_item_array);
+        $query = new InsertIntoBillQuery($f_id, $menu_item_array, $g_id);
         $query->execute();
     ?>
 

@@ -21,7 +21,7 @@ class InsertIntoBillQuery extends IQuery
 
     /* bill */
     private $f_id;
-
+    private $g_id;
     private $menu_item_array;
 
 
@@ -36,6 +36,7 @@ class InsertIntoBillQuery extends IQuery
 		$this->logger->write("[" . __CLASS__ . "] - __construct()");
         $this->tables['bill'] = 'bill';
         $this->tables['bill_has_menu_item'] = 'bill_has_menu_item';
+        $this->tables['golden_has_bills'] = 'golden_has_bills';
 
         $argc = func_num_args();
         $args = func_get_args();
@@ -55,7 +56,12 @@ class InsertIntoBillQuery extends IQuery
     *-----------------------------------------------------------*/
     private function __construct_2($f_id, $menu_item_array)
     {
-        $this->init($f_id, $menu_item_array); 
+        $this->init($f_id, $menu_item_array, null); 
+    }
+
+    private function __construct_3($f_id, $menu_item_array, $g_id)
+    {
+        $this->init($f_id, $menu_item_array, $g_id); 
     }
 
    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -63,10 +69,11 @@ class InsertIntoBillQuery extends IQuery
     * NAME : init
     *
     *-----------------------------------------------------------*/
-    private function init($f_id, $menu_item_array)
+    private function init($f_id, $menu_item_array, $g_id)
     {
         $this->f_id = $f_id;
         $this->menu_item_array= $menu_item_array;
+        $this->g_id = $g_id;
     }
 
    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -76,16 +83,19 @@ class InsertIntoBillQuery extends IQuery
     *-----------------------------------------------------------*/
     private function setColumnsAnsValues()
     {
-        /* open */
+        /* bill */
         $this->columns['bill'] = "(";
         $this->values['bill'] = "(";
 
-
-        /* bill */
         if (isset($this->f_id)) {
             $this->columns['bill'] .= "f_id";
             $this->values['bill'] .= "'$this->f_id'";
         }
+
+        $this->columns['bill'] .= ")";
+        $this->values['bill'] .= ")";
+
+
 
         /* bill_has_menu_item */
         $this->columns['bill_has_menu_item'] = "(";
@@ -110,10 +120,21 @@ class InsertIntoBillQuery extends IQuery
         }
 
 
-        /* close */
-        $this->columns['bill'] .= ")";
-        $this->values['bill'] .= ")";
 
+        /* golden_has_bills */
+        $this->columns['golden_has_bills'] = "(";
+        $this->values['golden_has_bills'] = "(";
+
+        if (isset($this->g_id)) {
+            $this->columns['golden_has_bills'] .= "g_id";
+            $this->values['golden_has_bills'] .= "'$this->g_id'";
+        }
+
+        $this->columns['golden_has_bills'] .= ", b_id";
+        $this->values['golden_has_bills'] .= ", (SELECT MAX(b_id) FROM ".$this->tables['bill'].")";
+
+        $this->columns['golden_has_bills'] .= ")";
+        $this->values['golden_has_bills'] .= ")";
     }
 
    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -133,6 +154,12 @@ class InsertIntoBillQuery extends IQuery
         {
             $query .= " INSERT INTO ".$this->tables['bill_has_menu_item']." ".$this->columns['bill_has_menu_item']
                      ." VALUES " . $this->values['bill_has_menu_item']. ";";
+        }
+
+        if (isset($this->g_id))
+        {
+            $query .= " INSERT INTO ".$this->tables['golden_has_bills']." ".$this->columns['golden_has_bills']
+                     ." VALUES " . $this->values['golden_has_bills']. ";";
         }
 
         $query .= "COMMIT;";
