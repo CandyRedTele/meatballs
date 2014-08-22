@@ -49,7 +49,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 		$logger->write("HelloLogger!");
 		
 		if(preg_match("/employeeTable/", $_SESSION['referrer'])){
-			$query = new InsertIntoStaffQuery($_POST['EmployeeN'], $_POST['address'], $_POST['phone'], $_POST['ssn'], $_POST['title']);
+			$query = new InsertIntoStaffQuery($_POST['EmployeeN'], $_POST['address'], $_POST['phone'], $_POST['ssn'], $_POST['title'], $_POST['location']);
 			//$query = new CustomQuery("insert into staff values ('".$_POST['EmployeeN']."', '".$_POST['address']."', '".$_POST['phone']."', '".$_POST['ssn']."', '".$_POST['title']."'");
 			if (!is_null($query)) 
 				$result = $query->execute();
@@ -64,13 +64,13 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 				//$outmsg2 = $_POST['location'];
 			}
 			
+			
 			$currentQ = mysqli_fetch_row($result);
 			$newQ = $currentQ[0] + $_POST['quantity'];
 			
 			$query = new CustomQuery("update facilitystock set quantity='".$newQ."' where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
 			if (!is_null($query)) 
 				$result = $query->execute();
-			
 			
 			$query = new CustomQuery("select location from facility where f_id='".$_POST['location']."'");
 		}
@@ -87,7 +87,6 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 		
 		if (!is_null($query)) 
 			$result = $query->execute();
-		
 		
 		if(isset($result))
 			if($row = mysqli_fetch_row($result)){

@@ -1,5 +1,6 @@
 <?php 
 	error_reporting(E_ALL);
+	include_once("../../src/SetPath.php");
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php"); 
 	
@@ -46,10 +47,7 @@
 			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='service items'");
 		
 		if (!is_null($query)) 
-		{
-			//var_dump( $query);
 			$result = $query->execute();
-		}
 			
         while($row = mysqli_fetch_row($result)) 
         {
@@ -58,7 +56,6 @@
                 echo "<li>" . $field . "</li>" ;   
             }
 			echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
-            //var_dump($row);
         }
 
         ?></div>

@@ -1,5 +1,6 @@
 <?php 
 	error_reporting(E_ALL);
+	include_once("../../src/SetPath.php");
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php"); 
 	
@@ -26,7 +27,9 @@
 <?php include_once("navigationBAR.php"); ?>
 
 <!--                                   INFORMATION TABLES                                          -->
-<?php 		include_once("supplyMENU.php");		?>
+<?php 		include_once("supplyMENU.php");	?>
+
+
 
 <p id="testing"> </p>
 <section><h1>Administration</h1>

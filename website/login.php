@@ -8,7 +8,7 @@
 	<?php 
 		error_reporting(E_ALL);
          include_once("../src/SetPath.php");
-        //set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
+        set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
 		//echo get_include_path();
 			include_once("IncludeAllQueries.php");
 		
@@ -53,12 +53,8 @@
 				
 				$_SESSION['location']=$row[0];
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
-<<<<<<< HEAD
-						<meta http-equiv='Refresh' content='3;url=index.php'/>";
-			}
-=======
 						<meta http-equiv='Refresh' content='3;url=table/tableHOME.php'/>";
->>>>>>> 49bef3386cb627c9acbe10d114cfa0ce4977756c
+			}
 		}
 
 		

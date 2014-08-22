@@ -17,8 +17,7 @@ label + input {width: 30%;
    but to be sure you could use an id or class for that button */
 input + input { float: right;}
 
-#formContainer {position: relative;
-    width: 40%;}
+#formContainer {position: relative;}
 
 .errorMessage {color: red;
     font-weight: bold;}

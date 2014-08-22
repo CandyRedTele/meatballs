@@ -1,5 +1,6 @@
 <?php 
 	error_reporting(E_ALL);
+	include_once("../../src/SetPath.php");
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php"); 
 ?>
@@ -24,13 +25,13 @@ input, select {	float:left;}
 echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="790" id="innerTABLE">
    <tr>
      <td width="20px">&nbsp;</td>
-      <td colspan="2"><div class="ueberschrift">'.$_SESSION['location'].'</div></td>
+      <td colspan="2"><div class="ueberschrift">supplies</div></td>
       <td width="20px">&nbsp;</td>
    </tr>
    <tr>
    <td width="20px">&nbsp;</td>
       <td class="obenlinks"><img width="100%" height="100%"src="../img/supply_logo.jpg"/></td>
-      <td class="oben" valign="top"><div id="textobengross">My beautiful new website</div><div id="textobenklein">Here you find everything you need</div></td>
+      <td class="oben" valign="top"><div id="textobengross">'.$_SESSION['location'].'</div><div id="textobenklein">Here you find everything you need</div></td>
       <td width="15px">&nbsp;</td>
    </tr>
    <tr> <td width="20px">&nbsp;</td>
@@ -56,17 +57,18 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
 		{	
 			echo '<option value="'.$row[0].'" >'.$row[0].'</option>' ;
 		}
-	echo '</ul>
+	?>
+	</ul>
 		</td>
 		<td class="hauptfenster" valign="top">
 		<!--                                   supply LIST                                          -->
-			<div class="errorMessage">'.$outputMessage.'<!--$outmsg2--></div>
+			<div class="errorMessage"><?php echo $outputMessage; ?><!--$outmsg2--></div>
 		
 			<section>	<h1>ADD STOCK</h1>
 			<div id="formContainer">
 				<div class="suggestion" id="suggestions"></div>
 
-			<form action="'.$_SERVER['PHP_SELF'].'" method="post" name="form1" id="form1">
+			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
 			<fieldset>
 				<label for="sku">SKU</label>
 					<input name="sku" value="" required="true" pattern="[0-9]+" type="text" /><br />
@@ -85,22 +87,22 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
 					<input name="quantity" value="" pattern="[0-9]+" required="true" type="number" /><br />
 				<label for="location">Location</label>
 					<select class="location" id="location" name="location"> ';
-		
+	<?php	
 		$query = new CustomQuery("select distinct location, f_id from facility");
 		if (!is_null($query)) 
 			$result = $query->execute();
 			
 		while($row = mysqli_fetch_row($result)) {	echo '<option value="'.$row[1].'" >'.$row[0].'</option>' ;}
-		
-			echo	'</select><br />
+		?>
+			</select><br />
 			</fieldset>
 				<input type="hidden" name="formInsert" value="form1" />
 				<input type="submit">
 			</form>
 
 			</div>
-			</section>';
-		?>
+			</section>
+		
 		
 </body>
 </html>
