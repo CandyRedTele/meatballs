@@ -15,6 +15,11 @@ class GetBillDetailsQuery extends IQuery
     private $b_id;
     private $columns;
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : __construct 
+    *
+    *-----------------------------------------------------------*/
     public function __construct()
     {
 		parent::__construct();
@@ -28,12 +33,22 @@ class GetBillDetailsQuery extends IQuery
         }
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : __construct_1 
+    *
+    *-----------------------------------------------------------*/
     private function __construct_1($b_id) 
     {
         $this->b_id = $b_id;
         $this->columns = "mitem_id, name, category";
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : getQueryString 
+    *
+    *-----------------------------------------------------------*/
     public function getQueryString()
     {
         return  "SELECT " . $this->columns

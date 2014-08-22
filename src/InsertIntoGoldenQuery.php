@@ -19,6 +19,11 @@ class InsertIntoGoldenQuery extends IQuery
     private $email;
     private $phone;
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : __construct
+    *
+    *-----------------------------------------------------------*/
     public function __construct($firstname, $lastname, $sex, $email, $phone)
     {
 		parent::__construct();
@@ -33,6 +38,11 @@ class InsertIntoGoldenQuery extends IQuery
         $this->phone = $phone;
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : getQueryString
+    *
+    *-----------------------------------------------------------*/
     public function getQueryString()
     {
         return "INSERT INTO ".$this->table." (firstname, lastname, sex, email, phone) VALUES " 

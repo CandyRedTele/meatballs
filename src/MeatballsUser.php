@@ -32,12 +32,31 @@ class MeatballUser
             $logger->write("[" . __CLASS__ . "] $ " . __FUNCTION__ . "() ? No row returned for staff id : ".$staff_id );
             return false;
         }
-
-        $level = mysqli_fetch_row($result)[0];
+        
+        $row = mysqli_fetch_row($result);
+        $level = $row[0];
 
         $logger->write("[" . __CLASS__ . "] $ ".__FUNCTION__."() ? level = " . $level);
 
         return $level;
+    }
+
+    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     * 
+     * NAME : removeTrailingSlash 
+     *
+     * RETURNS : removes the trailing slash of a path (intended to 
+     *           Windows user)
+     *
+     *-----------------------------------------------------------*/
+    public static function removeTrailingSlash(&$str)
+    {
+        if (strrpos($str, '/') == strlen($str) - 1) 
+        {
+            $str = substr($str, 0, -1); // remove trailing '/' (for windows)
+        }
+        
+        return $str;
     }
 }
 ?>

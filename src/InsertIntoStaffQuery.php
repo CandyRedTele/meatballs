@@ -61,6 +61,11 @@ class InsertIntoStaffQuery extends IQuery
     private $yrs_exp;
     private $training;
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : __construct
+    *
+    *-----------------------------------------------------------*/
     public function __construct()
     {
 		parent::__construct();
@@ -80,6 +85,11 @@ class InsertIntoStaffQuery extends IQuery
 
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : overloaded contructor
+    *
+    *-----------------------------------------------------------*/
     private function __construct_1($name)
     {
         $this->init($name, null, null, null, null, null, null, null);
@@ -115,6 +125,11 @@ class InsertIntoStaffQuery extends IQuery
         $this->init($name, $address, $phone, $ssn, $title, $location, $yrs_exp, $training);
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : init
+    *
+    *-----------------------------------------------------------*/
     private function init($name, $address, $phone, $ssn, $title, $location, $yrs_exp, $training)
     {
         $this->name = $name;
@@ -127,6 +142,11 @@ class InsertIntoStaffQuery extends IQuery
         $this->yrs_exp = $yrs_exp;
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : setColumnsAnsValues
+    *
+    *-----------------------------------------------------------*/
     private function setColumnsAnsValues()
     {
         $this->columns['staff'] = "(";
@@ -137,9 +157,6 @@ class InsertIntoStaffQuery extends IQuery
 
         $this->columns['localstaff'] = "(";
         $this->values['localstaff'] = "(";
-
-        $this->localstaff_col = "(";
-        $this->localstaff_val = "(";
 
         /* staff */
         if (isset($this->name)) {
@@ -204,16 +221,21 @@ class InsertIntoStaffQuery extends IQuery
         $this->values['staff'] .= ")";
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : getQueryString
+    *
+    *-----------------------------------------------------------*/
     public function getQueryString()
     {
-        $query = "INSERT INTO " . $this->tables['staff'] . " ". $this->columns['staff']
+        $query = "START TRANSACTION;\n";
+        $query .= "INSERT INTO " . $this->tables['staff'] . " ". $this->columns['staff']
                    . " VALUES " . $this->values['staff'] . ";";
 
 
         $isAdmin = false;
 
         if (isset($this->title)) {
-            $this->logger->write("check");
             foreach (InsertIntoStaffQuery::$admin as $title) {
                 if (strcasecmp($this->title, $title) == 0) {
                     $isAdmin = true;
@@ -229,6 +251,7 @@ class InsertIntoStaffQuery extends IQuery
             }
         }
 
+        $query .= "COMMIT;";
         return $query;
     }
 }
