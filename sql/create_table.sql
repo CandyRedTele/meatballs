@@ -84,7 +84,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`admin`
     PRIMARY KEY (staff_id, location), -- Assuming that an employee might work in different locations during his career.
     CONSTRAINT `fk_admin_staff_id`
         FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
 )
 ENGINE = InnoDB;
 
@@ -179,7 +180,7 @@ create TABLE IF NOT EXISTS `meatballs`.`localstaff`
   CONSTRAINT `fk_staff_id2`
     FOREIGN KEY (`staff_id`)
     REFERENCES `meatballs`.`staff` (`staff_id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_f_id`
     FOREIGN KEY (`f_id`)
@@ -436,7 +437,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
     `time_start`    TIME NOT NULL,
     `time_end`      TIME NOT NULL,
     `paid`          BOOLEAN NOT NULL, -- indicates whether or not they have been paid for this shift
-    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`),
+    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
+        ON DELETE CASCADE,
     PRIMARY KEY (`staff_id`, `date`, `time_start`)
 );
 
