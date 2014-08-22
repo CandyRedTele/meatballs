@@ -162,6 +162,8 @@ class InsertIntoBillQuery extends IQuery
                      ." VALUES " . $this->values['bill_has_menu_item']. ";";
         }
 
+        $query .= "SELECT MAX(b_id) FROM " . $this->tables['bill'] . ";";
+
         $query .= "COMMIT;";
         return $query;
     }

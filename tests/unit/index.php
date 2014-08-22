@@ -104,16 +104,24 @@
        /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         * InsertIntoBill 
         * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+        echo "<br><b> InsertIntoBillQuery (b_id) : <b><br>";
         $f_id = 1;
         $g_id = 30;
         $menu_item_array = array(1, 2, 3); 
         $query = new InsertIntoBillQuery($f_id, $menu_item_array, $g_id);
-        $query->execute();
+        $result = $query->execute();
+        if ($result) {
+            $row = mysqli_fetch_row($result); 
+            echo "b_id :  " . $row[0];
+
+            echo "<br>" ;
+        }
 
        /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         * GetBillTotalQuery 
         * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
-        $b_id = 122;
+        $b_id = $row[0];
+        echo "<br><b> GetBillTotalQuery (b_id) : <b><br>";
         $query = new GetBillTotalQuery($b_id);
         $result = $query->execute();
         if ($result) {

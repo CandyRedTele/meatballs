@@ -131,11 +131,19 @@ class MySqlConnection
                 while (mysqli_more_results($this->connection) && mysqli_next_result($this->connection)) 
                 {
                     if ($result = mysqli_store_result($this->connection)) {
-                        mysqli_free_result($result);
+                        if ($result->num_rows > 0) {
+                            $return_a_result = $result;       // We allow ONE and ONLY ONE SELECT QUERY inside a multi Query
+                        } else { 
+                            mysqli_free_result($result);
+                        }
                     }
                 }
 
-                $result = true;
+                if (isset($return_a_result)) {
+                    $result = $return_a_result;
+                } else {
+                    $result = true;
+                }
             } else {
                 $result = mysqli_query($this->connection, $query);
             }
