@@ -1,141 +1,28 @@
-<?php 
-	error_reporting(E_ALL);
-	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
-        include_once("IncludeAllQueries.php");
-	session_start();
-?>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>A "stick-to-top" navigation menu with jQuery - Backslash</title>
-<link href="demo2.css" rel="stylesheet" type="text/css" />
-<!-- required for this demo -->
-<link rel="stylesheet" href="sticky-navigation.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<link rel="stylesheet" href="../css/stylesheet7.css" />
-<script>
-$(function() {
-	// grab the initial top offset of the navigation 
-	var sticky_navigation_offset_top = $('#sticky_navigation').offset().top;
-	
-	// our function that decides weather the navigation bar should have "fixed" css position or not.
-	var sticky_navigation = function(){
-		var scroll_top = $(window).scrollTop(); // our current vertical position from the top
-		
-		// if we've scrolled more than the navigation, change its position to fixed to stick to top, otherwise change it back to relative
-		if (scroll_top > sticky_navigation_offset_top)
-			$('#sticky_navigation').css({ 'position': 'fixed', 'top':0, 'left':0 });
-		else 
-			$('#sticky_navigation').css({ 'position': 'relative' }); 
-	};
-	
-	// run our function on load
-	sticky_navigation();
-	
-	// and run it again every time you scroll
-	$(window).scroll(function() { sticky_navigation();});
-	
-	// NOT required:
-	// for this demo disable all links that point to "#"
-	$('a[href="#"]').click(function(event){	event.preventDefault(); });
-});
-</script>
-
-<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<title>[@title]</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 </head>
 <body>
-<?php include_once("menuNAVIGATION.php"); ?>
-<!--								MENU starts HERE ! ! !							-->
-<?php 
-	
-	$rawQ = "Select distinct menu_item.category from menu_item natural join (select * from menu natural join facility) as menu where location='Montreal'";
-	$query = new CustomQuery("Select distinct menu_item.category from menu_item natural join (select * from menu natural join facility) as menu where location='Montreal'");
-	if (!is_null($query)) 
-			$result = $query->execute();
-	
-	if(isset($result))
-        while($row = mysqli_fetch_row($result)) 
-        {
-			echo "<ul>";
-            foreach ($row as $field) {
-				echo "<li>" . $field . "</li>" ;   
-            }
-			echo "<li></ul>";
-            //var_dump($row);
-        }
-	
-	$query = new CustomQuery("SELECT menu_item.name, menu_item.price from menu_item natural join (select * from menu natural join facility) as menu where location='Montreal' AND (".$rawQ."));
-		
-		if (!is_null($query)) 
-			$result = $query->execute();
-
-			
-	if(isset($result))
-        while($row = mysqli_fetch_row($result)) 
-        {
-			echo "<ul>";
-            foreach ($row as $field) {
-				echo "<li>" . $field . "</li>" ;   
-            }
-			echo "<li></ul>";
-            //var_dump($row);
-        }
-
-
-
-?>
-	<div id="main">
-		<div class="width-container">
-			<div class="grid2column">
-				<h3 class="header-underline">Main Courses</h3>
-				<ul class="menu-items">
-					<li>
-						<a href="menu-post.html"><div class="grid2column">Roasted Apple Tart</div>
-						<div class="grid2column lastcolumn">$12,00</div>
-						<div class="clearfix"></div>
-						<div class="item-description-menu">Cras eget est tempor odio molestie ultricies. Donec gravida libero at metus tincidunt sit amet.</div></a>
-					</li>
-					
-				</ul>
-				
-				<div class="menu-spacer"></div>
-			</div>
-			<div class="grid2column lastcolumn">
-				<h3 class="header-underline">Drinks</h3>
-				<ul class="menu-items">
-					<li>
-						<div class="grid2column">Cola</div>
-						<div class="grid2column lastcolumn">$4,00</div>
-						<div class="clearfix"></div>
-					</li>
-					
-				</ul>
-				
-				<div class="menu-spacer"></div>
-				<h3 class="header-underline">Salads</h3>
-				<ul class="menu-items">
-					<li>
-						<div class="grid2column">Sundried Tomato Salad</div>
-						<div class="grid2column lastcolumn">$10,00</div>
-						<div class="clearfix"></div>
-						<div class="item-description-menu">Cras eget est tempor odio molestie ultricies. Donec gravida libero at metus tincidunt sit amet.</div>
-					</li>
-					
-				</ul>
-				
-				<div class="menu-spacer"></div>
-			</div>
-			<div class="clearfix"></div>
-			
-			
-		<div class="clearfix"></div>
-		</div><!-- 						close .width-container (INNER MENU ends HERE!!!)							-->
-		
-	</div><!-- close #main -->
-	
-<!--								MENU ends HERE ! ! !							-->
-
-
+    <div id="header">
+        <a href="http://www.broculos.net"><img src="broculo_small.gif" class="logo" alt="Broculos.net" /></a>
+        <h1><a href="http://www.broculos.net">Broculos.net</a></h1>
+        <h2>Simple PHP Template Engine</h2>
+    </div>  
+    <div id="menu">
+        <h1>Navigation</h1>
+        <ul>
+            <li><a href="user_profile.php">User profile</a> - example of a user profile page</li>
+            <li><a href="list_users.php">List users</a> - example table with listing of users</li>
+        </ul>
+    </div>
+    <div id="content">
+        [@content]
+    </div>
+    <div id="footer">
+        Example usage of a simple PHP Template Engine.<br />
+        Search <a href="http://www.broculos.net">Broculos.net</a> for more tutorials.
+    </div>
 </body>
 </html>

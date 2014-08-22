@@ -15,11 +15,6 @@ width:55%;}
 ul.menu-items .grid2column, .pagination a 
 {font-family:'Droid Serif', serif; }
 
-body #main ul.menu-items .grid2column {font-style:italic; font-size:16px;}
-body #main ul.menu-items .lastcolumn {text-align:right;}
-body #main ul.menu-items {margin:0px; padding:8px 0px 0px 0px; list-style:none;}
-body #main ul.menu-items li {margin-bottom:10px; padding:0px 10px 10px 10px;}
-
 body #main ul.menu-items .lastcolumn {text-align:right;}
 body .lastcolumn {margin-right:0% !important;}
 
@@ -30,6 +25,24 @@ body .lastcolumn {margin-right:0% !important;}
 
 .item-description-menu {width:60%; font-size:12px; color:#acb2b4; margin-top:5px;}
 
+/*
+=============================================== 08. MENU STYLES ===============================================
+*/
 .menu-spacer {width:100%; overflow:hidden; height:25px;}
-#content { height:2000px;}
+body #main ul.menu-items .grid2column {font-style:italic; font-size:16px;}
+body #main ul.menu-items .lastcolumn {text-align:right;}
+
+body #main ul.menu-items {margin:0px; padding:8px 0px 0px 0px; list-style:none;}
+body #main ul.menu-items li {margin-bottom:10px; padding:0px 10px 10px 10px;}
+.item-description-menu {width:60%; font-size:12px; color:#acb2b4; margin-top:5px;}
+
+.menu-description {font-size:14px; margin-bottom:30px;}
+
+.menu-item-container {background:#ffffff; padding:10px 15px 5px 15px; margin-bottom:30px;}
+.content-padding-menu {padding-left:10px; }
+.menu-item-container img {margin-bottom:10px;}
+.menu-wine-spacing {padding-top:5px;}
+
+
+#content { height:3456px;}
 

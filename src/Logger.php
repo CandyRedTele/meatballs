@@ -11,12 +11,20 @@
  *         
  *
  *************************************************************************/
+include_once("MeatballsUser.php"); 
 class Logger
 {
     private $fd;
     private $filename;
     private static $singleton;
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : getSingleInstace
+    *
+    * PURPOSE : Logger is a Singleton class
+    *
+    *-----------------------------------------------------------*/
     public static function getSingleInstace()
     {
         $argc = func_num_args();
@@ -44,23 +52,16 @@ class Logger
         $argc = func_num_args();
         $args = func_get_args();
 
-        $this->filename = $_SERVER['DOCUMENT_ROOT'] . "/comp353-project/src/log";
-        
-        if (!file_exists($this->filename)) {
-            $this->filename = __DIR__ . "/log"; // PHPUnit
-        }
+        $this->filename = $this->getLogFilePath();
+
         
         if (method_exists($this, $f = '__construct_' . $argc)) 
         {
             call_user_func_array(array($this, $f), $args);    
         }
 
-        $this->fd = fopen($this->filename, 'w');
 
-        if (!$this->fd) { // give it another try
-            $this->filename = substr(getcwd(), 0, strrpos(getcwd(), '/tests')) . '/src/log';
-            $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
-        }
+        $this->fd = fopen($this->filename, 'w') or die('Cannot open the log file: ' . $this->filename);
     }
 
     private function __construct_1($filename)
@@ -68,6 +69,34 @@ class Logger
        $this->filename = $filename; 
     }
 
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : getLogFilePath 
+    *
+    * PURPOSE : 
+    *
+    *-----------------------------------------------------------*/
+    private function getLogFilePath()
+    {
+        $filename = $_SERVER['DOCUMENT_ROOT'];
+        MeatballUser::removeTrailingSlash($filename);
+
+        if (!file_exists($filename)) {
+            $filename = getcwd() . "/log/phpunit_log";
+        } else {
+            $filename .= "/comp353-project/log/log";
+        }
+
+        return $filename;
+    }
+
+   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * 
+    * NAME : 
+    *
+    * PURPOSE : 
+    *
+    *-----------------------------------------------------------*/
     public function write($str)
     {
         fwrite(self::$singleton->fd, $str . "\n");

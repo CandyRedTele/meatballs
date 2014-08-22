@@ -9,17 +9,11 @@ function sortTable(c, n, d)
     var list = document.getElementById("thelist");
     var r = list.childNodes;
 
-
-	
-
     n = r.length;
     var arr = new Array(n-1);
     for(i=1; i < n; i++){
         arr[i-1]=r.item(i);
     }
-
-
-
 
     quicksort(arr, 0, n-2);
     for(i=0; i < n-1; i++) list.appendChild(arr[i]);
