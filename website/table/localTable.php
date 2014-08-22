@@ -26,13 +26,50 @@
 
 <!--                                   INFORMATION TABLES                                          -->
 <?php 		include_once("supplyMENU.php");		?>
-<div class="haupttext" id="foodINFO">
-<!--                                   Content LIST                                          -->
+<p id="testing"> </p>
+<section><h1>Administration</h1>
+    <div id="thelist"><ul id="control">
+            <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">SKU</li>
+            <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
+			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">location</li>
+			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">quantity</li>
+			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">price</li>
+            <li></li></ul><?php 
+        $logger = Logger::getSingleInstace();
+        $logger->write("HelloLogger!");
+		
+		if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==3)
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock");
+		else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5)
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."'");
+		
 
-</div>
+		if (!is_null($query)) 
+		{
+			//var_dump( $query);
+			$result = $query->execute();
+		}
+		
+	if(isset($result))
+		while($row = mysqli_fetch_row($result)) 
+		{
+			echo "<ul>";
+			foreach ($row as $field) {
+				echo "<li>" . $field . "</li>" ;   
+			}
+			echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
+			//var_dump($row);
+		}
+		
+        ?></div>
+</section>
+		
 	  </td>
         <td width="10px">&nbsp;</td>
    </tr>
+   <!--<tr>
+      <td colspan="4"><div class="ueberschrift"><a href="mailto:ihreadresse@ihremprovider.de">Mail</a> | <a href="#">Imprint</a> | <a href="#">Terms of Use</a></div></td>
+   </tr>-->
 </table>
 
 <!--									END OF INFORMATION TABLE								-->

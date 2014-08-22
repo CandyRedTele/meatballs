@@ -1,5 +1,6 @@
 <?php 
 	error_reporting(E_ALL);
+	include_once("../../src/SetPath.php");
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php"); 
 	
@@ -27,34 +28,6 @@
 
 <!--                                   INFORMATION TABLES                                          -->
 <?php 		include_once("supplyMENU.php");		?>
-<div class="haupttext" id="foodINFO">
-<!--                                   Content LIST                                          -->
-
-<div class="errorMessage"><?php /*echo $outputMessage*/?></div>
-	
-<section>	<h1>ADD SOMETHING</h1>
-<div id="formContainer">
-	<div class="suggestion" id="suggestions"></div>
-
-<form action="<?php /*echo $_SERVER['PHP_SELF']; */?>" method="post" name="form1" id="form1">
-<fieldset>
-	<label for="itemName">Item Name</label>
-		<input name="itemName" onkeyup="" value="<?php /*echo saveFormValue('itemName');*/?>" required="true" pattern="[^|]+" type="text" /><br />
-	<label for="itemCode">Code</label>
-		<input name="itemCode" value="<?php /*echo saveFormValue('itemCode'); */?>" required="true" pattern="[^|]+" type="text" /><br />
-	<label for="itemPrice">Price</label>
-		<input name="itemPrice" value="<?php /*echo saveFormValue('itemPrice'); */?>" pattern="[1-9][0-9]*\.\d{2,}" title="Price should be a number and have two float digits" required="true" type="text" /><br />
-	<label for="itemQty">Quantity</label>
-		<input name="itemQty" value="<?php /*echo saveFormValue('itemQty'); */?>" required="true" type="number" /><br />
-	<label for="itemAmount">Amount</label>
-		<input name="itemAmount" value="<?php /*echo saveFormValue('itemAmount'); */?>" required="true" type="text" /><br />
-</fieldset>
-	<input type="hidden" name="formInsert" value="form1" />
-	<input type="submit">
-</form>
-
-</div>
-</section>
 
 <p id="testing"> </p>
 <section><h1>Administration</h1>
@@ -68,16 +41,13 @@
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 
-		if($_SESSION['accesslv']==1)
+		if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==3)
 			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='service items'");
-		else if($_SESSION['accesslv']==3)
+		else if($_SESSION['accesslv']==4)
 			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='service items'");
 		
 		if (!is_null($query)) 
-		{
-			//var_dump( $query);
 			$result = $query->execute();
-		}
 			
         while($row = mysqli_fetch_row($result)) 
         {
@@ -85,8 +55,7 @@
             foreach ($row as $field) {
                 echo "<li>" . $field . "</li>" ;   
             }
-			echo "<li><a href='remove.php?id=".$row[0]."-supply'></li></ul>";
-            //var_dump($row);
+			echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
         }
 
         ?></div>

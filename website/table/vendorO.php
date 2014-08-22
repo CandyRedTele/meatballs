@@ -1,6 +1,5 @@
 <?php 
 	error_reporting(E_ALL);
-	include_once("../../src/SetPath.php");
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php"); 
 
@@ -20,20 +19,31 @@
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
 <style>label {width:33%;}	#formContainer{width:75%;}</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+function remC() {
+    //document.getElementById("errorMessage").innerHTML = id;
+    if (confirm("Are you sure to remove?!") == true) {
+        // document.write("<meta http-equiv='Refresh' content='5;url=employeeTable.php?id="+id+"-employee'/>");
+    } else {
+			event.preventDefault();
+    }
+}
+</script>
 </head>
 
 <body>
 <?php include_once("navigationBAR.php"); ?>
 
-<!--                                   INFORMATION TABLES                                         
+<!--                                   INFORMATION TABLES                                          -->
 
-<div class="errorMessage"><?php //echo $outputMessage?></div>
+<div id="errorMessage" class="errorMessage"><?php echo $outputMessage?></div>
 
 <section>	<h1>ADD NEW EMPLOYEE</h1>
 <div id="formContainer">
 <div class="suggestion" id="suggestions"></div>
 
-<form action="<?php //echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
 <fieldset>
 	<label for="EmployeeN">Employee Name</label>
 		<input name="EmployeeN" onkeyup="" value="<?php /*echo saveFormValue('EmployeeN');*/?>" placeholder="firstName, lastname" required="true" pattern="[A-z]{2,70}" type="text" /><br />
@@ -51,37 +61,43 @@
 	<input type="hidden" name="formInsert" value="form1" />
 	<input type="submit">
 </form>
-
 </div>
-</section> -->
+</section>
+
+<?php include_once("searchBOX.php"); ?>
 
 <p id="testing"> </p>
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">id</li>
-            <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">first name</li>
-			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">last name</li>
-			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">email</li>
-			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">phone</li>
-			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">sex</li>
-            <li></li><li></li></ul><?php 
+            <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
+			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">address</li>
+			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">phone</li>
+			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">SSN</li>
+			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">title</li>
+            <li></li></ul><?php 
 				$logger = Logger::getSingleInstace();
 				$logger->write("HelloLogger!");
 				
+				if($_SESSION['accesslv']==1)
+					$query = new CustomQuery("SELECT * from staff");
+				else if($_SESSION['accesslv']==3)
+					$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
 				
-				$query = new CustomQuery("SELECT DISTINCT g_id, firstname, lastname, email, phone, sex FROM golden");
 				if (!is_null($query)) 
+				{
+					//var_dump( $query);
 					$result = $query->execute();
+				}
 				
-				
-			if(isset($result))
 				while($row = mysqli_fetch_row($result)) 
 				{
 					echo "<ul>";
 					foreach ($row as $field) {
 						echo "<li>" . $field . "</li>" ;   
 					}
-					echo "<li><a href='#'>REMOVE</a></li><li><a href='#'>MODIFY</a></li></ul>";
+					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>REMOVE</a></li><li><a onclick='remC()' href='#'>MODIFY</a></li></ul>";
+					//var_dump($row);
 				}
 		
         ?></div>

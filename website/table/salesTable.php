@@ -1,5 +1,6 @@
 <?php 
 	error_reporting(E_ALL);
+	include_once("../../src/SetPath.php");
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php"); 
 	
@@ -46,7 +47,7 @@
 
             foreach ($b_id as $id) {
 			
-                $query = new GetBillDetailsQuery($id);
+                $query = new getBillDetailsQuery($id);
 				
 				if (!is_null($query)) 
 					$result = $query->execute();
