@@ -87,9 +87,9 @@ public class generate_data {
 		
 	};
 	
-	String[] locations = {
+	static String[] locations = {
 			"Montreal", "Toronto", "Winipeg", "Narnia",
-			"Calgary", "Faraway", "Halifax", "Ottowa", 
+			"Calgary", "Faraway", "Halifax", "Ottawa", 
 			"Vancouver", "Regina", "Quebec", "Sherbrooke"};
 	
 	
@@ -308,26 +308,13 @@ public class generate_data {
 		          "2325 Rue de l\\'Universite Quebec, QC G1V 0A6",
 		          "2500 boul. de l\\'Universite Sherbrooke, QC J1K 2R1",
 		 };
-		String[] location = {
-				"Montreal",
-				"Toronto",
-				"Winipeg",
-				"Narnia",
-				"Calgary",
-				"Faraway",
-				"Halifax",
-				"Ottowa",
-				"Vancouver",
-				"Regina",
-				"Quebec",
-				"Sherbrooke"
-		};
+
 		
 		Object[] facilities = new Object[12];
 		for(int i = 0; i < facilities.length; i++){
 			 facilities[i] = new Object[] {
 				 (i + 1),
-				 "'" + location[i] + "'",
+				 "'" + locations[i] + "'",
 				 "'" + f_address[i] + "'",
 				 (i + 1),
 				 "'" + gen_phone() + "'"
