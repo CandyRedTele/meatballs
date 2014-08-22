@@ -14,18 +14,6 @@ HOST="127.0.0.1"
 PWORD=''
 SKIP=0
 
-<<<<<<< HEAD
-#while getopts "u:h:p:" opt; do
- #   case "$opt" in
-  #      u) USER=$OPTARG
-   #     ;;
-    #    h) HOST=$OPTARG 
-     #   ;;
-      #  p) PWORD=$OPTARG
-       # ;;
-#    esac 
-#done
-=======
 while getopts "u:h:p:s" opt; do
     case "$opt" in
         u) DB_USER=$OPTARG
@@ -38,7 +26,6 @@ while getopts "u:h:p:s" opt; do
         ;;
     esac 
 done
->>>>>>> 49bef3386cb627c9acbe10d114cfa0ce4977756c
 
 
 ### NOTE Please do not remove all those scripts to replace with populate.sql, I want to execute them one by one, :-)
