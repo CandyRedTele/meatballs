@@ -24,7 +24,8 @@ class GetBillTotalQuery extends IQuery
 		parent::__construct();
 
         $this->tables['bill'] = 'bill';
-        $this->columns = 'b_id, sum(price) as total, date';
+        $this->columns = 'b_id, date';
+        $this->total = ' sum(price) as total ';
 
         $argc = func_num_args();
         $args = func_get_args();
@@ -62,7 +63,15 @@ class GetBillTotalQuery extends IQuery
     *-----------------------------------------------------------*/
     public function getQueryString()
     {
-        $query =    " SELECT " . $this->columns  
+        $check_if_golden = new CustomQuery('SELECT g_id FROM golden_has_bills WHERE b_id = ' . $this->b_id . ';');
+        $result = $check_if_golden->execute();
+
+        if ($result->num_rows > 0) {
+            $this->total = ' sum(price) * 0.9 as total ';
+        }
+
+
+        $query =    " SELECT " . $this->columns  . ", " . $this->total
                   . " FROM " . $this->tables['bill'] 
                   . " NATURAL JOIN bill_has_menu_item "
                   . " NATURAL JOIN menu_item "
