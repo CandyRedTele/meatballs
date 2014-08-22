@@ -100,6 +100,14 @@
                 echo "<br>" ;
             }
         }
+
+       /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        * InsertIntoBill 
+        * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+        $f_id = 1;
+        $menu_item_array = array(1, 2, 3); 
+        $query = new InsertIntoBillQuery($f_id, $menu_item_array);
+        $query->execute();
     ?>
 
 
