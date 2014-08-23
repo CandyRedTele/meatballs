@@ -97,7 +97,6 @@ function remC() {
 			}
 			else if(isset($_GET['s'])){
 				$query = new CustomQuery("SELECT * from staff where staff_id='".$_GET['s']."';");
-								
 			}else if(isset($_GET['m'])){
 				$query = new CustomQuery("SELECT * from staff where staff_id='".$_GET['m']."';");
 			}

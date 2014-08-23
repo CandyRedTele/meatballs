@@ -31,10 +31,10 @@
 <div class="haupttext" id="foodINFO">
 <!--                                   Content LIST                                          -->
 
-
+<?php include_once("searchBOX.php"); ?>
 
 <p id="testing"> </p>
-<section><h1>Administration</h1>
+<section><!--<h1>Administration</h1>-->
     <div id="thelist"><ul id="control">
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">ID</li>
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">dishes</li>
@@ -47,7 +47,7 @@
 		
 		$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=\.]+/","",$_SESSION['referrer']);
 		$menuID_sku;
-		if(!isset($_GET['m'])){
+		if(!isset($_GET['s']) && !isset($_GET['m'])){
 			if($_SESSION['accesslv']==1)
 				$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
 										(select * from ingredients natural join menu_item) as menuI on supplies.sku = menuI.sku;");
@@ -57,18 +57,24 @@
 										(select * from menu natural join facility where location ='".$_SESSION['location']."') 
 										as localMenu) as localItem) as menuI on supplies.sku = menuI.sku;");
 		}
+		else if(isset($_GET['s'])){
+			$menuID_sku=explode(".",$_GET['s']);
+			$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
+										(select * from ingredients natural join menu_item where mitem_id='".$menuID_sku[0]."') 
+										as menuI on supplies.sku = menuI.sku ;");
+		}
 		else if(isset($_GET['m'])){
 			$menuID_sku=explode(".",$_GET['m']);
-			if($_SESSION['accesslv']==1)
+			// if($_SESSION['accesslv']==1)
 				$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
 										(select * from ingredients natural join menu_item where mitem_id='".$menuID_sku[0]."' AND
 										ingredients.sku='".$menuID_sku[1]."') as menuI on supplies.sku = menuI.sku ;");
-			else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5)
-				$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
-										(select * from ingredients natural join (select * from menu_item natural join 
-										(select * from menu natural join facility where location ='".$_SESSION['location']."') 
-										as localMenu where mitem_id='".$menuID_sku[0]."' AND ingredients.sku='".$menuID_sku[1]."')
-										as localItem) as menuI on supplies.sku = menuI.sku;");
+			// else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5)
+				// $query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
+										// (select * from ingredients natural join (select * from menu_item natural join 
+										// (select * from menu natural join facility where location ='".$_SESSION['location']."') 
+										// as localMenu where mitem_id='".$menuID_sku[0]."' AND ingredients.sku='".$menuID_sku[1]."')
+										// as localItem) as menuI on supplies.sku = menuI.sku;");
 		}
 		
 		if (!is_null($query)) 
@@ -81,12 +87,12 @@
             foreach ($row as $field) {
                 echo "<li>" . $field . "</li>" ;   
             }
-			if(!isset($_GET['m']))
+			// if(!isset($_GET['m']))
 					echo "<li><a onclick='remC()' href='remove.php?id=$row[0].$row[2]-recipe'>remove</a></li>
 					<li><a href='".$_SESSION['referrer']."?m=$row[0].$row[2]'>modify</a></li></ul>";
-				else
-					echo "<li><a onclick='remC()' href='remove.php?id=$row[0].$row[2]-recipe'>remove</a></li>
-					<li><a href='".$_SESSION['referrer']."'>modify</a></li></ul>";
+			// else
+				// echo "<li><a onclick='remC()' href='remove.php?id=$row[0].$row[2]-recipe'>remove</a></li>
+				// <li><a href='".$_SESSION['referrer']."'>modify</a></li></ul>";
         }
 		
 		if(isset($_GET['m'])){
