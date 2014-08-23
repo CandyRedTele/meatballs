@@ -97,7 +97,7 @@
         echo'
         <div class="menu">
                 <ul>';
-                $logger = Logger::getSingleInstance();
+                $logger = Logger::getSingleInstace();
                 $logger->write("HelloLogger!");
 
                 $query = new CustomQuery("SELECT f_id, location from facility");
