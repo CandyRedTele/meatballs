@@ -18,6 +18,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 				$salesHist = '<a href="salesTable.php">sales history</a>';
 				$goldMemb= '<a href="goldenMTable.php">gold member</a>';
 				$vendorO= '<a href="vendorO.php">order</a>';
+                $billP='<a href="billTable.php">bill</a>';
 				switch($_SESSION['accesslv']){
 					case 1:
 						echo $personalINFO . $localResto . $employees . $salesHist. $goldMemb. $vendorO; break;
@@ -30,7 +31,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 					case 5:
 						echo $personalINFO . $localResto; break;
 					case 6:
-						echo $personalINFO; break;
+						echo $personalINFO . $billP; break;
 					case 7:
 						echo $personalINFO; break;
 					case 10:
@@ -40,54 +41,54 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 				}
 			}
 		echo '</td></tr><tr><td id="mainbg" valign="top"><div id="haupttext">';
-			
-			
+
+
 	$outputMessage = ""; $outmsg2="";
 	if ((isset($_POST["formInsert"])) && ($_POST["formInsert"] == "form1")) {
-		
+
 		$logger = Logger::getSingleInstace();
 		$logger->write("HelloLogger!");
-		
+
 		if(preg_match("/employeeTable/", $_SESSION['referrer'])){
 			$query = new InsertIntoStaffQuery($_POST['EmployeeN'], $_POST['address'], $_POST['phone'], $_POST['ssn'], $_POST['title'], $_POST['location']);
 			//$query = new CustomQuery("insert into staff values ('".$_POST['EmployeeN']."', '".$_POST['address']."', '".$_POST['phone']."', '".$_POST['ssn']."', '".$_POST['title']."'");
 			if (!is_null($query)) 
 				$result = $query->execute();
-			
-			
+
+
 			$query = new CustomQuery("select staff_id from staff where ssn='".$_POST['ssn']."'");
 		}
-		else if(preg_match("/supply/", $_SESSION['referrer'])){
+		else if(preg_match("/supply/", $_SESSION['referrer'])|| preg_match("/local/", $_SESSION['referrer'])){
 			$query = new CustomQuery("select quantity from facilitystock where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
 			if (!is_null($query)){
 				$result = $query->execute();
 				//$outmsg2 = $_POST['location'];
 			}
-			
-			
+
+
 			$currentQ = mysqli_fetch_row($result);
 			$newQ = $currentQ[0] + $_POST['quantity'];
-			
+
 			$query = new CustomQuery("update facilitystock set quantity='".$newQ."' where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
 			if (!is_null($query)) 
 				$result = $query->execute();
-			
+
 			$query = new CustomQuery("select location from facility where f_id='".$_POST['location']."'");
 		}
 		else if(preg_match("/vendorO/", $_SESSION['referrer'])){
 			$query = new CustomQuery("insert into supplies");
-			
+
 			if (!is_null($query)) 
 				$result = $query->execute();
-			
-			
+
+
 			//$query = new CustomQuery("select staff_id from staff where ssn='".$_POST['ssn']."'");
 		}
-		
-		
+
+
 		if (!is_null($query)) 
 			$result = $query->execute();
-		
+
 		if(isset($result))
 			if($row = mysqli_fetch_row($result)){
 				if(preg_match("/employeeTable/", $_SESSION['referrer']))
