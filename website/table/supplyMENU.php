@@ -40,7 +40,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
 			if($_SESSION['accesslv']==5)
 				echo '<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>
 					<li><a title="recipes" href="supplyRECIPE.php">&raquo; Recipee</a></li>';
-			else if($_SESSION['accesslv']==1 || $_SESSION['accesslv']==3 ||$_SESSION['accesslv']==4)
+			else if($_SESSION['accesslv']==1 ||$_SESSION['accesslv']==4)
 				echo'<li><a title="Overall" href="localTable.php">&raquo; OVERALL</a></li>
 					<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>
 					<li><a title="Service Item" href="supplySERVICE.php">&raquo; Service Item</a></li>

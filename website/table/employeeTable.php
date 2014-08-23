@@ -92,8 +92,9 @@ function remC() {
 			if(!isset($_GET['s']) && !isset($_GET['m'])){
 				if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
 					$query = new CustomQuery("SELECT * from staff");
-				else if($_SESSION['accesslv']==3)
-					$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
+				else if($_SESSION['accesslv']==4)
+					$query = new CustomQuery("SELECT staff.staff_id, name, address, phone, ssn, title from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
+					// echo $_SESSION['location'];
 			}
 			else if(isset($_GET['s'])){
 				$query = new CustomQuery("SELECT * from staff where staff_id='".$_GET['s']."';");
@@ -116,7 +117,6 @@ function remC() {
 				// else
 					// echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>remove</a></li>
 					// <li><a href='".$_SESSION['referrer']."'>MODIFY</a></li></ul>";
-
 			}
 			
 		

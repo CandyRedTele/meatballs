@@ -50,11 +50,12 @@
 		//echo $_GET['s'];
 		//echo preg_match("/FOOD/", $_SESSION['referrer']);
 		
-		if(!isset($_GET['s']))
+		if(!isset($_GET['s'])){
 			if($_SESSION['accesslv']==1)
 				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='food'");
 			else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5)
 				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='food'");
+		}
 		if(isset($_GET['s']))
 			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where sku='".$_GET['s']."'");
 		
