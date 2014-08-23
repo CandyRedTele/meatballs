@@ -14,9 +14,10 @@ CREATE TABLE IF NOT EXISTS update_balance_after_bill_log
 	mitem_id    INTEGER,
     msg         VARCHAR(255),
     f_id        INTEGER,
-    balance_old     FLOAT,
-    balance_new     FLOAT,
-    price           FLOAT,
+    balance_old     DECIMAL (15,2),
+    balance_new     DECIMAL (15,2),
+    price           DECIMAL (15.2),
+    isGolden        INTEGER DEFAULT -1,
     FOREIGN KEY (`f_id`) REFERENCES `facilityBalance` (`f_id`)
         ON DELETE NO ACTION
         ON UPDATE CASCADE,
@@ -67,18 +68,26 @@ BEGIN
 
     set @price = (SELECt price FROM  menu_item WHERE menu_item.mitem_id = NEW.mitem_id);
 
+    SET @isGolden = (select g_id from golden_has_bills where b_id=NEW.b_id);
+
+    IF (@isGolden IS NOT NULL) THEN
+        SET @price = @price * 0.9;
+    ELSE
+        SET @isGolden = -1;
+    END IF;
+
     INSERT INTO facilityBalance (f_id, balance)  
         VALUES (@location, @price)
         ON DUPLICATE KEY UPDATE balance = @old_balance + @price;
 
     -- 1.1 Log it in `update_balance_after_bill_log`
     SET @new_balance = (SELECT balance FROM facilityBalance WHERE f_id = @location);
-    INSERT INTO update_balance_after_bill_log (msg, mitem_id, b_id, f_id, price, balance_old, balance_new)
-        VALUES ("Update Balance after bill", NEW.b_id, NEW.mitem_id, @location, @price, @old_balance, @new_balance);
+    INSERT INTO update_balance_after_bill_log (msg, mitem_id, b_id, f_id, price, balance_old, balance_new, isGolden)
+        VALUES ("Update Balance after bill", NEW.b_id, NEW.mitem_id, @location, @price, @old_balance, @new_balance, @isGOlden);
 
 
 	
- 	-- 1. update `facilityStock`
+ 	-- 2. update `facilityStock`
 
 	SET SQL_SAFE_UPDATES=0;
 	UPDATE facilityStock,
@@ -99,7 +108,7 @@ BEGIN
 	WHERE facilityStock.sku = T3.sku AND facilityStock.f_id = T3.newF_ID;
 	SET SQL_SAFE_UPDATES=1;
 
- 	-- 1.1 Log it in `update_balance_after_bill_log`
+ 	-- 2.1 Log it in `update_balance_after_bill_log`
     INSERT INTO update_stock_after_bill_log (msg, f_id, mitem_id, b_id)
         VALUES ("Update Stock after bill", @location, NEW.mitem_id, NEW.b_id);
 

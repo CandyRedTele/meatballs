@@ -2,7 +2,9 @@
     error_reporting(E_ALL);
     set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
         include_once("IncludeAllQueries.php");
+	
     session_start();
+	
     if(isset($_SESSION['views']))
         $_SESSION['views']=$_SESSION['views']+1;
     else

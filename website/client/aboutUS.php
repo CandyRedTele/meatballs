@@ -69,7 +69,7 @@
 				<?php	$logger = Logger::getSingleInstace();
 						$logger->write("HelloLogger!");
 
-					$query = new CustomQuery("SELECT * from facilityhours");
+					$query = new CustomQuery("SELECT * from facilityHours");
 
 					if (!is_null($query))
 						$result = $query->execute();

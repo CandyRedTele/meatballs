@@ -21,6 +21,16 @@ class IQueryTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('The MySQLi extension is not available.'); // Does the same job as the '@requires extension mysqli
         }
     }
+
+    public function test_GetBillTotalQuery_success()
+    {
+        $this->markTestSkipped('TODO');
+    }
+
+    public function test_InsertIntoBillQuery_success()
+    {
+        $this->markTestSkipped('TODO');
+    }
     
     public function testInsertIntoReservationQuery_success()
     {
@@ -161,7 +171,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
         mysqli_free_result($result);
     }
 
-    public function testGetAccessLevelQuery()
+    public function test_GetAccessLevelQuery_success()
     {
         $this->markTestSkipped('TODO');
     }

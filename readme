@@ -1,0 +1,28 @@
+
+
+Contribution :
+
+
+    Joseph-Antoine Martineau-Gangé
+        - PHP - everything under    /src                (backend)
+        - PHPUnit tests             /tests/unit
+        - BASH scripts
+
+        also contributed to :
+        - SQL                       triggers, create_table.sql
+
+
+    Samuel
+
+
+    Geoffrey
+        - Generated Data in java.       /sql/staff, /sql/customers, /dataGeneration
+        - Contributed to Create_table
+        - Testing Database
+        - Tested website under Linux
+
+
+    Mike
+
+
+    Ryan Storm
