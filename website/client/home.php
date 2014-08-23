@@ -60,11 +60,12 @@
 <?php
 $categories=array("entree","main","kids","deserts","wines");
 $arrlength=count($categories);
+
 for($x=0;$x<$arrlength;$x++) {
     echo "<div class='heading3'><h3>".ucwords($categories[$x])."</h3></div>";
 
     $query2 = new CustomQuery("select name, price from menu_item natural join (menu natural join facility) where
-        facility.f_id ='" . $parameter . "' and menu_item.category = '". $categories[$x]. "'");
+							facility.f_id ='" . $parameter . "' and menu_item.category = '". $categories[$x]. "'");
 
     if (!is_null($query2)) { $menus_items = $query2->execute();}
 
@@ -76,20 +77,31 @@ for($x=0;$x<$arrlength;$x++) {
 
 
 		$query3 = new CustomQuery("select image, menuI.name, supplies.name, amount
-from supplies inner join (select * from menu_item natural join ingredients where name = '".$menu_items[0]."')
-as menuI on supplies.sku = menuI.sku;");
+									from supplies inner join (select * from menu_item natural join ingredients 
+									where name = '".$menu_items[0]."') as menuI on supplies.sku = menuI.sku;");
 
 		if (!is_null($query3)) { $recipe = $query3->execute();}
-			$ing = array();
-			while($info = mysqli_fetch_row($recipe)){
-			if ($categories[$x] != 'wines') {
+		
+		$ing = array();
+		while($info = mysqli_fetch_row($recipe)){
+			if ($categories[$x] != 'wines') 
 				$ing[] = "<div class='numF'>$info[3] $info[2]</div>";
-				}
-				if(!isset($img))
-					$img=$info[0];
+			if(!isset($img))
+				$img=$info[0];
 		}
+		
+		if ($categories[$x] == 'wines'){
+			$query4 = new CustomQuery("select rate from wine natural join (select mitem_id from menu_item where name='".$menu_items[0]."') as item;");
+			
+			$wRATE = $query4->execute();
+			$rate = mysqli_fetch_row($wRATE);
+			
+			$ing[] = "<div class='numF'>Rating: $rate[0]</div>";
+		}
+		
 		echo "<div class='itemINFO'>
 				<img src='".$img."' width='40%' height='20%'/><h3>".$menu_items[0]."</h3>";
+				
 		foreach($ing as $i){echo $i;}
 
 		echo "<form action=''><input type='button' value='order'/></form>

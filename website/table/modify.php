@@ -4,10 +4,9 @@ include_once("IncludeAllQueries.php");
 
 session_start();
 
-
 	$logger = Logger::getSingleInstace();
-    $logger->write("HelloLogger!");
 
+	
 	if(preg_match("/employeeTable/", $_SESSION['referrer'])){
 		$query1 = new CustomQuery("update staff set name='".$_POST['namem']."', address ='".$_POST['addressm']."', phone='".$_POST['phonem']."', title='".$_POST['titlem']."' where staff_id='".$_POST['sidm']."'");
 	}
@@ -19,9 +18,8 @@ session_start();
 		$query1 = new CustomQuery("update golden set firstname='".$_POST['namem']."', email ='".$_POST['emailm']."', phone='".$_POST['phonem']."' where g_id='".$_POST['sidm']."'");
 	}
 	
-		if (!is_null($query1)) {
-			$result = $query1->execute();
-		}
+	$result = $query1->execute();
+
 		
 	// $previousP = preg_replace("/\.php$/", ".php\?[m]\=[0-9]+", $_SESSION['referrer']);
     // echo $_SESSION['referrer'];

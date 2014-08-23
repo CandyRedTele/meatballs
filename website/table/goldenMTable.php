@@ -66,7 +66,7 @@
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">sex</li>
             <li></li><li></li></ul><?php 
 				$logger = Logger::getSingleInstace();
-				$logger->write("HelloLogger!");
+
 				
 				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 			

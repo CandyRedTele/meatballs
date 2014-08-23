@@ -42,7 +42,7 @@
 			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">price</li>
             <li></li></ul><?php 
         $logger = Logger::getSingleInstace();
-        $logger->write("HelloLogger!");
+
 		
 		$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 		

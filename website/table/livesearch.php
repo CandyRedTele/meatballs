@@ -10,7 +10,6 @@ if(isset($_GET["q"])){
 $q=$_GET["q"];
 
 $logger = Logger::getSingleInstace();
-$logger->write("HelloLogger!");
 				
 if(preg_match("/employeeTable/", $_SESSION['referrer'])){
 	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)

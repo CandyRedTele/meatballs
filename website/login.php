@@ -13,7 +13,6 @@
 			include_once("IncludeAllQueries.php");
 		
         $logger = Logger::getSingleInstace();
-        $logger->write("HelloLogger!");
 		
 		$query = new CustomQuery("select * from staff where staff_id='".$_POST['username']."'");
 		//$query = new SelectAllQuery("staff");

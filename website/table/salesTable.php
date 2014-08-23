@@ -32,7 +32,6 @@
     <div id="thelist"><ul id="control">
         <?php 
         $logger = Logger::getSingleInstace();
-        $logger->write("HelloLogger!");
 		
 		$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 		
