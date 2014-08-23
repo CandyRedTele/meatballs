@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`supplies`
   `sku`     INTEGER NOT NULL,
   `name`    VARCHAR(85) NULL,
   `type`    VARCHAR(45) NULL,
-  `price`   DOUBLE NULL,
+  `price`   DECIMAL (15,2) DEFAULT 0.0,
   PRIMARY KEY (`sku`)
 )
 ENGINE = InnoDB;
@@ -348,6 +348,8 @@ CREATE TABLE IF NOT EXISTS meatballs.golden_has_bills
     CONSTRAINT `fk_golden_has_bills_g_id`
         FOREIGN KEY (`g_id`)
         REFERENCES meatballs.golden (g_id) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
 )
 ENGINE = InnoDB;
 
