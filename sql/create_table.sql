@@ -84,7 +84,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`admin`
     PRIMARY KEY (staff_id, location), -- Assuming that an employee might work in different locations during his career.
     CONSTRAINT `fk_admin_staff_id`
         FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
 )
 ENGINE = InnoDB;
 
@@ -179,7 +180,7 @@ create TABLE IF NOT EXISTS `meatballs`.`localstaff`
   CONSTRAINT `fk_staff_id2`
     FOREIGN KEY (`staff_id`)
     REFERENCES `meatballs`.`staff` (`staff_id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_f_id`
     FOREIGN KEY (`f_id`)
@@ -347,6 +348,8 @@ CREATE TABLE IF NOT EXISTS meatballs.golden_has_bills
     CONSTRAINT `fk_golden_has_bills_g_id`
         FOREIGN KEY (`g_id`)
         REFERENCES meatballs.golden (g_id) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
 )
 ENGINE = InnoDB;
 
@@ -436,7 +439,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
     `time_start`    TIME NOT NULL,
     `time_end`      TIME NOT NULL,
     `paid`          BOOLEAN NOT NULL, -- indicates whether or not they have been paid for this shift
-    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`),
+    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
+        ON DELETE CASCADE,
     PRIMARY KEY (`staff_id`, `date`, `time_start`)
 );
 
@@ -447,7 +451,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
 CREATE TABLE IF NOT EXISTS `meatballs`.`facilityBalance`
 (
      f_id        INTEGER NOT NULL PRIMARY KEY,
-    `balance`    FLOAT NOT NULL DEFAULT 0.0,
+    `balance`    DECIMAL (15,2) NOT NULL DEFAULT 0.0,
 
     FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`)
 );

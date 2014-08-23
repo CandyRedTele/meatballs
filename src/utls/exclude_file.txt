@@ -1,0 +1,11 @@
+#
+# Exclude list used by rsync in the zipMe.sh script
+#
+# Whatch out - No trailing spaces allowed
+#
+.git/
+README.md
+github-git-cheat-sheet.pdf
+log
+.*.swp
+
