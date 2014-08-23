@@ -25,26 +25,27 @@ class IQuery_2Test extends PHPUnit_Framework_TestCase
 
         // 1. Create a new instance of GetAccessLevelQuery based on staff id.
         $access = new GetAccessLevelQuery($staff_id);
+        $result = $access->execute();
 
-            if(!$access->execute()) {
-            $this->fail('execute failed');
+            if(!$result) {
+                $this->fail('execute failed');
         }
 
         // 2. Retreive the access level value.
-        $select = new CustomQuery("select access_level from access_level  natural join staff where staff_id='".$staff_id."';");
-        $result = $select->execute();
-
+        $row = mysqli_fetch_row($result);
+        $access = $row[0];
+/*
         if (!$result) {
             mysqli_free_result($result);
             $this->assertTrue(false); // Fail it.
         }
-
+*/
         $actual = mysqli_fetch_assoc($result);
         mysqli_free_result($result);
 
         // 3. assert
         
-        $this->assertEquals($table, $actual['access_level']);
+        $this->assertEquals($access, $actual['access_level']);
         
         //$this->fail("TODO");
 
