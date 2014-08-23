@@ -9,7 +9,7 @@
 
 if (isset($_GET['id'])){
 	
-	$logger = Logger::getSingleInstace();
+	$logger = Logger::getSingleInstance();
 	
 	$tableN=explode("-",$_GET['id']);
 	//echo $tableN[0];

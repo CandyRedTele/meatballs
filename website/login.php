@@ -12,7 +12,7 @@
 		//echo get_include_path();
 			include_once("IncludeAllQueries.php");
 		
-        $logger = Logger::getSingleInstace();
+        $logger = Logger::getSingleInstance();
 		
 		$query = new CustomQuery("select * from staff where staff_id='".$_POST['username']."'");
 		//$query = new SelectAllQuery("staff");
@@ -33,7 +33,7 @@
 				$_SESSION['ssn']=$row[4];
 				$_SESSION['title']=$row[5];
 				
-				$logger = Logger::getSingleInstace();
+				$logger = Logger::getSingleInstance();
 				$logger->write("HelloLogger!");
 
 				$query = new GetAccessLevelQuery($_SESSION['SID']);

@@ -4,7 +4,7 @@ include_once("IncludeAllQueries.php");
 
 session_start();
 
-	$logger = Logger::getSingleInstace();
+	$logger = Logger::getSingleInstance();
 
 	
 	if(preg_match("/employeeTable/", $_SESSION['referrer'])){
