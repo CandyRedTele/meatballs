@@ -74,9 +74,9 @@
 			else if(isset($_GET['detail'])){
 				echo "<ul><li>" . $_GET['detail'] . "</li>
 							<li>" . $b_id[0] . "</li>
-							<li>$" . $b_id[1] . "</li>
+							<li>" . $b_id[1] . "</li>
 							<li>" . $b_id[2] . "</li>
-							<li> item price </li></ul>";
+							<li>" . $b_id[2] . "</li></ul>";
 			}
         }
 		echo "<ul><li></li><li></li><li></li><li></li><li>$ex[2]</li></ul>";

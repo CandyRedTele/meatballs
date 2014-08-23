@@ -51,23 +51,20 @@
 		if(isset($_GET['s']))
 			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where sku='".$_GET['s']."'");
 
+			
 		if (!is_null($query)) 
-		{
-			//var_dump( $query);
 			$result = $query->execute();
-		}
 		
-	if(isset($result))
-		while($row = mysqli_fetch_row($result)) 
-		{
-			echo "<ul>";
-			foreach ($row as $field) {
-				echo "<li>" . $field . "</li>" ;   
+		
+		if(isset($result))
+			while($row = mysqli_fetch_row($result)) 
+			{
+				echo "<ul>";
+				foreach ($row as $field) {
+					echo "<li>" . $field . "</li>" ;   
+				}
+				echo "<li><a href='remove.php?id=".$row[0]."-supply'>remove</a></li></ul>";
 			}
-			echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
-			//var_dump($row);
-		}
-		
         ?></div>
 </section>
 		
