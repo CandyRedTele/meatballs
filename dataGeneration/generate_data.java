@@ -48,9 +48,9 @@ public class generate_data {
 		12,		//chef
 		12,		//shift supervisor
 		12,		//delivery personnel
-		233,	//dish washer
-		233,	//wait staff
-		233		//cook staff
+		144,	//dish washer
+		132,	//wait staff
+		144,	//cook staff
 	};
 	
 	static int CeoId	= 0;
@@ -272,7 +272,7 @@ public class generate_data {
 				System.exit(1);
 			}
 			
-			staffs[i]  = new StaffMember (i + 1,
+			staffs[i]  = new StaffMember(i + 1,
 					gen_name(3),
 					streetnames[random_num(0, streetnames.length-1)], 
 					gen_phone(),
