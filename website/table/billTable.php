@@ -49,16 +49,11 @@
 		<td class="hauptfenster" valign="top">
 
 		<h1>ADD Bill</h1>
-                <div class="task-list">
-                    <ul>
+            <form action="add-bill.php" method="post" class="add-new-task">
 
-                    </ul>
-                </div>
-            
-                <label>is gold</label><input type="checkbox" name="vehicle" value="Car">
+                <span>Golden number</span><input type="text" name="gold_num">
                 <input type="submit">
 			</form>
-
 
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
@@ -66,7 +61,9 @@
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">category</li>
 			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">name</li>
 			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">price</li>
-            <li></li></ul><?php
+            <li></li></ul>
+
+    <?php
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 
@@ -78,16 +75,13 @@
 
 
 		if(isset($result))
-			while($row = mysqli_fetch_row($result)) 
-			{
+			while($row = mysqli_fetch_row($result))
+		{
 				echo "<ul >";
 				foreach ($row as $field) {
-					echo "<li>" . $field . "</li>" ;   
+					echo "<li>" . $field . "</li>";
 				}
 				echo "<li><a class='addtobill' id='".$row[0]."' href=#>ADD</a></li></ul>";
-//<input type="text" name="new-task" placeholder="Add a new item..." />
-//<a class='addtobill' id='".$row[0]."' href=#>
-				//var_dump($row);
 			}
 ?>
 
@@ -96,9 +90,9 @@
         $('.addtobill').click(function(e) {
             e.preventDefault();//in this way you have no redirect
             var new_task = $(this).attr('id');
-            if(new_task != ''){
+            if(new_task != '') {
                 $.post('add-bill-item.php', { task: new_task }, function( data ) {
-                    $(data).appendTo('.task-list ul').hide().fadeIn();
+                    $(data).prependTo('.add-new-task').hide().fadeIn();
                 });
             }
         });
