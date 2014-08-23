@@ -57,29 +57,34 @@
 		}
 		
 		if (!is_null($query1)) 
-					$bills = $query1->execute();
+				$bills = $query1->execute();
 					
 		 while($b_id = mysqli_fetch_row($bills)) 
         {
-			$query2 = new getBillTotalQuery($b_id[0]);
-			$expense = $query2->execute();
-			$ex = mysqli_fetch_row($expense);
+			if(!isset($_GET['detail']))
+				$query2 = new getBillTotalQuery($b_id[0]);
+			else if(isset($_GET['detail']))
+				$query2 = new getBillTotalQuery($_GET['detail']);
 			
+				$expense = $query2->execute();
+				$ex = mysqli_fetch_row($expense);
+				$ex[2] = preg_replace("/\.[0-9]+/", ".[0-9]{0,2}",$ex[2]);
 			if(!isset($_GET['detail'])){
-				echo "<ul><li>" . $ex[0] . "</li>
-							<li>$" . $ex[2] . "</li>
-							<li>" . $ex[1] . "</li>
+				echo "<ul><li>" . $ex[0] . "</li>";
+					printf ("<li>$%1\$.2f</li>",$ex[2]);
+					echo "	<li>" . $ex[1] . "</li>
 					<li><a href='".$_SESSION['referrer']."?detail=".$ex[0]."'>details</a></li></ul>" ;
 			}
 			else if(isset($_GET['detail'])){
 				echo "<ul><li>" . $_GET['detail'] . "</li>
 							<li>" . $b_id[0] . "</li>
-							<li>$" . $b_id[1] . "</li>
+							<li>" . $b_id[1] . "</li>
 							<li>" . $b_id[2] . "</li>
-							<li> item price </li></ul>";
+							<li>$" . $b_id[3] . "</li></ul>";
 			}
         }
-		echo "<ul><li></li><li></li><li></li><li></li><li>$ex[2]</li></ul>";
+		if(isset($_GET['detail']))
+			printf ("<ul><li></li><li></li><li></li><li></li><li>$%1\$.2f</li></ul>",$ex[2]);
         ?></div>
 </section>
 <!--								THE END OF INFORMATION TABLE						-->
