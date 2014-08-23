@@ -45,11 +45,12 @@
 		
 		$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 		
-		if(!isset($_GET['s']))
+		if(!isset($_GET['s'])){
 			if($_SESSION['accesslv']==1)
 				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='service items'");
 			else if($_SESSION['accesslv']==4)
 				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='service items'");
+		}
 		if(isset($_GET['s']))
 			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where sku='".$_GET['s']."'");
 			

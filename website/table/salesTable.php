@@ -30,58 +30,56 @@
 <p id="testing"> </p>
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
-            <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">SKU</li>
-            <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
-			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">type</li>
-            <li></li></ul><?php 
+        <?php 
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
 		
-		$query = new CustomQuery("select b_id from bill");
-		if (!is_null($query)) 
-			$bills = $query->execute();
-
+		$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 		
+		if(!isset($_GET['detail'])){
+			echo '<li class="button" onclick="sortTable(0, \'num\', \'1\');" ondblclick="sortTable(0, \'num\', \'-1\');">b_id</li>
+            <li class="button" onclick="sortTable(1, \'str\', \'1\');" ondblclick="sortTable(1, \'str\', \'-1\');">expense</li>
+			<li class="button" onclick="sortTable(2, \'str\', \'1\');" ondblclick="sortTable(2, \'str\', \'-1\');">date:time</li>
+            <li></li></ul>';
+		
+			if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
+				$query1 = new CustomQuery("select b_id from bill");
+			else if($_SESSION['accesslv']==4)
+				$query1 = new CustomQuery("select b_id from bill natural join facility where location ='".$_SESSION['location']."';");
+				
+		}else if(isset($_GET['detail'])){
+			echo '<li class="button" onclick="sortTable(0, \'num\', \'1\');" ondblclick="sortTable(0, \'num\', \'-1\');">b_id</li>
+            <li class="button" onclick="sortTable(1, \'str\', \'1\');" ondblclick="sortTable(1, \'str\', \'-1\');">mitem_id</li>
+			<li class="button" onclick="sortTable(2, \'str\', \'1\');" ondblclick="sortTable(2, \'str\', \'-1\');">dishes</li>
+			<li class="button" onclick="sortTable(2, \'str\', \'1\');" ondblclick="sortTable(2, \'str\', \'-1\');">category</li>
+            <li>Total</li></ul>';
+			$query1 = new getBillDetailsQuery($_GET['detail']);
+		}
+		
+		if (!is_null($query1)) 
+					$bills = $query1->execute();
+					
 		 while($b_id = mysqli_fetch_row($bills)) 
         {
-
-            foreach ($b_id as $id) {
+			$query2 = new getBillTotalQuery($b_id[0]);
+			$expense = $query2->execute();
+			$ex = mysqli_fetch_row($expense);
 			
-                $query = new getBillDetailsQuery($id);
-				
-				if (!is_null($query)) 
-					$result = $query->execute();
-					
-				while($row = mysqli_fetch_row($result)) 
-				{
-					echo "<ul>";
-					foreach ($row as $field) {
-					echo "<li>" . $field . "</li>" ;   
-				}
-				echo "</ul>";
-
-				}
-            }
-
+			if(!isset($_GET['detail'])){
+				echo "<ul><li>" . $ex[0] . "</li>
+							<li>$" . $ex[2] . "</li>
+							<li>" . $ex[1] . "</li>
+					<li><a href='".$_SESSION['referrer']."?detail=".$ex[0]."'>details</a></li></ul>" ;
+			}
+			else if(isset($_GET['detail'])){
+				echo "<ul><li>" . $_GET['detail'] . "</li>
+							<li>" . $b_id[0] . "</li>
+							<li>$" . $b_id[1] . "</li>
+							<li>" . $b_id[2] . "</li>
+							<li> item price </li></ul>";
+			}
         }
-		
-		$query = new GetBillDetailsQuery();
-		if (!is_null($query)) 
-		{
-			//echo var_dump( $query);
-			$result = $query->execute();
-		}
-			
-        while($row = mysqli_fetch_row($result)) 
-        {
-			echo "<ul>";
-            foreach ($row as $field) {
-                echo "<li>" . $field . "</li>" ;   
-            }
-			echo "</ul>";
-            //echo $row['customerName'];
-            //var_dump($row);
-        }
+		echo "<ul><li></li><li></li><li></li><li></li><li>$ex[2]</li></ul>";
         ?></div>
 </section>
 <!--								THE END OF INFORMATION TABLE						-->

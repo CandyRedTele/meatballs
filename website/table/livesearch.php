@@ -15,19 +15,20 @@ $logger->write("HelloLogger!");
 if(preg_match("/employeeTable/", $_SESSION['referrer'])){
 	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
 		$query = new CustomQuery("SELECT staff_id, name from staff where title like '%$q%'");
-	else if($_SESSION['accesslv']==3)
-		$query = new CustomQuery("SELECT staff_id, name from staff natural join (select staff_id from localstaff natural join facility 
+	else if($_SESSION['accesslv']==4)
+		$query = new CustomQuery("SELECT staff.staff_id, name from staff natural join (select staff_id from localstaff natural join facility 
 									where location='".$_SESSION['location']."') as localstaff where title like '%$q%';");
 }
 else if(preg_match("/RECIPE/", $_SESSION['referrer']) ){
 	if($_SESSION['accesslv']==1)
 		$query = new CustomQuery("select distinct mitem_id, menuI.name, menuI.sku from supplies inner join 
 								(select * from ingredients natural join menu_item) as menuI on menuI.name like '%$q%' group by mitem_id;");
-	if($_SESSION['accesslv']==3 && $_SESSION['accesslv']==4)
+	if($_SESSION['accesslv']==4 || $_SESSION['accesslv']==5){
 		$query = new CustomQuery("select distinct mitem_id, menuI.name, menuI.sku from supplies inner join 
 									(select * from ingredients natural join (select * from menu_item natural join 
 									(select * from menu natural join facility where location ='".$_SESSION['location']."') 
 									as localMenu) as localItem) as menuI on menuI.name like '%$q%' group by mitem_id;");
+	}
 }
 else if((preg_match("/supply/", $_SESSION['referrer']) || preg_match("/local/", $_SESSION['referrer'])) && $_SESSION['accesslv']==1){
 	$type="";
