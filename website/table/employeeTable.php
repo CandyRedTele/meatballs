@@ -56,7 +56,7 @@ function remC() {
 		<input name="title" placeholder="ex: marketing"required="true" type="text" pattern="[A-z]{2,20}"/><br />
 	<label for="ssn">ssn</label>
 		<input name="ssn" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
-			<select class="location" id="location" name="location"> ';
+			<select class="location" id="location" name="location">
 	<?php	
 		$query = new CustomQuery("select distinct location, f_id from facility");
 		if (!is_null($query)) 

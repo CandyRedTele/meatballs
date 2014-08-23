@@ -59,7 +59,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 			$query = new CustomQuery("select staff_id from staff where ssn='".$_POST['ssn']."'");
 		}
 		else if(preg_match("/supply/", $_SESSION['referrer'])|| preg_match("/local/", $_SESSION['referrer'])){
-			$query = new CustomQuery("select quantity from facilitystock where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
+			$query = new CustomQuery("select quantity from facilityStock where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
 			if (!is_null($query)){
 				$result = $query->execute();
 				//$outmsg2 = $_POST['location'];
@@ -69,7 +69,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 			$currentQ = mysqli_fetch_row($result);
 			$newQ = $currentQ[0] + $_POST['quantity'];
 
-			$query = new CustomQuery("update facilitystock set quantity='".$newQ."' where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
+			$query = new CustomQuery("update facilityStock set quantity='".$newQ."' where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
 			if (!is_null($query)) 
 				$result = $query->execute();
 

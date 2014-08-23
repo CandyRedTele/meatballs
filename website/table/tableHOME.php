@@ -42,7 +42,10 @@
 				<div class="yui-u">
 					<div class="contact-info">
 						<h3>SSN: <?php echo $_SESSION['ssn'];?></h3>
-						<h3>Location: <?php echo $_SESSION['location'];?></h3> 
+						<h3>Location: <?php if($_SESSION['accesslv']==1 ||$_SESSION['accesslv']==2 || $_SESSION['accesslv']==3)
+												echo "Montreal";
+											else
+												echo $_SESSION['location'];?></h3> 
 						<h3>Phone: <?php echo $_SESSION['phone'];?></h3> <!-- PHONE -->
 					</div><!--// .contact-info -->
 				</div>
@@ -70,12 +73,46 @@
 						<div class="yui-u">
 								<div class="talent">
 									<h2>START DATE/ EXPERIENCE</h2> <!-- START DATE -->
-									<p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
+									<p>
+	<?php if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==2|| $_SESSION['accesslv']==3)
+				$query = new CustomQuery("SELECT yrs_exp from admin where staff_id='".$_SESSION['SID']."';");
+		else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5|| $_SESSION['accesslv']==6|| $_SESSION['accesslv']==7|| $_SESSION['accesslv']==10)
+				$query = new CustomQuery("SELECT start_date from localstaff where staff_id='".$_SESSION['SID']."';");	
+		
+		$result = $query->execute();
+				
+		if(isset($result)){
+			$row = mysqli_fetch_row($result);
+			if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==2|| $_SESSION['accesslv']==3)
+				echo "<em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$row[0] years</em>";
+			else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5|| $_SESSION['accesslv']==6|| $_SESSION['accesslv']==7|| $_SESSION['accesslv']==10)
+				echo "on<em> $row[0]</em>";
+		}
+	?>
+								</p>
 								</div>
 
 								<div class="talent">
 									<h2>Training</h2>
-									<p>Credibly streamline mission-critical value with multifunctional functionalities.	 </p>
+									<p>
+	<?php if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==2|| $_SESSION['accesslv']==3){
+				$query = new CustomQuery("SELECT training from admin where staff_id='".$_SESSION['SID']."';");
+				
+				$result = $query->execute();
+				
+			if(isset($result)){
+				$row = mysqli_fetch_row($result);
+				if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==2|| $_SESSION['accesslv']==3)
+					echo "<em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$row[0]</em>";
+			}
+		}
+		else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5|| $_SESSION['accesslv']==6|| $_SESSION['accesslv']==7|| $_SESSION['accesslv']==10)
+				echo "<em>NOT NEEDED</em>";
+		
+
+	?>
+									
+									</p>
 								</div>
 						</div>
 					</div><!--// .yui-gf -->
@@ -86,15 +123,15 @@
 						</div>
 						<div class="yui-u">
 							<ul class="talent">
-								<li>XHTML</li>
-								<li>CSS</li>
-								<li class="last">Javascript</li>
+								<li></li>
+								<li></li>
+								<li class="last"></li>
 							</ul>
 
 							<ul class="talent">
-								<li>Jquery</li>
-								<li>PHP</li>
-								<li class="last">CVS / Subversion</li>
+								<li></li>
+								<li></li>
+								<li class="last"></li>
 							</ul>
 						</div>
 					</div><!--// .yui-gf-->
