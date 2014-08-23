@@ -28,7 +28,7 @@ if (isset($_GET['id'])){
 		
 	}else if($tableN[1]=="supply"){
 		$query1 = new CustomQuery("delete from supplies where sku='".$tableN[0]."'");
-		$query2 = new CustomQuery("delete from facilitystock where sku='".$tableN[0]."'");
+		$query2 = new CustomQuery("delete from facilityStock where sku='".$tableN[0]."'");
 		
 		if (!is_null($query1) && !is_null($query2)) 
 		{

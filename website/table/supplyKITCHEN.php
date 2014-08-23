@@ -46,12 +46,12 @@
 		
 		if(!isset($_GET['s'])){
 			if($_SESSION['accesslv']==1)
-				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='kitchen supplies'");
+				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilityStock natural join facility) as stock where type='kitchen supplies'");
 			else if($_SESSION['accesslv']==4)
-				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='kitchen supplies'");
+				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilityStock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='kitchen supplies'");
 		}
 		if(isset($_GET['s']))
-			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where sku='".$_GET['s']."'");
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilityStock natural join facility) as stock where sku='".$_GET['s']."'");
 		//$query = new SelectAllQuery("customers");
 		if (!is_null($query)) 
 			$result = $query->execute();
