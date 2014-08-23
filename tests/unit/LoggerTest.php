@@ -7,7 +7,7 @@ class LoggerTest extends PHPUnit_Framework_TestCase
     public function testLogger_oneArgs_success()
     {
         $path = "log/phpunit_log";
-        $logger = Logger::getSingleInstace($path);
+        $logger = Logger::getSingleInstance($path);
 
         $expected = "PHPUnit - Test1";
 
@@ -28,7 +28,7 @@ class LoggerTest extends PHPUnit_Framework_TestCase
     public function testLogger_noArgs_success()
     {
         $path = "log/phpunit_log";
-        $logger = Logger::getSingleInstace();
+        $logger = Logger::getSingleInstance();
 
         $expected = "PHPUnit - Test2";
 

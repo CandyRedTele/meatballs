@@ -21,7 +21,7 @@
     ?> 
 
     <?php
-        $logger = Logger::getSingleInstace();
+        $logger = Logger::getSingleInstance();
         $logger->write("HelloLogger!");
 
         $query2 = new TestQuery();

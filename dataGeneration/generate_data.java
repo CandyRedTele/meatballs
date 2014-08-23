@@ -95,7 +95,7 @@ public class generate_data {
 	
 	static boolean debug = false;
 	final static int numBills = 300;
-	final static int numStaff = sumArr(numOfType, 0, numOfType.length-1)+320;
+	final static int numStaff = sumArr(numOfType, 0, numOfType.length-1);
 	final static String path_to_sql = "../sql/";
 	public static void main(String[] args) throws FileNotFoundException {
 		
@@ -214,6 +214,13 @@ public class generate_data {
 		String name = "staff";
 		String[] fields = {"`name`", "`address`", "`phone`", "`ssn`", "`title`"};
 		
+		String[] cookTraining = {"Basic Culinary Training",
+				"Advanced Knife Techniques",
+				"Advanced Hand Washing",
+				"Leadership Training",
+				"Advanced Waffle Design"
+		};
+		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		StaffMember[] staffs = new StaffMember[numStaff];
 		
@@ -221,26 +228,49 @@ public class generate_data {
 		for(int i = 0; i < staffs.length; i++){
 			String title = "";
 			
-			if(i < 3) {
-				title = titles[i%3];
-			}			
-			else if(i < 15) {
+			if(i < calcTypeNum(0)) {
+				title = titles[0];
+			}
+			else if(i < calcTypeNum(1)){
+				title = titles[1];
+			}
+			else if(i < calcTypeNum(2)){
+				title = titles[2];
+			}
+			else if(i < calcTypeNum(3)) {
 				title = titles[3];
 			}
-			else if(i < 27) {
+			else if(i < calcTypeNum(4)) {
 				title = titles[4];
 			}
-			else if(i < 39){
+			else if(i < calcTypeNum(5)){
 				title = titles[5];
 			}
-			else if(i < 51){
+			else if(i < calcTypeNum(6)){
 				title = titles[6];
 			}
-			else if(i < 63){
+			else if(i < calcTypeNum(7)){
 				title = titles[7];
 			}
-			else
-				title = titles[i%5 + 8];
+			else if(i < calcTypeNum(8)){
+				title = titles[8];
+			}
+			else if(i < calcTypeNum(9)){
+				title = titles[9];
+			}
+			else if(i < calcTypeNum(10)){
+				title = titles[10];
+			}
+			else if(i < calcTypeNum(11)){
+				title = titles[11];
+			}
+			else if(i < calcTypeNum(12)){
+				title = titles[12];
+			}
+			else{
+				System.out.println("staffs.length too high in gen_staff");
+				System.exit(1);
+			}
 			
 			staffs[i]  = new StaffMember (i + 1,
 					gen_name(3),
@@ -266,6 +296,14 @@ public class generate_data {
 		
 	}
 	
+	private static int calcTypeNum(int staff_type){
+		int typeNum = 0;
+		for(int i = 0; i <= staff_type; i++){
+			typeNum += numOfType[i];
+		}
+		return typeNum;
+	}
+	
 	private static void gen_access_level(PrintStream p){
 		String name = "access_level";
 		String[] fields = {"title", "access_level"};
@@ -284,9 +322,7 @@ public class generate_data {
 		access_level.add(new Object[] {"'" + titles[supervId] + "'", 7});
 		access_level.add(new Object[] {"'" + titles[DishId] + "'", 10});
 		access_level.add(new Object[] {"'" + titles[CookId] + "'", 10});
-
-
-
+		
 		gen_data(name, fields, access_level.toArray(), p);
 
 	}
@@ -405,7 +441,6 @@ public class generate_data {
 	static void gen_admins(StaffMember[] arrStaff, PrintStream p){
 		if(debug) System.out.println("Admins Started Generation");
 		String name = "admin";
-
 		
 		String[] fields = {"staff_id", "location", "yrs_exp"};
 		
@@ -724,7 +759,7 @@ public class generate_data {
 			System.out.println("adding " +Arrays.toString(arr) + " from index " + begin + " to " + end);
 		}
 		int sum = 0;
-		for(int i = begin; i < end; i++){
+		for(int i = begin; i <= end; i++){
 			sum += arr[i];
 		}
 		return sum;

@@ -38,36 +38,33 @@
 			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">quantity</li>
 			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">price</li>
             <li></li></ul><?php 
-        $logger = Logger::getSingleInstace();
+        $logger = Logger::getSingleInstance();
         $logger->write("HelloLogger!");
 		
 		$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 		
 		if(!isset($_GET['s']))
 			if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==3)
-				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock");
+				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilityStock natural join facility) as stock");
 			else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5)
-				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."'");
+				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilityStock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."'");
 		if(isset($_GET['s']))
-			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where sku='".$_GET['s']."'");
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilityStock natural join facility) as stock where sku='".$_GET['s']."'");
 
+			
 		if (!is_null($query)) 
-		{
-			//var_dump( $query);
 			$result = $query->execute();
-		}
 		
-	if(isset($result))
-		while($row = mysqli_fetch_row($result)) 
-		{
-			echo "<ul>";
-			foreach ($row as $field) {
-				echo "<li>" . $field . "</li>" ;   
+		
+		if(isset($result))
+			while($row = mysqli_fetch_row($result)) 
+			{
+				echo "<ul>";
+				foreach ($row as $field) {
+					echo "<li>" . $field . "</li>" ;   
+				}
+				echo "<li><a href='remove.php?id=".$row[0]."-supply'>remove</a></li></ul>";
 			}
-			echo "<li><a href='remove.php?id=".$row[0]."-supply'>REMOVE</a></li></ul>";
-			//var_dump($row);
-		}
-		
         ?></div>
 </section>
 		

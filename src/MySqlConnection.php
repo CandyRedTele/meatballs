@@ -25,7 +25,7 @@ class MySqlConnection
         $argc = func_num_args();
         $args = func_get_args();
 
-        $this->logger = Logger::getSingleInstace();
+        $this->logger = Logger::getSingleInstance();
 
         if (method_exists($this, $f = '__construct_' . $argc)) 
         {

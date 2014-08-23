@@ -56,7 +56,7 @@ function remC() {
 		<input name="title" placeholder="ex: marketing"required="true" type="text" pattern="[A-z]{2,20}"/><br />
 	<label for="ssn">ssn</label>
 		<input name="ssn" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
-			<select class="location" id="location" name="location"> ';
+			<select class="location" id="location" name="location">
 	<?php	
 		$query = new CustomQuery("select distinct location, f_id from facility");
 		if (!is_null($query)) 
@@ -84,7 +84,7 @@ function remC() {
 			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">SSN</li>
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">title</li>
             <li></li><li></li></ul><?php 
-				$logger = Logger::getSingleInstace();
+				$logger = Logger::getSingleInstance();
 				$logger->write("HelloLogger!");
 				
 				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
@@ -92,8 +92,9 @@ function remC() {
 			if(!isset($_GET['s']) && !isset($_GET['m'])){
 				if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
 					$query = new CustomQuery("SELECT * from staff");
-				else if($_SESSION['accesslv']==3)
-					$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
+				else if($_SESSION['accesslv']==4)
+					$query = new CustomQuery("SELECT staff.staff_id, name, address, phone, ssn, title from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
+					// echo $_SESSION['location'];
 			}
 			else if(isset($_GET['s'])){
 				$query = new CustomQuery("SELECT * from staff where staff_id='".$_GET['s']."';");
@@ -116,7 +117,6 @@ function remC() {
 				// else
 					// echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>remove</a></li>
 					// <li><a href='".$_SESSION['referrer']."'>MODIFY</a></li></ul>";
-
 			}
 			
 		

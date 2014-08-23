@@ -22,7 +22,7 @@ abstract class IQuery
     *-----------------------------------------------------------*/
     public function __construct() 
     {
-		$this->logger = Logger::getSingleInstace();
+		$this->logger = Logger::getSingleInstance();
 		
         $config_path = $_SERVER['DOCUMENT_ROOT'];
 
