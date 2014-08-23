@@ -1,6 +1,5 @@
 <?php 
     $task = strip_tags( $_POST['task'] );
-
     echo '<li><span>'.$task.'</span></li>';
-    echo '<input id="task" value="'.$task.'" type="hidden">';
+    echo '<input name="menu_item['.$task.']" value="'.$task.'" type="hidden">';
 ?>
