@@ -68,22 +68,53 @@
 				$logger = Logger::getSingleInstace();
 				$logger->write("HelloLogger!");
 				
-				
+				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
+			
+			if(!isset($_GET['m']))
 				$query = new CustomQuery("SELECT DISTINCT g_id, firstname, lastname, email, phone, sex FROM golden");
-				if (!is_null($query)) 
+			else if(isset($_GET['m']))	
+				$query = new CustomQuery("SELECT DISTINCT g_id, firstname, lastname, email, phone, sex FROM golden where g_id='".$_GET['m']."'");
+				
+			if (!is_null($query)) 
 					$result = $query->execute();
-				
-				
+					
 			if(isset($result))
 				while($row = mysqli_fetch_row($result)) 
 				{
-					echo "<ul>";
-					foreach ($row as $field) {
-						echo "<li>" . $field . "</li>" ;   
-					}
-					echo "<li><a href='#'>REMOVE</a></li><li><a href='#'>MODIFY</a></li></ul>";
+				echo "<ul>";
+				foreach ($row as $field) {
+					echo "<li>" . $field . "</li>" ;   
 				}
-		
+					//if(!isset($_GET['m']))
+						echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-golden'>remove</a></li>
+						<li><a href='".$_SESSION['referrer']."?m=$row[0]'>modify</a></li></ul>";
+					// else
+						// echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-golden'>remove</a></li>
+						// <li><a href='".$_SESSION['referrer']."'>modify</a></li></ul>";
+				}
+				
+			if(isset($_GET['m'])){
+				$query = new CustomQuery("SELECT * from golden where g_id='".$_GET['m']."';");
+
+				$result = $query->execute();
+					
+				$row = mysqli_fetch_row($result);
+				
+				echo '</div></section>			
+					<div><form action="modify.php" method="post" name="form1" id="form1">
+						<fieldset>
+							<label for="firstN">First Name</label>
+								<input name="namem" value="'.$row[1].'" placeholder="firstName" required="true" pattern="[A-z]{2,25}" type="text" /><br />
+							<label for="address">address</label>
+								<input name="emailm" value="'.$row[3].'" placeholder="email" required="true" pattern="[A-z_0-9]+@[A-z]{2,20}.[A-z]{2,4}" type="text" /><br />
+							<label for="phone">phone</label>
+								<input name="phonem" value="'.$row[4].'" placeholder="###-###-####" required="true" pattern="[0-9]{3}([0-9]{3}|\-[0-9]{3})([0-9]{4}|\-[0-9]{4})" title="phone" required="true" type="text" /><br />
+						</fieldset>
+							<input type="hidden" name="sidm" value="'.$row[0].'" />
+							<input type="submit">
+					</form></div>';
+				//echo "<div>".$_SESSION['referrer']."</div>";
+			}
         ?></div>
 </section>
 <!--								THE END OF INFORMATION TABLE						-->

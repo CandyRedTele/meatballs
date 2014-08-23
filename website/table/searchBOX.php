@@ -37,7 +37,10 @@ translate
 </form>
 </div>-->
 <div id="apple">
-<h3 id="sT"> Search by title </h3>
+<?php if(preg_match("/employeeTable/", $_SESSION['referrer']))
+		echo '<h3 id="sT"> Search by title </h3>';
+	else if(preg_match("/supply/", $_SESSION['referrer']) || preg_match("/local/", $_SESSION['referrer']))
+		echo '<h3 id="sT"> Search by name </h3>';?>
 <form>
 <input type="text" size="30" onkeyup="showResult(this.value)">
 <div id="livesearch"></div>
