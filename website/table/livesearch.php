@@ -37,17 +37,11 @@ else if((preg_match("/supply/", $_SESSION['referrer']) || preg_match("/local/", 
 	else if(preg_match("/LINEN/", $_SESSION['referrer'])) $type ="linens";
 	else if(preg_match("/SERVICE/", $_SESSION['referrer'])) $type ="service items";
 	
-<<<<<<< HEAD
 	$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilitystock) 
 								as facility where supplies.name like '%$q%' AND type = '$type';");	
 	if(preg_match("/localTable/", $_SESSION['referrer']))
 		$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilitystock)
 									as facility where supplies.name like '%$q%';");
-=======
-	$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilityStock) as facility where supplies.name like '%$q%' AND type = '$type';");	
-	if(preg_match("/localTable/", $_SESSION['referrer']))
-		$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilityStock) as facility where supplies.name like '%$q%';");
->>>>>>> 50abf2dbaf860b8fd6a0d7496d51a6b9f1e2c55b
 }
 
 
