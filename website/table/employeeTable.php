@@ -87,6 +87,8 @@ function remC() {
 				$logger = Logger::getSingleInstace();
 				$logger->write("HelloLogger!");
 				
+				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
+				
 			if(!isset($_GET['s']) && !isset($_GET['m'])){
 				if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
 					$query = new CustomQuery("SELECT * from staff");
@@ -94,7 +96,8 @@ function remC() {
 					$query = new CustomQuery("SELECT * from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
 			}
 			else if(isset($_GET['s'])){
-				$query = new CustomQuery("SELECT * from staff where staff_id='".$_GET['s']."';");	
+				$query = new CustomQuery("SELECT * from staff where staff_id='".$_GET['s']."';");
+								
 			}else if(isset($_GET['m'])){
 				$query = new CustomQuery("SELECT * from staff where staff_id='".$_GET['m']."';");
 			}
@@ -108,13 +111,12 @@ function remC() {
 				foreach ($row as $field) {
 					echo "<li>" . $field . "</li>" ;   
 				}
-				if(!isset($_GET['m']))
+				// if(!isset($_GET['m']))
 					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>remove</a></li>
 					<li><a href='".$_SESSION['referrer']."?m=$row[0]'>modify</a></li></ul>";
-				else
-					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>remove</a></li>
-					<li><a href='".$_SESSION['referrer']."'>modify</a></li></ul>";
-
+				// else
+					// echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>remove</a></li>
+					// <li><a href='".$_SESSION['referrer']."'>MODIFY</a></li></ul>";
 
 			}
 			
@@ -136,7 +138,7 @@ function remC() {
 						<label for="phone">phone</label>
 							<input name="phonem" value="'.$row[3].'" placeholder="###-###-####" required="true" pattern="[0-9]{3}([0-9]{3}|\-[0-9]{3})([0-9]{4}|\-[0-9]{4})" title="phone" required="true" type="text" /><br />
 						<label for="title">title</label>
-							<input name="titlem" value="'.$row[5].'" placeholder="ex: marketing"required="true" type="text" pattern="[A-z]{2,20}"/><br />
+							<input name="titlem" value="'.$row[5].'" placeholder="ex: marketing"required="true" type="text" pattern="[A-z\s]{2,20}"/><br />
 					<!--<label for="location">location</label>
 							<input name="locationm" value="" placeholder="working place" type="text" pattern="[A-z0-9]{2,50}"/><br />-->
 					</fieldset>

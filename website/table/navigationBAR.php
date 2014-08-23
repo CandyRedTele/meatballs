@@ -57,7 +57,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 			
 			$query = new CustomQuery("select staff_id from staff where ssn='".$_POST['ssn']."'");
 		}
-		else if(preg_match("/supply/", $_SESSION['referrer'])){
+		else if(preg_match("/supply/", $_SESSION['referrer'])|| preg_match("/local/", $_SESSION['referrer'])){
 			$query = new CustomQuery("select quantity from facilitystock where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
 			if (!is_null($query)){
 				$result = $query->execute();

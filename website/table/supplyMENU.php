@@ -64,7 +64,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
 		<!--                                   supply LIST                                          -->
 			<div class="errorMessage"><?php echo $outputMessage; ?><!--$outmsg2--></div>
 		
-			<section>	<h1>ADD STOCK</h1>
+			<section id="addSTOCK">	<h1>ADD STOCK</h1>
 			<div id="formContainer">
 				<div class="suggestion" id="suggestions"></div>
 

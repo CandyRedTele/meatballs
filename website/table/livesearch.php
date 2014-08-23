@@ -12,19 +12,40 @@ $q=$_GET["q"];
 $logger = Logger::getSingleInstace();
 $logger->write("HelloLogger!");
 				
-if(preg_match("/employeeTable/", $_SESSION['referrer']))
+if(preg_match("/employeeTable/", $_SESSION['referrer'])){
 	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
 		$query = new CustomQuery("SELECT staff_id, name from staff where title like '%$q%'");
 	else if($_SESSION['accesslv']==3)
-		$query = new CustomQuery("SELECT staff_id, name from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff;");
-else if(preg_match("/supply/", $_SESSION['referrer']))
-	$query = new CustomQuery("SELECT sku, name from staff where type like '%$q%'");	
-
-
+		$query = new CustomQuery("SELECT staff_id, name from staff natural join (select staff_id from localstaff natural join facility where location='".$_SESSION['location']."') as localstaff where title like '%$q%';");
+}
+else if(preg_match("/RECIPE/", $_SESSION['referrer']) ){
+	if($_SESSION['accesslv']==1)
+		$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
+									(select * from ingredients natural join (select * from menu_item natural join 
+									(select * from menu natural join facility) 
+									as localMenu) as localItem) as menuI on menuI.name like '%$q%';");
+	if($_SESSION['accesslv']==3 && $_SESSION['accesslv']==4)
+		$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
+									(select * from ingredients natural join (select * from menu_item natural join 
+									(select * from menu natural join facility where location ='".$_SESSION['location']."') 
+									as localMenu) as localItem) as menuI on menuI.name like '%$q%';");
+}
+else if((preg_match("/supply/", $_SESSION['referrer']) || preg_match("/local/", $_SESSION['referrer'])) && $_SESSION['accesslv']==1){
+	$type="";
+	if(preg_match("/FOOD/", $_SESSION['referrer']))$type = "food";
+	else if(preg_match("/KITCHEN/", $_SESSION['referrer'])) $type ="kitchen supplies";
+	else if(preg_match("/LINEN/", $_SESSION['referrer'])) $type ="linens";
+	else if(preg_match("/SERVICE/", $_SESSION['referrer'])) $type ="service items";
+	
+	$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilitystock) as facility where supplies.name like '%$q%' AND type = '$type';");	
+	if(preg_match("/localTable/", $_SESSION['referrer']))
+		$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilitystock) as facility where supplies.name like '%$q%';");
+}
 
 
 				if (!is_null($query)) 
 					$result = $query->execute();
+					
 				echo "<ul>";
 				while($row = mysqli_fetch_row($result)) 
 				{

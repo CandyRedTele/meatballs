@@ -27,10 +27,12 @@
 <?php include_once("navigationBAR.php"); ?>
 
 <!--                                   INFORMATION TABLES                                          -->
-<?php 		include_once("supplyMENU.php");		?>
+<?php 		include_once("supplyMENU.php");			
+			if($_SESSION['accesslv']==1)
+				include_once("searchBOX.php"); ?>
 
 <p id="testing"> </p>
-<section><h1>Administration</h1>
+<section><!--<h1>Administration</h1>-->
     <div id="thelist"><ul id="control">
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">SKU</li>
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
@@ -40,12 +42,17 @@
             <li></li></ul><?php 
         $logger = Logger::getSingleInstace();
         $logger->write("HelloLogger!");
-
-		if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==3)
-			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='service items'");
-		else if($_SESSION['accesslv']==4)
-			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='service items'");
 		
+		$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
+		
+		if(!isset($_GET['s']))
+			if($_SESSION['accesslv']==1)
+				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where type='service items'");
+			else if($_SESSION['accesslv']==4)
+				$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies NATURAL JOIN (select * from facilitystock NATURAL JOIN facility) as stock where location='".$_SESSION['location']."' AND type='service items'");
+		if(isset($_GET['s']))
+			$query = new CustomQuery("SELECT sku, name, location, quantity, price from supplies natural join (select * from facilitystock natural join facility) as stock where sku='".$_GET['s']."'");
+			
 		if (!is_null($query)) 
 			$result = $query->execute();
 			
