@@ -9,7 +9,7 @@ set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
 if(isset($_GET["q"])){
 $q=$_GET["q"];
 
-$logger = Logger::getSingleInstace();
+$logger = Logger::getSingleInstance();
 $logger->write("HelloLogger!");
 				
 if(preg_match("/employeeTable/", $_SESSION['referrer'])){

@@ -23,7 +23,7 @@ class MeatballUser
      *-----------------------------------------------------------*/
     public static function getAccessLevel($staff_id)
     {
-        $logger = Logger::getSingleInstace();
+        $logger = Logger::getSingleInstance();
 
         $query = new GetAccessLevelQuery($staff_id);
         $result = $query->execute();

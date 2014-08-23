@@ -76,7 +76,7 @@ function remC() {
 			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">SSN</li>
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">title</li>
             <li></li></ul><?php 
-				$logger = Logger::getSingleInstace();
+				$logger = Logger::getSingleInstance();
 				$logger->write("HelloLogger!");
 				
 				if($_SESSION['accesslv']==1)

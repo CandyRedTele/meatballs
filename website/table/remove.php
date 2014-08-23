@@ -8,7 +8,7 @@
 
 if (isset($_GET['id'])){
 	
-	$logger = Logger::getSingleInstace();
+	$logger = Logger::getSingleInstance();
     $logger->write("HelloLogger!");
 	
 	$tableN=explode("-",$_GET['id']);

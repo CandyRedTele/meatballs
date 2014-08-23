@@ -26,7 +26,7 @@ if (empty($_POST['userName']) && empty($_POST['guestNO'])) {
 <?php
 if ($val) {
 
-    $logger = Logger::getSingleInstace();
+    $logger = Logger::getSingleInstance();
     $logger->write("HelloLogger!");
 
     $dt = $_POST['date'] . " " . $_POST['timeHour'] . ":" . $_POST['timeMins'] . ":00";
