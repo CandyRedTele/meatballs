@@ -348,6 +348,8 @@ CREATE TABLE IF NOT EXISTS meatballs.golden_has_bills
     CONSTRAINT `fk_golden_has_bills_g_id`
         FOREIGN KEY (`g_id`)
         REFERENCES meatballs.golden (g_id) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
 )
 ENGINE = InnoDB;
 
