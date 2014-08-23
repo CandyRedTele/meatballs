@@ -84,7 +84,7 @@ class Logger
         if (!file_exists($filename)) {
             $filename = getcwd() . "/log/phpunit_log";
         } else {
-            $filename .= "/comp353-project/src/log";
+            $filename .= "/comp353-project/log/log";
         }
 
         return $filename;

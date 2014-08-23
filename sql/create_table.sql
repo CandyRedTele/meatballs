@@ -84,7 +84,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`admin`
     PRIMARY KEY (staff_id, location), -- Assuming that an employee might work in different locations during his career.
     CONSTRAINT `fk_admin_staff_id`
         FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
 )
 ENGINE = InnoDB;
 
@@ -123,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
 (
   `mitem_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `category` CHAR(45) NULL,
-  `price` DOUBLE NULL,
+  `price` DECIMAL(15,2) NULL,
   `name` VARCHAR(65) NULL,
   `image` VARCHAR(95) NULL
 )
@@ -179,7 +180,7 @@ create TABLE IF NOT EXISTS `meatballs`.`localstaff`
   CONSTRAINT `fk_staff_id2`
     FOREIGN KEY (`staff_id`)
     REFERENCES `meatballs`.`staff` (`staff_id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_f_id`
     FOREIGN KEY (`f_id`)
@@ -307,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`bill`
 (
   `b_id` INTEGER NOT NULL AUTO_INCREMENT,
   `f_id` INTEGER NOT NULL,
-  `date` DATE NOT NULL,
+  `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`b_id`),
   INDEX `fk_bill_facility1_idx` (`f_id` ASC),
   CONSTRAINT `fk_bill_f_id`
@@ -436,7 +437,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
     `time_start`    TIME NOT NULL,
     `time_end`      TIME NOT NULL,
     `paid`          BOOLEAN NOT NULL, -- indicates whether or not they have been paid for this shift
-    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`),
+    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
+        ON DELETE CASCADE,
     PRIMARY KEY (`staff_id`, `date`, `time_start`)
 );
 
@@ -447,7 +449,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
 CREATE TABLE IF NOT EXISTS `meatballs`.`facilityBalance`
 (
      f_id        INTEGER NOT NULL PRIMARY KEY,
-    `balance`    FLOAT NOT NULL DEFAULT 0.0,
+    `balance`    DECIMAL (15,2) NOT NULL DEFAULT 0.0,
 
     FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`)
 );
