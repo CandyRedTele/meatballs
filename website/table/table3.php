@@ -86,7 +86,7 @@
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
 			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">type</li>
             <li></li></ul><?php 
-        $logger = Logger::getSingleInstace();
+        $logger = Logger::getSingleInstance();
         $logger->write("HelloLogger!");
 		
 			$query = new CustomQuery("SELECT * from customers");

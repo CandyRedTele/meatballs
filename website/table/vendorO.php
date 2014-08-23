@@ -92,7 +92,12 @@ function remC() {
 			<li class="button" onclick="sortTable(4, 'num', '1');" ondblclick="sortTable(4, 'num', '-1');">qtt</li>
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">vendor</li>
             <li></li><li></li></ul><?php 
+<<<<<<< HEAD
 				$logger = Logger::getSingleInstace();
+=======
+				$logger = Logger::getSingleInstance();
+				$logger->write("HelloLogger!");
+>>>>>>> cdf686ded792b9c78ee02ee3fd33dd681714d6a6
 				
 				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 				

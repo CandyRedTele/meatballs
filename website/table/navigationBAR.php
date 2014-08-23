@@ -46,7 +46,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 	$outputMessage = ""; $outmsg2="";
 	if ((isset($_POST["formInsert"])) && ($_POST["formInsert"] == "form1")) {
 
-		$logger = Logger::getSingleInstace();
+		$logger = Logger::getSingleInstance();
 		$logger->write("HelloLogger!");
 
 		if(preg_match("/employeeTable/", $_SESSION['referrer'])){

@@ -31,7 +31,12 @@
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
         <?php 
+<<<<<<< HEAD
         $logger = Logger::getSingleInstace();
+=======
+        $logger = Logger::getSingleInstance();
+        $logger->write("HelloLogger!");
+>>>>>>> cdf686ded792b9c78ee02ee3fd33dd681714d6a6
 		
 		$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 		
@@ -65,9 +70,10 @@
 			else if(isset($_GET['detail']))
 				$query2 = new getBillTotalQuery($_GET['detail']);
 			
-				$expense = $query2->execute();
-				$ex = mysqli_fetch_row($expense);
-				$ex[2] = preg_replace("/\.[0-9]+/", ".[0-9]{0,2}",$ex[2]);
+            $expense = $query2->execute();
+            $ex = mysqli_fetch_row($expense);
+            $ex[2] = preg_replace("/\.[0-9]+/", ".[0-9]{0,2}",$ex[2]);
+
 			if(!isset($_GET['detail'])){
 				echo "<ul><li>" . $ex[0] . "</li>";
 					printf ("<li>$%1\$.2f</li>",$ex[2]);

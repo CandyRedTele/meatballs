@@ -48,9 +48,9 @@ public class generate_data {
 		12,		//chef
 		12,		//shift supervisor
 		12,		//delivery personnel
-		233,	//dish washer
-		233,	//wait staff
-		233		//cook staff
+		144,	//dish washer
+		132,	//wait staff
+		144,	//cook staff
 	};
 	
 	static int CeoId	= 0;
@@ -95,17 +95,35 @@ public class generate_data {
 	
 	static boolean debug = false;
 	final static int numBills = 300;
-	final static int numStaff = sumArr(numOfType, 0, numOfType.length-1)+320;
+	final static int numStaff = sumArr(numOfType, 0, numOfType.length-1);
 	final static String path_to_sql = "../sql/";
 	public static void main(String[] args) throws FileNotFoundException {
 		
+		//ask for current date
+		System.out.println("when was the last monday(int)?");
+		Scanner gimmedate = new Scanner(System.in);
+		int lastMonday = gimmedate.nextInt();
+		
+		System.out.println("what is the current month(int)?");
+		int currMonth = gimmedate.nextInt();
+		
+		System.out.println("WHAT YEAR IS IT(int");
+		int currYear = gimmedate.nextInt();
+		
+		System.out.println("what is the current date(int)?");
+		int currDate = gimmedate.nextInt();
+		
+		gimmedate.close();
+		
+		
+		//start program
         PrintStream p = System.out;
 				
 		String slash = File.separator;
 		String folder = "output"+ slash;
         boolean genfacility = false;
         boolean genstaff = false;
-		String staffloc = "staff" + slash + "staffgen.sql";
+		//String staffloc = "staff" + slash + "staffgen.sql";
 
                 
 		if(args.length == 0){
@@ -148,7 +166,7 @@ public class generate_data {
 			
 			//generate local staff info
 			p = new PrintStream(folder + "gen_localStaff.sql");
-			gen_localstaff(arrStaff, p);
+			gen_localstaff(arrStaff, p, currDate, currMonth, currYear);
 			
 			//generate access levels
 			p = new PrintStream(folder + "gen_access_level.sql");
@@ -156,7 +174,7 @@ public class generate_data {
 			
 			//generate shifts
 			p = new PrintStream(folder + "gen_shift.sql");
-			gen_shift(arrStaff, p);
+			gen_shift(arrStaff, p, lastMonday, currMonth, currYear);
 			
 			//generate constraints on scheduling
 			p = new PrintStream(folder + "gen_schedule.sql");
@@ -214,6 +232,13 @@ public class generate_data {
 		String name = "staff";
 		String[] fields = {"`name`", "`address`", "`phone`", "`ssn`", "`title`"};
 		
+		String[] cookTraining = {"Basic Culinary Training",
+				"Advanced Knife Techniques",
+				"Advanced Hand Washing",
+				"Leadership Training",
+				"Advanced Waffle Design"
+		};
+		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		StaffMember[] staffs = new StaffMember[numStaff];
 		
@@ -221,28 +246,51 @@ public class generate_data {
 		for(int i = 0; i < staffs.length; i++){
 			String title = "";
 			
-			if(i < 3) {
-				title = titles[i%3];
-			}			
-			else if(i < 15) {
+			if(i < calcTypeNum(0)) {
+				title = titles[0];
+			}
+			else if(i < calcTypeNum(1)){
+				title = titles[1];
+			}
+			else if(i < calcTypeNum(2)){
+				title = titles[2];
+			}
+			else if(i < calcTypeNum(3)) {
 				title = titles[3];
 			}
-			else if(i < 27) {
+			else if(i < calcTypeNum(4)) {
 				title = titles[4];
 			}
-			else if(i < 39){
+			else if(i < calcTypeNum(5)){
 				title = titles[5];
 			}
-			else if(i < 51){
+			else if(i < calcTypeNum(6)){
 				title = titles[6];
 			}
-			else if(i < 63){
+			else if(i < calcTypeNum(7)){
 				title = titles[7];
 			}
-			else
-				title = titles[i%5 + 8];
+			else if(i < calcTypeNum(8)){
+				title = titles[8];
+			}
+			else if(i < calcTypeNum(9)){
+				title = titles[9];
+			}
+			else if(i < calcTypeNum(10)){
+				title = titles[10];
+			}
+			else if(i < calcTypeNum(11)){
+				title = titles[11];
+			}
+			else if(i < calcTypeNum(12)){
+				title = titles[12];
+			}
+			else{
+				System.out.println("staffs.length too high in gen_staff");
+				System.exit(1);
+			}
 			
-			staffs[i]  = new StaffMember (i + 1,
+			staffs[i]  = new StaffMember(i + 1,
 					gen_name(3),
 					streetnames[random_num(0, streetnames.length-1)], 
 					gen_phone(),
@@ -266,6 +314,14 @@ public class generate_data {
 		
 	}
 	
+	private static int calcTypeNum(int staff_type){
+		int typeNum = 0;
+		for(int i = 0; i <= staff_type; i++){
+			typeNum += numOfType[i];
+		}
+		return typeNum;
+	}
+	
 	private static void gen_access_level(PrintStream p){
 		String name = "access_level";
 		String[] fields = {"title", "access_level"};
@@ -284,9 +340,7 @@ public class generate_data {
 		access_level.add(new Object[] {"'" + titles[supervId] + "'", 7});
 		access_level.add(new Object[] {"'" + titles[DishId] + "'", 10});
 		access_level.add(new Object[] {"'" + titles[CookId] + "'", 10});
-
-
-
+		
 		gen_data(name, fields, access_level.toArray(), p);
 
 	}
@@ -326,40 +380,19 @@ public class generate_data {
 		
 	}
 	
-	private static void gen_localstaff( StaffMember[] arrStaff, PrintStream p) {
+	private static void gen_localstaff( StaffMember[] arrStaff, PrintStream p,
+			int currDate, int currMonth, int currYear) {
 		
 		String name = "localstaff";
 		String[] fields = {"start_date", "f_id", "staff_id"};
 		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		
-		/*
-		int count = 0;
-		for(int i = 0; i < arrStaff.length; i++){
-			StaffMember staff = arrStaff[i];
-			if(!(staff.title.equals(titles[CeoId])
-					||staff.title.equals(titles[CfoId])
-					||staff.title.equals(titles[CtoId]))
-					){
-				count++;
-			}
-		}
-
-		
-		int staffperfacility = (count / 12)+1;
-
-		int[] seq = sequence(12, staffperfacility);
-		
-		seq = random_sequence(seq);
-
-		*/
-		
-		
 		for(int i = 0; i < arrStaff.length; i++){
 			StaffMember staff = arrStaff[i];
 			if(!isAdmin(staff.title)){
 				
-				staff.start_date = gen_date();
+				staff.start_date = gen_date(currDate, currMonth, currYear);
 				staff.f_id = i%12 + 1;
 				
 				localStaffs.add(new Object[]{
@@ -370,32 +403,7 @@ public class generate_data {
 
 			}
 		}
-		/*
-		for(int i = 1; staff_reader.hasNext(); i++){
-			
-			String nextLine = staff_reader.nextLine();
-			if(!(nextLine .contains("ceo")
-					||nextLine.contains("cfo")
-					||nextLine.contains("cto")
-					||nextLine.contains("use meatballs"))
-					&& nextLine.contains(",")
-					){
-				
-				Object[] localStaff = {gen_date(),
-						(i%12 +1), 
-						i};
-				arrStaff[i-1].addF_id(i%12 + 1);
-
-				localStaffs.add(localStaff);	
-			}
-			if (nextLine.contains("use meatballs")
-					|| nextLine.contains("insert")){
-				i--;
-			}
-
-			
-		}
-		*/
+		
 		gen_data(name, fields, localStaffs.toArray(), p);
 		
 		if(debug) System.out.println("Local Staff Generated");
@@ -405,7 +413,6 @@ public class generate_data {
 	static void gen_admins(StaffMember[] arrStaff, PrintStream p){
 		if(debug) System.out.println("Admins Started Generation");
 		String name = "admin";
-
 		
 		String[] fields = {"staff_id", "location", "yrs_exp"};
 		
@@ -509,7 +516,8 @@ public class generate_data {
 	}
 	*/
 	
-	static void gen_shift(StaffMember[] arrStaff, PrintStream p){
+	static void gen_shift(StaffMember[] arrStaff, PrintStream p,
+			int lastMonday, int month, int year){
 		
 		/* 
 		 * Dishwashers and Cooking staff generally 
@@ -543,18 +551,6 @@ public class generate_data {
 		String name = "shift";
 		ArrayList<Object> gen_shift = new ArrayList<Object>();
 		
-		System.out.println("when was the last monday(int)?");
-		Scanner gimmedate = new Scanner(System.in);
-		int seeday = gimmedate.nextInt();
-		
-		System.out.println("what is the current month(int)?");
-		int month = gimmedate.nextInt();
-		
-		System.out.println("WHAT YEAR IS IT(int");
-		int year = gimmedate.nextInt();
-		
-		gimmedate.close();
-		
 		for(int i = 0; i < arrStaff.length; i++){
 			Shift[] shifts = null;
 			if(arrStaff[i].title.equals("cook")){
@@ -572,7 +568,7 @@ public class generate_data {
 				for(int jay = 0; jay < shifts.length; jay++){
 					if(shifts[jay] != null)
 						gen_shift.add(shifts[jay].format_data(
-								seeday, month, year,
+								lastMonday, month, year,
 								arrStaff[i].staff_id));
 				}
 			}
@@ -636,22 +632,30 @@ public class generate_data {
 		
 	}
 	
-	private static String gen_date(){
+	private static String gen_date(int currDay, int currMonth, int currYear){
 		
-		String[] years = {"2012", "2013", "2014"};
+		int[] years = {2012, 2013, 2014};
 		
-		String year = years[random_num(0,years.length-1)];
-		int month = (random_num(1,12));
+		int year = years[random_num(0,years.length-1)];
+		int month = 0;
+		int day = 0;
+		
+		if(year == 2014){
+			month = (random_num(1, currMonth));
+			day = (random_num(1, currDay));
+		}
+		else{
+			month = (random_num(1,12));
+			day = (random_num(1,28));
+		}
 		String monthStr = "";
 		if(month < 10){
 			monthStr = "0" + month;
 		}
 		else monthStr = "" + month;
+
 		
 		String dayStr = "";
-		
-		int day = (random_num(1,28));
-
 		if(day < 10){
 			dayStr = "0" + day;
 		}
@@ -724,7 +728,7 @@ public class generate_data {
 			System.out.println("adding " +Arrays.toString(arr) + " from index " + begin + " to " + end);
 		}
 		int sum = 0;
-		for(int i = begin; i < end; i++){
+		for(int i = begin; i <= end; i++){
 			sum += arr[i];
 		}
 		return sum;
