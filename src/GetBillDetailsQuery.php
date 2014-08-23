@@ -41,7 +41,7 @@ class GetBillDetailsQuery extends IQuery
     private function __construct_1($b_id) 
     {
         $this->b_id = $b_id;
-        $this->columns = "mitem_id, name, category";
+        $this->columns = "mitem_id, name, category, price";
     }
 
    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
