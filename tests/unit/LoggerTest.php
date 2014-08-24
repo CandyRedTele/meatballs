@@ -1,4 +1,11 @@
 <?php
+/**************************************************************************
+ *
+ * AUTHORS : Team 3, Joseph
+ *
+ * NAME : LoggerTest
+ *
+ *************************************************************************/
 error_reporting(E_ALL);
 include_once("src/Logger.php");
 include_once("src/MySqlConnection.php");
@@ -44,6 +51,5 @@ class LoggerTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, $actual);
     }
-
 }
 ?>
