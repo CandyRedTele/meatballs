@@ -394,7 +394,17 @@ public class generate_data {
 			if(!isAdmin(staff.title)){
 				
 				if(staff.title.equals(titles[ChefId])){
-					staff.addTraining(cookTraining[random_num(0, cookTraining.length-1)]);
+					
+					int numTrain = random_num(1,4);
+					String training = "";
+					
+					for(int jay = 0; jay < numTrain; jay++){
+						if(jay != numTrain-1)
+							training += cookTraining[random_num(0, cookTraining.length-1)] + ", ";
+						else
+							training += cookTraining[random_num(0, cookTraining.length-1)];
+					}
+					staff.addTraining(training);
 				}
 				else
 					staff.addTraining("n/a");
