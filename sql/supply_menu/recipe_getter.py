@@ -1,6 +1,6 @@
 import sys
 import json
-from datetime import date, timedelta
+from datetime import datetime, date, time, timedelta
 from os.path import isfile
 from random import randint, sample, uniform, randrange
 from data_recipe import create_dic, dataRecipe
@@ -228,7 +228,9 @@ def create_list():
     bill = []
     golden_has_bills = []
     for i in xrange(bill_len):
-        date_bill = date.today() - timedelta(days=randrange(0, 5))
+        d_date = date.today() - timedelta(days=randrange(0, 6))
+        d_time = time(randrange(11, 23), randrange(0, 59, 15))
+        date_bill = datetime.combine(d_date, d_time)
         date_bill = date_bill.isoformat()
         bill.append([(i + 1), randint(1, 12), date_bill])
         if (i % 3) == 0:
