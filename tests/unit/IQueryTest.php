@@ -32,6 +32,37 @@ class IQueryTest extends PHPUnit_Framework_TestCase
         $this->markTestSkipped('TODO');
     }
 
+    public function test_GetTrainingQuery()
+    {
+        $staff_id = 200;
+        $query = new CustomQuery(" select training from admin natural join staff where staff_id=" . $staff_id .";");
+        $result = $query->execute();
+
+        if ($result->num_rows > 0) 
+        {
+            $row = mysqli_fetch_assoc($result);
+
+            $actual_training = $row['training'];
+        } else {
+            $query = new CustomQuery(" select training from localstaff natural join staff where staff_id=" . $staff_id .";");
+            $result = $query->execute();
+            $row = mysqli_fetch_assoc($result);
+            $actual_training = $row['training'];
+        }
+        
+        $query = new GetTrainingQuery($staff_id);
+        $result = $query->execute();
+
+        if (!$result) {
+           $this->fail("no result"); 
+        }
+
+        $row = mysqli_fetch_assoc($result);
+
+
+        $this->assertEquals($actual_training, $row['training']);
+    }
+
     public function test_GetSalaryQuery()
     {
         $staff_id = 200;

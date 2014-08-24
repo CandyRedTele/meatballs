@@ -82,7 +82,7 @@ echo -e "[$0] \e[31mTODO\e[0m execute database tests";
 #
 #
 echo -ne "[$0] looking for commonly misspelled identifiers"
-sh src/utls/check_table_names.sh
+sh src/utls/check_table_names.sh -s
 
 sts=$?
 

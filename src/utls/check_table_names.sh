@@ -9,6 +9,19 @@
 #
 #******************************************************************************
 
+DIR=.
+SKIP_SQL=0
+
+while getopts "d:s" opt; do
+    case "$opt" in
+        d) DIR=$OPTARG;
+           echo "DIR : $DIR";
+        ;;
+        s) SKIP_SQL=1
+        ;;
+    esac 
+done
+
 declare -A TABLE_NAMES
 count=0
 #
@@ -20,16 +33,24 @@ TABLE_NAMES=([facilitystock]='facilityStock'
              [getSingleInstace]='getSingleInstance'
              )
 
+if [ $SKIP_SQL -eq 0 ]; then
+    TABLE_NAMES+=(['\([^\<|^element ]\)select ']='\1SELECT '
+                     ['from ']='FROM '
+                     ['where ']='WHERE '
+                     [' join ']=' JOIN '
+                    )
+fi
+
 for key in  "${!TABLE_NAMES[@]}"
 do 
     echo -n '.'
 
-    grep -r --include='*.php' $key .
+    grep -r --include='*.php' "$key" $DIR 
     if [ $? -eq 0 ]; then
         count=$(($count + 1))
     fi
 
-    find . -name '*.php' | xargs sed  -i "s/$key/${TABLE_NAMES[$key]}/g"
+    find $DIR -name '*.php' | xargs sed  -i "s/$key/${TABLE_NAMES[$key]}/g"
 done
 
 

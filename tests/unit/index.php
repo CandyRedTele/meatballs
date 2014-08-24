@@ -150,6 +150,21 @@
 
             echo "<br>" ;
         }
+
+       /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        * GetTrainingQuery
+        * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+        echo "<br><b> GetTrainingQuery(staff_id) : <b><br>";
+        $staff_id = 39;
+        $query = new GetTrainingQuery($staff_id);
+        $result = $query->execute();
+        if ($result->num_rows > 0) {
+            $row = mysqli_fetch_row($result);
+            foreach ($row as $field) {
+                echo $field. " ";
+            }
+        }
+
     ?>
 
 
