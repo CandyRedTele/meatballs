@@ -58,7 +58,6 @@ rm -f src/log
 #
 # run all tests under /tests
 #
-#phpunit  --configuration ./tests/unit/phpunit.xml tests/unit 
 phpunit --verbose  tests/unit 
 
 ## rm -f src/log
