@@ -76,9 +76,9 @@ for($x=0;$x<$arrlength;$x++) {
 		"</div><div class='grid2column lastcolumn'>$" . $menu_items[1] . "</div>";
 
 
-		$query3 = new CustomQuery("select image, menuI.name, supplies.name, amount
-									from supplies inner join (select * from menu_item natural join ingredients 
-									where name = '".$menu_items[0]."') as menuI on supplies.sku = menuI.sku;");
+		$query3 = new CustomQuery("select image, menuI.name, supplies.name, amount "
+									. " from supplies inner join (select * from menu_item natural join ingredients  "
+									. " where name = '".$menu_items[0]."') as menuI on supplies.sku = menuI.sku;");
 
 		if (!is_null($query3)) { $recipe = $query3->execute();}
 
