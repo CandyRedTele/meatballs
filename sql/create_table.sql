@@ -269,7 +269,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`wine` 
 (
     
-    `rate` DOUBLE NULL,
+    `rate` DECIMAL (15,2) DEFAULT 0.0,
     `mitem_id` INTEGER NULL,
     PRIMARY KEY (mitem_id),
     INDEX `fk_wine_menu_item1_idx` (`mitem_id` ASC),

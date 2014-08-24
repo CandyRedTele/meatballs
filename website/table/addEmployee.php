@@ -26,7 +26,7 @@ else echo "testing";
 <?php
 if($val){
 
-	$logger = Logger::getSingleInstace();
+	$logger = Logger::getSingleInstance();
     $logger->write("HelloLogger!");
 	
 	$query = new InsertIntoGoldenQuery($_POST['firstN'], $_POST['lastN'], $_POST['sex'], $_POST['email'], $_POST['phone']);
