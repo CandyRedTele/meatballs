@@ -8,7 +8,7 @@
 ?>
 <html>
 <head>
-	<title>employess information</title>
+	<title>Golden Members information</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; CHARSET=ISO-8859-1">
   <meta name="description" content="">
   <meta name="keywords" content="">

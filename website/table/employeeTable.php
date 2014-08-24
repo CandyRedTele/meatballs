@@ -19,7 +19,7 @@
   <script type="text/javascript" src="../js/domsort.js"></script>
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
-<style>label {width:30%;}	#formContainer{width:60%; float:left;} #testing{float:none; width:100%;} #addSTUFF #formContainer form #location{border-right:250px;}</style>
+<style>label {width:30%;}	#formContainer{width:60%; float:left;} #testing{float:none; width:100%;} .locationI{text-align:left;}</style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 function remC() {
@@ -56,10 +56,14 @@ function remC() {
 		<input name="title" placeholder="ex: marketing"required="true" type="text" pattern="[A-z]{2,20}"/><br />
 	<label for="ssn">ssn</label>
 		<input name="ssn" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
-	<label for="location" id="location">location</label>
-		<select class="location" id="location" name="location">
+	<label for="location" class="locationI">location</label>
+		<select class="locationI" id="location" name="location">
 	<?php	
-		$query = new CustomQuery("select distinct location, f_id from facility");
+		if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
+			$query = new CustomQuery("select distinct location, f_id from facility");
+		else if($_SESSION['accesslv']==4)
+			$query = new CustomQuery("select distinct location, f_id from facility where location = '".$_SESSION['location']."';");
+			
 		if (!is_null($query)) 
 			$result = $query->execute();
 			
@@ -84,6 +88,7 @@ function remC() {
 			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">phone</li>
 			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">SSN</li>
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">title</li>
+			<li class="button" onclick="sortTable(6, 'str', '1');" ondblclick="sortTable(6, 'str', '-1');">salary(k)</li>
             <li></li><li></li></ul><?php 
 				$logger = Logger::getSingleInstance();
 				
@@ -102,7 +107,6 @@ function remC() {
 				$query = new CustomQuery("SELECT * from staff where staff_id='".$_GET['m']."';");
 			}
 					
-			if (!is_null($query)) 
 			$result = $query->execute();
 				
 			while($row = mysqli_fetch_row($result)) 
@@ -111,6 +115,12 @@ function remC() {
 				foreach ($row as $field) {
 					echo "<li>" . $field . "</li>" ;   
 				}
+				$sal= new getSalaryQuery($row[0]);
+				$salR=$sal->execute();
+				$salOUT = mysqli_fetch_row($salR);
+				
+				echo "<li>$row[0] -- " . $salOUT[2] . "</li>" ; 
+				
 				// if(!isset($_GET['m']))
 					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>remove</a></li>
 					<li><a href='".$_SESSION['referrer']."?m=$row[0]'>modify</a></li></ul>";
