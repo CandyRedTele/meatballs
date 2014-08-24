@@ -52,7 +52,8 @@
         <ul>
         <?php
           echo '
-          <li><a href="home.php?'.$parameter.'">HOME</a></li>
+            <li><a href="../index.php">HOME</a>
+            <li><a href="home.php?'.$parameter.'">Menu</a></li>
             <li><a href="reservation.php?'.$parameter.'">Reservation</a></li>
             <li class="active"><a href="aboutUS.php?'.$parameter.'">About Us</a></li>
             <li><a href="registration.php?'.$parameter.'">Golden member</a></li>';
@@ -67,7 +68,7 @@
 			<div class="contact-form">
 			<h3>Our Hours</h3>
 				<?php
-					$query = new CustomQuery("SELECT * from facilityHours");
+					$query = new CustomQuery("SELECT * FROM facilityHours");
 
 					if (!is_null($query))
 						$result = $query->execute();
@@ -88,7 +89,7 @@
 			<div class="contact_info">
 			     	<h3>Address</h3>
 			<?php
-					$query = new CustomQuery("SELECT address, phone from facility where f_id = ". $parameter. "");
+					$query = new CustomQuery("SELECT address, phone FROM facility WHERE f_id = ". $parameter. "");
 
 					if (!is_null($query))
 						$result = $query->execute();
