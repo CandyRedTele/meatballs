@@ -31,6 +31,51 @@ class IQueryTest extends PHPUnit_Framework_TestCase
     {
         $this->markTestSkipped('TODO');
     }
+
+    public function test_GetSalaryQuery()
+    {
+        $staff_id = 200;
+
+        $query = new CustomQuery(" select staff_id, title, base, exp_rate, overtime from wage natural join staff where staff_id=" . $staff_id .";");
+        $result = $query->execute();
+
+        if ($result->num_rows > 0) {
+            $row = mysqli_fetch_assoc($result);
+
+            $actual_title = $row['title'];
+            $actual_base = $row['base'];
+            $actual_exp_rate = $row['exp_rate'];
+            $actual_overtime = $row['overtime'];
+        } else {
+            $query = new CustomQuery(" select staff_id, title, base, exp_rate, train_rate,  from pay natural join staff where staff_id=" . $staff_id .";");
+            $result = $query->execute();
+
+            $row = mysqli_fetch_assoc($result);
+            $actual_title = $row['title'];
+            $actual_base = $row['base'];
+            $actual_exp_rate = $row['exp_rate'];
+            $actual_train_rate = $row['train_rate'];
+        }
+
+
+        $query = new GetSalaryQuery($staff_id);
+        $result = $query->execute();
+
+        if (!$result) {
+            $this->fail('result is null');
+        }
+
+        $row = mysqli_fetch_assoc($result);
+
+        $this->assertEquals($actual_title, $row['title']);
+        $this->assertEquals($actual_base, $row['base']);
+        $this->assertEquals($actual_exp_rate, $row['exp_rate']);
+        if (isset($actual_overtime)) {
+            $this->assertEquals($actual_overtime, $row['overtime']);
+        } else {
+            $this->assertEquals($actual_train_rate, $row['train_rate']);
+        }
+    }
     
     public function testInsertIntoReservationQuery_success()
     {
