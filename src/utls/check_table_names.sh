@@ -1,8 +1,11 @@
 
 
 declare -A TABLE_NAMES
-TABLE_NAMES=([facilitystock]='facilityStock' [facilitybalance]='facilityBalance'
-             [facilityhours]='facilityHours')
+TABLE_NAMES=([facilitystock]='facilityStock' 
+             [facilitybalance]='facilityBalance'
+             [facilityhours]='facilityHours'
+             [getSingleInstace]='getSingleInstance'
+             )
 
 for key in  "${!TABLE_NAMES[@]}"
 do 
