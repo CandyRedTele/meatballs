@@ -40,7 +40,11 @@ translate
 <?php if(preg_match("/employeeTable/", $_SESSION['referrer']))
 		echo '<h3 id="sT"> Search by title </h3>';
 	else if(preg_match("/supply/", $_SESSION['referrer']) || preg_match("/local/", $_SESSION['referrer']))
-		echo '<h3 id="sT"> Search by name </h3>';?>
+		echo '<h3 id="sT"> Search by name </h3>';
+	else if(preg_match("/salesTable/", $_SESSION['referrer']))
+		echo '<h3 id="sT"> Don\'t search for now </h3>';
+	else if(preg_match("/vendorO/", $_SESSION['referrer']))
+		echo '<h3 id="sT"> Don\'t search for now </h3>';?>
 <form>
 <input type="text" size="30" onkeyup="showResult(this.value)">
 <div id="livesearch"></div>

@@ -23,7 +23,7 @@ class ConfigLoader
     *-----------------------------------------------------------*/
     public function __construct($config_file_path, $myConfigName)
     {
-        $this->logger = Logger::getSingleInstace();
+        $this->logger = Logger::getSingleInstance();
 
         if (file_exists($config_file_path)) {
             $xml = simplexml_load_file($config_file_path);

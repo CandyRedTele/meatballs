@@ -3,13 +3,13 @@
 	error_reporting(E_ALL);
 	include_once("../../src/SetPath.php");
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
-        include_once("IncludeAllQueries.php"); 
+        include_once("IncludeAllQueries.php");
+		
 	session_start();
 
 if (isset($_GET['id'])){
 	
-	$logger = Logger::getSingleInstace();
-    $logger->write("HelloLogger!");
+	$logger = Logger::getSingleInstance();
 	
 	$tableN=explode("-",$_GET['id']);
 	//echo $tableN[0];
@@ -18,41 +18,36 @@ if (isset($_GET['id'])){
 		$query2 = new CustomQuery("delete from localstaff where staff_id='".$tableN[0]."'");
 		$query3 = new CustomQuery("delete from admin where staff_id='".$tableN[0]."'");
 		
-		if (!is_null($query1) && !is_null($query2) && !is_null($query3)) 
-		{
+		if (!is_null($query1) && !is_null($query2) && !is_null($query3)) {
 			$result3 = $query3->execute();
 			$result2 = $query2->execute();
 			$result1 = $query1->execute();
 		}
-		//echo "<meta http-equiv='Refresh' content='0;url=employeeTable.php?id=".$tableN[0]'/>";
-		
-	}else if($tableN[1]=="supply"){
+	}
+	else if($tableN[1]=="supply"){
 		$query1 = new CustomQuery("delete from supplies where sku='".$tableN[0]."'");
 		$query2 = new CustomQuery("delete from facilityStock where sku='".$tableN[0]."'");
 		
-		if (!is_null($query1) && !is_null($query2)) 
-		{
+		if (!is_null($query1) && !is_null($query2)) {
 			$result1 = $query1->execute();
 			$result2 = $query2->execute();
 		}
-		//echo "<meta http-equiv='Refresh' content='0;url=Table.php?id=".$tableN[0]'/>";
-	}else if($tableN[1]=="golden"){
+		
+	}
+	else if($tableN[1]=="golden"){
 		$query1 = new CustomQuery("delete from golden where g_id='".$tableN[0]."';");
 		
-		if (!is_null($query1)) 
-		{
+		if (!is_null($query1)) {
 			$result1 = $query1->execute();
-		}
-		//echo "<meta http-equiv='Refresh' content='0;url=Table.php?id=".$tableN[0]'/>";
-	}else if($tableN[1]=="recipe"){
+		}	
+	}
+	else if($tableN[1]=="recipe"){
 		$menuID_sku=explode(".",$tableN[0]);
 		$query1 = new CustomQuery("delete from ingredients where mitem_id='".$menuID_sku[0]."' AND sku='".$menuID_sku[1]."';");
 		
-		if (!is_null($query1)) 
-		{
+		if (!is_null($query1)) {
 			$result1 = $query1->execute();
 		}
-		//echo "<meta http-equiv='Refresh' content='0;url=Table.php?id=".$tableN[0]'/>";
 	}
 	
 	

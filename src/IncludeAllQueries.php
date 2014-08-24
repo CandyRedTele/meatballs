@@ -14,7 +14,7 @@
 include_once("Logger.php");
 
 $path = __DIR__;
-$logger = Logger::getSingleInstace();
+$logger = Logger::getSingleInstance();
 
 if ($handle = opendir($path)) 
 {

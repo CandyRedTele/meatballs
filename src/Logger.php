@@ -20,12 +20,12 @@ class Logger
 
    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     * 
-    * NAME : getSingleInstace
+    * NAME : getSingleInstance
     *
     * PURPOSE : Logger is a Singleton class
     *
     *-----------------------------------------------------------*/
-    public static function getSingleInstace()
+    public static function getSingleInstance()
     {
         $argc = func_num_args();
         $args = func_get_args();

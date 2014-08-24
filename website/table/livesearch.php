@@ -9,8 +9,7 @@ set_include_path($_SERVER['DOCUMENT_ROOT'] . '/comp353-project/src');
 if(isset($_GET["q"])){
 $q=$_GET["q"];
 
-$logger = Logger::getSingleInstace();
-$logger->write("HelloLogger!");
+$logger = Logger::getSingleInstance();
 				
 if(preg_match("/employeeTable/", $_SESSION['referrer'])){
 	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
@@ -37,10 +36,10 @@ else if((preg_match("/supply/", $_SESSION['referrer']) || preg_match("/local/", 
 	else if(preg_match("/LINEN/", $_SESSION['referrer'])) $type ="linens";
 	else if(preg_match("/SERVICE/", $_SESSION['referrer'])) $type ="service items";
 	
-	$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilitystock) 
+	$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilityStock) 
 								as facility where supplies.name like '%$q%' AND type = '$type';");	
 	if(preg_match("/localTable/", $_SESSION['referrer']))
-		$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilitystock)
+		$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilityStock)
 									as facility where supplies.name like '%$q%';");
 }
 

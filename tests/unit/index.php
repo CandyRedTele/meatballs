@@ -21,7 +21,7 @@
     ?> 
 
     <?php
-        $logger = Logger::getSingleInstace();
+        $logger = Logger::getSingleInstance();
         $logger->write("HelloLogger!");
 
         $query2 = new TestQuery();
@@ -129,11 +129,26 @@
             {
                 foreach ($row as $field) {
                     echo $field . " ";
-                    
                 }
 
                 echo "<br>" ;
             }
+        }
+
+       /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        * GetSalaryQuery
+        * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+        echo "<br><b> GetSalaryQuery(staff_id) : <b><br>";
+        $staff_id = 39;
+        $query = new GetSalaryQuery($staff_id);
+        $result = $query->execute();
+        if ($result->num_rows > 0) {
+            $row = mysqli_fetch_row($result);
+            foreach ($row as $field) {
+                echo $field. " ";
+            }
+
+            echo "<br>" ;
         }
     ?>
 

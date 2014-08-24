@@ -31,8 +31,7 @@
 <section><h1>Administration</h1>
     <div id="thelist"><ul id="control">
         <?php 
-        $logger = Logger::getSingleInstace();
-        $logger->write("HelloLogger!");
+        $logger = Logger::getSingleInstance();
 		
 		$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 		

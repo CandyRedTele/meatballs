@@ -75,3 +75,20 @@ fi
 #
 
 echo -e "[$0] \e[31mTODO\e[0m execute database tests";
+
+
+
+#
+#
+#
+echo -ne "[$0] looking for commonly misspelled identifiers"
+sh src/utls/check_table_names.sh
+
+sts=$?
+
+if [ $sts -ne 0 ]; then
+    echo -e "\e[31m $sts Misspelled Identifiers Found\e[0m Please review the changes and commit"
+    git status
+else
+    echo -e "\e[32m [OK] \e[0m"
+fi

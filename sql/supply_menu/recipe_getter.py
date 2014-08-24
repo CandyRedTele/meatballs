@@ -1,6 +1,6 @@
 import sys
 import json
-from datetime import date, timedelta
+from datetime import datetime, date, time, timedelta
 from os.path import isfile
 from random import randint, sample, uniform, randrange
 from data_recipe import create_dic, dataRecipe
@@ -142,7 +142,7 @@ def create_list():
                     k.append(randint(45, 500))
                     k.append(0)  # refers to false
                 else:
-                    k.append(randint(5, 45))
+                    k.append(randint(6, 45))
                     k.append(1)  # refers to true
                 count += 1
                 food.append([k[2], 1000, k[3], k[4]])
@@ -204,7 +204,7 @@ def create_list():
     order = []
     for i, fa in enumerate(sku_per_facility):
         for sk in fa:
-            date_order = date.today()-timedelta(days=randrange(0,10))
+            date_order = date.today()-timedelta(days=randrange(0,7))
             date_order = date_order.isoformat()
             order.append([(i+1), sk, date_order, randint(700, 1000)])
             count = count + 1
@@ -228,7 +228,9 @@ def create_list():
     bill = []
     golden_has_bills = []
     for i in xrange(bill_len):
-        date_bill = date.today() - timedelta(days=randrange(0, 5))
+        d_date = date.today() - timedelta(days=randrange(0, 6))
+        d_time = time(randrange(11, 23), randrange(0, 59, 15))
+        date_bill = datetime.combine(d_date, d_time)
         date_bill = date_bill.isoformat()
         bill.append([(i + 1), randint(1, 12), date_bill])
         if (i % 3) == 0:
