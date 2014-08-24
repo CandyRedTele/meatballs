@@ -58,7 +58,6 @@ rm -f src/log
 #
 # run all tests under /tests
 #
-#phpunit  --configuration ./tests/unit/phpunit.xml tests/unit 
 phpunit --verbose  tests/unit 
 
 ## rm -f src/log
@@ -82,7 +81,7 @@ echo -e "[$0] \e[31mTODO\e[0m execute database tests";
 #
 #
 echo -ne "[$0] looking for commonly misspelled identifiers"
-sh src/utls/check_table_names.sh
+sh src/utls/check_table_names.sh -s
 
 sts=$?
 

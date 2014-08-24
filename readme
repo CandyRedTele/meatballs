@@ -1,16 +1,13 @@
+=== GROUP 3===
 
-
-Contribution :
-
+Contributors :
 
     Joseph-Antoine Martineau-Gangé
         - PHP - everything under    /src                (backend)
         - PHPUnit tests             /tests/unit
         - BASH scripts
-
-        also contributed to :
         - SQL                       triggers, create_table.sql
-
+        - Snapshots
 
     Samuel Masuy
         - Generated Data in python. Everything under sql/supply_menu/
@@ -25,8 +22,9 @@ Contribution :
         - Testing Database
         - Tested website under Linux
 
-
     Mike
-
+        - Front-end : website/ 
+        ..
 
     Ryan Storm
+        ..
