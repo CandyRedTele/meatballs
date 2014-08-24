@@ -428,7 +428,7 @@ public class generate_data {
 				"Walking and Chewing BubbleGum",
 				"Advanced Lion Taming",
 				"Money Management",
-				"Spread Sheet ",
+				"Spread Sheet",
 				"Word Processing",
 				"Mobile",
 				"Windows 98",
