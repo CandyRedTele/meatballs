@@ -415,7 +415,7 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`order`
     order_id    INTEGER PRIMARY KEY AUTO_INCREMENT,
     `f_id`      INTEGER NULL,
     `sku`       INTEGER NULL,
-	`order_date` DATE NOT NULL,
+	`order_date`  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `order_qty` INTEGER NULL,
     CONSTRAINT `fk_order_f_id`
         FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`) 
