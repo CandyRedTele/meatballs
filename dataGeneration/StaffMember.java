@@ -6,6 +6,7 @@ public class StaffMember {
 	final String streetname;
 	final String phonenumber;
 	final String ssn;
+	String training;
 	int f_id;
 	
 	String start_date;
@@ -33,6 +34,9 @@ public class StaffMember {
 	}
 	public void addShifts(Shift[] shifts){
 		this.Shifts = shifts;
+	}
+	public void addTraining(String training){
+		this.training = training;
 	}
 	
 	public String toString(){

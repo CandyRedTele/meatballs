@@ -66,7 +66,7 @@
 		<div class="col span_2_of_contact">
 			<div class="contact-form">
 			<h3>Our Hours</h3>
-				<?php	$logger = Logger::getSingleInstance();
+				<?php	$logger = Logger::getSingleInstace();
 						$logger->write("HelloLogger!");
 
 					$query = new CustomQuery("SELECT * from facilityHours");

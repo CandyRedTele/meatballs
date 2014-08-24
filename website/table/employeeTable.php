@@ -19,7 +19,7 @@
   <script type="text/javascript" src="../js/domsort.js"></script>
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
-<style>label {width:30%;}	#formContainer{width:60%; float:left;} #testing{float:none; width:100%;}</style>
+<style>label {width:30%;}	#formContainer{width:60%; float:left;} #testing{float:none; width:100%;} #addSTUFF #formContainer form #location{border-right:250px;}</style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 function remC() {
@@ -40,7 +40,7 @@ function remC() {
 
 <div id="errorMessage" class="errorMessage"><?php echo $outputMessage?></div>
 
-<section>	<h1>ADD NEW EMPLOYEE</h1>
+<section id="addSTUFF">	<h1>ADD NEW EMPLOYEE</h1>
 <div id="formContainer">
 <div class="suggestion" id="suggestions"></div>
 
@@ -56,7 +56,8 @@ function remC() {
 		<input name="title" placeholder="ex: marketing"required="true" type="text" pattern="[A-z]{2,20}"/><br />
 	<label for="ssn">ssn</label>
 		<input name="ssn" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
-			<select class="location" id="location" name="location">
+	<label for="location" id="location">location</label>
+		<select class="location" id="location" name="location">
 	<?php	
 		$query = new CustomQuery("select distinct location, f_id from facility");
 		if (!is_null($query)) 
@@ -85,7 +86,6 @@ function remC() {
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">title</li>
             <li></li><li></li></ul><?php 
 				$logger = Logger::getSingleInstance();
-				$logger->write("HelloLogger!");
 				
 				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 				
