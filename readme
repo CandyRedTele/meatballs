@@ -1,6 +1,5 @@
 
 
-
 Contribution :
 
 
@@ -13,7 +12,11 @@ Contribution :
         - SQL                       triggers, create_table.sql
 
 
-    Samuel
+    Samuel Masuy
+        - Generated Data in python. Everything under sql/supply_menu/
+        - sql/create_table.sql contribution.
+        - Front-end: website/client, website/table/bill, Jquery, Ajax, php
+        - Database testing
 
 
     Geoffrey
