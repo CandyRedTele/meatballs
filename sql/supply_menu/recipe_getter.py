@@ -142,7 +142,7 @@ def create_list():
                     k.append(randint(45, 500))
                     k.append(0)  # refers to false
                 else:
-                    k.append(randint(5, 45))
+                    k.append(randint(6, 45))
                     k.append(1)  # refers to true
                 count += 1
                 food.append([k[2], 1000, k[3], k[4]])
@@ -204,7 +204,7 @@ def create_list():
     order = []
     for i, fa in enumerate(sku_per_facility):
         for sk in fa:
-            date_order = date.today()-timedelta(days=randrange(0,10))
+            date_order = date.today()-timedelta(days=randrange(0,7))
             date_order = date_order.isoformat()
             order.append([(i+1), sk, date_order, randint(700, 1000)])
             count = count + 1
