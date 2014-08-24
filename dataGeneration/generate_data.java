@@ -422,20 +422,50 @@ public class generate_data {
 		if(debug) System.out.println("Admins Started Generation");
 		String name = "admin";
 		
-		String[] fields = {"staff_id", "location", "yrs_exp"};
+		String[] admin_training = new String[]{
+				"Advanced Leadership",
+				"Advanced Talking",
+				"Walking and Chewing BubbleGum",
+				"Advanced Lion Taming",
+				"Money Management",
+				"Spread Sheet ",
+				"Word Processing",
+				"Mobile",
+				"Windows 98",
+				"Windows 7",
+				"Linux",
+				"Ubuntu",
+				"Golf",
+				"Counting Money"
+		};
+		
+		String[] fields = {"staff_id", "location", "yrs_exp", "training"};
 		
 		ArrayList<Object> admins = new ArrayList<Object>();
 
 		for(int i = 0; i < arrStaff.length; i++){
+			
 			StaffMember staff = arrStaff[i];
 			if(isAdmin(staff.title)){
+
+				int numTrain = random_num(1,4);
+				String training = "";
 				
-				staff.location = "'" + "Montreal" + "'";//+ locations[random_num(0, locations.length-1)] + "'";
+				for(int jay = 0; jay < numTrain; jay++){
+					if(jay != numTrain-1)
+						training += admin_training[random_num(0, admin_training.length-1)] + ", ";
+					else
+						training += admin_training[random_num(0, admin_training.length-1)];
+				}
+				
+				staff.location = "Montreal";
 				staff.yrs_exp = random_num(0, 4);
+				staff.training = training;
 				admins.add(new Object[]{
 					staff.staff_id,
-					staff.location,
-					staff.yrs_exp
+					"'" + staff.location + "'",
+					staff.yrs_exp,
+					"'" + staff.training + "'"
 				});
 				
 			}

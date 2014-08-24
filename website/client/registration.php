@@ -97,8 +97,8 @@
                   <option value="12" >December</option>
                   </label>
                  </select>
-                <label>Day<input class="birthday" maxlength="2" name="BirthDay"  placeholder="Day" pattern="d{2}"></label>
-                <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" pattern="d{4}"></label>
+                <label>Day<input class="birthday" maxlength="2" name="BirthDay"  placeholder="Day" pattern="[0-9]{2}"></label>
+                <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" pattern="[0-9]{4}"></label>
             </span>
           </div>
           <div>
