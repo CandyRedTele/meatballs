@@ -19,7 +19,10 @@
   <script type="text/javascript" src="../js/domsort.js"></script>
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
-<style>label {width:30%;}	#formContainer{width:60%; float:left;} #testing{float:none; width:100%;} .locationI{text-align:left;}</style>
+<style>label {width:30%;}	#formContainer{width:60%; float:left;} 
+#testing{float:none; width:100%;} .locationI{text-align:left;}
+#thelist{width:104%;} 
+</style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 function remC() {
@@ -56,7 +59,7 @@ function remC() {
 		<input name="title" placeholder="ex: marketing"required="true" type="text" pattern="[A-z]{2,20}"/><br />
 	<label for="ssn">ssn</label>
 		<input name="ssn" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
-	<label for="location" class="locationI">location</label>
+<!--	<label for="location" class="locationI">location</label>-->
 		<select class="locationI" id="location" name="location">
 	<?php	
 		if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
@@ -82,17 +85,19 @@ function remC() {
 <p id="testing"> </p>
 <section><!--<h1>Administration</h1>-->
     <div id="thelist"><ul id="control">
-            <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">id</li>
+            <li id="idC" class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">id</li>
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">name</li>
 			<li class="button" onclick="sortTable(2, 'str', '1');" ondblclick="sortTable(2, 'str', '-1');">address</li>
 			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">phone</li>
 			<li class="button" onclick="sortTable(4, 'str', '1');" ondblclick="sortTable(4, 'str', '-1');">SSN</li>
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">title</li>
-			<li class="button" onclick="sortTable(6, 'str', '1');" ondblclick="sortTable(6, 'str', '-1');">salary(k)</li>
+			<li class="button" onclick="sortTable(6, 'str', '1');" ondblclick="sortTable(6, 'str', '-1');">salary</li>
             <li></li><li></li></ul><?php 
 				$logger = Logger::getSingleInstance();
 				
 				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
+				
+				
 				
 			if(!isset($_GET['s']) && !isset($_GET['m'])){
 				if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
@@ -115,12 +120,18 @@ function remC() {
 				foreach ($row as $field) {
 					echo "<li>" . $field . "</li>" ;   
 				}
-				$sal= new getSalaryQuery($row[0]);
-				$salR=$sal->execute();
-				$salOUT = mysqli_fetch_row($salR);
+				$salQ= new getSalaryQuery($row[0]);
+				$aclvQ = new CustomQuery("select access_level from access_level where title='".$row[5]."';");
+				$salR=$salQ->execute();
+				$aclvR=$aclvQ->execute();
+				$sal = mysqli_fetch_row($salR);
+				$aclv = mysqli_fetch_row($aclvR);
 				
-				echo "<li>$row[0] -- " . $salOUT[2] . "</li>" ; 
-				
+				if($aclv[0]>0 && $aclv[0]<6)
+					echo "<li>$" . $sal[2] . "/yr</li>" ; 
+				else if($aclv[0]>5 && $aclv[0]<11)
+					echo "<li>$" . $sal[2] . "/hr</li>" ; 
+					
 				// if(!isset($_GET['m']))
 					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>remove</a></li>
 					<li><a href='".$_SESSION['referrer']."?m=$row[0]'>modify</a></li></ul>";

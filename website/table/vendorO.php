@@ -47,7 +47,7 @@ function remC() {
 <fieldset>
 	<label for="oID">Order ID</label>
 		<input name="oID" onkeyup="" value="" placeholder="Order ID" required="true" pattern="[0-9]+" type="text" /><br />
-	<label for="location" class="locationI">location</label>
+<!--	<label for="location" class="locationI">location</label>-->
 		<select class="locationI" id="location" name="location">
 	<?php	
 		if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
@@ -110,11 +110,15 @@ function remC() {
 				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
 				
 				if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
+					// $query = new CustomQuery("SELECT order_id, location, sku, capacity, quantity as inStock, days_till_expired, 
+												// DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE
+												// FROM food natural join ( select * from `order` natural join 
+												// (select sku, f_id, location, quantity from facilityStock natural join facility) as fac) as o
+												// GROUP BY sku HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
 					$query = new CustomQuery("SELECT order_id, location, sku, capacity, quantity as inStock, days_till_expired, 
-												DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE
-												FROM food natural join ( select * from `order` natural join 
-												(select sku, f_id, location, quantity from facilityStock natural join facility) as fac) as o
-												GROUP BY sku HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
+												DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE FROM (select * 
+												from food natural join (select * from `order` natural join facilityStock) as stock )  as supplies
+												natural join (select f_id, location from facility) as fac ORDER BY EXP_DATE;");							
 				else if($_SESSION['accesslv']==4)
 					$query = new CustomQuery("SELECT order_id, location, sku, capacity, quantity as inStock, days_till_expired, 
 										DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE

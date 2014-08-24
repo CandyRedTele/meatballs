@@ -43,14 +43,17 @@
 				$row=mysqli_fetch_row($result);
 				$_SESSION['accesslv']=$row[0];#or just = MeatballUser::getAccessLevel($_SESSION['SID']) is good as well
 				
-				 
-				$query = new GetLocationQuery($_SESSION['SID']);//CustomQuery('SELECT location from facility, localstaff where staff_id="'.$_SESSION["SID"].'" AND facility.f_id=localstaff.f_id');
-				if (!is_null($query)) 
-					$result = $query->execute();
-				
-				$row=mysqli_fetch_row($result);
-				
-				$_SESSION['location']=$row[0];
+				if($_SESSION['accesslv']>0 && $_SESSION['accesslv']<4)
+					$_SESSION['location']="Montreal";
+				else{
+					$query = new GetLocationQuery($_SESSION['SID']);//CustomQuery('SELECT location from facility, localstaff where staff_id="'.$_SESSION["SID"].'" AND facility.f_id=localstaff.f_id');
+					if (!is_null($query)) 
+						$result = $query->execute();
+					
+					$row=mysqli_fetch_row($result);
+					
+					$_SESSION['location']=$row[0];
+				}
 				echo "<div id='yesF'><h3>welcome back ". $_SESSION['name']."!</h3><br/>refreshing in 3 secs</div>
 						<meta http-equiv='Refresh' content='3;url=table/tableHOME.php'/>";
 		}
