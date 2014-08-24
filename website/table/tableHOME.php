@@ -105,19 +105,18 @@
 				// if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==2|| $_SESSION['accesslv']==3)
 					// echo "<em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$row[0]</em>";
 			// }
-			echo "<em>NOT NEEDED</em>";
+			echo "<em>NOT AVAILABLE</em>";
 		}
 		else if($_SESSION['accesslv']==4|| $_SESSION['accesslv']==6|| $_SESSION['accesslv']==7|| $_SESSION['accesslv']==10)
-				echo "<em>NOT NEEDED</em>";
+				echo "<em>NOT AVAILABLE</em>";
 		else if($_SESSION['accesslv']==5){
-			$query = new CustomQuery("SELECT training from admin where staff_id='".$_SESSION['SID']."';");
+			$query = new CustomQuery("select training from staff natural join localstaff where staff.staff_id = '".$_SESSION['SID']."';");
 				
 				$result = $query->execute();
 				
 			if(isset($result)){
 				$row = mysqli_fetch_row($result);
-				if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==2|| $_SESSION['accesslv']==3)
-					echo "<em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$row[0]</em>";
+				echo "<em>$row[0]</em>";
 			}
 		}	
 		
