@@ -8,4 +8,5 @@ README.md
 github-git-cheat-sheet.pdf
 log
 .*.swp
+project-description.pdf
 
