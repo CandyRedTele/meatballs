@@ -67,7 +67,7 @@ $arrlength=count($categories);
 for($x=0;$x<$arrlength;$x++) {
     echo "<div class='heading3'><h3>".ucwords($categories[$x])."</h3></div>";
 
-    $query2 = new CustomQuery("SELECT name, price FROM menu_item natural join (menu natural join facility) where
+    $query2 = new CustomQuery("SELECT name, price FROM menu_item natural JOIN (menu natural JOIN facility) where
 							facility.f_id ='" . $parameter . "' and menu_item.category = '". $categories[$x]. "'");
 
     if (!is_null($query2)) { $menus_items = $query2->execute();}
@@ -80,7 +80,7 @@ for($x=0;$x<$arrlength;$x++) {
 
 
 		$query3 = new CustomQuery("SELECT image, menuI.name, supplies.name, amount "
-									. " FROM supplies inner join (SELECT * FROM menu_item natural join ingredients  "
+									. " FROM supplies inner JOIN (SELECT * FROM menu_item natural JOIN ingredients  "
 									. " WHERE name = '".$menu_items[0]."') as menuI on supplies.sku = menuI.sku;");
 
 		if (!is_null($query3)) { $recipe = $query3->execute();}
@@ -94,7 +94,7 @@ for($x=0;$x<$arrlength;$x++) {
 		}
 
 		if ($categories[$x] == 'wines'){
-			$query4 = new CustomQuery("SELECT rate FROM wine natural join (SELECT mitem_id FROM menu_item WHERE name='".$menu_items[0]."') as item;");
+			$query4 = new CustomQuery("SELECT rate FROM wine natural JOIN (SELECT mitem_id FROM menu_item WHERE name='".$menu_items[0]."') as item;");
 
 			$wRATE = $query4->execute();
 			$rate = mysqli_fetch_row($wRATE);
