@@ -452,17 +452,20 @@ public class generate_data {
 				String training = "";
 				
 				for(int jay = 0; jay < numTrain; jay++){
-					training += admin_training[random_num(0, admin_training.length-1)];
+					if(jay != numTrain-1)
+						training += admin_training[random_num(0, admin_training.length-1)] + ", ";
+					else
+						training += admin_training[random_num(0, admin_training.length-1)];
 				}
 				
-				staff.location = "'" + "Montreal" + "'";
+				staff.location = "Montreal";
 				staff.yrs_exp = random_num(0, 4);
 				staff.training = training;
 				admins.add(new Object[]{
 					staff.staff_id,
-					staff.location,
+					"'" + staff.location + "'",
 					staff.yrs_exp,
-					staff.training
+					"'" + staff.training + "'"
 				});
 				
 			}
