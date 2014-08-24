@@ -177,6 +177,7 @@ create TABLE IF NOT EXISTS `meatballs`.`localstaff`
   `start_date`  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `f_id`        INTEGER NULL,
   `staff_id`    INTEGER PRIMARY KEY,
+  `training`    VARCHAR(45) DEFAULT 'n/a',
   CONSTRAINT `fk_staff_id2`
     FOREIGN KEY (`staff_id`)
     REFERENCES `meatballs`.`staff` (`staff_id`)
@@ -268,7 +269,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `meatballs`.`wine` 
 (
     
-    `rate` DOUBLE NULL,
+    `rate` DECIMAL (15,2) DEFAULT 0.0,
     `mitem_id` INTEGER NULL,
     PRIMARY KEY (mitem_id),
     INDEX `fk_wine_menu_item1_idx` (`mitem_id` ASC),

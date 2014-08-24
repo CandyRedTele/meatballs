@@ -20,7 +20,7 @@
 </style>
 
 </head>
-
+                
 <body>
 <div class="header-box"></div>
 <div class="wrap">
@@ -81,7 +81,7 @@ for($x=0;$x<$arrlength;$x++) {
 									where name = '".$menu_items[0]."') as menuI on supplies.sku = menuI.sku;");
 
 		if (!is_null($query3)) { $recipe = $query3->execute();}
-		
+
 		$ing = array();
 		while($info = mysqli_fetch_row($recipe)){
 			if ($categories[$x] != 'wines') 
@@ -89,23 +89,22 @@ for($x=0;$x<$arrlength;$x++) {
 			if(!isset($img))
 				$img=$info[0];
 		}
-		
+
 		if ($categories[$x] == 'wines'){
 			$query4 = new CustomQuery("select rate from wine natural join (select mitem_id from menu_item where name='".$menu_items[0]."') as item;");
-			
+
 			$wRATE = $query4->execute();
 			$rate = mysqli_fetch_row($wRATE);
-			
+
 			$ing[] = "<div class='numF'>Rating: $rate[0]</div>";
 		}
-		
+
 		echo "<div class='itemINFO'>
 				<img src='".$img."' width='40%' height='20%'/><h3>".$menu_items[0]."</h3>";
-				
+
 		foreach($ing as $i){echo $i;}
 
-		echo "<form action=''><input type='button' value='order'/></form>
-			</div><div class='clearfix'></div></li>";
+		echo "	</div><div class='clearfix'></div></li>";
 		unset($img);
     }
 
