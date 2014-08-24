@@ -177,6 +177,7 @@ create TABLE IF NOT EXISTS `meatballs`.`localstaff`
   `start_date`  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `f_id`        INTEGER NULL,
   `staff_id`    INTEGER PRIMARY KEY,
+  `training`    VARCHAR(45) DEFAULT 'n/a',
   CONSTRAINT `fk_staff_id2`
     FOREIGN KEY (`staff_id`)
     REFERENCES `meatballs`.`staff` (`staff_id`)

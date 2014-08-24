@@ -232,13 +232,6 @@ public class generate_data {
 		String name = "staff";
 		String[] fields = {"`name`", "`address`", "`phone`", "`ssn`", "`title`"};
 		
-		String[] cookTraining = {"Basic Culinary Training",
-				"Advanced Knife Techniques",
-				"Advanced Hand Washing",
-				"Leadership Training",
-				"Advanced Waffle Design"
-		};
-		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		StaffMember[] staffs = new StaffMember[numStaff];
 		
@@ -383,8 +376,16 @@ public class generate_data {
 	private static void gen_localstaff( StaffMember[] arrStaff, PrintStream p,
 			int currDate, int currMonth, int currYear) {
 		
+		String[] cookTraining = {
+				"Basic Culinary Training",
+				"Advanced Knife Techniques",
+				"Advanced Hand Washing",
+				"Leadership Training",
+				"Advanced Waffle Design"
+		};
+		
 		String name = "localstaff";
-		String[] fields = {"start_date", "f_id", "staff_id"};
+		String[] fields = {"start_date", "f_id", "staff_id", "training"};
 		
 		ArrayList<Object> localStaffs = new ArrayList<Object>();
 		
@@ -392,13 +393,20 @@ public class generate_data {
 			StaffMember staff = arrStaff[i];
 			if(!isAdmin(staff.title)){
 				
+				if(staff.title.equals(titles[ChefId])){
+					staff.addTraining(cookTraining[random_num(0, cookTraining.length-1)]);
+				}
+				else
+					staff.addTraining("n/a");
+				
 				staff.start_date = gen_date(currDate, currMonth, currYear);
 				staff.f_id = i%12 + 1;
 				
 				localStaffs.add(new Object[]{
 					staff.start_date,
 					staff.f_id,
-					staff.staff_id
+					staff.staff_id,
+					"'" + staff.training + "'"
 				});	
 
 			}
