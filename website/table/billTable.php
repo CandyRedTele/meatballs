@@ -32,7 +32,7 @@
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="790" id="innerTABLE">
    <tr>
      <td width="20px">&nbsp;</td>
-      <td colspan="2"><div class="ueberschrift">supplies</div></td>
+      <td colspan="2"><div class="ueberschrift">BILL</div></td>
       <td width="20px">&nbsp;</td>
    </tr>
    <tr>
@@ -48,14 +48,14 @@
 		</td>
 		<td class="hauptfenster" valign="top">
 
-		<h1>ADD Bill</h1>
+		<h1>Create Bill</h1>
             <form action="add-bill.php" method="post" class="add-new-task">
 
                 <span>Golden number</span><input type="text" name="gold_num">
                 <input type="submit">
 			</form>
 
-<section><h1>Administration</h1>
+<?php echo "<section><h1>Menu items in ".$_SESSION['location']."</h1>" ?>
     <div id="thelist"><ul id="control">
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">ID</li>
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">category</li>
@@ -64,9 +64,6 @@
             <li></li></ul>
 
     <?php
-        $logger = Logger::getSingleInstace();
-        $logger->write("HelloLogger!");
-
 		if($_SESSION['accesslv']==6)
             $query = new CustomQuery("select mitem_id, category, name, price from menu_item natural join menu natural join facility where location='".$_SESSION['location']."'");
 
