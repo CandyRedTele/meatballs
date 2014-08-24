@@ -19,7 +19,7 @@
   <script type="text/javascript" src="../js/domsort.js"></script>
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
-<style>label {width:30%;}	#formContainer{width:60%; float:left;} #testing{float:none; width:100%;} #addSTUFF #formContainer form #location{border-right:250px;}</style>
+<style>label {width:30%;}	#formContainer{width:60%; float:left;} #testing{float:none; width:100%;} .locationI{text-align:left;}</style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 function remC() {
@@ -56,8 +56,8 @@ function remC() {
 		<input name="title" placeholder="ex: marketing"required="true" type="text" pattern="[A-z]{2,20}"/><br />
 	<label for="ssn">ssn</label>
 		<input name="ssn" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
-	<label for="location" id="location">location</label>
-		<select class="location" id="location" name="location">
+	<label for="location" class="locationI">location</label>
+		<select class="locationI" id="location" name="location">
 	<?php	
 		$query = new CustomQuery("select distinct location, f_id from facility");
 		if (!is_null($query)) 

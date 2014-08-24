@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-	<title>employess information</title>
+	<title>Orders to Vendors</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; CHARSET=ISO-8859-1">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -18,7 +18,7 @@
   <script type="text/javascript" src="../js/domsort.js"></script>
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
-<style>label {width:30%;}	#formContainer{width:60%; float:left;} #testing{float:none; width:100%;}</style>
+<style>label {width:30%;}	#formContainer{width:60%; float:left;} #testing{float:none; width:100%;} .locationI, .vendorN{text-align:left;}</style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 function remC() {
@@ -45,10 +45,10 @@ function remC() {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
 <fieldset>
-	<label for="bID">Bill ID</label>
-		<input name="bID" onkeyup="" value="" placeholder="Bill ID" required="true" pattern="[0-9]+" type="text" /><br />
-	<!--<label for="location">location</label>-->
-		<select class="location" id="location" name="location">
+	<label for="oID">Order ID</label>
+		<input name="oID" onkeyup="" value="" placeholder="Order ID" required="true" pattern="[0-9]+" type="text" /><br />
+	<label for="location" class="locationI">location</label>
+		<select class="locationI" id="location" name="location">
 	<?php	
 		$query1 = new CustomQuery("select distinct location, f_id from facility;");
  
@@ -63,7 +63,7 @@ function remC() {
 		<input name="title" value="<?php echo date("Y-m-d");?>" placeholder="ex: 2014-08-25"required="true" type="text" pattern="[0-9]{4}\-[0-9]{4}\-[0-9]"/><br />
 	<label for="quantity">quantity</label>
 		<input name="quantity" value="" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
-	<!--<label for="vendor">vendor</label>-->
+	<label for="vendor" class="vendorN">vendor</label>
 		<select class="vendorN" id="vendorN" name="vendorN">
 	<?php	
 		$query2 = new CustomQuery("select distinct company_name, vendor_id from vendor;");
@@ -91,7 +91,7 @@ function remC() {
 			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">date</li>
 			<li class="button" onclick="sortTable(4, 'num', '1');" ondblclick="sortTable(4, 'num', '-1');">qtt</li>
 			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">vendor</li>
-            <li></li><li></li></ul><?php 
+            <li></li></ul><?php 
 				$logger = Logger::getSingleInstance();
 				
 				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
