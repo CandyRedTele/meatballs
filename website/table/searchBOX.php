@@ -42,7 +42,7 @@ translate
 	else if(preg_match("/supply/", $_SESSION['referrer']) || preg_match("/local/", $_SESSION['referrer']))
 		echo '<h3 id="sT"> Search by name </h3>';
 	else if(preg_match("/salesTable/", $_SESSION['referrer']))
-		echo '<h3 id="sT"> Don\'t search for now </h3>';
+		echo '<h3 id="sT"> Search by date </h3>';
 	else if(preg_match("/vendorO/", $_SESSION['referrer']))
 		echo '<h3 id="sT"> Don\'t search for now </h3>';?>
 <form>

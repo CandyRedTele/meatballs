@@ -60,12 +60,12 @@ function remC() {
 		while($row1 = mysqli_fetch_row($result1)) {	echo '<option value="'.$row1[1].'" >'.$row1[0].'</option>' ;}
 		?>
 			</select><br />
-	<label for="phone">SKU</label>
-		<input name="phone" value="" placeholder="supplies SKU" required="true" pattern="[0-9]+" title="phone" required="true" type="text" /><br />
+	<label for="sku">SKU</label>
+		<input name="sku" value="" placeholder="supplies SKU" required="true" pattern="[0-9]+" title="phone" required="true" type="text" /><br />
 	<label for="title">date</label>
 		<input name="title" value="<?php echo date("Y-m-d");?>" placeholder="ex: 2014-08-25"required="true" type="text" pattern="[0-9]{4}\-[0-9]{4}\-[0-9]"/><br />
 	<label for="quantity">quantity</label>
-		<input name="quantity" value="" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
+		<input name="quantity" value="" placeholder="number"required="true" type="text" pattern="[0-9]+"/><br />
 <!--	<label for="vendor" class="vendorN">vendor</label>
 		<select class="vendorN" id="vendorN" name="vendorN">
 	<?php
