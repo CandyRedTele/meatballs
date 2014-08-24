@@ -52,7 +52,8 @@
         <ul>
         <?php
           echo '
-          <li><a href="home.php?'.$parameter.'">HOME</a></li>
+            <li><a href="../index.php">HOME</a>
+            <li><a href="home.php?'.$parameter.'">Menu</a></li>
             <li><a href="reservation.php?'.$parameter.'">Reservation</a></li>
             <li class="active"><a href="aboutUS.php?'.$parameter.'">About Us</a></li>
             <li><a href="registration.php?'.$parameter.'">Golden member</a></li>';
