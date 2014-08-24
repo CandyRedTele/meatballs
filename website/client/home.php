@@ -37,7 +37,8 @@
 				<ul>
 				<?php
 					echo '
-					<li class="active"><a href="home.php?'.$parameter.'">HOME</a></li>
+                    <li><a href="../index.php">HOME</a>
+                    <li class="active"><a href="home.php?'.$parameter.'">Menu</a></li>
 				    <li><a href="reservation.php?'.$parameter.'">Reservation</a></li>
 				    <li><a href="aboutUS.php?'.$parameter.'">About Us</a></li>
 				    <li><a href="registration.php?'.$parameter.'">Golden member</a></li>';
@@ -53,7 +54,9 @@
     if (!is_null($queryLocation)) { $resultF = $queryLocation->execute();}
     if(isset($resultF)) {
             $rowF = mysqli_fetch_row($resultF);}
-    echo "<h1 class='logotitle'>".$rowF[0]."'s Mamma Meatballs!</h1>";?>
+    echo"<h1 class='logotitle'>Mamma Meatballs Menu</h1>";
+    echo "<h3 class='logosubtitle'>".$rowF[0]."</h3>"?>
+
     <div class="width-container">
         <div class="grid2column">
 

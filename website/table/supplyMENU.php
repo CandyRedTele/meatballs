@@ -48,14 +48,16 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
 					<li><a title="Kitchen Equipment" href="supplyKITCHEN.php">&raquo; Kitchen Equipment</a></li>
 					<li><a title="recipes" href="supplyRECIPE.php">&raquo; Recipee</a></li>';
 					
-					
-		$query = new CustomQuery("select distinct location from facility");
-		if (!is_null($query)) 
-			$result = $query->execute();
+		if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
+			$query1 = new CustomQuery("select distinct location, f_id from facility;");
+		else if($_SESSION['accesslv']==4 || $_SESSION['accesslv']==5)
+			$query1 = new CustomQuery("select distinct location, f_id from facility where location = '".$_SESSION['location']."';");
 			
-		while($row = mysqli_fetch_row($result)) 
+		$result1 = $query1->execute();
+			
+		while($row1 = mysqli_fetch_row($result1)) 
 		{	
-			echo '<option value="'.$row[0].'" >'.$row[0].'</option>' ;
+			echo '<option value="'.$row1[0].'" >'.$row1[0].'</option>' ;
 		}
 	?>
 	</ul>

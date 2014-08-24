@@ -8,7 +8,7 @@
 ?>
 <html>
 <head>
-	<title>My Website from www.website-templates.info</title>
+	<title>Sales(bills) History</title>
   <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; CHARSET=ISO-8859-1">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -19,6 +19,7 @@
   <script type="text/javascript" src="../js/domsort.js"></script>
 <script type="text/javascript" src="../js/ajaxHelper.js"></script>
 <link rel="stylesheet" href="../css/domsort.css" type="text/css" />
+<style> #apple{text-align:center; width:100%;} </style>
 </head>
 
 <body>
@@ -27,8 +28,10 @@
 <!--                                   INFORMATION TABLES                                          -->
 <div class="errorMessage"><?php /*echo $outputMessage*/?></div>
 
+<?php include_once("searchBOX.php"); ?>
+
 <p id="testing"> </p>
-<section><h1>Administration</h1>
+<section><!--<h1>Administration</h1>-->
     <div id="thelist"><ul id="control">
         <?php 
         $logger = Logger::getSingleInstance();
