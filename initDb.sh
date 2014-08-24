@@ -44,7 +44,7 @@ function display_usage
 }
 
 if [ $SKIP -eq 0 ]; then
-    bash src/check_if_all_script_are_in_initDb.sh
+    bash src/utls/check_if_all_script_are_in_initDb.sh
 
     cd ./sql
 
