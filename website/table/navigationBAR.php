@@ -19,23 +19,32 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 				$goldMemb= '<a href="goldenMTable.php">gold member</a>';
 				$vendorO= '<a href="vendorO.php">order</a>';
                 $billP='<a href="billTable.php">bill</a>';
+                $faB='<a href="facilityTable.php">facility info</a>';
 				switch($_SESSION['accesslv']){
 					case 1:
-						echo $personalINFO . $localResto . $employees . $salesHist. $goldMemb. $vendorO; break;
+						echo $personalINFO . $localResto . $employees . $salesHist. $goldMemb. $vendorO. $faB; 
+                        break;
 					case 2:
-						echo $personalINFO . $employees. $goldMemb; break;
+						echo $personalINFO . $employees. $goldMemb; 
+                        break;
 					case 3:
-						echo $personalINFO . $localResto . $salesHist. $vendorO; break;
+						echo $personalINFO . $localResto . $salesHist. $vendorO. $faB; 
+                        break;
 					case 4:
-						echo $personalINFO . $localResto . $employees . $salesHist, $vendorO; break;
+						echo $personalINFO . $localResto . $employees . $salesHist. $vendorO. $faB; 
+                        break;
 					case 5:
-						echo $personalINFO . $localResto; break;
+						echo $personalINFO . $localResto . $vendorO; 
+                        break;
 					case 6:
-						echo $personalINFO . $billP; break;
+						echo $personalINFO . $billP; 
+                        break;
 					case 7:
-						echo $personalINFO; break;
+						echo $personalINFO . $billP; 
+                        break;
 					case 10:
-						echo $personalINFO; break;
+						echo $personalINFO;     
+                        break;
 					default:
 						echo $personalINFO;
 				}

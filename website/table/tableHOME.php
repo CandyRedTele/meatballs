@@ -83,11 +83,11 @@
 				$result = $query->execute();
 						
 				if(isset($result)){
-					$row = mysqli_fetch_row($result);
+					$xp = mysqli_fetch_row($result);
 					if($_SESSION['accesslv']==1|| $_SESSION['accesslv']==2|| $_SESSION['accesslv']==3)
-						echo "<em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$row[0] years</em>";
+						echo "<em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$xp[0] years</em>";
 					else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5|| $_SESSION['accesslv']==6|| $_SESSION['accesslv']==7|| $_SESSION['accesslv']==10)
-						echo "on<em> $row[0]</em>";
+						echo "on<em> $xp[0]</em>";
 				}
 			?>
 								</p>
@@ -118,60 +118,69 @@
 					$getSHIFT = new CustomQuery("select shift.* from staff natural join shift where staff.staff_id ='".$_SESSION['SID']."';");
 					
 					$shiftR = $getSHIFT->execute();
-					
+
 
 					while($shift = mysqli_fetch_row($shiftR)){
-						if(!($shift[1]<date("Y-m-d")))
+						if(!($shift[1]<date("Y-m-d"))) {
+
+                            $salQ = new CustomQuery("select base from wage where title = (select title from staff where staff.staff_id = ". $_SESSION['SID'].")");
+                           $resultQ = $salQ->execute(); 
+                            $sal = mysqli_fetch_row($resultQ);
+                            $base = $sal[0];
+
+                            $pay = 0;
+                            $diff = $shift[3] - $shift[2];
+                            $count = 0;
+
+                            if ($diff < 8)
+                                $pay = $base * $diff;
+                            else
+                                $pay = $base * 8 + ($base*1.25 * ($diff - 8));
 							echo '<ul class="talent">
 									<li>date:&nbsp;'.$shift[1].'</li>
 									<li>start: '.$shift[2].'</li>
 									<li>end:&nbsp;&nbsp; '.$shift[3].'</li>
-									<li class="last">pay:&nbsp;&nbsp; '.$shift[4].'</li>
+									<li class="last">pay:&nbsp;&nbsp; '.$pay.'</li>
 								</ul>';
+                        }
 					}
 					echo '</div>
 						</div><!--// .yui-gf-->';
 				}
 			?>
-					<!--<div class="yui-gf">
+<?php 
+
+                $query = new GetSalaryQuery($_SESSION['SID']);
+                $result = $query->execute();
+            $row = mysqli_fetch_row($result);
+            $salary;
+            if ($_SESSION['accesslv'] == 1 || $_SESSION['accesslv'] == 2 || $_SESSION['accesslv'] == 3 || $_SESSION['accesslv'] == 4 || $_SESSION['accesslv'] == 5) {
+                $dt = strtotime($xp[0]);
+                $xp= date("Y-m-d", $dt);
+                $diff = date("Y-m-d") - $xp ;
+                $add = ($row[3] *($diff/2));
+                $salary = $row[2] + $add;
+
+
+                echo '
+					<div class="yui-gf">
 	
 						<div class="yui-u first">
-							<h2>PREVIOUS Experience</h2>
+							<h2>Salary/wage</h2>
 						</div><!--// .yui-u -->
 
-						<!--<div class="yui-u">
+						<div class="yui-u">
 
 							<div class="job">
-								<h2>Facebook</h2>
-								<h3>Senior Interface Designer</h3>
-								<h4>2005-2007</h4>
-								<p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>
+								<h3>base:'.$row[2].'</h2>
+								<h3>additional:'.$add.'</h3>
+								<h3>actual:'.$salary.'</h4>
 							</div>
 
 						</div><!--// .yui-u -->
-					<!--</div><!--// .yui-gf -->
-
-
-					<!--<div class="yui-gf last">
-						<div class="yui-u first">
-							<h2>Education</h2>
-						</div>
-						<div class="yui-u">
-							<h2>Indiana University - Bloomington, Indiana</h2>
-							<h3>Dual Major, Economics and English &mdash; <strong>4.0 GPA</strong> </h3>
-						</div>
-					</div><!--// .yui-gf -->
-
-				</div><!--// .yui-b -->
-			</div><!--// yui-main -->
-		</div><!--// bd -->
-
-		<!--<div id="ft">
-			<p>Jonathan Doe &mdash; <a href="mailto:name@yourdomain.com">name@yourdomain.com</a> &mdash; (313) - 867-5309</p>
-		</div><!--// footer -->
-
-	</div><!-- // inner -->
-</div><!--// doc -->
+					</div><!--// .yui-gf -->';
+            }
+ ?>
 
 <!--								THE END OF INFORMATION TABLE						-->
 <?php include_once("navigationBAR2.php"); ?>

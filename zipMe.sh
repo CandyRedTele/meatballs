@@ -40,7 +40,7 @@ FILES="$NAME"
 EXCLUDE_LIST="src/utls/exclude_file.txt"
 
 
-rsync -a . ~/$NAME/ --exclude-from $EXCLUDE_LIST
+rsync -a ../comp353-project ~/$NAME/ --exclude-from $EXCLUDE_LIST
 
 #
 # cd to home directory

@@ -1,1 +1,0 @@
-select g_id, count(distinct b_id) from golden natural join golden_has_bills natural join bill group by g_id order by g_id;
