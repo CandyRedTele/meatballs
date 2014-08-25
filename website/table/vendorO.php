@@ -45,7 +45,7 @@ function remC() {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
 <fieldset>
-	<label for="oID">Order ID</label>
+<!--	<label for="oID">Order ID</label>
 		<input name="oID" onkeyup="" value="" placeholder="Order ID" required="true" pattern="[0-9]+" type="text" /><br />
 <!--	<label for="location" class="locationI">location</label>-->
 		<select class="locationI" id="location" name="location">
@@ -119,12 +119,13 @@ function remC() {
 												from food natural join (select * from `order` natural join facilityStock) as stock )  as supplies
 												natural join (select f_id, location from facility) as fac 
 												HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
-					else if(isset($_GET['s']))
+					else if(isset($_GET['s'])){
 						$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, 
 												DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE FROM (select * from food natural join 
-												(select * from `order` natural join facilityStock where order_date ='".$_GET['s']."') as stock )  
+												(select * from `order` natural join facilityStock where `order`.f_id ='".$_GET['s']."') as stock )  
 												as supplies natural join (select f_id, location from facility) as fac 
-												HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");			
+												HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
+					}
 				}
 				else if($_SESSION['accesslv']==4 || $_SESSION['accesslv']==5){
 					$fIDQ = new CustomQuery("select f_id from facility where location = '".$_SESSION['location']."';");

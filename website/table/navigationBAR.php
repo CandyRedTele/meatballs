@@ -75,20 +75,22 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 
 			$query = new CustomQuery("select location from facility where f_id='".$_POST['location']."'");
 		}
-		// else if(preg_match("/vendorO/", $_SESSION['referrer'])){
-			// $query = new CustomQuery("select quantity from facilityStock where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
-			
-			// $result = $query->execute();
-			
-			// $currentQ = mysqli_fetch_row($result);
-			// $newQ = $currentQ[0] + $_POST['quantity'];
-			
-			// $query = new CustomQuery("update order set ");
+		else if(preg_match("/vendorO/", $_SESSION['referrer'])){
+			$query = new CustomQuery("INSERT  INTO `order` (f_id, sku, order_qty) " . " VALUES 
+									(" . $_POST['location'] . ", " . $_POST['sku'] . ", " . $_POST['quantity'] . ");");
+			$result = $query->execute();
 
-
-				// $result = $query->execute();
-			// $query = new CustomQuery("select staff_id from staff where ssn='".$_POST['ssn']."'");
-		// }
+			
+			$query = new CustomQuery("select vendor_id from facilityStock natural join catalog where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
+			$result = $query->execute();
+			$vID = mysqli_fetch_row($result);
+			
+			$query = new CustomQuery("select location from facility where f_id='".$_POST['location']."'");
+			$result = $query->execute();
+			$facN = mysqli_fetch_row($result);
+			
+			$query = new CustomQuery("select company_name from vendor where vendor_id='".$vID[0]."'");
+		}
 
 
 		if (!is_null($query)) 
@@ -101,7 +103,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 				else if(preg_match("/supply/", $_SESSION['referrer']))
 					$outputMessage = "supply successfully updated with id(".$_POST['sku'].") at ".$row[0]."'s restaurant";
 				else if(preg_match("/vendorO/", $_SESSION['referrer']))
-					$outputMessage = "order successfully requested with id:".$row[0];
+					$outputMessage = "order successfully requested to vendor ".$row[0]." for restaurant at ".$facN[0]."!";
 			}
 	}
 		?>

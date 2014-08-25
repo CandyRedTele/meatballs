@@ -50,7 +50,7 @@ else if(preg_match("/salesTable/", $_SESSION['referrer'])){
 }
 else if(preg_match("/vendorO/", $_SESSION['referrer'])){
 	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
-		$query = new CustomQuery("select distinct order_date, order_date as date from `order` where order_date like '%$q%' order by order_date");
+		$query = new CustomQuery("select f_id, location from facility where location like '%$q%'");
 }
 
 				if (!is_null($query)) 
