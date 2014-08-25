@@ -1,4 +1,4 @@
-=== GROUP 3===
+﻿=== GROUP 3===
 
 Contributors :
 
@@ -24,8 +24,10 @@ Contributors :
         - Tested website under Linux
 
     Mike
-        - Front-end : website/ 
-        ..
+	- Front-end : website design with css, html, Ajax
+	- Front-end : data transfer in between pages with PHP
+        - contributed to DB design
+	- reports and discuss issues of DB when getting problems of retrieving data
 
     Ryan Storm
     	- Contributed to initial DB design

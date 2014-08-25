@@ -170,6 +170,7 @@
 						</div><!--// .yui-u -->
 
 						<div class="yui-u">
+
 							<div class="job">
 								<h3>base:'.$row[2].'</h2>
 								<h3>additional:'.$add.'</h3>
