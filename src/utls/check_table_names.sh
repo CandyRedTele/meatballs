@@ -31,7 +31,7 @@ TABLE_NAMES=([facilitystock]='facilityStock'
              [facilitybalance]='facilityBalance'
              [facilityhours]='facilityHours'
              [getSingleInstace]='getSingleInstance'
-            [getTrainingQuery]='GetTrainingQuery'
+             [getTrainingQuery]='GetTrainingQuery'
              )
 
 #
