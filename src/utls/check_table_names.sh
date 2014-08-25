@@ -10,14 +10,14 @@
 #******************************************************************************
 
 DIR=.
-SKIP_SQL=0
+SKIP=0
 
 while getopts "d:s" opt; do
     case "$opt" in
         d) DIR=$OPTARG;
            echo "DIR : $DIR";
         ;;
-        s) SKIP_SQL=1
+        s) SKIP=1
         ;;
     esac 
 done
@@ -33,12 +33,16 @@ TABLE_NAMES=([facilitystock]='facilityStock'
              [getSingleInstace]='getSingleInstance'
              )
 
-if [ $SKIP_SQL -eq 0 ]; then
-    TABLE_NAMES+=(['\([^\<|^element ]\)select ']='\1SELECT '
-                     ['from ']='FROM '
-                     ['where ']='WHERE '
-                     [' join ']=' JOIN '
-                    )
+#
+# Need to skip some checks? put them here and use the -s option
+#
+if [ $SKIP -eq 0 ]; then
+    TABLE_NAMES+=(  ['\([^\<|^element ]\)select ']='\1SELECT '
+                    ['from ']='FROM '
+                    ['where ']='WHERE '
+                    [' join ']=' JOIN '
+                    [getTrainingQuery]='GetTrainingQuery'
+                  )
 fi
 
 for key in  "${!TABLE_NAMES[@]}"
