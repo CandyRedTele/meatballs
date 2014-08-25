@@ -27,7 +27,7 @@ Contributors :
         ..
 
     Ryan Storm
-    - Contributed to initial DB design
+    	- Contributed to initial DB design
 	- ER Diagram (Reverse engineered using MySQL Workbench)
 	- Contributed to create_table.sql
 	- Helped make a query for Mike
