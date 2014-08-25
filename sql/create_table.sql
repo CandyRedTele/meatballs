@@ -103,20 +103,6 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`supplies`
 )
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `meatballs`.`ingredients`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
-(
-    `mitem_id`   INTEGER REFERENCES meatballs.menu_item (mitem_id),
-    `sku`       INTEGER REFERENCES meatballs.ingredients (sku),
-    `amount`    INTEGER NULL,
-    PRIMARY KEY (mitem_id, sku)
-)
-ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `meatballs`.`menu_item`
 -- -----------------------------------------------------
@@ -127,6 +113,25 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`menu_item`
   `price` DECIMAL(15,2) NULL,
   `name` VARCHAR(65) NULL,
   `image` VARCHAR(95) NULL
+)
+ENGINE = InnoDB;
+
+
+
+-- -----------------------------------------------------
+-- Table `meatballs`.`ingredients`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `meatballs`.`ingredients`
+(
+    `mitem_id`   INTEGER, 
+    `sku`       INTEGER,
+    `amount`    INTEGER NULL,
+    PRIMARY KEY (mitem_id, sku),
+    CONSTRAINT `fk_ingredients_mitem_id`
+        FOREIGN KEY (`mitem_id`)
+        REFERENCES `meatballs`.`menu_item` (`mitem_id`)
+        ON DELETE NO ACTION 
+        ON UPDATE CASCADE
 )
 ENGINE = InnoDB;
 
@@ -256,9 +261,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meatballs`.`catalog` 
 (
-    `vendor_id`     INTEGER NOT NULL REFERENCES meatballs.vendor (vendor_id), 
-    `sku`           INTEGER NOT NULL REFERENCES meatballs.supplies (sku),
-    PRIMARY KEY (vendor_id, sku)
+    `vendor_id`     INTEGER, 
+    `sku`           INTEGER, 
+    PRIMARY KEY (vendor_id, sku),
+    CONSTRAINT `fk_catalog_vendor_id`
+        FOREIGN KEY (`vendor_id`)
+        REFERENCES meatballs.vendor (vendor_id)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+    CONSTRAINT `fk_catalog_sku`
+        FOREIGN KEY (`sku`)
+        REFERENCES meatballs.supplies(sku)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+
 )
 ENGINE = InnoDB;
 
@@ -369,8 +385,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`bill_has_menu_item`     -- No PK, but th
         ON DELETE NO ACTION
         ON UPDATE NO ACTION,
     CONSTRAINT fk_bill_has_menu_item_mitem_id
-    FOREIGN KEY (mitem_id)
-    REFERENCES meatballs.menu_item (mitem_id)
+        FOREIGN KEY (mitem_id)
+        REFERENCES meatballs.menu_item (mitem_id)
 )
 ENGINE = InnoDB;
 
@@ -440,7 +456,8 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`shift`
     `time_start`    TIME NOT NULL,
     `time_end`      TIME NOT NULL,
     `paid`          BOOLEAN NOT NULL, -- indicates whether or not they have been paid for this shift
-    FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
+    CONSTRAINT `fk_shift_staff_id`
+        FOREIGN KEY (`staff_id`) REFERENCES `meatballs`.`staff` (`staff_id`)
         ON DELETE CASCADE,
     PRIMARY KEY (`staff_id`, `date`, `time_start`)
 );
@@ -453,8 +470,9 @@ CREATE TABLE IF NOT EXISTS `meatballs`.`facilityBalance`
 (
      f_id        INTEGER NOT NULL PRIMARY KEY,
     `balance`    DECIMAL (15,2) NOT NULL DEFAULT 0.0,
-
-    FOREIGN KEY (`f_id`) REFERENCES `meatballs`.`facility` (`f_id`)
+    CONSTRAINT `fk_facilityBalance_f_id`
+        FOREIGN KEY (`f_id`) 
+        REFERENCES `meatballs`.`facility` (`f_id`)
 );
 
 
