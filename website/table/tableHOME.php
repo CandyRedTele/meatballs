@@ -108,7 +108,7 @@
 						</div>
 					</div><!--// .yui-gf -->
 
-			<?php if($_SESSION['accesslv']==7){
+			<?php if($_SESSION['accesslv']==7 || $_SESSION['accesslv']==10 || $_SESSION['title']=="wait staff"){
 					echo '<div class="yui-gf">
 							<div class="yui-u first">
 								<h2>Shifts Hours</h2>
