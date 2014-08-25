@@ -7,6 +7,7 @@ Contributors :
         - PHPUnit tests             /tests/unit
         - BASH scripts
         - SQL                       triggers, create_table.sql
+        - E/R
         - Snapshots
 
     Samuel Masuy
@@ -27,4 +28,9 @@ Contributors :
         ..
 
     Ryan Storm
-        ..
+    	- Contributed to initial DB design
+        - ER Diagram (Reverse engineered using MySQL Workbench)
+        - Contributed to create_table.sql
+        - Helped make a query for Mike
+        - Contributed to a PHPUnit test
+        - Spent most of the time trying to get my system running correctly!

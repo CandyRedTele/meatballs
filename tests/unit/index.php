@@ -25,7 +25,7 @@
         $logger->write("HelloLogger!");
 
         $query2 = new TestQuery();
-        $query1 = new CustomQuery("SELECT customerName from customers");
+        $query1 = new CustomQuery("SELECT customerName FROM customers");
         $query3 = new SelectAllQuery("staff");
 
         // just display what getSrcPath returned

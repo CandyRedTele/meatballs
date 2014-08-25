@@ -42,7 +42,16 @@ else if((preg_match("/supply/", $_SESSION['referrer']) || preg_match("/local/", 
 		$query = new CustomQuery("SELECT distinct sku, name from supplies natural join (select * from facility natural join facilityStock)
 									as facility where supplies.name like '%$q%';");
 }
-
+else if(preg_match("/salesTable/", $_SESSION['referrer'])){
+	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
+		$query = new CustomQuery("select b_id, date from bill where date like '%$q%' order by date");
+	else if($_SESSION['accesslv']==4)
+		$query = new CustomQuery("select b_id, date from bill natural join facility where date like '%$q%' AND location ='".$_SESSION['location']."' order by date;");
+}
+else if(preg_match("/vendorO/", $_SESSION['referrer'])){
+	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
+		$query = new CustomQuery("select f_id, location from facility where location like '%$q%'");
+}
 
 				if (!is_null($query)) 
 					$result = $query->execute();

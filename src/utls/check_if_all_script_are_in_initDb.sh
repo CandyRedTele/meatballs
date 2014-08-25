@@ -4,8 +4,7 @@
 #
 # PURPOSE : check if all .sql are included in the initDb.sh script
 # 
-# NOTES : works with BASH, not with DASH (arrays not supported)
-#         -> to be run from the root of the project
+# NOTES : BASH
 #
 #******************************************************************************
 TEMPO='tempo.txt'

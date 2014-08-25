@@ -64,7 +64,7 @@
             <li></li></ul>
 
     <?php
-		if($_SESSION['accesslv']==6)
+		if($_SESSION['accesslv']==6 || $_SESSION['accesslv']==7)
             $query = new CustomQuery("select mitem_id, category, name, price from menu_item natural join menu natural join facility where location='".$_SESSION['location']."' order by category");
 
 		if (!is_null($query))

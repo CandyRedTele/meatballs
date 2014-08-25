@@ -58,7 +58,6 @@ rm -f src/log
 #
 # run all tests under /tests
 #
-#phpunit  --configuration ./tests/unit/phpunit.xml tests/unit 
 phpunit --verbose  tests/unit 
 
 ## rm -f src/log
@@ -69,13 +68,6 @@ if [ $exit_sts -ne 0 ]; then
 else 
     echo -e "[$0] Unit tests...\t\t\t \e[32m [SUCCESS]\e[0m"
 fi
-
-#
-# TODO run database test scripts
-#
-
-echo -e "[$0] \e[31mTODO\e[0m execute database tests";
-
 
 
 #

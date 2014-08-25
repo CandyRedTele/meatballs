@@ -25,7 +25,7 @@ class GetBillTotalQuery extends IQuery
 
         $this->tables['bill'] = 'bill';
         $this->columns = 'b_id, date';
-        $this->total = ' sum(price) as total ';
+        $this->total = ' SUM(price) as total ';
 
         $argc = func_num_args();
         $args = func_get_args();
@@ -67,7 +67,7 @@ class GetBillTotalQuery extends IQuery
         $result = $check_if_golden->execute();
 
         if ($result->num_rows > 0) {
-            $this->total = ' sum(price) * 0.9 as total ';
+            $this->total = ' CAST((SUM(price) * 0.9) as DECIMAL(15,2)) as total ';
         }
 
 

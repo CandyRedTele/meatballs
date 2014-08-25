@@ -2,13 +2,13 @@ use `meatballs`;
 
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -- 
--- TABLE : update_stock_log_on_order
+-- TABLE : update_stock_on_order_log
 -- 
 -- PURPOSE : Log the updates made to the facilityStock table
 --
 -- ---------------------------------------------------------
-DROP TABLE IF EXISTS update_stock_log_on_order;
-CREATE TABLE IF NOT EXISTS update_stock_log_on_order
+DROP TABLE IF EXISTS update_stock_on_order_log;
+CREATE TABLE IF NOT EXISTS update_stock_on_order_log
 (
     log_id      INTEGER PRIMARY KEY AUTO_INCREMENT,
     order_id    INTEGER,
@@ -26,13 +26,13 @@ CREATE TABLE IF NOT EXISTS update_stock_log_on_order
 
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -- 
--- TABLE : update_balance_on_order
+-- TABLE : update_balance_on_order_log
 -- 
 -- PURPOSE : Log the updates made to the facilityStock table
 --
 -- ---------------------------------------------------------
-DROP TABLE IF EXISTS update_balance_on_order;
-CREATE TABLE IF NOT EXISTS update_balance_on_order
+DROP TABLE IF EXISTS update_balance_on_order_log;
+CREATE TABLE IF NOT EXISTS update_balance_on_order_log
 (
     log_id      INTEGER PRIMARY KEY AUTO_INCREMENT,
     order_id    INTEGER,
@@ -75,9 +75,9 @@ BEGIN
         VALUES (NEW.sku, NEW.f_id, NEW.order_qty)
         ON DUPLICATE KEY UPDATE quantity = @old_qty + NEW.order_qty;
 
-    -- 1.1 Log it in `update_stock_log_on_order`
+    -- 1.1 Log it in `update_stock_on_order_log`
     SET @new_qty = (SELECT quantity FROM facilityStock WHERE sku = NEW.sku and f_id = NEW.f_id);
-    INSERT INTO update_stock_log_on_order (msg, order_id, sku, qty_old, qty_new)
+    INSERT INTO update_stock_on_order_log (msg, order_id, sku, qty_old, qty_new)
         VALUES ("Update Stock after order", NEW.order_id, NEW.sku, @old_qty, @new_qty); 
 
     -- 2. update `facilityBalance`
@@ -88,9 +88,9 @@ BEGIN
         VALUES (NEW.f_id, (@price * NEW.order_qty))
         ON DUPLICATE KEY UPDATE balance = @old_balance + (@price * NEW.order_qty);
 
-    -- 2.1 Log it in `update_balance_on_order`
+    -- 2.1 Log it in `update_balance_on_order_log`
     SET @new_balance = (SELECT balance FROM facilityBalance WHERE f_id = NEW.f_id);
-    INSERT INTO update_balance_on_order (msg, order_id, f_id, old_balance, new_balance, price, quantity)
+    INSERT INTO update_balance_on_order_log (msg, order_id, f_id, old_balance, new_balance, price, quantity)
         VALUES ("Update balance after order", NEW.order_id, NEW.f_id, @old_balance, @new_balance, @price, NEW.order_qty); 
 
 END; $$$

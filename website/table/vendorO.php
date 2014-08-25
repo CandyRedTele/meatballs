@@ -45,9 +45,9 @@ function remC() {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
 <fieldset>
-	<label for="oID">Order ID</label>
+<!--	<label for="oID">Order ID</label>
 		<input name="oID" onkeyup="" value="" placeholder="Order ID" required="true" pattern="[0-9]+" type="text" /><br />
-	<label for="location" class="locationI">location</label>
+<!--	<label for="location" class="locationI">location</label>-->
 		<select class="locationI" id="location" name="location">
 	<?php	
 		if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
@@ -60,31 +60,31 @@ function remC() {
 		while($row1 = mysqli_fetch_row($result1)) {	echo '<option value="'.$row1[1].'" >'.$row1[0].'</option>' ;}
 		?>
 			</select><br />
-	<label for="phone">SKU</label>
-		<input name="phone" value="" placeholder="supplies SKU" required="true" pattern="[0-9]+" title="phone" required="true" type="text" /><br />
-	<label for="title">date</label>
-		<input name="title" value="<?php echo date("Y-m-d");?>" placeholder="ex: 2014-08-25"required="true" type="text" pattern="[0-9]{4}\-[0-9]{4}\-[0-9]"/><br />
+	<label for="sku">SKU</label>
+		<input name="sku" value="" placeholder="supplies SKU" required="true" pattern="[0-9]+" title="phone" required="true" type="text" /><br />
+<!--<label for="date">date</label>
+		<input name="date" value="<?php //echo date("Y-m-d");?>" placeholder="ex: 2014-08-25"required="true" type="text" pattern="[201][4-9]\-([8-9]|[10-12])\-[0-9]"/><br />-->
 	<label for="quantity">quantity</label>
-		<input name="quantity" value="" placeholder="###-###-###"required="true" type="text" pattern="[0-9]{3}\-[0-9]{3}\-[0-9]{3}"/><br />
-	<label for="vendor" class="vendorN">vendor</label>
+		<input name="quantity" value="" placeholder="number"required="true" type="text" pattern="[0-9]+"/><br />
+<!--	<label for="vendor" class="vendorN">vendor</label>
 		<select class="vendorN" id="vendorN" name="vendorN">
 	<?php
-		if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
-			$query2 = new CustomQuery("select distinct company_name, vendor.vendor_id from vendor natural join 
-										(select * from catalog natural join `order`) as cat;");
-		else if($_SESSION['accesslv']==4 || $_SESSION['accesslv']==5){
-			$fIDQ=new CustomeQuery("select f_id from facility where location = '".$_SESSION['location']."';");
-			$fIDR = $fIDQ->execute();
-			$fID = mysqli_fetch_row($fIDR);
-			$query2 = new CustomQuery("select company_name, vendor_id from vendor natural join (select distinct vendor_id
-										from catalog natural join `order` natural join supplies where f_id = '".$fID[0]."'
-										order by `order`.f_id) as id;");
-		}
-		$result2 = $query2->execute();
+		// if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
+			// $query2 = new CustomQuery("select distinct company_name, vendor.vendor_id from vendor natural join 
+										// (select * from catalog natural join `order`) as cat;");
+		// else if($_SESSION['accesslv']==4 || $_SESSION['accesslv']==5){
+			// $fIDQ=new CustomQuery("select f_id from facility where location = '".$_SESSION['location']."';");
+			// $fIDR = $fIDQ->execute();
+			// $fID = mysqli_fetch_row($fIDR);
+			// $query2 = new CustomQuery("select company_name, vendor_id from vendor natural join (select distinct vendor_id
+										// from catalog natural join `order` natural join supplies where f_id = '".$fID[0]."'
+										// order by `order`.f_id) as id;");
+		// }
+		// $result2 = $query2->execute();
 			
-		while($row2 = mysqli_fetch_row($result2)) {	echo '<option value="'.$row2[1].'" >'.$row2[0].'</option>';}
+		// while($row2 = mysqli_fetch_row($result2)) {	echo '<option value="'.$row2[1].'" >'.$row2[0].'</option>';}
 		?>
-			</select><br />
+			</select><br />-->
 </fieldset>
 	<input type="hidden" name="formInsert" value="form1" />
 	<input type="submit">
@@ -92,7 +92,10 @@ function remC() {
 </div>
 </section>
 
-<?php include_once("searchBOX.php"); ?>
+<?php 
+	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
+		include_once("searchBOX.php"); 
+?>
 
 <p id="testing"> </p>
 <section><!--<h1>Administration</h1>-->
@@ -100,26 +103,46 @@ function remC() {
             <li class="button" onclick="sortTable(0, 'num', '1');" ondblclick="sortTable(0, 'num', '-1');">id</li>
             <li class="button" onclick="sortTable(1, 'str', '1');" ondblclick="sortTable(1, 'str', '-1');">location</li>
 			<li class="button" onclick="sortTable(2, 'num', '1');" ondblclick="sortTable(2, 'num', '-1');">sku</li>
-			<li class="button" onclick="sortTable(3, 'str', '1');" ondblclick="sortTable(3, 'str', '-1');">date</li>
-			<li class="button" onclick="sortTable(4, 'num', '1');" ondblclick="sortTable(4, 'num', '-1');">qtt</li>
-			<li class="button" onclick="sortTable(5, 'str', '1');" ondblclick="sortTable(5, 'str', '-1');">vendor</li>
-			<li class="button" onclick="sortTable(6, 'num', '1');" ondblclick="sortTable(6, 'num', '-1');">days-expire</li>
-            <li class="button" onclick="sortTable(7, 'str', '1');" ondblclick="sortTable(7, 'str', '-1');">EXP_date</li>
+			<li class="button" onclick="sortTable(4, 'num', '1');" ondblclick="sortTable(4, 'num', '-1');">order_qtt</li>
+			<li class="button" onclick="sortTable(5, 'num', '1');" ondblclick="sortTable(5, 'num', '-1');">days-expire</li>
+            <li class="button" onclick="sortTable(6, 'str', '1');" ondblclick="sortTable(6, 'str', '-1');">EXP_date</li>
+			<!--	<li class="button" onclick="sortTable(7, 'str', '1');" ondblclick="sortTable(7, 'str', '-1');">capacity</li>-->
 			<li></li></ul><?php 
 				$logger = Logger::getSingleInstance();
 				
 				$_SESSION['referrer']   = preg_replace("/\?[A-z0-9\=]+/","",$_SESSION['referrer']);
-				
-				if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
-					$query = new CustomQuery("SELECT order_id, location, sku, order_date, order_qty from `order` natural join 
-												(select f_id, location from facility) as fac;");
-				else if($_SESSION['accesslv']==4)
-					$query = new CustomQuery("SELECT order_id, location, sku, order_date, order_qty from `order` natural join 
-											(select f_id, location from facility where location = '".$_SESSION['location']."') as fac;");
-				else if($_SESSION['accesslv']==5)
-					$query = new CustomQuery("SELECT order_id, location, sku, order_date, order_qty from 
-											(select * from `order` natural join supplies where type = 'food') natural join 
-											(select f_id, location from facility where location = '".$_SESSION['location']."') as fac;");
+			
+				if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3){
+					if(!isset($_GET['s']))
+						$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, "
+												 . " DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE FROM (select * "
+												 . " from food natural join (select * from `order` natural join facilityStock) as stock )  as supplies "
+												 . " natural join (select f_id, location from facility) as fac "
+												 . " HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
+					else if(isset($_GET['s'])){
+						$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, "
+												. "DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE FROM (select * from food natural join "
+												. "(select * from `order` natural join facilityStock where `order`.f_id ='".$_GET['s']."') as stock )  "
+												. "as supplies natural join (select f_id, location from facility) as fac "
+												. " HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
+					}
+				}
+				else if($_SESSION['accesslv']==4 || $_SESSION['accesslv']==5){
+					$fIDQ = new CustomQuery("select f_id from facility where location = '".$_SESSION['location']."';");
+					$fIDR = $fIDQ->execute();
+					$fID = mysqli_fetch_row($fIDR);
+					$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, 
+										DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE
+										FROM food natural join ( select * from `order` natural join 
+										(select sku, f_id, location, quantity from facilityStock natural join facility WHERE facilityStock.f_id = '".$fID[0]."') 
+										as fac) as o GROUP BY sku HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY))ORDER BY EXP_DATE;");
+				}
+				// else if( $_SESSION['accesslv']==5)
+					// $query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, 
+										// DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE
+										// FROM food natural join ( select * from `order` natural join 
+										// (select sku, f_id, location, quantity from facilityStock natural join facility WHERE facilityStock.f_id = '".$fID[0]."') 
+										// as fac) as o GROUP BY sku HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY))ORDER BY EXP_DATE;;");
 				
 				$result = $query->execute();
 
@@ -131,16 +154,7 @@ function remC() {
 						echo "<li>" . $field . "</li>" ;   
 					}
 					
-					$expireQ = new CustomQuery("SELECT days_till_expired, DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE
-												FROM food natural join (select * from `order` natural join 
-												(select * from facilityStock natural join facility where location = '".$row[1]."' AND sku ='".$row[2]."')
-												as fac )as stock GROUP BY sku HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY));");
-					
-					$expireR = $expireQ->execute();
-					$expire = mysqli_fetch_row($expireR);
-					
-					echo "<li></li><li>" . $expire[0] . "</li><li>" . $expire[1] . "</li>
-							<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>remove</a></li></ul>";
+					echo "<li><a onclick='remC()' href='remove.php?id=". $row[0] ."-employee'>remove</a></li></ul>";
 				}
 		
         ?></div>

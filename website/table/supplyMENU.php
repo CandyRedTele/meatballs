@@ -12,7 +12,7 @@ label {width:33%;
 		display: inline-block;
 		float: left;
 		clear: left;
-		text-align: right;}	
+		text-align: left;}	
 				
 #formContainer{width:75%;}
 
@@ -20,9 +20,9 @@ input, select {	float:left;}
 </style>
 </head>
 <body>
-<?php 
 
-echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="790" id="innerTABLE">
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="790" id="innerTABLE">
    <tr>
      <td width="20px">&nbsp;</td>
       <td colspan="2"><div class="ueberschrift">supplies</div></td>
@@ -31,13 +31,13 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
    <tr>
    <td width="20px">&nbsp;</td>
       <td class="obenlinks"><img width="100%" height="100%"src="../img/supply_logo.jpg"/></td>
-      <td class="oben" valign="top"><div id="textobengross">'.$_SESSION['location'].'</div><div id="textobenklein">Here you find everything you need</div></td>
+      <td class="oben" valign="top"><div id="textobengross"><?php echo $_SESSION['location']; ?></div><div id="textobenklein">Here you find everything you need</div></td>
       <td width="15px">&nbsp;</td>
    </tr>
    <tr> <td width="20px">&nbsp;</td>
      <td valign="top" class="links">
-        <ul class="menue">';
-			if($_SESSION['accesslv']==5)
+        <ul class="menue">
+<?php 		if($_SESSION['accesslv']==5)
 				echo '<li><a title="Food" href="supplyFOOD.php">&raquo; Food</a></li>
 					<li><a title="recipes" href="supplyRECIPE.php">&raquo; Recipee</a></li>';
 			else if($_SESSION['accesslv']==1 ||$_SESSION['accesslv']==4)
@@ -48,23 +48,13 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
 					<li><a title="Kitchen Equipment" href="supplyKITCHEN.php">&raquo; Kitchen Equipment</a></li>
 					<li><a title="recipes" href="supplyRECIPE.php">&raquo; Recipee</a></li>';
 					
-		if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
-			$query1 = new CustomQuery("select distinct location, f_id from facility;");
-		else if($_SESSION['accesslv']==4 || $_SESSION['accesslv']==5)
-			$query1 = new CustomQuery("select distinct location, f_id from facility where location = '".$_SESSION['location']."';");
-			
-		$result1 = $query1->execute();
-			
-		while($row1 = mysqli_fetch_row($result1)) 
-		{	
-			echo '<option value="'.$row1[0].'" >'.$row1[0].'</option>' ;
-		}
+
 	?>
 	</ul>
 		</td>
 		<td class="hauptfenster" valign="top">
 		<!--                                   supply LIST                                          -->
-			<div class="errorMessage"><?php echo $outputMessage; ?><!--$outmsg2--></div>
+			<div class="errorMessage"><?php echo $outmsg2; //echo $outputMessage; ?><!--$outmsg2--></div>
 		
 			<section id="addSTOCK">	<h1>ADD STOCK</h1>
 			<div id="formContainer">
@@ -78,23 +68,29 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="79
 					<input name="name" onkeyup="" value="" required="true" pattern="[a-Z]+" type="text" /><br />
 				<label for="price">Price</label>
 					<input name="price" value="" pattern="[1-9][0-9]*\.\d{2,}" required="true" type="text" /><br />-->
-				<label for="type">type</label>
+			<!--<label for="type">type</label>
 					<select name="type" required="true"> 
 						<option value="food" >food</option>
 						<option value="service items" >service items</option>
 						<option value="linens" >linens</option>
 						<option value="kitchen equipment" >kitchen equipment</option>
-					</select>	<br />
+					</select>	<br />-->
 				<label for="quantity">Quantity</label>
 					<input name="quantity" value="" pattern="[0-9]+" required="true" type="number" /><br />
-				<label for="location">Location</label>
+			<label for="location">Location</label>
 					<select class="location" id="location" name="location"> ';
 	<?php	
-		$query = new CustomQuery("select distinct location, f_id from facility");
-		if (!is_null($query)) 
-			$result = $query->execute();
+		if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
+			$query1 = new CustomQuery("select distinct location, f_id from facility;");
+		else if($_SESSION['accesslv']==4 || $_SESSION['accesslv']==5)
+			$query1 = new CustomQuery("select distinct location, f_id from facility where location = '".$_SESSION['location']."';");
 			
-		while($row = mysqli_fetch_row($result)) {	echo '<option value="'.$row[1].'" >'.$row[0].'</option>' ;}
+		$result1 = $query1->execute();
+			
+		while($row1 = mysqli_fetch_row($result1)) 
+		{	
+			echo '<option value="'.$row1[1].'" >'.$row1[0].'</option>' ;
+		}
 		?>
 			</select><br />
 			</fieldset>
