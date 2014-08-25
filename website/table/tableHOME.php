@@ -118,16 +118,33 @@
 					$getSHIFT = new CustomQuery("select shift.* from staff natural join shift where staff.staff_id ='".$_SESSION['SID']."';");
 					
 					$shiftR = $getSHIFT->execute();
-					
+
 
 					while($shift = mysqli_fetch_row($shiftR)){
-						if(!($shift[1]<date("Y-m-d")))
+						if(!($shift[1]<date("Y-m-d"))) {
+
+                            $salQ = new CustomQuery("select base from wage where title = (select title from staff where staff.staff_id = ". $_SESSION['SID'].")");
+                           $resultQ = $salQ->execute(); 
+                            $sal = mysqli_fetch_row($resultQ);
+                            $base = $sal[0];
+
+                            $pay = 0;
+                            $diff = $shift[3] - $shift[2];
+                            $count = 0;
+
+                            echo 'diff:'. $diff;
+                            echo 'base:'. $base;
+                            if ($diff < 8)
+                                $pay = $base * $diff;
+                            else
+                                $pay = $base * 8 + ($base*1.25 * ($diff - 8));
 							echo '<ul class="talent">
 									<li>date:&nbsp;'.$shift[1].'</li>
 									<li>start: '.$shift[2].'</li>
 									<li>end:&nbsp;&nbsp; '.$shift[3].'</li>
-									<li class="last">pay:&nbsp;&nbsp; '.$shift[4].'</li>
+									<li class="last">pay:&nbsp;&nbsp; '.$pay.'</li>
 								</ul>';
+                        }
 					}
 					echo '</div>
 						</div><!--// .yui-gf-->';
