@@ -50,9 +50,9 @@ function remC() {
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
 <fieldset>
 	<label for="EmployeeN">Employee Name</label>
-		<input name="EmployeeN" onkeyup="" placeholder="lastname, firstName" required="true" pattern="[A-z]{2,70}" type="text" /><br />
+		<input name="EmployeeN" onkeyup="" placeholder="lastname, firstName" required="true" pattern="[a-Z]{2,70}\,\s[a-Z]{2,70}" type="text" /><br />
 	<label for="address">address</label>
-		<input name="address" placeholder="living place" required="true" pattern="[A-z0-9]{2,50}" type="text" /><br />
+		<input name="address" placeholder="living place" required="true" pattern="[A-z0-9\s\.\-]{2,50}" type="text" /><br />
 	<label for="phone">phone</label>
 		<input name="phone" placeholder="###-###-####" required="true" pattern="[0-9]{3}([0-9]{3}|\-[0-9]{3})([0-9]{4}|\-[0-9]{4})" title="phone" required="true" type="text" /><br />
 	<label for="title">title</label>
