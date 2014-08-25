@@ -35,7 +35,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
     public function test_GetTrainingQuery()
     {
         $staff_id = 200;
-        $query = new CustomQuery(" select training from admin natural join staff where staff_id=" . $staff_id .";");
+        $query = new CustomQuery(" SELECT training FROM admin natural JOIN staff WHERE staff_id=" . $staff_id .";");
         $result = $query->execute();
 
         if ($result->num_rows > 0) 
@@ -44,7 +44,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
 
             $actual_training = $row['training'];
         } else {
-            $query = new CustomQuery(" select training from localstaff natural join staff where staff_id=" . $staff_id .";");
+            $query = new CustomQuery(" SELECT training FROM localstaff natural JOIN staff WHERE staff_id=" . $staff_id .";");
             $result = $query->execute();
             $row = mysqli_fetch_assoc($result);
             $actual_training = $row['training'];
@@ -67,7 +67,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
     {
         $staff_id = 200;
 
-        $query = new CustomQuery(" select staff_id, title, base, exp_rate, overtime from wage natural join staff where staff_id=" . $staff_id .";");
+        $query = new CustomQuery(" SELECT staff_id, title, base, exp_rate, overtime FROM wage natural JOIN staff WHERE staff_id=" . $staff_id .";");
         $result = $query->execute();
 
         if ($result->num_rows > 0) {
@@ -78,7 +78,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
             $actual_exp_rate = $row['exp_rate'];
             $actual_overtime = $row['overtime'];
         } else {
-            $query = new CustomQuery(" select staff_id, title, base, exp_rate, train_rate,  from pay natural join staff where staff_id=" . $staff_id .";");
+            $query = new CustomQuery(" SELECT staff_id, title, base, exp_rate, train_rate,  FROM pay natural JOIN staff WHERE staff_id=" . $staff_id .";");
             $result = $query->execute();
 
             $row = mysqli_fetch_assoc($result);
@@ -125,7 +125,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
 
         // 2. Retreive those values.
         $select = new CustomQuery("select name, time, nb_of_seats, event_type, f_id" 
-                                    . " FROM reservation WHERE r_id = (select max(r_id) from reservation);");
+                                    . " FROM reservation WHERE r_id = (select max(r_id) FROM reservation);");
         $result = $select->execute();
         
         if (!$result) {
@@ -163,7 +163,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
 
         
         // 2. Retreive those values.
-        $select = new CustomQuery("select name, title from localstaff natural join staff where name='".$name."';");
+        $select = new CustomQuery("select name, title FROM localstaff natural JOIN staff WHERE name='".$name."';");
         $result = $select->execute();
         
         if (!$result) {
@@ -201,7 +201,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
 
         
         // 2. Retreive those values.
-        $select = new CustomQuery("select name, title from admin natural join staff where name='".$name."';");
+        $select = new CustomQuery("select name, title FROM admin natural JOIN staff WHERE name='".$name."';");
         $result = $select->execute();
         
         if (!$result) {
@@ -232,7 +232,7 @@ class IQueryTest extends PHPUnit_Framework_TestCase
         }
         
         // 2. Retreive those values.
-        $select = new CustomQuery("select name from staff where name='phpunit';");
+        $select = new CustomQuery("select name FROM staff WHERE name='phpunit';");
         $result = $select->execute();
         
         if (!$result) {
