@@ -97,7 +97,7 @@
 									<h2>Training</h2>
 									<p>
 			<?php 
-				$query = new getTrainingQuery($_SESSION['SID']);
+				$query = new GetTrainingQuery($_SESSION['SID']);
 				$result = $query->execute();
 			
 				$row = mysqli_fetch_row($result);
