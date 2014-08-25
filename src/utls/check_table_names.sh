@@ -31,17 +31,17 @@ TABLE_NAMES=([facilitystock]='facilityStock'
              [facilitybalance]='facilityBalance'
              [facilityhours]='facilityHours'
              [getSingleInstace]='getSingleInstance'
+             [getTrainingQuery]='GetTrainingQuery'
              )
 
 #
 # Need to skip some checks? put them here and use the -s option
 #
 if [ $SKIP -eq 0 ]; then
-    TABLE_NAMES+=(  ['\([^\<|^element ]\)select ']='\1SELECT '
-                    ['from ']='FROM '
-                    ['where ']='WHERE '
+    TABLE_NAMES+=(  [' select ']=' SELECT '
+                    [' from ']=' FROM '
+                    [' where ']=' WHERE '
                     [' join ']=' JOIN '
-                    [getTrainingQuery]='GetTrainingQuery'
                   )
 fi
 

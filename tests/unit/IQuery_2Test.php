@@ -37,7 +37,7 @@ class IQuery_2Test extends PHPUnit_Framework_TestCase
         $access = $row['access_level'];
 
         // 3. Get a value to compare.
-        $select = new CustomQuery("select access_level from access_level natural join staff where staff_id='".$staff_id."';");
+        $select = new CustomQuery("select access_level FROM access_level natural JOIN staff WHERE staff_id='".$staff_id."';");
         $result = $select->execute();
 
         if (!$result) {

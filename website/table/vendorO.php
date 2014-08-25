@@ -114,17 +114,17 @@ function remC() {
 			
 				if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3){
 					if(!isset($_GET['s']))
-						$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, 
-												DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE FROM (select * 
-												from food natural join (select * from `order` natural join facilityStock) as stock )  as supplies
-												natural join (select f_id, location from facility) as fac 
-												HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
+						$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, "
+												 . " DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE FROM (select * "
+												 . " from food natural join (select * from `order` natural join facilityStock) as stock )  as supplies "
+												 . " natural join (select f_id, location from facility) as fac "
+												 . " HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
 					else if(isset($_GET['s'])){
-						$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, 
-												DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE FROM (select * from food natural join 
-												(select * from `order` natural join facilityStock where `order`.f_id ='".$_GET['s']."') as stock )  
-												as supplies natural join (select f_id, location from facility) as fac 
-												HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
+						$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, "
+												. "DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE FROM (select * from food natural join "
+												. "(select * from `order` natural join facilityStock where `order`.f_id ='".$_GET['s']."') as stock )  "
+												. "as supplies natural join (select f_id, location from facility) as fac "
+												. " HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY)) ORDER BY EXP_DATE;");
 					}
 				}
 				else if($_SESSION['accesslv']==4 || $_SESSION['accesslv']==5){
