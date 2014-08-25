@@ -132,8 +132,6 @@
                             $diff = $shift[3] - $shift[2];
                             $count = 0;
 
-                            echo 'diff:'. $diff;
-                            echo 'base:'. $base;
                             if ($diff < 8)
                                 $pay = $base * $diff;
                             else
