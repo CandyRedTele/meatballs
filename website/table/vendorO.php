@@ -131,11 +131,12 @@ function remC() {
 					$fIDQ = new CustomQuery("select f_id from facility where location = '".$_SESSION['location']."';");
 					$fIDR = $fIDQ->execute();
 					$fID = mysqli_fetch_row($fIDR);
-					$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, 
-										DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE
-										FROM food natural join ( select * from `order` natural join 
-										(select sku, f_id, location, quantity from facilityStock natural join facility WHERE facilityStock.f_id = '".$fID[0]."') 
-										as fac) as o GROUP BY sku HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY))ORDER BY EXP_DATE;");
+					$query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, "
+										. " DATE_ADD(order_date, INTERVAL days_till_expired DAY) as EXP_DATE "
+									    . " FROM food natural join ( select * from `order` natural join "
+				                        . " (select sku, f_id, location, quantity "
+                                        . " from facilityStock natural join facility WHERE facilityStock.f_id = '" . $fID[0] . "')"  
+									    . " as fac) as o GROUP BY sku HAVING EXP_DATE < (DATE_ADD(CURRENT_DATE(), INTERVAL 10 DAY))ORDER BY EXP_DATE;");
 				}
 				// else if( $_SESSION['accesslv']==5)
 					// $query = new CustomQuery("SELECT order_id, location, sku, order_qty, days_till_expired, 

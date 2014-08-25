@@ -48,19 +48,19 @@
 		$menuID_sku;
 		if(!isset($_GET['s']) && !isset($_GET['m'])){
 			if($_SESSION['accesslv']==1)
-				$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
-										(select * from ingredients natural join menu_item) as menuI on supplies.sku = menuI.sku;");
+				$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join "
+										. " (select * from ingredients natural join menu_item) as menuI on supplies.sku = menuI.sku;");
 			else if($_SESSION['accesslv']==4||$_SESSION['accesslv']==5)
-				$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
-										(select * from ingredients natural join (select * from menu_item natural join 
-										(select * from menu natural join facility where location ='".$_SESSION['location']."') 
-										as localMenu) as localItem) as menuI on supplies.sku = menuI.sku;");
+				$query = new CustomQuery(" select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join "
+										. " (select * from ingredients natural join (select * from menu_item natural join "
+										. " (select * from menu natural join facility where location ='".$_SESSION['location']."')  "
+										. " as localMenu) as localItem) as menuI on supplies.sku = menuI.sku; ");
 		}
 		else if(isset($_GET['s'])){
 			$menuID_sku=explode(".",$_GET['s']);
-			$query = new CustomQuery("select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join 
-										(select * from ingredients natural join menu_item where mitem_id='".$menuID_sku[0]."') 
-										as menuI on supplies.sku = menuI.sku ;");
+			$query = new CustomQuery(" select mitem_id, menuI.name, menuI.sku, supplies.name, amount from supplies inner join "
+									   . " (select * from ingredients natural join menu_item where mitem_id=' " . $menuID_sku[0]."') "
+									   . " as menuI on supplies.sku = menuI.sku ;");
 		}
 		else if(isset($_GET['m'])){
 			$menuID_sku=explode(".",$_GET['m']);
