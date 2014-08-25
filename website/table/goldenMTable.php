@@ -104,7 +104,9 @@
 					<div><form action="modify.php" method="post" name="form1" id="form1">
 						<fieldset>
 							<label for="firstN">First Name</label>
-								<input name="namem" value="'.$row[1].'" placeholder="firstName" required="true" pattern="[A-z]{2,25}" type="text" /><br />
+								<input name="firstm" value="'.$row[1].'" placeholder="firstName" required="true" pattern="[A-z]{2,25}" type="text" /><br />
+							<label for="lastN">Last Name</label>
+								<input name="lastm" value="'.$row[2].'" placeholder="LastName" required="true" pattern="[A-z]{2,25}" type="text" /><br />
 							<label for="address">address</label>
 								<input name="emailm" value="'.$row[3].'" placeholder="email" required="true" pattern="[A-z_0-9]+@[A-z]{2,20}.[A-z]{2,4}" type="text" /><br />
 							<label for="phone">phone</label>

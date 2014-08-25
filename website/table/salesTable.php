@@ -45,13 +45,17 @@
 			<li class="button" onclick="sortTable(2, \'str\', \'1\');" ondblclick="sortTable(2, \'str\', \'-1\');">date:time</li>
             <li></li></ul>';
 		
-			if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
+			if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
 				$query1 = new CustomQuery("select b_id from bill");
 			else if($_SESSION['accesslv']==4)
 				$query1 = new CustomQuery("select b_id from bill natural join facility where location ='".$_SESSION['location']."';");
 				
-		}else if(isset($_GET['detail'])){
-			$BID=$_GET['detail'];
+		}else if(isset($_GET['detail'])||isset($_GET['s'])){
+			if(isset($_GET['detail']))
+				$BID=$_GET['detail'];
+			else
+				$BID=$_GET['s'];
+				
 			echo '<li class="button" onclick="sortTable(0, \'num\', \'1\');" ondblclick="sortTable(0, \'num\', \'-1\');">b_id</li>
             <li class="button" onclick="sortTable(1, \'str\', \'1\');" ondblclick="sortTable(1, \'str\', \'-1\');">mitem_id</li>
 			<li class="button" onclick="sortTable(2, \'str\', \'1\');" ondblclick="sortTable(2, \'str\', \'-1\');">dishes</li>
@@ -59,16 +63,15 @@
             <li>Total</li></ul>';
 			$query1 = new getBillDetailsQuery($BID);
 		}
-		else if(isset($_GET['s'])){
-			$BID=$_GET['s'];
-			echo '<li class="button" onclick="sortTable(0, \'num\', \'1\');" ondblclick="sortTable(0, \'num\', \'-1\');">b_id</li>
-            <li class="button" onclick="sortTable(1, \'str\', \'1\');" ondblclick="sortTable(1, \'str\', \'-1\');">mitem_id</li>
-			<li class="button" onclick="sortTable(2, \'str\', \'1\');" ondblclick="sortTable(2, \'str\', \'-1\');">dishes</li>
-			<li class="button" onclick="sortTable(2, \'str\', \'1\');" ondblclick="sortTable(2, \'str\', \'-1\');">category</li>
-            <li>Total</li></ul>';
-			$query1 = new getBillDetailsQuery($BID);
-		}
-		
+		// else if(isset($_GET['s'])){
+			// $BID=$_GET['s'];
+			// echo '<li class="button" onclick="sortTable(0, \'num\', \'1\');" ondblclick="sortTable(0, \'num\', \'-1\');">b_id</li>
+            // <li class="button" onclick="sortTable(1, \'str\', \'1\');" ondblclick="sortTable(1, \'str\', \'-1\');">mitem_id</li>
+			// <li class="button" onclick="sortTable(2, \'str\', \'1\');" ondblclick="sortTable(2, \'str\', \'-1\');">dishes</li>
+			// <li class="button" onclick="sortTable(2, \'str\', \'1\');" ondblclick="sortTable(2, \'str\', \'-1\');">category</li>
+            // <li>Total</li></ul>';
+			// $query1 = new getBillDetailsQuery($BID);
+		// }
 
 		$bills = $query1->execute();
 					

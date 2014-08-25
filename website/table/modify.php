@@ -15,7 +15,7 @@ session_start();
 		$query1 = new CustomQuery("update ingredients set amount='".$_POST['amountm']."' where mitem_id='".$menuID_sku[0]."' AND sku='".$menuID_sku[1]."';");
 	}
 	else if(preg_match("/golden/", $_SESSION['referrer'])){
-		$query1 = new CustomQuery("update golden set firstname='".$_POST['namem']."', email ='".$_POST['emailm']."', phone='".$_POST['phonem']."' where g_id='".$_POST['sidm']."'");
+		$query1 = new CustomQuery("update golden set firstname='".$_POST['firstm']."', lastname='".$_POST['lastm']."', email ='".$_POST['emailm']."', phone='".$_POST['phonem']."' where g_id='".$_POST['sidm']."'");
 	}
 	
 	$result = $query1->execute();

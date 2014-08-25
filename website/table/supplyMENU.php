@@ -54,7 +54,7 @@ input, select {	float:left;}
 		</td>
 		<td class="hauptfenster" valign="top">
 		<!--                                   supply LIST                                          -->
-			<div class="errorMessage"><?php echo $outputMessage; ?><!--$outmsg2--></div>
+			<div class="errorMessage"><?php echo $outmsg2; //echo $outputMessage; ?><!--$outmsg2--></div>
 		
 			<section id="addSTOCK">	<h1>ADD STOCK</h1>
 			<div id="formContainer">
@@ -89,7 +89,7 @@ input, select {	float:left;}
 			
 		while($row1 = mysqli_fetch_row($result1)) 
 		{	
-			echo '<option value="'.$row1[0].'" >'.$row1[0].'</option>' ;
+			echo '<option value="'.$row1[1].'" >'.$row1[0].'</option>' ;
 		}
 		?>
 			</select><br />
