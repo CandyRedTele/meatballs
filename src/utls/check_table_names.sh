@@ -33,6 +33,9 @@ TABLE_NAMES=([facilitystock]='facilityStock'
              [getSingleInstace]='getSingleInstance'
              )
 
+#
+# Need to skip some checks? put them here and use the -s option
+#
 if [ $SKIP -eq 0 ]; then
     TABLE_NAMES+=(  ['\([^\<|^element ]\)select ']='\1SELECT '
                     ['from ']='FROM '
