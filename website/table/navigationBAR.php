@@ -33,7 +33,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 					case 6:
 						echo $personalINFO . $billP; break;
 					case 7:
-						echo $personalINFO; break;
+						echo $personalINFO . $billP; break;
 					case 10:
 						echo $personalINFO; break;
 					default:
