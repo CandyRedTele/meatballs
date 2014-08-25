@@ -43,10 +43,14 @@ else if((preg_match("/supply/", $_SESSION['referrer']) || preg_match("/local/", 
 									as facility where supplies.name like '%$q%';");
 }
 else if(preg_match("/salesTable/", $_SESSION['referrer'])){
-	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==2)
+	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
 		$query = new CustomQuery("select b_id, date from bill where date like '%$q%' order by date");
 	else if($_SESSION['accesslv']==4)
 		$query = new CustomQuery("select b_id, date from bill natural join facility where date like '%$q%' AND location ='".$_SESSION['location']."' order by date;");
+}
+else if(preg_match("/vendorO/", $_SESSION['referrer'])){
+	if($_SESSION['accesslv']==1||$_SESSION['accesslv']==3)
+		$query = new CustomQuery("select distinct order_date, order_date as date from `order` where order_date like '%$q%' order by order_date");
 }
 
 				if (!is_null($query)) 

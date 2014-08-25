@@ -44,7 +44,7 @@ translate
 	else if(preg_match("/salesTable/", $_SESSION['referrer']))
 		echo '<h3 id="sT"> Search by date </h3>';
 	else if(preg_match("/vendorO/", $_SESSION['referrer']))
-		echo '<h3 id="sT"> Don\'t search for now </h3>';?>
+		echo '<h3 id="sT"> Search by date </h3>';?>
 <form>
 <input type="text" size="30" onkeyup="showResult(this.value)">
 <div id="livesearch"></div>

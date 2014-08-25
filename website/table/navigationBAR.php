@@ -27,7 +27,7 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 					case 3:
 						echo $personalINFO . $localResto . $salesHist. $vendorO; break;
 					case 4:
-						echo $personalINFO . $localResto . $employees . $salesHist; break;
+						echo $personalINFO . $localResto . $employees . $salesHist, $vendorO; break;
 					case 5:
 						echo $personalINFO . $localResto; break;
 					case 6:
@@ -62,32 +62,33 @@ echo '<table align="center" border="0" cellpadding="0" cellspacing="0" width="86
 			$query = new CustomQuery("select quantity from facilityStock where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
 			
 			$result = $query->execute();
-			//$outmsg2 = $_POST['location'];
 			
 
 			$currentQ = mysqli_fetch_row($result);
 			$newQ = $currentQ[0] + $_POST['quantity'];
-
+			
+			//$outmsg2 = $newQ."=".$currentQ[0]."+".$_POST['quantity']." at ".$_POST['location'];
+			$outmsg2 = "the new quantity of supply(sku:".$_POST['sku'].") was added from $currentQ[0] to $newQ";
 			$query = new CustomQuery("update facilityStock set quantity='".$newQ."' where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
 			if (!is_null($query)) 
 				$result = $query->execute();
 
 			$query = new CustomQuery("select location from facility where f_id='".$_POST['location']."'");
 		}
-		else if(preg_match("/vendorO/", $_SESSION['referrer'])){
-			$query = new CustomQuery("select quantity from facilityStock where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
+		// else if(preg_match("/vendorO/", $_SESSION['referrer'])){
+			// $query = new CustomQuery("select quantity from facilityStock where sku='".$_POST['sku']."' AND f_id='".$_POST['location']."'");
 			
-			$result = $query->execute();
+			// $result = $query->execute();
 			
-			$currentQ = mysqli_fetch_row($result);
-			$newQ = $currentQ[0] + $_POST['quantity'];
+			// $currentQ = mysqli_fetch_row($result);
+			// $newQ = $currentQ[0] + $_POST['quantity'];
 			
-			$query = new CustomQuery("update order set ");
+			// $query = new CustomQuery("update order set ");
 
 
-				$result = $query->execute();
-			//$query = new CustomQuery("select staff_id from staff where ssn='".$_POST['ssn']."'");
-		}
+				// $result = $query->execute();
+			// $query = new CustomQuery("select staff_id from staff where ssn='".$_POST['ssn']."'");
+		// }
 
 
 		if (!is_null($query)) 
