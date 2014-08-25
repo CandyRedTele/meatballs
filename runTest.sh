@@ -69,13 +69,6 @@ else
     echo -e "[$0] Unit tests...\t\t\t \e[32m [SUCCESS]\e[0m"
 fi
 
-#
-# TODO run database test scripts
-#
-
-echo -e "[$0] \e[31mTODO\e[0m execute database tests";
-
-
 
 #
 #
