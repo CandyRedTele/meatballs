@@ -170,10 +170,7 @@
 						</div><!--// .yui-u -->
 
 						<div class="yui-u">
-<<<<<<< HEAD
-			<?php
-=======
->>>>>>> 373e5ae3d7b418edb5790fb8bcce6ea7dd39133e
+
 							<div class="job">
 								<h3>base:'.$row[2].'</h2>
 								<h3>additional:'.$add.'</h3>
