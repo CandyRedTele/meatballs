@@ -68,13 +68,13 @@ input, select {	float:left;}
 					<input name="name" onkeyup="" value="" required="true" pattern="[a-Z]+" type="text" /><br />
 				<label for="price">Price</label>
 					<input name="price" value="" pattern="[1-9][0-9]*\.\d{2,}" required="true" type="text" /><br />-->
-			<label for="type">type</label>
+			<!--<label for="type">type</label>
 					<select name="type" required="true"> 
 						<option value="food" >food</option>
 						<option value="service items" >service items</option>
 						<option value="linens" >linens</option>
 						<option value="kitchen equipment" >kitchen equipment</option>
-					</select>	<br />
+					</select>	<br />-->
 				<label for="quantity">Quantity</label>
 					<input name="quantity" value="" pattern="[0-9]+" required="true" type="number" /><br />
 			<label for="location">Location</label>
