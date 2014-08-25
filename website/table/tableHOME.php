@@ -157,7 +157,7 @@
 						</div><!--// .yui-u -->
 
 						<div class="yui-u">
-
+			<?php
 							<div class="job">
 								<h3>base:</h2>
 								<h3>additional:</h3>
