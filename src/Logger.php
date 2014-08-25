@@ -7,7 +7,7 @@
  *
  * NOTES : To see the logs at the same time as you are browsing the site :
  *          - open a terminal on the server, type : 
- *                      tail -f 'pathOnTheMachine/comp353-project/src/log'
+ *                      tail -f 'pathOnTheMachine/comp353-project/log/log'
  *         
  *
  *************************************************************************/
