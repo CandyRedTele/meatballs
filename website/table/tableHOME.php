@@ -133,23 +133,23 @@
 						</div><!--// .yui-gf-->';
 				}
 			?>
-					<!--<div class="yui-gf">
+					<div class="yui-gf">
 	
 						<div class="yui-u first">
-							<h2>PREVIOUS Experience</h2>
+							<h2>Salary/wage</h2>
 						</div><!--// .yui-u -->
 
-						<!--<div class="yui-u">
+						<div class="yui-u">
 
 							<div class="job">
-								<h2>Facebook</h2>
-								<h3>Senior Interface Designer</h3>
-								<h4>2005-2007</h4>
-								<p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>
+								<h3>base:</h2>
+								<h3>additional:</h3>
+								<h3>actual:</h4>
+		<!--<p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>-->
 							</div>
 
 						</div><!--// .yui-u -->
-					<!--</div><!--// .yui-gf -->
+					</div><!--// .yui-gf -->
 
 
 					<!--<div class="yui-gf last">
