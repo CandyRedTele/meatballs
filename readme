@@ -1,5 +1,10 @@
 ﻿
-*** NOTE : run initDb.sh to create the DB and set the permissions of the LOG folder ***
+*** 
+    NOTE : - run initDb.sh to create the DB and set the permissions of the LOG folder 
+           - root folder of the project should be named 'comp353-project'
+***
+
+
 
 === GROUP 3===
 
