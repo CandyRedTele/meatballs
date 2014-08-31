@@ -1,4 +1,5 @@
-<h1> comp353-project </h1>
+<h1> Meatballs-project </h1>
+<h3> Database restaurant management system </h3>
 
 ## Markdown basics
 
