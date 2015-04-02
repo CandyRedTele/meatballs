@@ -16,7 +16,7 @@ function showResult(str) {
   } else {  // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-  xmlhttp.onreadystatechange=function() {
+  xmlhttp.onreadystatechange=function process() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
       document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
       document.getElementById("livesearch").style.border="1px solid #A5ACB2";
