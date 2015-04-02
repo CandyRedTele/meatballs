@@ -21,6 +21,9 @@ function showResult(str) {
       document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
       document.getElementById("livesearch").style.border="1px solid #A5ACB2";
     }
+    else {
+    	setTimeout('process()',1000);
+    }
   }
   xmlhttp.open("GET","livesearch.php?q="+str,true);
   xmlhttp.send();
